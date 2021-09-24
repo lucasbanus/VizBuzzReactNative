@@ -4,7 +4,8 @@ import {StyleSheet, Modal, Text, ScrollView, View, Button} from 'react-native';
 export type Props = {
     transcript: string, 
     visible: boolean,
-    closePodcast : () => void 
+    closePodcast : () => void, 
+    color : string, 
 }
 
 const PodcastTranscript = (props : Props) => {
@@ -13,7 +14,7 @@ const PodcastTranscript = (props : Props) => {
             <View style={styles.scrollContainer}>
                 <ScrollView>
                     <View style={styles.textTogether}>
-                        <Text style={styles.textArea}>{props.transcript}</Text>
+                        <Text style={{...styles.textArea, color : props.color}}>{props.transcript}</Text>
                     </View>
                 </ScrollView>
             </View>

@@ -1,42 +1,51 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Button, FlatList, TouchableHighlight } from 'react-native';
 
 // View -> UIView
 // Android -> IView
 
 export type Props = {
-  podcastNames: Array<PodcastTitle>,
-  openPodcast: () => void
+  podcastNames: Array<PodcastInfo>,
+  openPodcast: () => void, 
+  selectPodcast : (idx : number) => void, 
 };
 
-export type PodcastTitle = {
+export type PodcastInfo = {
   key : string,
+  allText : string, 
+  name : string, 
+  color : string, 
+  idx : number,
 }
 
-export default class PodcastList extends React.Component<Props>{
+const PodcastList = (props: Props) => {
 
-  render(){
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Your Podcasts</Text>
-        <FlatList 
-          data={this.props.podcastNames}
-          renderItem={({item}) => <Button 
-            title={item.key}
-            onPress={this.props.openPodcast}
-          />}
-        />
-      </View>
-    );
+  const pressPodcast = (idx : number) => {
+    props.selectPodcast(idx);
+    props.openPodcast();
   }
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Your Podcasts</Text>
+       <FlatList 
+        data={props.podcastNames}
+        renderItem={({item}) => 
+        <TouchableHighlight underlayColor = '#ccc' style={styles.touchable} onPress={() => pressPodcast(item.idx)}>
+          <Text style={styles.textInside}>{item.name}</Text>
+        </TouchableHighlight>}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex : 0.5, 
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    width: "100%", 
   },
 
   item: {
@@ -46,5 +55,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30, 
+  }, 
+  textInside: {
+    fontSize: 20, 
+    color: "#0074FF"
+  }, 
+  touchable : {
+    borderColor : "#DEDEDE", 
+    borderBottomWidth : 1, 
+    padding: 10,
+    width : "100%"
   }
 });
+
+export default PodcastList;
