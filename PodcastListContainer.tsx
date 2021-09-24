@@ -29,7 +29,7 @@ export default function PodcastListContainer():React.ReactElement{
     let mainComponent;
     if (isTranscript){
         mainComponent = <PodcastTranscript 
-            transcript="helllo there everyone this is alot of text and im trying to fill up everyting in here. helllo there everyone this is alot of text and im trying to fill up everyting in here. helllo there everyone this is alot of text and im trying to fill up everyting in here. helllo there everyone this is alot of text and im trying to fill up everyting in here. helllo there everyone this is alot of text and im trying to fill up everyting in here. helllo there everyone this is alot of text and im trying to fill up everyting in here. helllo there everyone this is alot of text and im trying to fill up everyting in here. "
+            transcript="Transcript"
             visible={isTranscript}
             closePodcast={closePodcast}
         />
