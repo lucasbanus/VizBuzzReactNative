@@ -6,6 +6,7 @@ import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
 
 export type Props = {
   podcastNames: Array<PodcastTitle>,
+  openPodcast: () => void
 };
 
 export type PodcastTitle = {
@@ -17,21 +18,18 @@ export default class PodcastList extends React.Component<Props>{
   render(){
     return (
       <View style={styles.container}>
+        <Text style={styles.title}>Your Podcasts</Text>
         <FlatList 
           data={this.props.podcastNames}
           renderItem={({item}) => <Button 
             title={item.key}
-            onPress={pressButton}
+            onPress={this.props.openPodcast}
           />}
         />
       </View>
     );
   }
 }
-
-const pressButton = () => {
-  return '';
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -46,4 +44,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     height: 44,
   },
+  title: {
+    fontSize: 30, 
+  }
 });
