@@ -28,7 +28,7 @@ const PodcastList = (props: Props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Your Podcasts</Text>
-       <FlatList 
+       <FlatList
         data={props.podcastNames}
         renderItem={({item}) => 
         <TouchableHighlight underlayColor = '#ccc' style={styles.touchable} onPress={() => pressPodcast(item.idx)}>
@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: "100%", 
   },
-
   item: {
     padding: 10,
     fontSize: 18,
@@ -58,7 +57,7 @@ const styles = StyleSheet.create({
   }, 
   textInside: {
     fontSize: 20, 
-    color: "#0074FF"
+    color: "#0074FF",
   }, 
   touchable : {
     borderColor : "#DEDEDE", 
