@@ -19,7 +19,7 @@ const PodcastTranscript = (props : Props) => {
                 </ScrollView>
             </View>
             <View style={styles.closeContainer}>
-                <Button title="Close" onPress={props.closePodcast} color="red"/>
+                <Button title = "Close" onPress={props.closePodcast} color="red"/>
             </View>
         </Modal>
     );
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         justifyContent:"center", 
         alignItems:"center",
         backgroundColor: "#DEDEDE",
-        color: "red"
+        color: "red",
     },
     modalContainer: {
         justifyContent:"center", 

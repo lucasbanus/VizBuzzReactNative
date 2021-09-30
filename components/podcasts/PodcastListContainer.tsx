@@ -1,21 +1,14 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Button, FlatList, unstable_batchedUpdates } from 'react-native';
 import {useState, useEffect} from 'react';
-import PodcastList, { PodcastInfo } from './PodcastList';
+import PodcastList from './PodcastList';
 import PodcastTranscript from './PodcastTranscript';
 
-// View -> UIView
-// Android -> IView
+
+import {PodcastItems, PodcastInfo} from '../../types/types';
 
 const URL_Back = "https://vizbuzz-backend.herokuapp.com/view-transcripts";
 const key_to_transcripts = "transcripts";
-
-export type PodcastItems = {
-    name : string, 
-    color : string, 
-    all_text : string, 
-    alias : string,
-}
 
 export default function PodcastListContainer():React.ReactElement{
     const [isTranscript, setTranscript] = useState(false);
@@ -94,8 +87,18 @@ export default function PodcastListContainer():React.ReactElement{
     }
     
     return (
-        <View>
+        <View style={styles.container}>
             {mainComponent}
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex : 1, 
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%', 
+    }
+  });

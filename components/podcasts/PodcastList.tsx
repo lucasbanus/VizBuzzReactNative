@@ -1,22 +1,13 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Button, FlatList, TouchableHighlight } from 'react-native';
 
-// View -> UIView
-// Android -> IView
+import {PodcastInfo} from '../../types/types';
 
 export type Props = {
   podcastNames: Array<PodcastInfo>,
   openPodcast: () => void, 
   selectPodcast : (idx : number) => void, 
 };
-
-export type PodcastInfo = {
-  key : string,
-  allText : string, 
-  name : string, 
-  color : string, 
-  idx : number,
-}
 
 const PodcastList = (props: Props) => {
 
@@ -41,11 +32,10 @@ const PodcastList = (props: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex : 0.5, 
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    width: "100%", 
+    width: '100%', 
   },
   item: {
     padding: 10,
@@ -54,6 +44,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30, 
+    paddingBottom: 10,
   }, 
   textInside: {
     fontSize: 20, 
@@ -61,7 +52,7 @@ const styles = StyleSheet.create({
   }, 
   touchable : {
     borderColor : "#DEDEDE", 
-    borderBottomWidth : 1, 
+    borderWidth: 1, 
     padding: 10,
     width : "100%"
   }
