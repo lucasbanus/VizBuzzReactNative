@@ -22,4 +22,5 @@ jobs:
         git config --global user.email "lucasbanus2000@gmail.com"
         git config --global user.name "lucasbanus"
         git remote set-url origin https://${{secrets.ACCESS_TOKEN}}@github.com/lucasbanus/VizBuzzReactNative.git
+        echo rat
         npm run deploy
