@@ -1,0 +1,6062 @@
+{
+  "transcript": [
+    {
+      "Word": "what's",
+      "Offset": 1800000,
+      "Duration": 4500000,
+      "display": "what's",
+      "index": 0
+    },
+    {
+      "Word": "up",
+      "Offset": 6400000,
+      "Duration": 1900000,
+      "display": "up",
+      "index": 1
+    },
+    {
+      "Word": "folks",
+      "Offset": 8400000,
+      "Duration": 4500000,
+      "display": "folks",
+      "index": 2
+    },
+    {
+      "Word": "welcome",
+      "Offset": 13000000,
+      "Duration": 3000000,
+      "display": "welcome",
+      "index": 3,
+      "Polarity": 0.8,
+      "Subjective": 0.9
+    },
+    {
+      "Word": "to",
+      "Offset": 16100000,
+      "Duration": 700000,
+      "display": "to",
+      "index": 4
+    },
+    {
+      "Word": "the",
+      "Offset": 16900000,
+      "Duration": 900000,
+      "display": "the",
+      "index": 5
+    },
+    {
+      "Word": "smoking",
+      "Offset": 17900000,
+      "Duration": 3000000,
+      "display": "smoking",
+      "index": 6
+    },
+    {
+      "Word": "tire",
+      "Offset": 21000000,
+      "Duration": 2500000,
+      "display": "tire",
+      "index": 7
+    },
+    {
+      "Word": "podcast",
+      "Offset": 23600000,
+      "Duration": 6100000,
+      "display": "podcast",
+      "index": 8
+    },
+    {
+      "Word": "this",
+      "Offset": 29800000,
+      "Duration": 1500000,
+      "display": "this",
+      "index": 9
+    },
+    {
+      "Word": "episode",
+      "Offset": 31400000,
+      "Duration": 4000000,
+      "display": "episode",
+      "index": 10
+    },
+    {
+      "Word": "is",
+      "Offset": 35500000,
+      "Duration": 1000000,
+      "display": "is",
+      "index": 11
+    },
+    {
+      "Word": "brought",
+      "Offset": 36600000,
+      "Duration": 2900000,
+      "display": "brought",
+      "index": 12
+    },
+    {
+      "Word": "to",
+      "Offset": 39600000,
+      "Duration": 700000,
+      "display": "to",
+      "index": 13,
+      "Polarity": 0.0,
+      "Subjective": 0.1
+    },
+    {
+      "Word": "you",
+      "Offset": 40400000,
+      "Duration": 900000,
+      "display": "you",
+      "index": 14
+    },
+    {
+      "Word": "by",
+      "Offset": 41400000,
+      "Duration": 1900000,
+      "display": "by",
+      "index": 15
+    },
+    {
+      "Word": "autotempest",
+      "Offset": 43400000,
+      "Duration": 9100000,
+      "display": "autotempest",
+      "index": 16
+    },
+    {
+      "Word": "dot",
+      "Offset": 52600000,
+      "Duration": 1900000,
+      "display": "dot",
+      "index": 17
+    },
+    {
+      "Word": "com",
+      "Offset": 54600000,
+      "Duration": 4100000,
+      "display": "com",
+      "index": 18
+    },
+    {
+      "Word": "which",
+      "Offset": 58800000,
+      "Duration": 1500000,
+      "display": "which",
+      "index": 19
+    },
+    {
+      "Word": "is",
+      "Offset": 60400000,
+      "Duration": 1300000,
+      "display": "is",
+      "index": 20
+    },
+    {
+      "Word": "where",
+      "Offset": 61800000,
+      "Duration": 2900000,
+      "display": "where",
+      "index": 21
+    },
+    {
+      "Word": "you",
+      "Offset": 64800000,
+      "Duration": 2100000,
+      "display": "you",
+      "index": 22
+    },
+    {
+      "Word": "will",
+      "Offset": 67000000,
+      "Duration": 5100000,
+      "display": "will",
+      "index": 23
+    },
+    {
+      "Word": "find",
+      "Offset": 72200000,
+      "Duration": 5700000,
+      "display": "find",
+      "index": 24
+    },
+    {
+      "Word": "your",
+      "Offset": 78000000,
+      "Duration": 1900000,
+      "display": "your",
+      "index": 25
+    },
+    {
+      "Word": "next",
+      "Offset": 80000000,
+      "Duration": 5500000,
+      "display": "next",
+      "index": 26,
+      "Polarity": 0.0,
+      "Subjective": 0.0
+    },
+    {
+      "Word": "dream",
+      "Offset": 85800000,
+      "Duration": 4700000,
+      "display": "dream",
+      "index": 27
+    },
+    {
+      "Word": "car",
+      "Offset": 90600000,
+      "Duration": 4100000,
+      "display": "car",
+      "index": 28
+    },
+    {
+      "Word": "auto",
+      "Offset": 95800000,
+      "Duration": 4500000,
+      "display": "auto",
+      "index": 29,
+      "Polarity": 0.25,
+      "Subjective": 0.25
+    },
+    {
+      "Word": "tempest",
+      "Offset": 100400000,
+      "Duration": 6400000,
+      "display": "tempest",
+      "index": 30
+    },
+    {
+      "Word": "com",
+      "Offset": 106900000,
+      "Duration": 3000000,
+      "display": "com",
+      "index": 31
+    },
+    {
+      "Word": "makes",
+      "Offset": 110000000,
+      "Duration": 2400000,
+      "display": "makes",
+      "index": 32
+    },
+    {
+      "Word": "searching",
+      "Offset": 112500000,
+      "Duration": 3700000,
+      "display": "searching",
+      "index": 33
+    },
+    {
+      "Word": "for",
+      "Offset": 116300000,
+      "Duration": 1000000,
+      "display": "for",
+      "index": 34
+    },
+    {
+      "Word": "your",
+      "Offset": 117400000,
+      "Duration": 1100000,
+      "display": "your",
+      "index": 35
+    },
+    {
+      "Word": "next",
+      "Offset": 118600000,
+      "Duration": 2700000,
+      "display": "next",
+      "index": 36,
+      "Polarity": 0.0,
+      "Subjective": 0.0
+    },
+    {
+      "Word": "car",
+      "Offset": 121400000,
+      "Duration": 2100000,
+      "display": "car",
+      "index": 37
+    },
+    {
+      "Word": "so",
+      "Offset": 123600000,
+      "Duration": 6600000,
+      "display": "so",
+      "index": 38
+    },
+    {
+      "Word": "easy",
+      "Offset": 130500000,
+      "Duration": 5000000,
+      "display": "easy",
+      "index": 39,
+      "Polarity": 0.43333333333333335,
+      "Subjective": 0.8333333333333334
+    },
+    {
+      "Word": "you",
+      "Offset": 136100000,
+      "Duration": 2700000,
+      "display": "you",
+      "index": 40
+    },
+    {
+      "Word": "don't",
+      "Offset": 138900000,
+      "Duration": 1800000,
+      "display": "don't",
+      "index": 41
+    },
+    {
+      "Word": "have",
+      "Offset": 140800000,
+      "Duration": 1500000,
+      "display": "have",
+      "index": 42
+    },
+    {
+      "Word": "to",
+      "Offset": 142400000,
+      "Duration": 1100000,
+      "display": "to",
+      "index": 43
+    },
+    {
+      "Word": "spend",
+      "Offset": 143600000,
+      "Duration": 3500000,
+      "display": "spend",
+      "index": 44
+    },
+    {
+      "Word": "any",
+      "Offset": 147400000,
+      "Duration": 2900000,
+      "display": "any",
+      "index": 45
+    },
+    {
+      "Word": "time",
+      "Offset": 150400000,
+      "Duration": 2700000,
+      "display": "time",
+      "index": 46
+    },
+    {
+      "Word": "at",
+      "Offset": 153200000,
+      "Duration": 900000,
+      "display": "at",
+      "index": 47
+    },
+    {
+      "Word": "all",
+      "Offset": 154200000,
+      "Duration": 2900000,
+      "display": "all",
+      "index": 48
+    },
+    {
+      "Word": "going",
+      "Offset": 157600000,
+      "Duration": 3900000,
+      "display": "going",
+      "index": 49
+    },
+    {
+      "Word": "to",
+      "Offset": 161600000,
+      "Duration": 1300000,
+      "display": "to",
+      "index": 50
+    },
+    {
+      "Word": "individual",
+      "Offset": 163200000,
+      "Duration": 7300000,
+      "display": "individual",
+      "index": 51,
+      "Polarity": 0.0,
+      "Subjective": 0.4
+    },
+    {
+      "Word": "car",
+      "Offset": 170600000,
+      "Duration": 3100000,
+      "display": "car",
+      "index": 52
+    },
+    {
+      "Word": "sites",
+      "Offset": 173800000,
+      "Duration": 3500000,
+      "display": "sites",
+      "index": 53
+    },
+    {
+      "Word": "like",
+      "Offset": 177400000,
+      "Duration": 1900000,
+      "display": "like",
+      "index": 54
+    },
+    {
+      "Word": "cars",
+      "Offset": 179400000,
+      "Duration": 4400000,
+      "display": "cars",
+      "index": 55
+    },
+    {
+      "Word": "com",
+      "Offset": 183900000,
+      "Duration": 5200000,
+      "display": "com",
+      "index": 56
+    },
+    {
+      "Word": "truecar",
+      "Offset": 189400000,
+      "Duration": 8900000,
+      "display": "truecar",
+      "index": 57
+    },
+    {
+      "Word": "or",
+      "Offset": 198600000,
+      "Duration": 2700000,
+      "display": "or",
+      "index": 58
+    },
+    {
+      "Word": "carvana",
+      "Offset": 201400000,
+      "Duration": 7700000,
+      "display": "carvana",
+      "index": 59
+    },
+    {
+      "Word": "they",
+      "Offset": 210000000,
+      "Duration": 2300000,
+      "display": "they",
+      "index": 60
+    },
+    {
+      "Word": "bring",
+      "Offset": 212400000,
+      "Duration": 2500000,
+      "display": "bring",
+      "index": 61
+    },
+    {
+      "Word": "all",
+      "Offset": 215200000,
+      "Duration": 3100000,
+      "display": "all",
+      "index": 62
+    },
+    {
+      "Word": "those",
+      "Offset": 218400000,
+      "Duration": 3300000,
+      "display": "those",
+      "index": 63
+    },
+    {
+      "Word": "listings",
+      "Offset": 221800000,
+      "Duration": 5300000,
+      "display": "listings",
+      "index": 64
+    },
+    {
+      "Word": "together",
+      "Offset": 227200000,
+      "Duration": 5500000,
+      "display": "together",
+      "index": 65
+    },
+    {
+      "Word": "plus",
+      "Offset": 232800000,
+      "Duration": 5100000,
+      "display": "plus",
+      "index": 66
+    },
+    {
+      "Word": "they",
+      "Offset": 239000000,
+      "Duration": 1900000,
+      "display": "they",
+      "index": 67
+    },
+    {
+      "Word": "even",
+      "Offset": 241000000,
+      "Duration": 2500000,
+      "display": "even",
+      "index": 68
+    },
+    {
+      "Word": "link",
+      "Offset": 243600000,
+      "Duration": 2500000,
+      "display": "link",
+      "index": 69
+    },
+    {
+      "Word": "you",
+      "Offset": 246200000,
+      "Duration": 900000,
+      "display": "you",
+      "index": 70
+    },
+    {
+      "Word": "to",
+      "Offset": 247200000,
+      "Duration": 900000,
+      "display": "to",
+      "index": 71
+    },
+    {
+      "Word": "facebook",
+      "Offset": 248200000,
+      "Duration": 4800000,
+      "display": "facebook",
+      "index": 72
+    },
+    {
+      "Word": "marketplace",
+      "Offset": 253100000,
+      "Duration": 6400000,
+      "display": "marketplace",
+      "index": 73
+    },
+    {
+      "Word": "and",
+      "Offset": 260800000,
+      "Duration": 2500000,
+      "display": "and",
+      "index": 74
+    },
+    {
+      "Word": "nationwide",
+      "Offset": 263400000,
+      "Duration": 8300000,
+      "display": "nationwide",
+      "index": 75
+    },
+    {
+      "Word": "craigslist",
+      "Offset": 271800000,
+      "Duration": 7500000,
+      "display": "craigslist",
+      "index": 76
+    },
+    {
+      "Word": "results",
+      "Offset": 279400000,
+      "Duration": 5500000,
+      "display": "results",
+      "index": 77
+    },
+    {
+      "Word": "they",
+      "Offset": 286800000,
+      "Duration": 1700000,
+      "display": "they",
+      "index": 78
+    },
+    {
+      "Word": "now",
+      "Offset": 288600000,
+      "Duration": 2500000,
+      "display": "now",
+      "index": 79
+    },
+    {
+      "Word": "offer",
+      "Offset": 291200000,
+      "Duration": 3700000,
+      "display": "offer",
+      "index": 80
+    },
+    {
+      "Word": "search",
+      "Offset": 295000000,
+      "Duration": 4600000,
+      "display": "search",
+      "index": 81
+    },
+    {
+      "Word": "alerts",
+      "Offset": 299900000,
+      "Duration": 4600000,
+      "display": "alerts",
+      "index": 82
+    },
+    {
+      "Word": "so",
+      "Offset": 304600000,
+      "Duration": 1300000,
+      "display": "so",
+      "index": 83
+    },
+    {
+      "Word": "all",
+      "Offset": 306000000,
+      "Duration": 1800000,
+      "display": "all",
+      "index": 84
+    },
+    {
+      "Word": "you",
+      "Offset": 307900000,
+      "Duration": 500000,
+      "display": "you",
+      "index": 85
+    },
+    {
+      "Word": "have",
+      "Offset": 308500000,
+      "Duration": 1000000,
+      "display": "have",
+      "index": 86
+    },
+    {
+      "Word": "to",
+      "Offset": 309600000,
+      "Duration": 1000000,
+      "display": "to",
+      "index": 87
+    },
+    {
+      "Word": "do",
+      "Offset": 310700000,
+      "Duration": 3000000,
+      "display": "do",
+      "index": 88
+    },
+    {
+      "Word": "as",
+      "Offset": 315900000,
+      "Duration": 1300000,
+      "display": "as",
+      "index": 89
+    },
+    {
+      "Word": "you",
+      "Offset": 317300000,
+      "Duration": 1100000,
+      "display": "you",
+      "index": 90
+    },
+    {
+      "Word": "sign",
+      "Offset": 318500000,
+      "Duration": 3300000,
+      "display": "sign",
+      "index": 91
+    },
+    {
+      "Word": "up",
+      "Offset": 321900000,
+      "Duration": 2300000,
+      "display": "up",
+      "index": 92
+    },
+    {
+      "Word": "to",
+      "Offset": 325800000,
+      "Duration": 1700000,
+      "display": "to",
+      "index": 93
+    },
+    {
+      "Word": "receive",
+      "Offset": 327600000,
+      "Duration": 4400000,
+      "display": "receive",
+      "index": 94
+    },
+    {
+      "Word": "emails",
+      "Offset": 332100000,
+      "Duration": 5100000,
+      "display": "emails",
+      "index": 95
+    },
+    {
+      "Word": "when",
+      "Offset": 337700000,
+      "Duration": 3100000,
+      "display": "when",
+      "index": 96
+    },
+    {
+      "Word": "new",
+      "Offset": 340900000,
+      "Duration": 2500000,
+      "display": "new",
+      "index": 97,
+      "Polarity": 0.13636363636363635,
+      "Subjective": 0.45454545454545453
+    },
+    {
+      "Word": "listings",
+      "Offset": 343500000,
+      "Duration": 5200000,
+      "display": "listings",
+      "index": 98
+    },
+    {
+      "Word": "that",
+      "Offset": 348800000,
+      "Duration": 1200000,
+      "display": "that",
+      "index": 99
+    },
+    {
+      "Word": "match",
+      "Offset": 350100000,
+      "Duration": 3500000,
+      "display": "match",
+      "index": 100
+    },
+    {
+      "Word": "your",
+      "Offset": 353700000,
+      "Duration": 3300000,
+      "display": "your",
+      "index": 101
+    },
+    {
+      "Word": "search",
+      "Offset": 357100000,
+      "Duration": 4500000,
+      "display": "search",
+      "index": 102
+    },
+    {
+      "Word": "show",
+      "Offset": 362300000,
+      "Duration": 4900000,
+      "display": "show",
+      "index": 103
+    },
+    {
+      "Word": "up",
+      "Offset": 367300000,
+      "Duration": 2500000,
+      "display": "up",
+      "index": 104
+    },
+    {
+      "Word": "this",
+      "Offset": 369900000,
+      "Duration": 1600000,
+      "display": "this",
+      "index": 105
+    },
+    {
+      "Word": "is",
+      "Offset": 371600000,
+      "Duration": 900000,
+      "display": "is",
+      "index": 106
+    },
+    {
+      "Word": "a",
+      "Offset": 372600000,
+      "Duration": 600000,
+      "display": "a",
+      "index": 107
+    },
+    {
+      "Word": "good",
+      "Offset": 373300000,
+      "Duration": 2100000,
+      "display": "good",
+      "index": 108,
+      "Polarity": 0.7,
+      "Subjective": 0.6000000000000001
+    },
+    {
+      "Word": "one",
+      "Offset": 375500000,
+      "Duration": 1700000,
+      "display": "one",
+      "index": 109
+    },
+    {
+      "Word": "because",
+      "Offset": 377300000,
+      "Duration": 3600000,
+      "display": "because",
+      "index": 110
+    },
+    {
+      "Word": "the",
+      "Offset": 381200000,
+      "Duration": 1800000,
+      "display": "the",
+      "index": 111
+    },
+    {
+      "Word": "really",
+      "Offset": 383100000,
+      "Duration": 2500000,
+      "display": "really",
+      "index": 112,
+      "Polarity": -0.3888888888888889,
+      "Subjective": 0.8333333333333334
+    },
+    {
+      "Word": "tough",
+      "Offset": 385700000,
+      "Duration": 2500000,
+      "display": "tough",
+      "index": 113,
+      "Polarity": -0.3888888888888889,
+      "Subjective": 0.8333333333333334
+    },
+    {
+      "Word": "to",
+      "Offset": 388300000,
+      "Duration": 900000,
+      "display": "to",
+      "index": 114
+    },
+    {
+      "Word": "find",
+      "Offset": 389300000,
+      "Duration": 2500000,
+      "display": "find",
+      "index": 115
+    },
+    {
+      "Word": "cars",
+      "Offset": 391900000,
+      "Duration": 3100000,
+      "display": "cars",
+      "index": 116
+    },
+    {
+      "Word": "you",
+      "Offset": 395900000,
+      "Duration": 2400000,
+      "display": "you",
+      "index": 117
+    },
+    {
+      "Word": "might",
+      "Offset": 398400000,
+      "Duration": 1500000,
+      "display": "might",
+      "index": 118
+    },
+    {
+      "Word": "want",
+      "Offset": 400000000,
+      "Duration": 1300000,
+      "display": "want",
+      "index": 119
+    },
+    {
+      "Word": "to",
+      "Offset": 401400000,
+      "Duration": 800000,
+      "display": "to",
+      "index": 120
+    },
+    {
+      "Word": "jump",
+      "Offset": 402300000,
+      "Duration": 2200000,
+      "display": "jump",
+      "index": 121
+    },
+    {
+      "Word": "on",
+      "Offset": 404600000,
+      "Duration": 1400000,
+      "display": "on",
+      "index": 122
+    },
+    {
+      "Word": "that",
+      "Offset": 406100000,
+      "Duration": 2300000,
+      "display": "that",
+      "index": 123
+    },
+    {
+      "Word": "you",
+      "Offset": 408500000,
+      "Duration": 1100000,
+      "display": "you",
+      "index": 124
+    },
+    {
+      "Word": "might",
+      "Offset": 409700000,
+      "Duration": 2100000,
+      "display": "might",
+      "index": 125
+    },
+    {
+      "Word": "want",
+      "Offset": 411900000,
+      "Duration": 3100000,
+      "display": "want",
+      "index": 126
+    },
+    {
+      "Word": "to",
+      "Offset": 416400000,
+      "Duration": 2000000,
+      "display": "to",
+      "index": 127
+    },
+    {
+      "Word": "not",
+      "Offset": 418500000,
+      "Duration": 3300000,
+      "display": "not",
+      "index": 128
+    },
+    {
+      "Word": "have",
+      "Offset": 421900000,
+      "Duration": 2500000,
+      "display": "have",
+      "index": 129
+    },
+    {
+      "Word": "to",
+      "Offset": 424500000,
+      "Duration": 1500000,
+      "display": "to",
+      "index": 130
+    },
+    {
+      "Word": "all",
+      "Offset": 426100000,
+      "Duration": 2500000,
+      "display": "all",
+      "index": 131
+    },
+    {
+      "Word": "the",
+      "Offset": 428700000,
+      "Duration": 1100000,
+      "display": "the",
+      "index": 132
+    },
+    {
+      "Word": "time",
+      "Offset": 429900000,
+      "Duration": 3500000,
+      "display": "time",
+      "index": 133
+    },
+    {
+      "Word": "go",
+      "Offset": 433500000,
+      "Duration": 1700000,
+      "display": "go",
+      "index": 134
+    },
+    {
+      "Word": "back",
+      "Offset": 435300000,
+      "Duration": 2900000,
+      "display": "back",
+      "index": 135,
+      "Polarity": 0.0,
+      "Subjective": 0.0
+    },
+    {
+      "Word": "in",
+      "Offset": 438300000,
+      "Duration": 1700000,
+      "display": "in",
+      "index": 136
+    },
+    {
+      "Word": "proactively",
+      "Offset": 440100000,
+      "Duration": 10300000,
+      "display": "proactively",
+      "index": 137
+    },
+    {
+      "Word": "and",
+      "Offset": 451700000,
+      "Duration": 2000000,
+      "display": "and",
+      "index": 138
+    },
+    {
+      "Word": "you",
+      "Offset": 453800000,
+      "Duration": 800000,
+      "display": "you",
+      "index": 139
+    },
+    {
+      "Word": "could",
+      "Offset": 454700000,
+      "Duration": 1300000,
+      "display": "could",
+      "index": 140
+    },
+    {
+      "Word": "say",
+      "Offset": 456100000,
+      "Duration": 1900000,
+      "display": "say",
+      "index": 141
+    },
+    {
+      "Word": "autotempest",
+      "Offset": 458100000,
+      "Duration": 7900000,
+      "display": "autotempest",
+      "index": 142
+    },
+    {
+      "Word": "just",
+      "Offset": 466100000,
+      "Duration": 3500000,
+      "display": "just",
+      "index": 143
+    },
+    {
+      "Word": "tell",
+      "Offset": 469900000,
+      "Duration": 4500000,
+      "display": "tell",
+      "index": 144
+    },
+    {
+      "Word": "me",
+      "Offset": 474500000,
+      "Duration": 4300000,
+      "display": "me",
+      "index": 145
+    },
+    {
+      "Word": "when",
+      "Offset": 479300000,
+      "Duration": 3900000,
+      "display": "when",
+      "index": 146
+    },
+    {
+      "Word": "someone",
+      "Offset": 483300000,
+      "Duration": 5100000,
+      "display": "someone",
+      "index": 147
+    },
+    {
+      "Word": "lists",
+      "Offset": 488500000,
+      "Duration": 3800000,
+      "display": "lists",
+      "index": 148
+    },
+    {
+      "Word": "and",
+      "Offset": 492400000,
+      "Duration": 1600000,
+      "display": "and",
+      "index": 149
+    },
+    {
+      "Word": "E",
+      "Offset": 494100000,
+      "Duration": 1100000,
+      "display": "e",
+      "index": 150
+    },
+    {
+      "Word": "forty",
+      "Offset": 495300000,
+      "Duration": 3700000,
+      "display": "forty",
+      "index": 151
+    },
+    {
+      "Word": "six",
+      "Offset": 499100000,
+      "Duration": 3100000,
+      "display": "six",
+      "index": 152
+    },
+    {
+      "Word": "M",
+      "Offset": 502300000,
+      "Duration": 1700000,
+      "display": "m",
+      "index": 153
+    },
+    {
+      "Word": "three",
+      "Offset": 504100000,
+      "Duration": 3900000,
+      "display": "three",
+      "index": 154
+    },
+    {
+      "Word": "or",
+      "Offset": 508700000,
+      "Duration": 2900000,
+      "display": "or",
+      "index": 155
+    },
+    {
+      "Word": "whatever",
+      "Offset": 511700000,
+      "Duration": 4900000,
+      "display": "whatever",
+      "index": 156
+    },
+    {
+      "Word": "autotempest",
+      "Offset": 523200000,
+      "Duration": 7500000,
+      "display": "autotempest",
+      "index": 157
+    },
+    {
+      "Word": "is",
+      "Offset": 531000000,
+      "Duration": 2900000,
+      "display": "is",
+      "index": 158
+    },
+    {
+      "Word": "really",
+      "Offset": 534200000,
+      "Duration": 4400000,
+      "display": "really",
+      "index": 159,
+      "Polarity": 0.2,
+      "Subjective": 0.2
+    },
+    {
+      "Word": "really",
+      "Offset": 538700000,
+      "Duration": 2500000,
+      "display": "really",
+      "index": 160,
+      "Polarity": 0.35,
+      "Subjective": 0.65
+    },
+    {
+      "Word": "sweet",
+      "Offset": 541300000,
+      "Duration": 3700000,
+      "display": "sweet",
+      "index": 161,
+      "Polarity": 0.35,
+      "Subjective": 0.65
+    },
+    {
+      "Word": "it's",
+      "Offset": 546300000,
+      "Duration": 3300000,
+      "display": "it's",
+      "index": 162
+    },
+    {
+      "Word": "designed",
+      "Offset": 549700000,
+      "Duration": 5700000,
+      "display": "designed",
+      "index": 163
+    },
+    {
+      "Word": "and",
+      "Offset": 555700000,
+      "Duration": 1500000,
+      "display": "and",
+      "index": 164
+    },
+    {
+      "Word": "i",
+      "Offset": 557300000,
+      "Duration": 1700000,
+      "display": "i",
+      "index": 165
+    },
+    {
+      "Word": "can",
+      "Offset": 559300000,
+      "Duration": 1700000,
+      "display": "can",
+      "index": 166
+    },
+    {
+      "Word": "relate",
+      "Offset": 561100000,
+      "Duration": 3100000,
+      "display": "relate",
+      "index": 167
+    },
+    {
+      "Word": "to",
+      "Offset": 564300000,
+      "Duration": 900000,
+      "display": "to",
+      "index": 168
+    },
+    {
+      "Word": "this",
+      "Offset": 565300000,
+      "Duration": 2500000,
+      "display": "this",
+      "index": 169
+    },
+    {
+      "Word": "it's",
+      "Offset": 568900000,
+      "Duration": 3300000,
+      "display": "it's",
+      "index": 170
+    },
+    {
+      "Word": "designed",
+      "Offset": 572300000,
+      "Duration": 4000000,
+      "display": "designed",
+      "index": 171
+    },
+    {
+      "Word": "to",
+      "Offset": 576400000,
+      "Duration": 800000,
+      "display": "to",
+      "index": 172
+    },
+    {
+      "Word": "save",
+      "Offset": 577300000,
+      "Duration": 2500000,
+      "display": "save",
+      "index": 173
+    },
+    {
+      "Word": "you",
+      "Offset": 579900000,
+      "Duration": 1100000,
+      "display": "you",
+      "index": 174
+    },
+    {
+      "Word": "time",
+      "Offset": 581100000,
+      "Duration": 5100000,
+      "display": "time",
+      "index": 175
+    },
+    {
+      "Word": "and",
+      "Offset": 587900000,
+      "Duration": 2900000,
+      "display": "and",
+      "index": 176
+    },
+    {
+      "Word": "saving",
+      "Offset": 590900000,
+      "Duration": 3100000,
+      "display": "saving",
+      "index": 177
+    },
+    {
+      "Word": "you",
+      "Offset": 594100000,
+      "Duration": 900000,
+      "display": "you",
+      "index": 178
+    },
+    {
+      "Word": "time",
+      "Offset": 595100000,
+      "Duration": 3100000,
+      "display": "time",
+      "index": 179
+    },
+    {
+      "Word": "saves",
+      "Offset": 598300000,
+      "Duration": 3100000,
+      "display": "saves",
+      "index": 180
+    },
+    {
+      "Word": "you",
+      "Offset": 601500000,
+      "Duration": 1100000,
+      "display": "you",
+      "index": 181
+    },
+    {
+      "Word": "money",
+      "Offset": 602700000,
+      "Duration": 2500000,
+      "display": "money",
+      "index": 182
+    },
+    {
+      "Word": "there's",
+      "Offset": 605300000,
+      "Duration": 1700000,
+      "display": "there's",
+      "index": 183
+    },
+    {
+      "Word": "a",
+      "Offset": 607100000,
+      "Duration": 500000,
+      "display": "a",
+      "index": 184
+    },
+    {
+      "Word": "lot",
+      "Offset": 607700000,
+      "Duration": 1900000,
+      "display": "lot",
+      "index": 185
+    },
+    {
+      "Word": "of",
+      "Offset": 609700000,
+      "Duration": 700000,
+      "display": "of",
+      "index": 186
+    },
+    {
+      "Word": "people",
+      "Offset": 610500000,
+      "Duration": 4900000,
+      "display": "people",
+      "index": 187
+    },
+    {
+      "Word": "that",
+      "Offset": 617700000,
+      "Duration": 4100000,
+      "display": "that",
+      "index": 188
+    },
+    {
+      "Word": "want",
+      "Offset": 622900000,
+      "Duration": 5100000,
+      "display": "want",
+      "index": 189
+    },
+    {
+      "Word": "to",
+      "Offset": 628100000,
+      "Duration": 1100000,
+      "display": "to",
+      "index": 190
+    },
+    {
+      "Word": "save",
+      "Offset": 629300000,
+      "Duration": 2900000,
+      "display": "save",
+      "index": 191
+    },
+    {
+      "Word": "money",
+      "Offset": 632300000,
+      "Duration": 4300000,
+      "display": "money",
+      "index": 192
+    },
+    {
+      "Word": "but",
+      "Offset": 637500000,
+      "Duration": 2700000,
+      "display": "but",
+      "index": 193
+    },
+    {
+      "Word": "they're",
+      "Offset": 640300000,
+      "Duration": 1500000,
+      "display": "they're",
+      "index": 194
+    },
+    {
+      "Word": "willing",
+      "Offset": 641900000,
+      "Duration": 3300000,
+      "display": "willing",
+      "index": 195,
+      "Polarity": 0.25,
+      "Subjective": 0.75
+    },
+    {
+      "Word": "to",
+      "Offset": 645300000,
+      "Duration": 1300000,
+      "display": "to",
+      "index": 196
+    },
+    {
+      "Word": "waste",
+      "Offset": 646700000,
+      "Duration": 4800000,
+      "display": "waste",
+      "index": 197,
+      "Polarity": -0.2,
+      "Subjective": 0.0
+    },
+    {
+      "Word": "a",
+      "Offset": 651600000,
+      "Duration": 1000000,
+      "display": "a",
+      "index": 198
+    },
+    {
+      "Word": "lot",
+      "Offset": 652700000,
+      "Duration": 2100000,
+      "display": "lot",
+      "index": 199
+    },
+    {
+      "Word": "of",
+      "Offset": 654900000,
+      "Duration": 1100000,
+      "display": "of",
+      "index": 200
+    },
+    {
+      "Word": "time",
+      "Offset": 656100000,
+      "Duration": 5700000,
+      "display": "time",
+      "index": 201
+    },
+    {
+      "Word": "in",
+      "Offset": 662700000,
+      "Duration": 2100000,
+      "display": "in",
+      "index": 202
+    },
+    {
+      "Word": "order",
+      "Offset": 664900000,
+      "Duration": 2300000,
+      "display": "order",
+      "index": 203
+    },
+    {
+      "Word": "to",
+      "Offset": 667300000,
+      "Duration": 1300000,
+      "display": "to",
+      "index": 204
+    },
+    {
+      "Word": "save",
+      "Offset": 668700000,
+      "Duration": 3100000,
+      "display": "save",
+      "index": 205
+    },
+    {
+      "Word": "money",
+      "Offset": 671900000,
+      "Duration": 2700000,
+      "display": "money",
+      "index": 206
+    },
+    {
+      "Word": "and",
+      "Offset": 674700000,
+      "Duration": 1100000,
+      "display": "and",
+      "index": 207
+    },
+    {
+      "Word": "they",
+      "Offset": 675900000,
+      "Duration": 1300000,
+      "display": "they",
+      "index": 208
+    },
+    {
+      "Word": "don't",
+      "Offset": 677300000,
+      "Duration": 2100000,
+      "display": "don't",
+      "index": 209
+    },
+    {
+      "Word": "realize",
+      "Offset": 679700000,
+      "Duration": 7700000,
+      "display": "realize",
+      "index": 210
+    },
+    {
+      "Word": "that",
+      "Offset": 688500000,
+      "Duration": 5100000,
+      "display": "that",
+      "index": 211
+    },
+    {
+      "Word": "you",
+      "Offset": 695700000,
+      "Duration": 3900000,
+      "display": "you",
+      "index": 212
+    },
+    {
+      "Word": "actually",
+      "Offset": 699700000,
+      "Duration": 6900000,
+      "display": "actually",
+      "index": 213,
+      "Polarity": 0.0,
+      "Subjective": 0.1
+    },
+    {
+      "Word": "are",
+      "Offset": 706700000,
+      "Duration": 3700000,
+      "display": "are",
+      "index": 214
+    },
+    {
+      "Word": "wasting",
+      "Offset": 710500000,
+      "Duration": 5100000,
+      "display": "wasting",
+      "index": 215
+    },
+    {
+      "Word": "money",
+      "Offset": 715700000,
+      "Duration": 3900000,
+      "display": "money",
+      "index": 216
+    },
+    {
+      "Word": "by",
+      "Offset": 719900000,
+      "Duration": 2900000,
+      "display": "by",
+      "index": 217
+    },
+    {
+      "Word": "wasting",
+      "Offset": 722900000,
+      "Duration": 5300000,
+      "display": "wasting",
+      "index": 218
+    },
+    {
+      "Word": "time",
+      "Offset": 728300000,
+      "Duration": 3500000,
+      "display": "time",
+      "index": 219
+    },
+    {
+      "Word": "that's",
+      "Offset": 733400000,
+      "Duration": 3400000,
+      "display": "that's",
+      "index": 220
+    },
+    {
+      "Word": "why",
+      "Offset": 736900000,
+      "Duration": 2900000,
+      "display": "why",
+      "index": 221
+    },
+    {
+      "Word": "the",
+      "Offset": 739900000,
+      "Duration": 1500000,
+      "display": "the",
+      "index": 222
+    },
+    {
+      "Word": "convenience",
+      "Offset": 741500000,
+      "Duration": 7300000,
+      "display": "convenience",
+      "index": 223
+    },
+    {
+      "Word": "of",
+      "Offset": 748900000,
+      "Duration": 1700000,
+      "display": "of",
+      "index": 224
+    },
+    {
+      "Word": "autotempest",
+      "Offset": 750700000,
+      "Duration": 7500000,
+      "display": "autotempest",
+      "index": 225
+    },
+    {
+      "Word": "dot",
+      "Offset": 758300000,
+      "Duration": 2100000,
+      "display": "dot",
+      "index": 226
+    },
+    {
+      "Word": "com",
+      "Offset": 760500000,
+      "Duration": 3900000,
+      "display": "com",
+      "index": 227
+    },
+    {
+      "Word": "is",
+      "Offset": 766400000,
+      "Duration": 4400000,
+      "display": "is",
+      "index": 228
+    },
+    {
+      "Word": "exactly",
+      "Offset": 771100000,
+      "Duration": 8100000,
+      "display": "exactly",
+      "index": 229,
+      "Polarity": 0.25,
+      "Subjective": 0.25
+    },
+    {
+      "Word": "how",
+      "Offset": 779300000,
+      "Duration": 3300000,
+      "display": "how",
+      "index": 230
+    },
+    {
+      "Word": "you",
+      "Offset": 782700000,
+      "Duration": 2500000,
+      "display": "you",
+      "index": 231
+    },
+    {
+      "Word": "are",
+      "Offset": 785300000,
+      "Duration": 900000,
+      "display": "are",
+      "index": 232
+    },
+    {
+      "Word": "going",
+      "Offset": 786300000,
+      "Duration": 1500000,
+      "display": "going",
+      "index": 233
+    },
+    {
+      "Word": "to",
+      "Offset": 787900000,
+      "Duration": 900000,
+      "display": "to",
+      "index": 234
+    },
+    {
+      "Word": "save",
+      "Offset": 788900000,
+      "Duration": 2900000,
+      "display": "save",
+      "index": 235
+    },
+    {
+      "Word": "a",
+      "Offset": 791900000,
+      "Duration": 700000,
+      "display": "a",
+      "index": 236
+    },
+    {
+      "Word": "dollar",
+      "Offset": 792700000,
+      "Duration": 5100000,
+      "display": "dollar",
+      "index": 237
+    },
+    {
+      "Word": "on",
+      "Offset": 798900000,
+      "Duration": 4100000,
+      "display": "on",
+      "index": 238
+    },
+    {
+      "Word": "your",
+      "Offset": 803100000,
+      "Duration": 1900000,
+      "display": "your",
+      "index": 239
+    },
+    {
+      "Word": "next",
+      "Offset": 805100000,
+      "Duration": 4100000,
+      "display": "next",
+      "index": 240
+    },
+    {
+      "Word": "dream",
+      "Offset": 809500000,
+      "Duration": 4300000,
+      "display": "dream",
+      "index": 241
+    },
+    {
+      "Word": "car",
+      "Offset": 813900000,
+      "Duration": 4100000,
+      "display": "car",
+      "index": 242
+    },
+    {
+      "Word": "purchase",
+      "Offset": 818300000,
+      "Duration": 5100000,
+      "display": "purchase",
+      "index": 243
+    },
+    {
+      "Word": "you",
+      "Offset": 823500000,
+      "Duration": 700000,
+      "display": "you",
+      "index": 244
+    },
+    {
+      "Word": "get",
+      "Offset": 824300000,
+      "Duration": 2100000,
+      "display": "get",
+      "index": 245
+    },
+    {
+      "Word": "all",
+      "Offset": 827300000,
+      "Duration": 4900000,
+      "display": "all",
+      "index": 246
+    },
+    {
+      "Word": "the",
+      "Offset": 832300000,
+      "Duration": 1500000,
+      "display": "the",
+      "index": 247
+    },
+    {
+      "Word": "cars",
+      "Offset": 833900000,
+      "Duration": 4500000,
+      "display": "cars",
+      "index": 248
+    },
+    {
+      "Word": "with",
+      "Offset": 838500000,
+      "Duration": 2100000,
+      "display": "with",
+      "index": 249
+    },
+    {
+      "Word": "one",
+      "Offset": 840700000,
+      "Duration": 3700000,
+      "display": "one",
+      "index": 250
+    },
+    {
+      "Word": "search",
+      "Offset": 844500000,
+      "Duration": 4700000,
+      "display": "search",
+      "index": 251
+    },
+    {
+      "Word": "all",
+      "Offset": 849500000,
+      "Duration": 3300000,
+      "display": "all",
+      "index": 252
+    },
+    {
+      "Word": "you",
+      "Offset": 852900000,
+      "Duration": 700000,
+      "display": "you",
+      "index": 253
+    },
+    {
+      "Word": "have",
+      "Offset": 853700000,
+      "Duration": 1500000,
+      "display": "have",
+      "index": 254
+    },
+    {
+      "Word": "to",
+      "Offset": 855300000,
+      "Duration": 1000000,
+      "display": "to",
+      "index": 255
+    },
+    {
+      "Word": "do",
+      "Offset": 856400000,
+      "Duration": 1400000,
+      "display": "do",
+      "index": 256
+    },
+    {
+      "Word": "is",
+      "Offset": 857900000,
+      "Duration": 1000000,
+      "display": "is",
+      "index": 257
+    },
+    {
+      "Word": "go",
+      "Offset": 859000000,
+      "Duration": 1200000,
+      "display": "go",
+      "index": 258
+    },
+    {
+      "Word": "to",
+      "Offset": 860300000,
+      "Duration": 900000,
+      "display": "to",
+      "index": 259
+    },
+    {
+      "Word": "autotempest",
+      "Offset": 861300000,
+      "Duration": 8300000,
+      "display": "autotempest",
+      "index": 260
+    },
+    {
+      "Word": "dot",
+      "Offset": 869700000,
+      "Duration": 2300000,
+      "display": "dot",
+      "index": 261
+    },
+    {
+      "Word": "com",
+      "Offset": 872100000,
+      "Duration": 5300000,
+      "display": "com",
+      "index": 262
+    },
+    {
+      "Word": "slash",
+      "Offset": 877700000,
+      "Duration": 6700000,
+      "display": "slash",
+      "index": 263
+    },
+    {
+      "Word": "T",
+      "Offset": 884700000,
+      "Duration": 2900000,
+      "display": "t",
+      "index": 264
+    },
+    {
+      "Word": "S",
+      "Offset": 887700000,
+      "Duration": 1700000,
+      "display": "s",
+      "index": 265
+    },
+    {
+      "Word": "T",
+      "Offset": 889500000,
+      "Duration": 3700000,
+      "display": "t",
+      "index": 266
+    },
+    {
+      "Word": "so",
+      "Offset": 893800000,
+      "Duration": 3000000,
+      "display": "so",
+      "index": 267
+    },
+    {
+      "Word": "you",
+      "Offset": 896900000,
+      "Duration": 1100000,
+      "display": "you",
+      "index": 268
+    },
+    {
+      "Word": "know",
+      "Offset": 898100000,
+      "Duration": 1900000,
+      "display": "know",
+      "index": 269
+    },
+    {
+      "Word": "that",
+      "Offset": 900100000,
+      "Duration": 1100000,
+      "display": "that",
+      "index": 270
+    },
+    {
+      "Word": "we",
+      "Offset": 901300000,
+      "Duration": 1500000,
+      "display": "we",
+      "index": 271
+    },
+    {
+      "Word": "sent",
+      "Offset": 902900000,
+      "Duration": 3500000,
+      "display": "sent",
+      "index": 272
+    },
+    {
+      "Word": "you",
+      "Offset": 906500000,
+      "Duration": 2100000,
+      "display": "you",
+      "index": 273
+    },
+    {
+      "Word": "that's",
+      "Offset": 909600000,
+      "Duration": 2800000,
+      "display": "that's",
+      "index": 274
+    },
+    {
+      "Word": "autotempest",
+      "Offset": 912700000,
+      "Duration": 9300000,
+      "display": "autotempest",
+      "index": 275
+    },
+    {
+      "Word": "dot",
+      "Offset": 922300000,
+      "Duration": 3300000,
+      "display": "dot",
+      "index": 276
+    },
+    {
+      "Word": "com",
+      "Offset": 925700000,
+      "Duration": 4900000,
+      "display": "com",
+      "index": 277
+    },
+    {
+      "Word": "slash",
+      "Offset": 930900000,
+      "Duration": 7800000,
+      "display": "slash",
+      "index": 278
+    },
+    {
+      "Word": "TST",
+      "Offset": 940600000,
+      "Duration": 11300000,
+      "display": "tst",
+      "index": 279
+    },
+    {
+      "Word": "we",
+      "Offset": 957000000,
+      "Duration": 2700000,
+      "display": "we",
+      "index": 280
+    },
+    {
+      "Word": "also",
+      "Offset": 959800000,
+      "Duration": 2300000,
+      "display": "also",
+      "index": 281
+    },
+    {
+      "Word": "brought",
+      "Offset": 962200000,
+      "Duration": 2700000,
+      "display": "brought",
+      "index": 282
+    },
+    {
+      "Word": "to",
+      "Offset": 965000000,
+      "Duration": 1000000,
+      "display": "to",
+      "index": 283
+    },
+    {
+      "Word": "you",
+      "Offset": 966100000,
+      "Duration": 900000,
+      "display": "you",
+      "index": 284
+    },
+    {
+      "Word": "today",
+      "Offset": 967100000,
+      "Duration": 3800000,
+      "display": "today",
+      "index": 285
+    },
+    {
+      "Word": "by",
+      "Offset": 972000000,
+      "Duration": 4700000,
+      "display": "by",
+      "index": 286
+    },
+    {
+      "Word": "the",
+      "Offset": 977400000,
+      "Duration": 1900000,
+      "display": "the",
+      "index": 287
+    },
+    {
+      "Word": "blackvue",
+      "Offset": 979400000,
+      "Duration": 9100000,
+      "display": "blackvue",
+      "index": 288
+    },
+    {
+      "Word": "dashcam",
+      "Offset": 988600000,
+      "Duration": 9300000,
+      "display": "dashcam",
+      "index": 289
+    },
+    {
+      "Word": "series",
+      "Offset": 998000000,
+      "Duration": 7700000,
+      "display": "series",
+      "index": 290
+    },
+    {
+      "Word": "and",
+      "Offset": 1005800000,
+      "Duration": 1500000,
+      "display": "and",
+      "index": 291
+    },
+    {
+      "Word": "the",
+      "Offset": 1007400000,
+      "Duration": 900000,
+      "display": "the",
+      "index": 292
+    },
+    {
+      "Word": "new",
+      "Offset": 1008400000,
+      "Duration": 3900000,
+      "display": "new",
+      "index": 293
+    },
+    {
+      "Word": "D",
+      "Offset": 1012600000,
+      "Duration": 4700000,
+      "display": "d",
+      "index": 294
+    },
+    {
+      "Word": "R",
+      "Offset": 1017400000,
+      "Duration": 2700000,
+      "display": "r",
+      "index": 295
+    },
+    {
+      "Word": "nine",
+      "Offset": 1020200000,
+      "Duration": 3700000,
+      "display": "nine",
+      "index": 296
+    },
+    {
+      "Word": "hundred",
+      "Offset": 1024000000,
+      "Duration": 4900000,
+      "display": "hundred",
+      "index": 297
+    },
+    {
+      "Word": "X",
+      "Offset": 1029200000,
+      "Duration": 3500000,
+      "display": "x",
+      "index": 298
+    },
+    {
+      "Word": "plus",
+      "Offset": 1032800000,
+      "Duration": 6100000,
+      "display": "plus",
+      "index": 299
+    },
+    {
+      "Word": "you",
+      "Offset": 1040000000,
+      "Duration": 2200000,
+      "display": "you",
+      "index": 300
+    },
+    {
+      "Word": "should",
+      "Offset": 1042300000,
+      "Duration": 1600000,
+      "display": "should",
+      "index": 301
+    },
+    {
+      "Word": "never",
+      "Offset": 1044000000,
+      "Duration": 3700000,
+      "display": "never",
+      "index": 302
+    },
+    {
+      "Word": "compromise",
+      "Offset": 1047800000,
+      "Duration": 6000000,
+      "display": "compromise",
+      "index": 303
+    },
+    {
+      "Word": "when",
+      "Offset": 1053900000,
+      "Duration": 1000000,
+      "display": "when",
+      "index": 304
+    },
+    {
+      "Word": "it",
+      "Offset": 1055000000,
+      "Duration": 900000,
+      "display": "it",
+      "index": 305
+    },
+    {
+      "Word": "comes",
+      "Offset": 1056000000,
+      "Duration": 2200000,
+      "display": "comes",
+      "index": 306
+    },
+    {
+      "Word": "to",
+      "Offset": 1058300000,
+      "Duration": 900000,
+      "display": "to",
+      "index": 307
+    },
+    {
+      "Word": "protecting",
+      "Offset": 1059300000,
+      "Duration": 4300000,
+      "display": "protecting",
+      "index": 308
+    },
+    {
+      "Word": "your",
+      "Offset": 1063700000,
+      "Duration": 1000000,
+      "display": "your",
+      "index": 309
+    },
+    {
+      "Word": "car",
+      "Offset": 1064800000,
+      "Duration": 2900000,
+      "display": "car",
+      "index": 310
+    },
+    {
+      "Word": "and",
+      "Offset": 1069000000,
+      "Duration": 2500000,
+      "display": "and",
+      "index": 311
+    },
+    {
+      "Word": "now",
+      "Offset": 1071600000,
+      "Duration": 2700000,
+      "display": "now",
+      "index": 312
+    },
+    {
+      "Word": "we",
+      "Offset": 1074400000,
+      "Duration": 1500000,
+      "display": "we",
+      "index": 313
+    },
+    {
+      "Word": "are",
+      "Offset": 1076000000,
+      "Duration": 900000,
+      "display": "are",
+      "index": 314
+    },
+    {
+      "Word": "introducing",
+      "Offset": 1077000000,
+      "Duration": 5500000,
+      "display": "introducing",
+      "index": 315
+    },
+    {
+      "Word": "the",
+      "Offset": 1082600000,
+      "Duration": 900000,
+      "display": "the",
+      "index": 316
+    },
+    {
+      "Word": "blackview",
+      "Offset": 1083600000,
+      "Duration": 7200000,
+      "display": "blackview",
+      "index": 317
+    },
+    {
+      "Word": "D",
+      "Offset": 1091400000,
+      "Duration": 3700000,
+      "display": "d",
+      "index": 318
+    },
+    {
+      "Word": "R",
+      "Offset": 1095200000,
+      "Duration": 1900000,
+      "display": "r",
+      "index": 319
+    },
+    {
+      "Word": "nine",
+      "Offset": 1097200000,
+      "Duration": 1900000,
+      "display": "nine",
+      "index": 320
+    },
+    {
+      "Word": "hundred",
+      "Offset": 1099200000,
+      "Duration": 2900000,
+      "display": "hundred",
+      "index": 321
+    },
+    {
+      "Word": "X",
+      "Offset": 1102200000,
+      "Duration": 2300000,
+      "display": "x",
+      "index": 322
+    },
+    {
+      "Word": "plus",
+      "Offset": 1104800000,
+      "Duration": 6300000,
+      "display": "plus",
+      "index": 323
+    },
+    {
+      "Word": "series",
+      "Offset": 1111200000,
+      "Duration": 5500000,
+      "display": "series",
+      "index": 324
+    },
+    {
+      "Word": "dashcam",
+      "Offset": 1117000000,
+      "Duration": 9300000,
+      "display": "dashcam",
+      "index": 325
+    },
+    {
+      "Word": "the",
+      "Offset": 1128000000,
+      "Duration": 2900000,
+      "display": "the",
+      "index": 326
+    },
+    {
+      "Word": "plus",
+      "Offset": 1131000000,
+      "Duration": 4100000,
+      "display": "plus",
+      "index": 327
+    },
+    {
+      "Word": "model",
+      "Offset": 1135200000,
+      "Duration": 3600000,
+      "display": "model",
+      "index": 328
+    },
+    {
+      "Word": "has",
+      "Offset": 1138900000,
+      "Duration": 1700000,
+      "display": "has",
+      "index": 329
+    },
+    {
+      "Word": "a",
+      "Offset": 1140700000,
+      "Duration": 600000,
+      "display": "a",
+      "index": 330
+    },
+    {
+      "Word": "new",
+      "Offset": 1141400000,
+      "Duration": 1900000,
+      "display": "new",
+      "index": 331
+    },
+    {
+      "Word": "and",
+      "Offset": 1143400000,
+      "Duration": 900000,
+      "display": "and",
+      "index": 332
+    },
+    {
+      "Word": "improved",
+      "Offset": 1144400000,
+      "Duration": 5100000,
+      "display": "improved",
+      "index": 333
+    },
+    {
+      "Word": "four",
+      "Offset": 1149800000,
+      "Duration": 4700000,
+      "display": "four",
+      "index": 334
+    },
+    {
+      "Word": "K",
+      "Offset": 1154600000,
+      "Duration": 3200000,
+      "display": "k",
+      "index": 335
+    },
+    {
+      "Word": "ultra",
+      "Offset": 1158100000,
+      "Duration": 4600000,
+      "display": "ultra",
+      "index": 336
+    },
+    {
+      "Word": "high",
+      "Offset": 1162800000,
+      "Duration": 2100000,
+      "display": "high",
+      "index": 337
+    },
+    {
+      "Word": "resolution",
+      "Offset": 1165000000,
+      "Duration": 6900000,
+      "display": "resolution",
+      "index": 338
+    },
+    {
+      "Word": "front",
+      "Offset": 1172000000,
+      "Duration": 2900000,
+      "display": "front",
+      "index": 339
+    },
+    {
+      "Word": "camera",
+      "Offset": 1175000000,
+      "Duration": 4700000,
+      "display": "camera",
+      "index": 340
+    },
+    {
+      "Word": "and",
+      "Offset": 1181000000,
+      "Duration": 2900000,
+      "display": "and",
+      "index": 341
+    },
+    {
+      "Word": "a",
+      "Offset": 1184000000,
+      "Duration": 500000,
+      "display": "a",
+      "index": 342
+    },
+    {
+      "Word": "newer",
+      "Offset": 1184600000,
+      "Duration": 4700000,
+      "display": "newer",
+      "index": 343
+    },
+    {
+      "Word": "sony",
+      "Offset": 1189600000,
+      "Duration": 6300000,
+      "display": "sony",
+      "index": 344
+    },
+    {
+      "Word": "starvis",
+      "Offset": 1196000000,
+      "Duration": 8900000,
+      "display": "starvis",
+      "index": 345
+    },
+    {
+      "Word": "sensor",
+      "Offset": 1205000000,
+      "Duration": 5300000,
+      "display": "sensor",
+      "index": 346
+    },
+    {
+      "Word": "on",
+      "Offset": 1210400000,
+      "Duration": 1900000,
+      "display": "on",
+      "index": 347
+    },
+    {
+      "Word": "the",
+      "Offset": 1212400000,
+      "Duration": 1300000,
+      "display": "the",
+      "index": 348
+    },
+    {
+      "Word": "rear",
+      "Offset": 1213800000,
+      "Duration": 2900000,
+      "display": "rear",
+      "index": 349
+    },
+    {
+      "Word": "camera",
+      "Offset": 1216800000,
+      "Duration": 5100000,
+      "display": "camera",
+      "index": 350
+    },
+    {
+      "Word": "so",
+      "Offset": 1222800000,
+      "Duration": 2700000,
+      "display": "so",
+      "index": 351
+    },
+    {
+      "Word": "you",
+      "Offset": 1225600000,
+      "Duration": 800000,
+      "display": "you",
+      "index": 352
+    },
+    {
+      "Word": "can",
+      "Offset": 1226500000,
+      "Duration": 1200000,
+      "display": "can",
+      "index": 353
+    },
+    {
+      "Word": "be",
+      "Offset": 1227800000,
+      "Duration": 1100000,
+      "display": "be",
+      "index": 354
+    },
+    {
+      "Word": "sure",
+      "Offset": 1229000000,
+      "Duration": 3800000,
+      "display": "sure",
+      "index": 355
+    },
+    {
+      "Word": "you",
+      "Offset": 1233100000,
+      "Duration": 1600000,
+      "display": "you",
+      "index": 356
+    },
+    {
+      "Word": "will",
+      "Offset": 1234800000,
+      "Duration": 1000000,
+      "display": "will",
+      "index": 357
+    },
+    {
+      "Word": "capture",
+      "Offset": 1235900000,
+      "Duration": 4600000,
+      "display": "capture",
+      "index": 358
+    },
+    {
+      "Word": "all",
+      "Offset": 1241100000,
+      "Duration": 2400000,
+      "display": "all",
+      "index": 359
+    },
+    {
+      "Word": "the",
+      "Offset": 1243600000,
+      "Duration": 1000000,
+      "display": "the",
+      "index": 360
+    },
+    {
+      "Word": "important",
+      "Offset": 1244700000,
+      "Duration": 4600000,
+      "display": "important",
+      "index": 361
+    },
+    {
+      "Word": "details",
+      "Offset": 1249400000,
+      "Duration": 5600000,
+      "display": "details",
+      "index": 362
+    },
+    {
+      "Word": "both",
+      "Offset": 1255700000,
+      "Duration": 4600000,
+      "display": "both",
+      "index": 363
+    },
+    {
+      "Word": "during",
+      "Offset": 1260600000,
+      "Duration": 4200000,
+      "display": "during",
+      "index": 364
+    },
+    {
+      "Word": "the",
+      "Offset": 1264900000,
+      "Duration": 1300000,
+      "display": "the",
+      "index": 365
+    },
+    {
+      "Word": "day",
+      "Offset": 1266300000,
+      "Duration": 3800000,
+      "display": "day",
+      "index": 366
+    },
+    {
+      "Word": "and",
+      "Offset": 1271500000,
+      "Duration": 2900000,
+      "display": "and",
+      "index": 367
+    },
+    {
+      "Word": "the",
+      "Offset": 1274500000,
+      "Duration": 800000,
+      "display": "the",
+      "index": 368
+    },
+    {
+      "Word": "night",
+      "Offset": 1275400000,
+      "Duration": 3200000,
+      "display": "night",
+      "index": 369
+    },
+    {
+      "Word": "they",
+      "Offset": 1278700000,
+      "Duration": 1500000,
+      "display": "they",
+      "index": 370
+    },
+    {
+      "Word": "sent",
+      "Offset": 1280300000,
+      "Duration": 3900000,
+      "display": "sent",
+      "index": 371
+    },
+    {
+      "Word": "us",
+      "Offset": 1284300000,
+      "Duration": 1300000,
+      "display": "us",
+      "index": 372
+    },
+    {
+      "Word": "one",
+      "Offset": 1285700000,
+      "Duration": 1500000,
+      "display": "one",
+      "index": 373
+    },
+    {
+      "Word": "of",
+      "Offset": 1287300000,
+      "Duration": 600000,
+      "display": "of",
+      "index": 374
+    },
+    {
+      "Word": "these",
+      "Offset": 1288000000,
+      "Duration": 1500000,
+      "display": "these",
+      "index": 375
+    },
+    {
+      "Word": "black",
+      "Offset": 1289600000,
+      "Duration": 3000000,
+      "display": "black",
+      "index": 376
+    },
+    {
+      "Word": "view",
+      "Offset": 1292700000,
+      "Duration": 1700000,
+      "display": "view",
+      "index": 377
+    },
+    {
+      "Word": "dash",
+      "Offset": 1294500000,
+      "Duration": 2900000,
+      "display": "dash",
+      "index": 378
+    },
+    {
+      "Word": "cameras",
+      "Offset": 1297500000,
+      "Duration": 5100000,
+      "display": "cameras",
+      "index": 379
+    },
+    {
+      "Word": "and",
+      "Offset": 1304500000,
+      "Duration": 2000000,
+      "display": "and",
+      "index": 380
+    },
+    {
+      "Word": "it",
+      "Offset": 1306600000,
+      "Duration": 1800000,
+      "display": "it",
+      "index": 381
+    },
+    {
+      "Word": "is",
+      "Offset": 1308500000,
+      "Duration": 3100000,
+      "display": "is",
+      "index": 382
+    },
+    {
+      "Word": "awesome",
+      "Offset": 1312300000,
+      "Duration": 5700000,
+      "display": "awesome",
+      "index": 383
+    },
+    {
+      "Word": "the",
+      "Offset": 1318100000,
+      "Duration": 900000,
+      "display": "the",
+      "index": 384
+    },
+    {
+      "Word": "picture",
+      "Offset": 1319100000,
+      "Duration": 3500000,
+      "display": "picture",
+      "index": 385
+    },
+    {
+      "Word": "quality",
+      "Offset": 1322700000,
+      "Duration": 3900000,
+      "display": "quality",
+      "index": 386
+    },
+    {
+      "Word": "is",
+      "Offset": 1326700000,
+      "Duration": 1300000,
+      "display": "is",
+      "index": 387
+    },
+    {
+      "Word": "so",
+      "Offset": 1328100000,
+      "Duration": 2900000,
+      "display": "so",
+      "index": 388
+    },
+    {
+      "Word": "great",
+      "Offset": 1331100000,
+      "Duration": 4100000,
+      "display": "great",
+      "index": 389
+    },
+    {
+      "Word": "front",
+      "Offset": 1336500000,
+      "Duration": 5000000,
+      "display": "front",
+      "index": 390
+    },
+    {
+      "Word": "and",
+      "Offset": 1341800000,
+      "Duration": 2600000,
+      "display": "and",
+      "index": 391
+    },
+    {
+      "Word": "rear",
+      "Offset": 1344500000,
+      "Duration": 1900000,
+      "display": "rear",
+      "index": 392
+    },
+    {
+      "Word": "and",
+      "Offset": 1346500000,
+      "Duration": 700000,
+      "display": "and",
+      "index": 393
+    },
+    {
+      "Word": "it",
+      "Offset": 1347300000,
+      "Duration": 1100000,
+      "display": "it",
+      "index": 394
+    },
+    {
+      "Word": "gives",
+      "Offset": 1348500000,
+      "Duration": 2700000,
+      "display": "gives",
+      "index": 395
+    },
+    {
+      "Word": "me",
+      "Offset": 1351300000,
+      "Duration": 900000,
+      "display": "me",
+      "index": 396
+    },
+    {
+      "Word": "the",
+      "Offset": 1352300000,
+      "Duration": 900000,
+      "display": "the",
+      "index": 397
+    },
+    {
+      "Word": "peace",
+      "Offset": 1353300000,
+      "Duration": 2600000,
+      "display": "peace",
+      "index": 398
+    },
+    {
+      "Word": "of",
+      "Offset": 1356000000,
+      "Duration": 800000,
+      "display": "of",
+      "index": 399
+    },
+    {
+      "Word": "mind",
+      "Offset": 1356900000,
+      "Duration": 2400000,
+      "display": "mind",
+      "index": 400
+    },
+    {
+      "Word": "that",
+      "Offset": 1359400000,
+      "Duration": 1000000,
+      "display": "that",
+      "index": 401
+    },
+    {
+      "Word": "my",
+      "Offset": 1360500000,
+      "Duration": 2100000,
+      "display": "my",
+      "index": 402
+    },
+    {
+      "Word": "car",
+      "Offset": 1362700000,
+      "Duration": 4300000,
+      "display": "car",
+      "index": 403
+    },
+    {
+      "Word": "day",
+      "Offset": 1367700000,
+      "Duration": 2900000,
+      "display": "day",
+      "index": 404
+    },
+    {
+      "Word": "or",
+      "Offset": 1370700000,
+      "Duration": 1100000,
+      "display": "or",
+      "index": 405
+    },
+    {
+      "Word": "night",
+      "Offset": 1371900000,
+      "Duration": 2500000,
+      "display": "night",
+      "index": 406
+    },
+    {
+      "Word": "is",
+      "Offset": 1374500000,
+      "Duration": 1700000,
+      "display": "is",
+      "index": 407
+    },
+    {
+      "Word": "always",
+      "Offset": 1376300000,
+      "Duration": 4500000,
+      "display": "always",
+      "index": 408
+    },
+    {
+      "Word": "protected",
+      "Offset": 1380900000,
+      "Duration": 6100000,
+      "display": "protected",
+      "index": 409
+    },
+    {
+      "Word": "whether",
+      "Offset": 1387100000,
+      "Duration": 3500000,
+      "display": "whether",
+      "index": 410
+    },
+    {
+      "Word": "it's",
+      "Offset": 1390700000,
+      "Duration": 2700000,
+      "display": "it's",
+      "index": 411
+    },
+    {
+      "Word": "from",
+      "Offset": 1400100000,
+      "Duration": 4500000,
+      "display": "from",
+      "index": 412
+    },
+    {
+      "Word": "thievery",
+      "Offset": 1405500000,
+      "Duration": 8300000,
+      "display": "thievery",
+      "index": 413
+    },
+    {
+      "Word": "attempted",
+      "Offset": 1414700000,
+      "Duration": 7100000,
+      "display": "attempted",
+      "index": 414
+    },
+    {
+      "Word": "fraud",
+      "Offset": 1421900000,
+      "Duration": 5900000,
+      "display": "fraud",
+      "index": 415
+    },
+    {
+      "Word": "or",
+      "Offset": 1428500000,
+      "Duration": 2700000,
+      "display": "or",
+      "index": 416
+    },
+    {
+      "Word": "just",
+      "Offset": 1431300000,
+      "Duration": 3700000,
+      "display": "just",
+      "index": 417
+    },
+    {
+      "Word": "needing",
+      "Offset": 1436900000,
+      "Duration": 5300000,
+      "display": "needing",
+      "index": 418
+    },
+    {
+      "Word": "someone",
+      "Offset": 1442300000,
+      "Duration": 4500000,
+      "display": "someone",
+      "index": 419
+    },
+    {
+      "Word": "to",
+      "Offset": 1446900000,
+      "Duration": 1500000,
+      "display": "to",
+      "index": 420
+    },
+    {
+      "Word": "believe",
+      "Offset": 1448500000,
+      "Duration": 4900000,
+      "display": "believe",
+      "index": 421
+    },
+    {
+      "Word": "you",
+      "Offset": 1453500000,
+      "Duration": 3500000,
+      "display": "you",
+      "index": 422
+    },
+    {
+      "Word": "when",
+      "Offset": 1457300000,
+      "Duration": 2300000,
+      "display": "when",
+      "index": 423
+    },
+    {
+      "Word": "your",
+      "Offset": 1459700000,
+      "Duration": 3100000,
+      "display": "your",
+      "index": 424
+    },
+    {
+      "Word": "side",
+      "Offset": 1462900000,
+      "Duration": 3100000,
+      "display": "side",
+      "index": 425
+    },
+    {
+      "Word": "of",
+      "Offset": 1466100000,
+      "Duration": 700000,
+      "display": "of",
+      "index": 426
+    },
+    {
+      "Word": "the",
+      "Offset": 1466900000,
+      "Duration": 1100000,
+      "display": "the",
+      "index": 427
+    },
+    {
+      "Word": "story",
+      "Offset": 1468100000,
+      "Duration": 4500000,
+      "display": "story",
+      "index": 428
+    },
+    {
+      "Word": "if",
+      "Offset": 1472700000,
+      "Duration": 1300000,
+      "display": "if",
+      "index": 429
+    },
+    {
+      "Word": "you",
+      "Offset": 1474100000,
+      "Duration": 900000,
+      "display": "you",
+      "index": 430
+    },
+    {
+      "Word": "get",
+      "Offset": 1475100000,
+      "Duration": 1400000,
+      "display": "get",
+      "index": 431
+    },
+    {
+      "Word": "into",
+      "Offset": 1476600000,
+      "Duration": 2200000,
+      "display": "into",
+      "index": 432
+    },
+    {
+      "Word": "an",
+      "Offset": 1478900000,
+      "Duration": 900000,
+      "display": "an",
+      "index": 433
+    },
+    {
+      "Word": "accident",
+      "Offset": 1479900000,
+      "Duration": 4500000,
+      "display": "accident",
+      "index": 434
+    },
+    {
+      "Word": "is",
+      "Offset": 1484500000,
+      "Duration": 900000,
+      "display": "is",
+      "index": 435
+    },
+    {
+      "Word": "right",
+      "Offset": 1485500000,
+      "Duration": 3100000,
+      "display": "right",
+      "index": 436
+    },
+    {
+      "Word": "having",
+      "Offset": 1489400000,
+      "Duration": 5800000,
+      "display": "having",
+      "index": 437
+    },
+    {
+      "Word": "that",
+      "Offset": 1495300000,
+      "Duration": 3400000,
+      "display": "that",
+      "index": 438
+    },
+    {
+      "Word": "dash",
+      "Offset": 1498800000,
+      "Duration": 3600000,
+      "display": "dash",
+      "index": 439
+    },
+    {
+      "Word": "cam",
+      "Offset": 1502500000,
+      "Duration": 4500000,
+      "display": "cam",
+      "index": 440
+    },
+    {
+      "Word": "is",
+      "Offset": 1508200000,
+      "Duration": 3200000,
+      "display": "is",
+      "index": 441
+    },
+    {
+      "Word": "really",
+      "Offset": 1511900000,
+      "Duration": 5900000,
+      "display": "really",
+      "index": 442
+    },
+    {
+      "Word": "really",
+      "Offset": 1518100000,
+      "Duration": 3100000,
+      "display": "really",
+      "index": 443
+    },
+    {
+      "Word": "good",
+      "Offset": 1521300000,
+      "Duration": 4200000,
+      "display": "good",
+      "index": 444
+    },
+    {
+      "Word": "for",
+      "Offset": 1525800000,
+      "Duration": 3200000,
+      "display": "for",
+      "index": 445
+    },
+    {
+      "Word": "a",
+      "Offset": 1529100000,
+      "Duration": 400000,
+      "display": "a",
+      "index": 446
+    },
+    {
+      "Word": "variety",
+      "Offset": 1529600000,
+      "Duration": 7600000,
+      "display": "variety",
+      "index": 447
+    },
+    {
+      "Word": "of",
+      "Offset": 1537300000,
+      "Duration": 1500000,
+      "display": "of",
+      "index": 448
+    },
+    {
+      "Word": "situations",
+      "Offset": 1538900000,
+      "Duration": 7300000,
+      "display": "situations",
+      "index": 449
+    },
+    {
+      "Word": "and",
+      "Offset": 1546700000,
+      "Duration": 900000,
+      "display": "and",
+      "index": 450
+    },
+    {
+      "Word": "with",
+      "Offset": 1547700000,
+      "Duration": 1000000,
+      "display": "with",
+      "index": 451
+    },
+    {
+      "Word": "the",
+      "Offset": 1548800000,
+      "Duration": 800000,
+      "display": "the",
+      "index": 452
+    },
+    {
+      "Word": "new",
+      "Offset": 1549700000,
+      "Duration": 2100000,
+      "display": "new",
+      "index": 453
+    },
+    {
+      "Word": "seamless",
+      "Offset": 1551900000,
+      "Duration": 5700000,
+      "display": "seamless",
+      "index": 454
+    },
+    {
+      "Word": "pairing",
+      "Offset": 1557700000,
+      "Duration": 4900000,
+      "display": "pairing",
+      "index": 455
+    },
+    {
+      "Word": "feature",
+      "Offset": 1562700000,
+      "Duration": 4700000,
+      "display": "feature",
+      "index": 456
+    },
+    {
+      "Word": "connecting",
+      "Offset": 1568300000,
+      "Duration": 5900000,
+      "display": "connecting",
+      "index": 457
+    },
+    {
+      "Word": "with",
+      "Offset": 1574300000,
+      "Duration": 1100000,
+      "display": "with",
+      "index": 458
+    },
+    {
+      "Word": "the",
+      "Offset": 1575500000,
+      "Duration": 1000000,
+      "display": "the",
+      "index": 459
+    },
+    {
+      "Word": "black",
+      "Offset": 1576600000,
+      "Duration": 3000000,
+      "display": "black",
+      "index": 460
+    },
+    {
+      "Word": "vue",
+      "Offset": 1579700000,
+      "Duration": 2300000,
+      "display": "vue",
+      "index": 461
+    },
+    {
+      "Word": "app",
+      "Offset": 1582100000,
+      "Duration": 3600000,
+      "display": "app",
+      "index": 462
+    },
+    {
+      "Word": "transferring",
+      "Offset": 1586300000,
+      "Duration": 7100000,
+      "display": "transferring",
+      "index": 463
+    },
+    {
+      "Word": "videos",
+      "Offset": 1593500000,
+      "Duration": 4500000,
+      "display": "videos",
+      "index": 464
+    },
+    {
+      "Word": "and",
+      "Offset": 1598100000,
+      "Duration": 1300000,
+      "display": "and",
+      "index": 465
+    },
+    {
+      "Word": "setting",
+      "Offset": 1599500000,
+      "Duration": 2800000,
+      "display": "setting",
+      "index": 466
+    },
+    {
+      "Word": "up",
+      "Offset": 1602400000,
+      "Duration": 1200000,
+      "display": "up",
+      "index": 467
+    },
+    {
+      "Word": "your",
+      "Offset": 1603700000,
+      "Duration": 1100000,
+      "display": "your",
+      "index": 468
+    },
+    {
+      "Word": "dash",
+      "Offset": 1604900000,
+      "Duration": 3300000,
+      "display": "dash",
+      "index": 469
+    },
+    {
+      "Word": "cam",
+      "Offset": 1608300000,
+      "Duration": 2500000,
+      "display": "cam",
+      "index": 470
+    },
+    {
+      "Word": "for",
+      "Offset": 1610900000,
+      "Duration": 1400000,
+      "display": "for",
+      "index": 471
+    },
+    {
+      "Word": "the",
+      "Offset": 1612400000,
+      "Duration": 800000,
+      "display": "the",
+      "index": 472
+    },
+    {
+      "Word": "cloud",
+      "Offset": 1613300000,
+      "Duration": 4100000,
+      "display": "cloud",
+      "index": 473
+    },
+    {
+      "Word": "connectivity",
+      "Offset": 1617500000,
+      "Duration": 7100000,
+      "display": "connectivity",
+      "index": 474
+    },
+    {
+      "Word": "it's",
+      "Offset": 1625500000,
+      "Duration": 3200000,
+      "display": "it's",
+      "index": 475
+    },
+    {
+      "Word": "easier",
+      "Offset": 1629000000,
+      "Duration": 4800000,
+      "display": "easier",
+      "index": 476
+    },
+    {
+      "Word": "than",
+      "Offset": 1633900000,
+      "Duration": 1100000,
+      "display": "than",
+      "index": 477
+    },
+    {
+      "Word": "ever",
+      "Offset": 1635100000,
+      "Duration": 3300000,
+      "display": "ever",
+      "index": 478
+    },
+    {
+      "Word": "or",
+      "Offset": 1639500000,
+      "Duration": 1500000,
+      "display": "or",
+      "index": 479
+    },
+    {
+      "Word": "what",
+      "Offset": 1641100000,
+      "Duration": 1100000,
+      "display": "what",
+      "index": 480
+    },
+    {
+      "Word": "about",
+      "Offset": 1642300000,
+      "Duration": 1800000,
+      "display": "about",
+      "index": 481
+    },
+    {
+      "Word": "when",
+      "Offset": 1644200000,
+      "Duration": 1000000,
+      "display": "when",
+      "index": 482
+    },
+    {
+      "Word": "you're",
+      "Offset": 1645300000,
+      "Duration": 1200000,
+      "display": "you're",
+      "index": 483
+    },
+    {
+      "Word": "away",
+      "Offset": 1646600000,
+      "Duration": 2600000,
+      "display": "away",
+      "index": 484
+    },
+    {
+      "Word": "from",
+      "Offset": 1649300000,
+      "Duration": 1900000,
+      "display": "from",
+      "index": 485
+    },
+    {
+      "Word": "your",
+      "Offset": 1651300000,
+      "Duration": 1300000,
+      "display": "your",
+      "index": 486
+    },
+    {
+      "Word": "car",
+      "Offset": 1652700000,
+      "Duration": 3300000,
+      "display": "car",
+      "index": 487
+    },
+    {
+      "Word": "well",
+      "Offset": 1657900000,
+      "Duration": 3400000,
+      "display": "well",
+      "index": 488
+    },
+    {
+      "Word": "with",
+      "Offset": 1661400000,
+      "Duration": 1400000,
+      "display": "with",
+      "index": 489
+    },
+    {
+      "Word": "built",
+      "Offset": 1662900000,
+      "Duration": 2900000,
+      "display": "built",
+      "index": 490
+    },
+    {
+      "Word": "in",
+      "Offset": 1665900000,
+      "Duration": 1100000,
+      "display": "in",
+      "index": 491
+    },
+    {
+      "Word": "voltage",
+      "Offset": 1667100000,
+      "Duration": 4700000,
+      "display": "voltage",
+      "index": 492
+    },
+    {
+      "Word": "monitoring",
+      "Offset": 1671900000,
+      "Duration": 5300000,
+      "display": "monitoring",
+      "index": 493
+    },
+    {
+      "Word": "you",
+      "Offset": 1678100000,
+      "Duration": 2500000,
+      "display": "you",
+      "index": 494
+    },
+    {
+      "Word": "can",
+      "Offset": 1680700000,
+      "Duration": 1900000,
+      "display": "can",
+      "index": 495
+    },
+    {
+      "Word": "leave",
+      "Offset": 1682700000,
+      "Duration": 2900000,
+      "display": "leave",
+      "index": 496
+    },
+    {
+      "Word": "your",
+      "Offset": 1685700000,
+      "Duration": 1900000,
+      "display": "your",
+      "index": 497
+    },
+    {
+      "Word": "car",
+      "Offset": 1687700000,
+      "Duration": 2500000,
+      "display": "car",
+      "index": 498
+    },
+    {
+      "Word": "protected",
+      "Offset": 1690300000,
+      "Duration": 5900000,
+      "display": "protected",
+      "index": 499
+    },
+    {
+      "Word": "by",
+      "Offset": 1696300000,
+      "Duration": 2000000,
+      "display": "by",
+      "index": 500
+    },
+    {
+      "Word": "black",
+      "Offset": 1698400000,
+      "Duration": 4200000,
+      "display": "black",
+      "index": 501
+    },
+    {
+      "Word": "views",
+      "Offset": 1702700000,
+      "Duration": 2700000,
+      "display": "views",
+      "index": 502
+    },
+    {
+      "Word": "parking",
+      "Offset": 1705500000,
+      "Duration": 5500000,
+      "display": "parking",
+      "index": 503
+    },
+    {
+      "Word": "mode",
+      "Offset": 1711100000,
+      "Duration": 3500000,
+      "display": "mode",
+      "index": 504
+    },
+    {
+      "Word": "without",
+      "Offset": 1715300000,
+      "Duration": 4900000,
+      "display": "without",
+      "index": 505
+    },
+    {
+      "Word": "fear",
+      "Offset": 1720300000,
+      "Duration": 3900000,
+      "display": "fear",
+      "index": 506
+    },
+    {
+      "Word": "of",
+      "Offset": 1724600000,
+      "Duration": 1800000,
+      "display": "of",
+      "index": 507
+    },
+    {
+      "Word": "draining",
+      "Offset": 1726500000,
+      "Duration": 4100000,
+      "display": "draining",
+      "index": 508
+    },
+    {
+      "Word": "your",
+      "Offset": 1730700000,
+      "Duration": 1300000,
+      "display": "your",
+      "index": 509
+    },
+    {
+      "Word": "cars",
+      "Offset": 1732100000,
+      "Duration": 3300000,
+      "display": "cars",
+      "index": 510
+    },
+    {
+      "Word": "battery",
+      "Offset": 1735500000,
+      "Duration": 5700000,
+      "display": "battery",
+      "index": 511
+    },
+    {
+      "Word": "thanks",
+      "Offset": 1742500000,
+      "Duration": 4300000,
+      "display": "thanks",
+      "index": 512
+    },
+    {
+      "Word": "to",
+      "Offset": 1746900000,
+      "Duration": 700000,
+      "display": "to",
+      "index": 513
+    },
+    {
+      "Word": "the",
+      "Offset": 1747700000,
+      "Duration": 1300000,
+      "display": "the",
+      "index": 514
+    },
+    {
+      "Word": "optional",
+      "Offset": 1749100000,
+      "Duration": 4100000,
+      "display": "optional",
+      "index": 515
+    },
+    {
+      "Word": "LTE",
+      "Offset": 1753500000,
+      "Duration": 8300000,
+      "display": "lte",
+      "index": 516
+    },
+    {
+      "Word": "connectivity",
+      "Offset": 1762100000,
+      "Duration": 7700000,
+      "display": "connectivity",
+      "index": 517
+    },
+    {
+      "Word": "module",
+      "Offset": 1769900000,
+      "Duration": 5500000,
+      "display": "module",
+      "index": 518
+    },
+    {
+      "Word": "the",
+      "Offset": 1776500000,
+      "Duration": 1700000,
+      "display": "the",
+      "index": 519
+    },
+    {
+      "Word": "blackview",
+      "Offset": 1778300000,
+      "Duration": 4700000,
+      "display": "blackview",
+      "index": 520
+    },
+    {
+      "Word": "D",
+      "Offset": 1783100000,
+      "Duration": 1700000,
+      "display": "d",
+      "index": 521
+    },
+    {
+      "Word": "R",
+      "Offset": 1784900000,
+      "Duration": 1600000,
+      "display": "r",
+      "index": 522
+    },
+    {
+      "Word": "nine",
+      "Offset": 1786600000,
+      "Duration": 1800000,
+      "display": "nine",
+      "index": 523
+    },
+    {
+      "Word": "hundred",
+      "Offset": 1788500000,
+      "Duration": 2500000,
+      "display": "hundred",
+      "index": 524
+    },
+    {
+      "Word": "X",
+      "Offset": 1791100000,
+      "Duration": 1500000,
+      "display": "x",
+      "index": 525
+    },
+    {
+      "Word": "plus",
+      "Offset": 1792700000,
+      "Duration": 3100000,
+      "display": "plus",
+      "index": 526
+    },
+    {
+      "Word": "series",
+      "Offset": 1795900000,
+      "Duration": 3300000,
+      "display": "series",
+      "index": 527
+    },
+    {
+      "Word": "dash",
+      "Offset": 1799300000,
+      "Duration": 2900000,
+      "display": "dash",
+      "index": 528
+    },
+    {
+      "Word": "cam",
+      "Offset": 1802300000,
+      "Duration": 3100000,
+      "display": "cam",
+      "index": 529
+    },
+    {
+      "Word": "keeps",
+      "Offset": 1806300000,
+      "Duration": 4600000,
+      "display": "keeps",
+      "index": 530
+    },
+    {
+      "Word": "you",
+      "Offset": 1811000000,
+      "Duration": 1200000,
+      "display": "you",
+      "index": 531
+    },
+    {
+      "Word": "always",
+      "Offset": 1812300000,
+      "Duration": 4900000,
+      "display": "always",
+      "index": 532
+    },
+    {
+      "Word": "connected",
+      "Offset": 1817300000,
+      "Duration": 5100000,
+      "display": "connected",
+      "index": 533
+    },
+    {
+      "Word": "to",
+      "Offset": 1822500000,
+      "Duration": 1300000,
+      "display": "to",
+      "index": 534
+    },
+    {
+      "Word": "your",
+      "Offset": 1823900000,
+      "Duration": 2500000,
+      "display": "your",
+      "index": 535
+    },
+    {
+      "Word": "car",
+      "Offset": 1826500000,
+      "Duration": 3500000,
+      "display": "car",
+      "index": 536
+    },
+    {
+      "Word": "from",
+      "Offset": 1830100000,
+      "Duration": 2500000,
+      "display": "from",
+      "index": 537
+    },
+    {
+      "Word": "anywhere",
+      "Offset": 1832900000,
+      "Duration": 6100000,
+      "display": "anywhere",
+      "index": 538
+    },
+    {
+      "Word": "even",
+      "Offset": 1839900000,
+      "Duration": 3100000,
+      "display": "even",
+      "index": 539
+    },
+    {
+      "Word": "if",
+      "Offset": 1843100000,
+      "Duration": 800000,
+      "display": "if",
+      "index": 540
+    },
+    {
+      "Word": "you've",
+      "Offset": 1844000000,
+      "Duration": 1000000,
+      "display": "you've",
+      "index": 541
+    },
+    {
+      "Word": "gotten",
+      "Offset": 1845100000,
+      "Duration": 2500000,
+      "display": "gotten",
+      "index": 542
+    },
+    {
+      "Word": "old",
+      "Offset": 1848100000,
+      "Duration": 2300000,
+      "display": "old",
+      "index": 543
+    },
+    {
+      "Word": "car",
+      "Offset": 1850500000,
+      "Duration": 3500000,
+      "display": "car",
+      "index": 544
+    },
+    {
+      "Word": "that",
+      "Offset": 1855900000,
+      "Duration": 3200000,
+      "display": "that",
+      "index": 545
+    },
+    {
+      "Word": "means",
+      "Offset": 1859200000,
+      "Duration": 2300000,
+      "display": "means",
+      "index": 546
+    },
+    {
+      "Word": "you",
+      "Offset": 1861600000,
+      "Duration": 800000,
+      "display": "you",
+      "index": 547
+    },
+    {
+      "Word": "can",
+      "Offset": 1862500000,
+      "Duration": 1300000,
+      "display": "can",
+      "index": 548
+    },
+    {
+      "Word": "receive",
+      "Offset": 1863900000,
+      "Duration": 5300000,
+      "display": "receive",
+      "index": 549
+    },
+    {
+      "Word": "impact",
+      "Offset": 1870000000,
+      "Duration": 5800000,
+      "display": "impact",
+      "index": 550
+    },
+    {
+      "Word": "notifications",
+      "Offset": 1875900000,
+      "Duration": 8200000,
+      "display": "notifications",
+      "index": 551
+    },
+    {
+      "Word": "on",
+      "Offset": 1884200000,
+      "Duration": 1200000,
+      "display": "on",
+      "index": 552
+    },
+    {
+      "Word": "your",
+      "Offset": 1885500000,
+      "Duration": 1300000,
+      "display": "your",
+      "index": 553
+    },
+    {
+      "Word": "mobile",
+      "Offset": 1886900000,
+      "Duration": 3300000,
+      "display": "mobile",
+      "index": 554
+    },
+    {
+      "Word": "phone",
+      "Offset": 1890300000,
+      "Duration": 4100000,
+      "display": "phone",
+      "index": 555
+    },
+    {
+      "Word": "check",
+      "Offset": 1895500000,
+      "Duration": 5100000,
+      "display": "check",
+      "index": 556
+    },
+    {
+      "Word": "on",
+      "Offset": 1900900000,
+      "Duration": 1900000,
+      "display": "on",
+      "index": 557
+    },
+    {
+      "Word": "your",
+      "Offset": 1902900000,
+      "Duration": 1300000,
+      "display": "your",
+      "index": 558
+    },
+    {
+      "Word": "car",
+      "Offset": 1904300000,
+      "Duration": 2700000,
+      "display": "car",
+      "index": 559
+    },
+    {
+      "Word": "with",
+      "Offset": 1907100000,
+      "Duration": 1700000,
+      "display": "with",
+      "index": 560
+    },
+    {
+      "Word": "remote",
+      "Offset": 1908900000,
+      "Duration": 4700000,
+      "display": "remote",
+      "index": 561
+    },
+    {
+      "Word": "live",
+      "Offset": 1913900000,
+      "Duration": 4500000,
+      "display": "live",
+      "index": 562
+    },
+    {
+      "Word": "view",
+      "Offset": 1918500000,
+      "Duration": 2900000,
+      "display": "view",
+      "index": 563
+    },
+    {
+      "Word": "pull",
+      "Offset": 1921500000,
+      "Duration": 2500000,
+      "display": "pull",
+      "index": 564
+    },
+    {
+      "Word": "up",
+      "Offset": 1924100000,
+      "Duration": 1500000,
+      "display": "up",
+      "index": 565
+    },
+    {
+      "Word": "those",
+      "Offset": 1925700000,
+      "Duration": 2300000,
+      "display": "those",
+      "index": 566
+    },
+    {
+      "Word": "cameras",
+      "Offset": 1928100000,
+      "Duration": 5900000,
+      "display": "cameras",
+      "index": 567
+    },
+    {
+      "Word": "and",
+      "Offset": 1936100000,
+      "Duration": 1900000,
+      "display": "and",
+      "index": 568
+    },
+    {
+      "Word": "rest",
+      "Offset": 1938100000,
+      "Duration": 3500000,
+      "display": "rest",
+      "index": 569
+    },
+    {
+      "Word": "easy",
+      "Offset": 1941900000,
+      "Duration": 5100000,
+      "display": "easy",
+      "index": 570
+    },
+    {
+      "Word": "knowing",
+      "Offset": 1947900000,
+      "Duration": 4500000,
+      "display": "knowing",
+      "index": 571
+    },
+    {
+      "Word": "that",
+      "Offset": 1952500000,
+      "Duration": 1500000,
+      "display": "that",
+      "index": 572
+    },
+    {
+      "Word": "live",
+      "Offset": 1954100000,
+      "Duration": 3500000,
+      "display": "live",
+      "index": 573
+    },
+    {
+      "Word": "event",
+      "Offset": 1957700000,
+      "Duration": 2900000,
+      "display": "event",
+      "index": 574
+    },
+    {
+      "Word": "upload",
+      "Offset": 1960900000,
+      "Duration": 5100000,
+      "display": "upload",
+      "index": 575
+    },
+    {
+      "Word": "saves",
+      "Offset": 1966100000,
+      "Duration": 4400000,
+      "display": "saves",
+      "index": 576
+    },
+    {
+      "Word": "impact",
+      "Offset": 1970800000,
+      "Duration": 5800000,
+      "display": "impact",
+      "index": 577
+    },
+    {
+      "Word": "footage",
+      "Offset": 1976700000,
+      "Duration": 3300000,
+      "display": "footage",
+      "index": 578
+    },
+    {
+      "Word": "in",
+      "Offset": 1980100000,
+      "Duration": 1900000,
+      "display": "in",
+      "index": 579
+    },
+    {
+      "Word": "real",
+      "Offset": 1982100000,
+      "Duration": 2500000,
+      "display": "real",
+      "index": 580
+    },
+    {
+      "Word": "time",
+      "Offset": 1984700000,
+      "Duration": 2500000,
+      "display": "time",
+      "index": 581
+    },
+    {
+      "Word": "to",
+      "Offset": 1987300000,
+      "Duration": 700000,
+      "display": "to",
+      "index": 582
+    },
+    {
+      "Word": "the",
+      "Offset": 1988100000,
+      "Duration": 900000,
+      "display": "the",
+      "index": 583
+    },
+    {
+      "Word": "cloud",
+      "Offset": 1989100000,
+      "Duration": 4500000,
+      "display": "cloud",
+      "index": 584
+    },
+    {
+      "Word": "including",
+      "Offset": 1994900000,
+      "Duration": 8700000,
+      "display": "including",
+      "index": 585
+    },
+    {
+      "Word": "a",
+      "Offset": 2003900000,
+      "Duration": 1500000,
+      "display": "a",
+      "index": 586
+    },
+    {
+      "Word": "five",
+      "Offset": 2005500000,
+      "Duration": 3900000,
+      "display": "five",
+      "index": 587
+    },
+    {
+      "Word": "second",
+      "Offset": 2009500000,
+      "Duration": 4100000,
+      "display": "second",
+      "index": 588
+    },
+    {
+      "Word": "pre",
+      "Offset": 2013700000,
+      "Duration": 3700000,
+      "display": "pre",
+      "index": 589
+    },
+    {
+      "Word": "impact",
+      "Offset": 2017500000,
+      "Duration": 6100000,
+      "display": "impact",
+      "index": 590
+    },
+    {
+      "Word": "buffer",
+      "Offset": 2023900000,
+      "Duration": 5300000,
+      "display": "buffer",
+      "index": 591
+    },
+    {
+      "Word": "so",
+      "Offset": 2029700000,
+      "Duration": 3700000,
+      "display": "so",
+      "index": 592
+    },
+    {
+      "Word": "if",
+      "Offset": 2033500000,
+      "Duration": 700000,
+      "display": "if",
+      "index": 593
+    },
+    {
+      "Word": "your",
+      "Offset": 2034300000,
+      "Duration": 1100000,
+      "display": "your",
+      "index": 594
+    },
+    {
+      "Word": "car",
+      "Offset": 2035500000,
+      "Duration": 1900000,
+      "display": "car",
+      "index": 595
+    },
+    {
+      "Word": "gets",
+      "Offset": 2037500000,
+      "Duration": 1900000,
+      "display": "gets",
+      "index": 596
+    },
+    {
+      "Word": "hit",
+      "Offset": 2039500000,
+      "Duration": 2500000,
+      "display": "hit",
+      "index": 597
+    },
+    {
+      "Word": "while",
+      "Offset": 2042100000,
+      "Duration": 1300000,
+      "display": "while",
+      "index": 598
+    },
+    {
+      "Word": "it's",
+      "Offset": 2043500000,
+      "Duration": 1300000,
+      "display": "it's",
+      "index": 599
+    },
+    {
+      "Word": "parked",
+      "Offset": 2044900000,
+      "Duration": 4700000,
+      "display": "parked",
+      "index": 600
+    },
+    {
+      "Word": "you'll",
+      "Offset": 2050100000,
+      "Duration": 2900000,
+      "display": "you'll",
+      "index": 601
+    },
+    {
+      "Word": "have",
+      "Offset": 2053100000,
+      "Duration": 3500000,
+      "display": "have",
+      "index": 602
+    },
+    {
+      "Word": "that",
+      "Offset": 2056700000,
+      "Duration": 2300000,
+      "display": "that",
+      "index": 603
+    },
+    {
+      "Word": "video",
+      "Offset": 2059100000,
+      "Duration": 5500000,
+      "display": "video",
+      "index": 604
+    },
+    {
+      "Word": "for",
+      "Offset": 2064900000,
+      "Duration": 3700000,
+      "display": "for",
+      "index": 605
+    },
+    {
+      "Word": "your",
+      "Offset": 2068700000,
+      "Duration": 1200000,
+      "display": "your",
+      "index": 606
+    },
+    {
+      "Word": "insurance",
+      "Offset": 2070000000,
+      "Duration": 4600000,
+      "display": "insurance",
+      "index": 607
+    },
+    {
+      "Word": "company",
+      "Offset": 2074700000,
+      "Duration": 4900000,
+      "display": "company",
+      "index": 608
+    },
+    {
+      "Word": "later",
+      "Offset": 2080300000,
+      "Duration": 5700000,
+      "display": "later",
+      "index": 609
+    },
+    {
+      "Word": "the",
+      "Offset": 2088000000,
+      "Duration": 1400000,
+      "display": "the",
+      "index": 610
+    },
+    {
+      "Word": "new",
+      "Offset": 2089500000,
+      "Duration": 1400000,
+      "display": "new",
+      "index": 611
+    },
+    {
+      "Word": "mobile",
+      "Offset": 2091000000,
+      "Duration": 3000000,
+      "display": "mobile",
+      "index": 612
+    },
+    {
+      "Word": "hotspot",
+      "Offset": 2094100000,
+      "Duration": 4900000,
+      "display": "hotspot",
+      "index": 613
+    },
+    {
+      "Word": "function",
+      "Offset": 2099100000,
+      "Duration": 3300000,
+      "display": "function",
+      "index": 614
+    },
+    {
+      "Word": "allows",
+      "Offset": 2102500000,
+      "Duration": 2700000,
+      "display": "allows",
+      "index": 615
+    },
+    {
+      "Word": "you",
+      "Offset": 2105300000,
+      "Duration": 600000,
+      "display": "you",
+      "index": 616
+    },
+    {
+      "Word": "to",
+      "Offset": 2106000000,
+      "Duration": 1000000,
+      "display": "to",
+      "index": 617
+    },
+    {
+      "Word": "turn",
+      "Offset": 2107100000,
+      "Duration": 2300000,
+      "display": "turn",
+      "index": 618
+    },
+    {
+      "Word": "your",
+      "Offset": 2109500000,
+      "Duration": 1700000,
+      "display": "your",
+      "index": 619
+    },
+    {
+      "Word": "LTE",
+      "Offset": 2111500000,
+      "Duration": 6500000,
+      "display": "lte",
+      "index": 620
+    },
+    {
+      "Word": "connected",
+      "Offset": 2118100000,
+      "Duration": 5500000,
+      "display": "connected",
+      "index": 621
+    },
+    {
+      "Word": "dash",
+      "Offset": 2123700000,
+      "Duration": 3500000,
+      "display": "dash",
+      "index": 622
+    },
+    {
+      "Word": "cam",
+      "Offset": 2127300000,
+      "Duration": 3500000,
+      "display": "cam",
+      "index": 623
+    },
+    {
+      "Word": "into",
+      "Offset": 2131900000,
+      "Duration": 4200000,
+      "display": "into",
+      "index": 624
+    },
+    {
+      "Word": "a",
+      "Offset": 2136200000,
+      "Duration": 600000,
+      "display": "a",
+      "index": 625
+    },
+    {
+      "Word": "wi-fi",
+      "Offset": 2136900000,
+      "Duration": 6100000,
+      "display": "wi-fi",
+      "index": 626
+    },
+    {
+      "Word": "hotspot",
+      "Offset": 2143100000,
+      "Duration": 8300000,
+      "display": "hotspot",
+      "index": 627
+    },
+    {
+      "Word": "for",
+      "Offset": 2152600000,
+      "Duration": 2500000,
+      "display": "for",
+      "index": 628
+    },
+    {
+      "Word": "up",
+      "Offset": 2155200000,
+      "Duration": 1000000,
+      "display": "up",
+      "index": 629
+    },
+    {
+      "Word": "to",
+      "Offset": 2156300000,
+      "Duration": 1000000,
+      "display": "to",
+      "index": 630
+    },
+    {
+      "Word": "five",
+      "Offset": 2157400000,
+      "Duration": 4500000,
+      "display": "five",
+      "index": 631
+    },
+    {
+      "Word": "devices",
+      "Offset": 2162000000,
+      "Duration": 6500000,
+      "display": "devices",
+      "index": 632
+    },
+    {
+      "Word": "so",
+      "Offset": 2169600000,
+      "Duration": 2500000,
+      "display": "so",
+      "index": 633
+    },
+    {
+      "Word": "that's",
+      "Offset": 2172200000,
+      "Duration": 1900000,
+      "display": "that's",
+      "index": 634
+    },
+    {
+      "Word": "extra",
+      "Offset": 2174400000,
+      "Duration": 3900000,
+      "display": "extra",
+      "index": 635
+    },
+    {
+      "Word": "cool",
+      "Offset": 2178400000,
+      "Duration": 2300000,
+      "display": "cool",
+      "index": 636
+    },
+    {
+      "Word": "if",
+      "Offset": 2180800000,
+      "Duration": 1100000,
+      "display": "if",
+      "index": 637
+    },
+    {
+      "Word": "you're",
+      "Offset": 2182000000,
+      "Duration": 1500000,
+      "display": "you're",
+      "index": 638
+    },
+    {
+      "Word": "on",
+      "Offset": 2183600000,
+      "Duration": 1100000,
+      "display": "on",
+      "index": 639
+    },
+    {
+      "Word": "a",
+      "Offset": 2184800000,
+      "Duration": 300000,
+      "display": "a",
+      "index": 640
+    },
+    {
+      "Word": "road",
+      "Offset": 2185200000,
+      "Duration": 3100000,
+      "display": "road",
+      "index": 641
+    },
+    {
+      "Word": "trip",
+      "Offset": 2188400000,
+      "Duration": 4700000,
+      "display": "trip",
+      "index": 642
+    },
+    {
+      "Word": "and",
+      "Offset": 2193400000,
+      "Duration": 1700000,
+      "display": "and",
+      "index": 643
+    },
+    {
+      "Word": "you",
+      "Offset": 2195200000,
+      "Duration": 700000,
+      "display": "you",
+      "index": 644
+    },
+    {
+      "Word": "need",
+      "Offset": 2196000000,
+      "Duration": 1900000,
+      "display": "need",
+      "index": 645
+    },
+    {
+      "Word": "your",
+      "Offset": 2198000000,
+      "Duration": 1700000,
+      "display": "your",
+      "index": 646
+    },
+    {
+      "Word": "people",
+      "Offset": 2199800000,
+      "Duration": 6100000,
+      "display": "people",
+      "index": 647
+    },
+    {
+      "Word": "to",
+      "Offset": 2207100000,
+      "Duration": 4800000,
+      "display": "to",
+      "index": 648
+    },
+    {
+      "Word": "you",
+      "Offset": 2212200000,
+      "Duration": 3300000,
+      "display": "you",
+      "index": 649
+    },
+    {
+      "Word": "know",
+      "Offset": 2215600000,
+      "Duration": 2000000,
+      "display": "know",
+      "index": 650
+    },
+    {
+      "Word": "be",
+      "Offset": 2217900000,
+      "Duration": 1700000,
+      "display": "be",
+      "index": 651
+    },
+    {
+      "Word": "able",
+      "Offset": 2219700000,
+      "Duration": 2100000,
+      "display": "able",
+      "index": 652
+    },
+    {
+      "Word": "to",
+      "Offset": 2221900000,
+      "Duration": 1200000,
+      "display": "to",
+      "index": 653
+    },
+    {
+      "Word": "use",
+      "Offset": 2223200000,
+      "Duration": 3500000,
+      "display": "use",
+      "index": 654
+    },
+    {
+      "Word": "their",
+      "Offset": 2226800000,
+      "Duration": 2700000,
+      "display": "their",
+      "index": 655
+    },
+    {
+      "Word": "of",
+      "Offset": 2229600000,
+      "Duration": 3300000,
+      "display": "of",
+      "index": 656
+    },
+    {
+      "Word": "computers",
+      "Offset": 2233000000,
+      "Duration": 7500000,
+      "display": "computers",
+      "index": 657
+    },
+    {
+      "Word": "in",
+      "Offset": 2241800000,
+      "Duration": 2400000,
+      "display": "in",
+      "index": 658
+    },
+    {
+      "Word": "the",
+      "Offset": 2244300000,
+      "Duration": 800000,
+      "display": "the",
+      "index": 659
+    },
+    {
+      "Word": "back",
+      "Offset": 2245200000,
+      "Duration": 2500000,
+      "display": "back",
+      "index": 660
+    },
+    {
+      "Word": "seat",
+      "Offset": 2247800000,
+      "Duration": 3000000,
+      "display": "seat",
+      "index": 661
+    },
+    {
+      "Word": "or",
+      "Offset": 2251100000,
+      "Duration": 2200000,
+      "display": "or",
+      "index": 662
+    },
+    {
+      "Word": "whatever",
+      "Offset": 2253400000,
+      "Duration": 4500000,
+      "display": "whatever",
+      "index": 663
+    },
+    {
+      "Word": "D",
+      "Offset": 2259600000,
+      "Duration": 2900000,
+      "display": "d",
+      "index": 664
+    },
+    {
+      "Word": "R",
+      "Offset": 2262600000,
+      "Duration": 3400000,
+      "display": "r",
+      "index": 665
+    },
+    {
+      "Word": "nine",
+      "Offset": 2266300000,
+      "Duration": 3500000,
+      "display": "nine",
+      "index": 666
+    },
+    {
+      "Word": "hundred",
+      "Offset": 2269900000,
+      "Duration": 2200000,
+      "display": "hundred",
+      "index": 667
+    },
+    {
+      "Word": "X",
+      "Offset": 2272200000,
+      "Duration": 1500000,
+      "display": "x",
+      "index": 668
+    },
+    {
+      "Word": "plus",
+      "Offset": 2273800000,
+      "Duration": 2700000,
+      "display": "plus",
+      "index": 669
+    },
+    {
+      "Word": "model",
+      "Offset": 2276600000,
+      "Duration": 2700000,
+      "display": "model",
+      "index": 670
+    },
+    {
+      "Word": "comes",
+      "Offset": 2279400000,
+      "Duration": 1800000,
+      "display": "comes",
+      "index": 671
+    },
+    {
+      "Word": "with",
+      "Offset": 2281300000,
+      "Duration": 800000,
+      "display": "with",
+      "index": 672
+    },
+    {
+      "Word": "an",
+      "Offset": 2282200000,
+      "Duration": 1100000,
+      "display": "an",
+      "index": 673
+    },
+    {
+      "Word": "optional",
+      "Offset": 2283400000,
+      "Duration": 4600000,
+      "display": "optional",
+      "index": 674
+    },
+    {
+      "Word": "rear",
+      "Offset": 2288100000,
+      "Duration": 2600000,
+      "display": "rear",
+      "index": 675
+    },
+    {
+      "Word": "camera",
+      "Offset": 2290800000,
+      "Duration": 4900000,
+      "display": "camera",
+      "index": 676
+    },
+    {
+      "Word": "which",
+      "Offset": 2296600000,
+      "Duration": 2700000,
+      "display": "which",
+      "index": 677
+    },
+    {
+      "Word": "we",
+      "Offset": 2299400000,
+      "Duration": 1300000,
+      "display": "we",
+      "index": 678
+    },
+    {
+      "Word": "can",
+      "Offset": 2300800000,
+      "Duration": 1500000,
+      "display": "can",
+      "index": 679
+    },
+    {
+      "Word": "get",
+      "Offset": 2302400000,
+      "Duration": 2500000,
+      "display": "get",
+      "index": 680
+    },
+    {
+      "Word": "now",
+      "Offset": 2305000000,
+      "Duration": 3700000,
+      "display": "now",
+      "index": 681
+    },
+    {
+      "Word": "or",
+      "Offset": 2309500000,
+      "Duration": 4600000,
+      "display": "or",
+      "index": 682
+    },
+    {
+      "Word": "add",
+      "Offset": 2314200000,
+      "Duration": 3300000,
+      "display": "add",
+      "index": 683
+    },
+    {
+      "Word": "later",
+      "Offset": 2317800000,
+      "Duration": 3700000,
+      "display": "later",
+      "index": 684
+    },
+    {
+      "Word": "on",
+      "Offset": 2321600000,
+      "Duration": 3100000,
+      "display": "on",
+      "index": 685
+    },
+    {
+      "Word": "you",
+      "Offset": 2325800000,
+      "Duration": 2500000,
+      "display": "you",
+      "index": 686
+    },
+    {
+      "Word": "can",
+      "Offset": 2328400000,
+      "Duration": 900000,
+      "display": "can",
+      "index": 687
+    },
+    {
+      "Word": "go",
+      "Offset": 2329400000,
+      "Duration": 800000,
+      "display": "go",
+      "index": 688
+    },
+    {
+      "Word": "to",
+      "Offset": 2330300000,
+      "Duration": 800000,
+      "display": "to",
+      "index": 689
+    },
+    {
+      "Word": "black",
+      "Offset": 2331200000,
+      "Duration": 4300000,
+      "display": "black",
+      "index": 690
+    },
+    {
+      "Word": "vue",
+      "Offset": 2335600000,
+      "Duration": 5100000,
+      "display": "vue",
+      "index": 691
+    },
+    {
+      "Word": "dot",
+      "Offset": 2341000000,
+      "Duration": 4500000,
+      "display": "dot",
+      "index": 692
+    },
+    {
+      "Word": "com",
+      "Offset": 2345600000,
+      "Duration": 3700000,
+      "display": "com",
+      "index": 693
+    },
+    {
+      "Word": "slash",
+      "Offset": 2349400000,
+      "Duration": 4100000,
+      "display": "slash",
+      "index": 694
+    },
+    {
+      "Word": "TST",
+      "Offset": 2353600000,
+      "Duration": 7500000,
+      "display": "tst",
+      "index": 695
+    },
+    {
+      "Word": "that's",
+      "Offset": 2362400000,
+      "Duration": 3700000,
+      "display": "that's",
+      "index": 696
+    },
+    {
+      "Word": "blesk",
+      "Offset": 2366200000,
+      "Duration": 11600000,
+      "display": "blesk",
+      "index": 697
+    },
+    {
+      "Word": "kvue",
+      "Offset": 2377900000,
+      "Duration": 10400000,
+      "display": "kvue",
+      "index": 698
+    },
+    {
+      "Word": "E",
+      "Offset": 2388400000,
+      "Duration": 3900000,
+      "display": "e",
+      "index": 699
+    },
+    {
+      "Word": "black",
+      "Offset": 2392400000,
+      "Duration": 3900000,
+      "display": "black",
+      "index": 700
+    },
+    {
+      "Word": "vue",
+      "Offset": 2396400000,
+      "Duration": 4100000,
+      "display": "vue",
+      "index": 701
+    },
+    {
+      "Word": "dot",
+      "Offset": 2400600000,
+      "Duration": 3300000,
+      "display": "dot",
+      "index": 702
+    },
+    {
+      "Word": "com",
+      "Offset": 2404000000,
+      "Duration": 4300000,
+      "display": "com",
+      "index": 703
+    },
+    {
+      "Word": "TST",
+      "Offset": 2412600000,
+      "Duration": 8500000,
+      "display": "tst",
+      "index": 704
+    },
+    {
+      "Word": "and",
+      "Offset": 2422000000,
+      "Duration": 2200000,
+      "display": "and",
+      "index": 705
+    },
+    {
+      "Word": "then",
+      "Offset": 2424300000,
+      "Duration": 1400000,
+      "display": "then",
+      "index": 706
+    },
+    {
+      "Word": "use",
+      "Offset": 2425800000,
+      "Duration": 1800000,
+      "display": "use",
+      "index": 707
+    },
+    {
+      "Word": "the",
+      "Offset": 2427700000,
+      "Duration": 1100000,
+      "display": "the",
+      "index": 708
+    },
+    {
+      "Word": "promo",
+      "Offset": 2428900000,
+      "Duration": 3200000,
+      "display": "promo",
+      "index": 709
+    },
+    {
+      "Word": "code",
+      "Offset": 2432200000,
+      "Duration": 3300000,
+      "display": "code",
+      "index": 710
+    },
+    {
+      "Word": "tire",
+      "Offset": 2435600000,
+      "Duration": 5900000,
+      "display": "tire",
+      "index": 711
+    },
+    {
+      "Word": "to",
+      "Offset": 2442800000,
+      "Duration": 2100000,
+      "display": "to",
+      "index": 712
+    },
+    {
+      "Word": "get",
+      "Offset": 2445000000,
+      "Duration": 1700000,
+      "display": "get",
+      "index": 713
+    },
+    {
+      "Word": "ten",
+      "Offset": 2446800000,
+      "Duration": 2100000,
+      "display": "ten",
+      "index": 714
+    },
+    {
+      "Word": "percent",
+      "Offset": 2449000000,
+      "Duration": 3300000,
+      "display": "percent",
+      "index": 715
+    },
+    {
+      "Word": "of",
+      "Offset": 2452800000,
+      "Duration": 2000000,
+      "display": "of",
+      "index": 716
+    },
+    {
+      "Word": "any",
+      "Offset": 2455100000,
+      "Duration": 4000000,
+      "display": "any",
+      "index": 717
+    },
+    {
+      "Word": "blackvue",
+      "Offset": 2459400000,
+      "Duration": 7300000,
+      "display": "blackvue",
+      "index": 718
+    },
+    {
+      "Word": "dashcam",
+      "Offset": 2466800000,
+      "Duration": 8500000,
+      "display": "dashcam",
+      "index": 719
+    },
+    {
+      "Word": "plus",
+      "Offset": 2476900000,
+      "Duration": 4200000,
+      "display": "plus",
+      "index": 720
+    },
+    {
+      "Word": "free",
+      "Offset": 2481500000,
+      "Duration": 5000000,
+      "display": "free",
+      "index": 721
+    },
+    {
+      "Word": "shipping",
+      "Offset": 2486600000,
+      "Duration": 5300000,
+      "display": "shipping",
+      "index": 722
+    },
+    {
+      "Word": "for",
+      "Offset": 2492400000,
+      "Duration": 3900000,
+      "display": "for",
+      "index": 723
+    },
+    {
+      "Word": "any",
+      "Offset": 2496400000,
+      "Duration": 1900000,
+      "display": "any",
+      "index": 724
+    },
+    {
+      "Word": "order",
+      "Offset": 2498400000,
+      "Duration": 4700000,
+      "display": "order",
+      "index": 725
+    },
+    {
+      "Word": "over",
+      "Offset": 2503400000,
+      "Duration": 3300000,
+      "display": "over",
+      "index": 726
+    },
+    {
+      "Word": "two",
+      "Offset": 2506800000,
+      "Duration": 2500000,
+      "display": "two",
+      "index": 727
+    },
+    {
+      "Word": "hundred",
+      "Offset": 2509400000,
+      "Duration": 2600000,
+      "display": "hundred",
+      "index": 728
+    },
+    {
+      "Word": "dollars",
+      "Offset": 2512100000,
+      "Duration": 3900000,
+      "display": "dollars",
+      "index": 729
+    },
+    {
+      "Word": "so",
+      "Offset": 2516100000,
+      "Duration": 1600000,
+      "display": "so",
+      "index": 730
+    },
+    {
+      "Word": "blackview",
+      "Offset": 2517800000,
+      "Duration": 8300000,
+      "display": "blackview",
+      "index": 731
+    },
+    {
+      "Word": "com",
+      "Offset": 2526200000,
+      "Duration": 4900000,
+      "display": "com",
+      "index": 732
+    },
+    {
+      "Word": "slash",
+      "Offset": 2531800000,
+      "Duration": 6800000,
+      "display": "slash",
+      "index": 733
+    },
+    {
+      "Word": "TST",
+      "Offset": 2538900000,
+      "Duration": 8400000,
+      "display": "tst",
+      "index": 734
+    },
+    {
+      "Word": "coupon",
+      "Offset": 2548800000,
+      "Duration": 7000000,
+      "display": "coupon",
+      "index": 735
+    },
+    {
+      "Word": "code",
+      "Offset": 2555900000,
+      "Duration": 4400000,
+      "display": "code",
+      "index": 736
+    },
+    {
+      "Word": "tire",
+      "Offset": 2560600000,
+      "Duration": 6600000,
+      "display": "tire",
+      "index": 737
+    },
+    {
+      "Word": "gets",
+      "Offset": 2568000000,
+      "Duration": 3500000,
+      "display": "gets",
+      "index": 738
+    },
+    {
+      "Word": "you",
+      "Offset": 2571600000,
+      "Duration": 900000,
+      "display": "you",
+      "index": 739
+    },
+    {
+      "Word": "ten",
+      "Offset": 2572600000,
+      "Duration": 2300000,
+      "display": "ten",
+      "index": 740
+    },
+    {
+      "Word": "percent",
+      "Offset": 2575000000,
+      "Duration": 2900000,
+      "display": "percent",
+      "index": 741
+    },
+    {
+      "Word": "off",
+      "Offset": 2578000000,
+      "Duration": 2500000,
+      "display": "off",
+      "index": 742
+    },
+    {
+      "Word": "any",
+      "Offset": 2582300000,
+      "Duration": 3400000,
+      "display": "any",
+      "index": 743
+    },
+    {
+      "Word": "blackvue",
+      "Offset": 2585800000,
+      "Duration": 6500000,
+      "display": "blackvue",
+      "index": 744
+    },
+    {
+      "Word": "dashcam",
+      "Offset": 2592400000,
+      "Duration": 8900000,
+      "display": "dashcam",
+      "index": 745
+    },
+    {
+      "Word": "with",
+      "Offset": 2601600000,
+      "Duration": 2500000,
+      "display": "with",
+      "index": 746
+    },
+    {
+      "Word": "free",
+      "Offset": 2604200000,
+      "Duration": 3500000,
+      "display": "free",
+      "index": 747
+    },
+    {
+      "Word": "shipping",
+      "Offset": 2607800000,
+      "Duration": 5100000,
+      "display": "shipping",
+      "index": 748
+    },
+    {
+      "Word": "for",
+      "Offset": 2613800000,
+      "Duration": 2500000,
+      "display": "for",
+      "index": 749
+    },
+    {
+      "Word": "orders",
+      "Offset": 2616400000,
+      "Duration": 4100000,
+      "display": "orders",
+      "index": 750
+    },
+    {
+      "Word": "over",
+      "Offset": 2620800000,
+      "Duration": 3500000,
+      "display": "over",
+      "index": 751
+    },
+    {
+      "Word": "two",
+      "Offset": 2624400000,
+      "Duration": 2100000,
+      "display": "two",
+      "index": 752
+    },
+    {
+      "Word": "hundred",
+      "Offset": 2626600000,
+      "Duration": 2400000,
+      "display": "hundred",
+      "index": 753
+    },
+    {
+      "Word": "dollars",
+      "Offset": 2629100000,
+      "Duration": 4600000,
+      "display": "dollars",
+      "index": 754
+    },
+    {
+      "Word": "and",
+      "Offset": 2636700000,
+      "Duration": 2400000,
+      "display": "and",
+      "index": 755
+    },
+    {
+      "Word": "of",
+      "Offset": 2639200000,
+      "Duration": 700000,
+      "display": "of",
+      "index": 756
+    },
+    {
+      "Word": "course",
+      "Offset": 2640000000,
+      "Duration": 2500000,
+      "display": "course",
+      "index": 757
+    },
+    {
+      "Word": "we",
+      "Offset": 2642600000,
+      "Duration": 800000,
+      "display": "we",
+      "index": 758
+    },
+    {
+      "Word": "brought",
+      "Offset": 2643500000,
+      "Duration": 2400000,
+      "display": "brought",
+      "index": 759
+    },
+    {
+      "Word": "to",
+      "Offset": 2646000000,
+      "Duration": 700000,
+      "display": "to",
+      "index": 760
+    },
+    {
+      "Word": "you",
+      "Offset": 2646800000,
+      "Duration": 700000,
+      "display": "you",
+      "index": 761
+    },
+    {
+      "Word": "again",
+      "Offset": 2647600000,
+      "Duration": 2700000,
+      "display": "again",
+      "index": 762
+    },
+    {
+      "Word": "by",
+      "Offset": 2650400000,
+      "Duration": 1500000,
+      "display": "by",
+      "index": 763
+    },
+    {
+      "Word": "hellofresh",
+      "Offset": 2652000000,
+      "Duration": 6800000,
+      "display": "hellofresh",
+      "index": 764
+    },
+    {
+      "Word": "i",
+      "Offset": 2659100000,
+      "Duration": 4600000,
+      "display": "i",
+      "index": 765
+    },
+    {
+      "Word": "love",
+      "Offset": 2664000000,
+      "Duration": 4900000,
+      "display": "love",
+      "index": 766
+    },
+    {
+      "Word": "hello",
+      "Offset": 2669000000,
+      "Duration": 3300000,
+      "display": "hello",
+      "index": 767
+    },
+    {
+      "Word": "fresh",
+      "Offset": 2672400000,
+      "Duration": 3900000,
+      "display": "fresh",
+      "index": 768
+    },
+    {
+      "Word": "why",
+      "Offset": 2676400000,
+      "Duration": 4300000,
+      "display": "why",
+      "index": 769
+    },
+    {
+      "Word": "because",
+      "Offset": 2681800000,
+      "Duration": 4100000,
+      "display": "because",
+      "index": 770
+    },
+    {
+      "Word": "you",
+      "Offset": 2686000000,
+      "Duration": 800000,
+      "display": "you",
+      "index": 771
+    },
+    {
+      "Word": "get",
+      "Offset": 2686900000,
+      "Duration": 2200000,
+      "display": "get",
+      "index": 772
+    },
+    {
+      "Word": "fresh",
+      "Offset": 2689400000,
+      "Duration": 5500000,
+      "display": "fresh",
+      "index": 773
+    },
+    {
+      "Word": "pre",
+      "Offset": 2696800000,
+      "Duration": 4500000,
+      "display": "pre",
+      "index": 774
+    },
+    {
+      "Word": "measured",
+      "Offset": 2701400000,
+      "Duration": 3400000,
+      "display": "measured",
+      "index": 775
+    },
+    {
+      "Word": "ingredients",
+      "Offset": 2704900000,
+      "Duration": 6000000,
+      "display": "ingredients",
+      "index": 776
+    },
+    {
+      "Word": "and",
+      "Offset": 2712400000,
+      "Duration": 3100000,
+      "display": "and",
+      "index": 777
+    },
+    {
+      "Word": "mouthwatering",
+      "Offset": 2715600000,
+      "Duration": 7300000,
+      "display": "mouthwatering",
+      "index": 778
+    },
+    {
+      "Word": "seasonal",
+      "Offset": 2723000000,
+      "Duration": 4500000,
+      "display": "seasonal",
+      "index": 779
+    },
+    {
+      "Word": "recipes",
+      "Offset": 2727600000,
+      "Duration": 3900000,
+      "display": "recipes",
+      "index": 780
+    },
+    {
+      "Word": "delivered",
+      "Offset": 2731600000,
+      "Duration": 5300000,
+      "display": "delivered",
+      "index": 781
+    },
+    {
+      "Word": "right",
+      "Offset": 2737200000,
+      "Duration": 4100000,
+      "display": "right",
+      "index": 782
+    },
+    {
+      "Word": "to",
+      "Offset": 2741400000,
+      "Duration": 800000,
+      "display": "to",
+      "index": 783
+    },
+    {
+      "Word": "your",
+      "Offset": 2742300000,
+      "Duration": 1200000,
+      "display": "your",
+      "index": 784
+    },
+    {
+      "Word": "door",
+      "Offset": 2743600000,
+      "Duration": 2500000,
+      "display": "door",
+      "index": 785
+    },
+    {
+      "Word": "you",
+      "Offset": 2746200000,
+      "Duration": 700000,
+      "display": "you",
+      "index": 786
+    },
+    {
+      "Word": "can",
+      "Offset": 2747000000,
+      "Duration": 1500000,
+      "display": "can",
+      "index": 787
+    },
+    {
+      "Word": "skip",
+      "Offset": 2748600000,
+      "Duration": 3500000,
+      "display": "skip",
+      "index": 788
+    },
+    {
+      "Word": "trips",
+      "Offset": 2752200000,
+      "Duration": 3100000,
+      "display": "trips",
+      "index": 789
+    },
+    {
+      "Word": "the",
+      "Offset": 2755900000,
+      "Duration": 900000,
+      "display": "the",
+      "index": 790
+    },
+    {
+      "Word": "grocery",
+      "Offset": 2756900000,
+      "Duration": 3900000,
+      "display": "grocery",
+      "index": 791
+    },
+    {
+      "Word": "store",
+      "Offset": 2760900000,
+      "Duration": 3500000,
+      "display": "store",
+      "index": 792
+    },
+    {
+      "Word": "and",
+      "Offset": 2765700000,
+      "Duration": 2500000,
+      "display": "and",
+      "index": 793
+    },
+    {
+      "Word": "count",
+      "Offset": 2768300000,
+      "Duration": 2500000,
+      "display": "count",
+      "index": 794
+    },
+    {
+      "Word": "on",
+      "Offset": 2770900000,
+      "Duration": 900000,
+      "display": "on",
+      "index": 795
+    },
+    {
+      "Word": "hellofresh",
+      "Offset": 2771900000,
+      "Duration": 5900000,
+      "display": "hellofresh",
+      "index": 796
+    },
+    {
+      "Word": "to",
+      "Offset": 2777900000,
+      "Duration": 900000,
+      "display": "to",
+      "index": 797
+    },
+    {
+      "Word": "make",
+      "Offset": 2778900000,
+      "Duration": 1900000,
+      "display": "make",
+      "index": 798
+    },
+    {
+      "Word": "home",
+      "Offset": 2780900000,
+      "Duration": 2900000,
+      "display": "home",
+      "index": 799
+    },
+    {
+      "Word": "cooking",
+      "Offset": 2783900000,
+      "Duration": 4100000,
+      "display": "cooking",
+      "index": 800
+    },
+    {
+      "Word": "easy",
+      "Offset": 2790900000,
+      "Duration": 5900000,
+      "display": "easy",
+      "index": 801
+    },
+    {
+      "Word": "fun",
+      "Offset": 2797100000,
+      "Duration": 4900000,
+      "display": "fun",
+      "index": 802
+    },
+    {
+      "Word": "and",
+      "Offset": 2802100000,
+      "Duration": 1300000,
+      "display": "and",
+      "index": 803
+    },
+    {
+      "Word": "affordable",
+      "Offset": 2803500000,
+      "Duration": 6100000,
+      "display": "affordable",
+      "index": 804
+    },
+    {
+      "Word": "that's",
+      "Offset": 2810500000,
+      "Duration": 3700000,
+      "display": "that's",
+      "index": 805
+    },
+    {
+      "Word": "why",
+      "Offset": 2814300000,
+      "Duration": 2300000,
+      "display": "why",
+      "index": 806
+    },
+    {
+      "Word": "it's",
+      "Offset": 2816700000,
+      "Duration": 1800000,
+      "display": "it's",
+      "index": 807
+    },
+    {
+      "Word": "america",
+      "Offset": 2818600000,
+      "Duration": 4800000,
+      "display": "america",
+      "index": 808
+    },
+    {
+      "Word": "'s",
+      "Offset": 2823500000,
+      "Duration": 1100000,
+      "display": "'s",
+      "index": 809
+    },
+    {
+      "Word": "number",
+      "Offset": 2824700000,
+      "Duration": 4100000,
+      "display": "number",
+      "index": 810
+    },
+    {
+      "Word": "one",
+      "Offset": 2828900000,
+      "Duration": 3500000,
+      "display": "one",
+      "index": 811
+    },
+    {
+      "Word": "meal",
+      "Offset": 2832700000,
+      "Duration": 2700000,
+      "display": "meal",
+      "index": 812
+    },
+    {
+      "Word": "kit",
+      "Offset": 2835500000,
+      "Duration": 3100000,
+      "display": "kit",
+      "index": 813
+    },
+    {
+      "Word": "look",
+      "Offset": 2839700000,
+      "Duration": 4100000,
+      "display": "look",
+      "index": 814
+    },
+    {
+      "Word": "here's",
+      "Offset": 2844100000,
+      "Duration": 2900000,
+      "display": "here's",
+      "index": 815
+    },
+    {
+      "Word": "the",
+      "Offset": 2847100000,
+      "Duration": 1100000,
+      "display": "the",
+      "index": 816
+    },
+    {
+      "Word": "thing",
+      "Offset": 2848300000,
+      "Duration": 3700000,
+      "display": "thing",
+      "index": 817
+    },
+    {
+      "Word": "you",
+      "Offset": 2858900000,
+      "Duration": 5900000,
+      "display": "you",
+      "index": 818
+    },
+    {
+      "Word": "don't",
+      "Offset": 2865500000,
+      "Duration": 5700000,
+      "display": "don't",
+      "index": 819
+    },
+    {
+      "Word": "want",
+      "Offset": 2871300000,
+      "Duration": 3700000,
+      "display": "want",
+      "index": 820
+    },
+    {
+      "Word": "a",
+      "Offset": 2875300000,
+      "Duration": 1300000,
+      "display": "a",
+      "index": 821
+    },
+    {
+      "Word": "service",
+      "Offset": 2876700000,
+      "Duration": 4500000,
+      "display": "service",
+      "index": 822
+    },
+    {
+      "Word": "that",
+      "Offset": 2881300000,
+      "Duration": 1500000,
+      "display": "that",
+      "index": 823
+    },
+    {
+      "Word": "sends",
+      "Offset": 2882900000,
+      "Duration": 2900000,
+      "display": "sends",
+      "index": 824
+    },
+    {
+      "Word": "you",
+      "Offset": 2885900000,
+      "Duration": 1300000,
+      "display": "you",
+      "index": 825
+    },
+    {
+      "Word": "pre",
+      "Offset": 2887300000,
+      "Duration": 2200000,
+      "display": "pre",
+      "index": 826
+    },
+    {
+      "Word": "made",
+      "Offset": 2889600000,
+      "Duration": 2600000,
+      "display": "made",
+      "index": 827
+    },
+    {
+      "Word": "food",
+      "Offset": 2892300000,
+      "Duration": 3100000,
+      "display": "food",
+      "index": 828
+    },
+    {
+      "Word": "you",
+      "Offset": 2897200000,
+      "Duration": 2200000,
+      "display": "you",
+      "index": 829
+    },
+    {
+      "Word": "think",
+      "Offset": 2899500000,
+      "Duration": 3500000,
+      "display": "think",
+      "index": 830
+    },
+    {
+      "Word": "you",
+      "Offset": 2903100000,
+      "Duration": 1100000,
+      "display": "you",
+      "index": 831
+    },
+    {
+      "Word": "do",
+      "Offset": 2904300000,
+      "Duration": 3100000,
+      "display": "do",
+      "index": 832
+    },
+    {
+      "Word": "but",
+      "Offset": 2908600000,
+      "Duration": 2600000,
+      "display": "but",
+      "index": 833
+    },
+    {
+      "Word": "you",
+      "Offset": 2911300000,
+      "Duration": 1100000,
+      "display": "you",
+      "index": 834
+    },
+    {
+      "Word": "don't",
+      "Offset": 2912500000,
+      "Duration": 2900000,
+      "display": "don't",
+      "index": 835
+    },
+    {
+      "Word": "it's",
+      "Offset": 2916300000,
+      "Duration": 3100000,
+      "display": "it's",
+      "index": 836
+    },
+    {
+      "Word": "like",
+      "Offset": 2919500000,
+      "Duration": 2300000,
+      "display": "like",
+      "index": 837
+    },
+    {
+      "Word": "eating",
+      "Offset": 2921900000,
+      "Duration": 2500000,
+      "display": "eating",
+      "index": 838
+    },
+    {
+      "Word": "leftovers",
+      "Offset": 2924500000,
+      "Duration": 6900000,
+      "display": "leftovers",
+      "index": 839
+    },
+    {
+      "Word": "all",
+      "Offset": 2931500000,
+      "Duration": 2300000,
+      "display": "all",
+      "index": 840
+    },
+    {
+      "Word": "the",
+      "Offset": 2933900000,
+      "Duration": 1100000,
+      "display": "the",
+      "index": 841
+    },
+    {
+      "Word": "time",
+      "Offset": 2935100000,
+      "Duration": 3700000,
+      "display": "time",
+      "index": 842
+    },
+    {
+      "Word": "that's",
+      "Offset": 2939900000,
+      "Duration": 3800000,
+      "display": "that's",
+      "index": 843
+    },
+    {
+      "Word": "why",
+      "Offset": 2943800000,
+      "Duration": 1600000,
+      "display": "why",
+      "index": 844
+    },
+    {
+      "Word": "hellofresh",
+      "Offset": 2945500000,
+      "Duration": 6700000,
+      "display": "hellofresh",
+      "index": 845
+    },
+    {
+      "Word": "rules",
+      "Offset": 2952300000,
+      "Duration": 4900000,
+      "display": "rules",
+      "index": 846
+    },
+    {
+      "Word": "they",
+      "Offset": 2958500000,
+      "Duration": 8200000,
+      "display": "they",
+      "index": 847
+    },
+    {
+      "Word": "make",
+      "Offset": 2967000000,
+      "Duration": 4000000,
+      "display": "make",
+      "index": 848
+    },
+    {
+      "Word": "it",
+      "Offset": 2971100000,
+      "Duration": 1300000,
+      "display": "it",
+      "index": 849
+    },
+    {
+      "Word": "so",
+      "Offset": 2972500000,
+      "Duration": 1900000,
+      "display": "so",
+      "index": 850
+    },
+    {
+      "Word": "you're",
+      "Offset": 2974500000,
+      "Duration": 1700000,
+      "display": "you're",
+      "index": 851
+    },
+    {
+      "Word": "cooking",
+      "Offset": 2976300000,
+      "Duration": 4100000,
+      "display": "cooking",
+      "index": 852
+    },
+    {
+      "Word": "at",
+      "Offset": 2980500000,
+      "Duration": 900000,
+      "display": "at",
+      "index": 853
+    },
+    {
+      "Word": "home",
+      "Offset": 2981500000,
+      "Duration": 4100000,
+      "display": "home",
+      "index": 854
+    },
+    {
+      "Word": "with",
+      "Offset": 2988100000,
+      "Duration": 5100000,
+      "display": "with",
+      "index": 855
+    },
+    {
+      "Word": "fresh",
+      "Offset": 2995100000,
+      "Duration": 6100000,
+      "display": "fresh",
+      "index": 856
+    },
+    {
+      "Word": "ingredients",
+      "Offset": 3001300000,
+      "Duration": 7700000,
+      "display": "ingredients",
+      "index": 857
+    },
+    {
+      "Word": "but",
+      "Offset": 3010500000,
+      "Duration": 3100000,
+      "display": "but",
+      "index": 858
+    },
+    {
+      "Word": "you",
+      "Offset": 3013700000,
+      "Duration": 1600000,
+      "display": "you",
+      "index": 859
+    }
+  ]
+}
