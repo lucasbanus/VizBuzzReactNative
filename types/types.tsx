@@ -7,6 +7,18 @@ export type PodcastInfo = {
   idx: number;
 };
 
+// The format used to display the words in rigged demo
+export type PodcastInfoR = {
+  key: string;
+  allText: Array<WordContainer>, 
+  name: string;
+  idx: number, 
+};
+export type WordContainer = {
+  word: string,
+  color: string, 
+}
+
 // The format used to display
 export type PodcastInfo2 = {
   key: string;
@@ -48,6 +60,7 @@ export type PodcastWordsArrayObject = {
   Word: string,
   display: string,
   index: number,
+  Polarity: number,
 }
 
 export type PodcastWordInfoJson = {

@@ -10,10 +10,11 @@ import {
 import { useState, useEffect } from "react";
 import PodcastList from "./PodcastList";
 import PodcastTranscript from "./PodcastTranscript";
-import {getPodcastsInitialWrapper, parseRssWrapper, getPodcastsInitialWrapper2} from "../../dataManager/dataManager";
+import PodcastTranscriptR from './PodcastTranscriptR';
+import {getPodcastsInitialWrapper, parseRssWrapper, getPodcastsInitialWrapper2, getPodcastsInitialWrapperR} from "../../dataManager/dataManager";
 import {greenColors} from '../../constants/colors';
 
-import { PodcastItems, PodcastInfo, PodcastInfo2 } from "../../types/types";
+import { PodcastItems, PodcastInfo, PodcastInfo2, PodcastInfoR } from "../../types/types";
 
 // TODO For rigged demo: retrieving json from local data
 const localData = require("./data.json");
@@ -23,6 +24,8 @@ export default function PodcastListContainer(): React.ReactElement {
   const [podcastNames, setPodcastNames] = useState<PodcastInfo[] | []>([]);
   const [podcastNames2, setPodcastNames2] = useState<PodcastInfo2[] | []>([]);
   const [currentPodcast, setCurrentPodcast] = useState(0);
+
+  const [podcastNamesR, setPodcastNamesR] = useState<PodcastInfoR[] | []>([]);
 
   const closePodcast = () => {
     setTranscript(false);
@@ -40,22 +43,22 @@ export default function PodcastListContainer(): React.ReactElement {
 
   // trial second
   //getPodcastsInitialWrapper2();
-  getPodcastsInitialWrapper2(setPodcastNames);
+  //getPodcastsInitialWrapper2(setPodcastNames);
+  getPodcastsInitialWrapperR(setPodcastNamesR);
 
   let mainComponent;
   if (isTranscript) {
     mainComponent = (
-      <PodcastTranscript
-        transcript={podcastNames[currentPodcast].allText}
+      <PodcastTranscriptR
+        transcript={podcastNamesR[currentPodcast].allText}
         visible={isTranscript}
         closePodcast={closePodcast}
-        color={podcastNames[currentPodcast].color}
       />
     );
   } else {
     mainComponent = (
       <PodcastList
-        podcastNames={podcastNames}
+        podcastNames={podcastNamesR}
         openPodcast={openPodcast}
         selectPodcast={setCurrentPodcast}
       />

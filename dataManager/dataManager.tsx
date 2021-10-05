@@ -1,6 +1,6 @@
 import * as rssParser from "react-native-rss-parser";
 
-import { PodcastItems, PodcastInfo, PodcastJson, PodcastWordInfoJson, PodcastWordsArrayObject } from "../types/types";
+import { PodcastItems, PodcastInfo, PodcastJson, PodcastWordInfoJson, PodcastWordsArrayObject, PodcastInfoR, WordContainer} from "../types/types";
 import { useEffect } from "react";
 
 // Constants used for initial fetching
@@ -14,7 +14,7 @@ const formatTime = (time: number) => {
     var remainder = seconds % 60;
     const tens = Math.floor(remainder/10);
     remainder = remainder % 10;
-    const timestr = "("+minutes.toString() + ":"+tens.toString()+remainder.toString()+")";
+    const timestr = "["+minutes.toString() + ":"+tens.toString()+remainder.toString()+"]";
     return timestr;
 }
 
@@ -58,6 +58,63 @@ export const getPodcastsInitialWrapper2 = (setPodcastNames : ((podcasts : Array<
     // Its really important so we wait for it
     useEffect(() => {
         getPodcastsInitial2(setPodcastNames);
+    }, []);
+};
+
+//functions rigged demo
+const getPodcastsInitialR = async (setPodcastNames : ((podcasts : Array<PodcastInfoR>) => void)) => {
+    try {
+        // Initial get request needed for testing
+        const response = await fetch(URL_Back2);
+        const json = await response.json();
+        const items: Array<PodcastJson> = await json;
+        let wordArray = [];
+        const transcripts : Array<Array<WordContainer>> = items.map(pod => {
+            //var finalString : string = "";
+            var wordContArray : Array<WordContainer> = [];
+            for(var i = 0; i < pod.word_info.words.length; i++){
+                const wordInfo : PodcastWordsArrayObject = pod.word_info.words[i];
+                var wordCont : WordContainer;
+                if (wordInfo.Polarity !== undefined){
+                    if (wordInfo.Polarity > 0){
+                        wordCont = {word: wordInfo.display + " ", color: "green"};
+                    } else if (wordInfo.Polarity < 0){
+                        wordCont = {word: wordInfo.display + " ", color: "red"};
+                    } else {
+                        wordCont = {word: wordInfo.display + " ", color: "black"};
+                    }
+                } else {
+                    wordCont = {word: wordInfo.display + " ", color: "black"};
+                }
+
+                wordContArray.push(wordCont);
+
+                if (i !== 0 && i % 20 === 0){
+                    wordContArray.push({word: "\n"+formatTime(wordInfo.Offset), color: "black"});
+                }
+            }
+            return wordContArray;
+        });
+        const formattedItems : Array<PodcastInfoR> = items.map((pod, idx) => {
+            return {
+                key: pod.id,
+                allText: transcripts[idx], 
+                name: pod.name,
+                idx: idx,
+            };
+        });
+        setPodcastNames(formattedItems);
+    } catch (error){
+        // how should we handle 
+    }
+};
+
+export const getPodcastsInitialWrapperR = (setPodcastNames : ((podcasts : Array<PodcastInfoR>) => void)) => {
+    getPodcastsInitialR(setPodcastNames);
+    
+    // Its really important so we wait for it
+    useEffect(() => {
+        getPodcastsInitialR(setPodcastNames);
     }, []);
 };
 

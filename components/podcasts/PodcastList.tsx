@@ -8,11 +8,11 @@ import {
   TouchableHighlight
 } from "react-native";
 
-import { PodcastInfo } from "../../types/types";
+import { PodcastInfo, PodcastInfoR } from "../../types/types";
 import { greenColors } from "../../constants/colors";
 
 export type Props = {
-  podcastNames: Array<PodcastInfo>;
+  podcastNames: Array<PodcastInfoR>;
   openPodcast: () => void;
   selectPodcast: (idx: number) => void;
 };
