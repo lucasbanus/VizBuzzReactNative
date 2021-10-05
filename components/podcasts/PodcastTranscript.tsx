@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, Modal, Text, ScrollView, View, Button} from 'react-native';
+import {StyleSheet, Modal, Text, ScrollView, View, Button, TouchableHighlight} from 'react-native';
+import { buttonColors } from '../../constants/colors';
 
 export type Props = {
     transcript: string, 
@@ -19,7 +20,14 @@ const PodcastTranscript = (props : Props) => {
                 </ScrollView>
             </View>
             <View style={styles.closeContainer}>
-                <Button title = "Close" onPress={props.closePodcast} color="red"/>
+                <TouchableHighlight
+                    underlayColor={buttonColors.closeButton}
+                    style={styles.touchable}
+                    onPress={props.closePodcast}
+                >
+                    <Text style={styles.closeButtonText}> Close</Text>
+                </TouchableHighlight>
+                {/* <Button title = "Close" onPress={props.closePodcast} color="red"/> */}
             </View>
         </Modal>
     );
@@ -31,8 +39,16 @@ const styles = StyleSheet.create({
         height:"10%",
         justifyContent:"center", 
         alignItems:"center",
-        backgroundColor: "#DEDEDE",
+        //backgroundColor: "#DEDEDE",
+        backgroundColor: buttonColors.closeButton,
         color: "red",
+    },
+    closeButtonText: {
+        textAlign: "center", 
+        justifyContent: "center", 
+        fontSize: 30, 
+        color: "white",
+        fontWeight: "bold",  
     },
     modalContainer: {
         justifyContent:"center", 
@@ -41,16 +57,23 @@ const styles = StyleSheet.create({
     scrollContainer: {
         width: "100%", 
         height: "90%",
-        paddingVertical: 50, 
+        paddingTop: 50, 
         paddingHorizontal: 30, 
     }, 
     textArea: {
-        fontSize: 30,
+        fontSize: 25,
+        textAlign: "center",
     },
     textTogether: {
         flexDirection: "row",
         flexWrap: "wrap", 
-    }
+    }, 
+    touchable: {
+        //borderColor: "#DEDEDE",
+        backgroundColor: buttonColors.closeButton,
+        padding: 10,
+        width: "100%"
+      }
 });
 
 export default PodcastTranscript;

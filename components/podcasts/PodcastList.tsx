@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import { PodcastInfo } from "../../types/types";
+import { greenColors } from "../../constants/colors";
 
 export type Props = {
   podcastNames: Array<PodcastInfo>;
@@ -48,7 +49,7 @@ const PodcastList = (props: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: greenColors.background,
     alignItems: "center",
     justifyContent: "center",
     width: "100%"
@@ -60,14 +61,20 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    paddingBottom: 10
+    paddingBottom: 10, 
+    fontWeight: 'bold',
+    letterSpacing: 1,
+    color: greenColors.deep, 
   },
   textInside: {
     fontSize: 20,
-    color: "#0074FF"
+    //color: "#0074FF", 
+    color : "#FFFFFF", 
   },
   touchable: {
-    borderColor: "#DEDEDE",
+    //borderColor: "#DEDEDE",
+    backgroundColor: greenColors.deep, 
+    borderColor: '#FFFFFF', 
     borderWidth: 1,
     padding: 10,
     width: "100%"

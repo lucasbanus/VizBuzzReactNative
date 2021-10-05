@@ -25,3 +25,31 @@ export type PodcastItems = {
   alias: string;
   authors: string;
 };
+
+// For the rigged demo
+export type PodcastJson = {
+  audio_bucket_id: string,
+  audio_file_id: string,
+  author: string,
+  duration: number,
+  episode_number: number,
+  id: string,
+  name: string,
+  publish_date: string,
+  rss_url: string,
+  transcript_bucket_id: string,
+  transcript_file_id: string,
+  word_info: PodcastWordInfoJson,
+}
+
+export type PodcastWordsArrayObject = {
+  Duration: number,
+  Offset: number,
+  Word: string,
+  display: string,
+  index: number,
+}
+
+export type PodcastWordInfoJson = {
+  words: Array<PodcastWordsArrayObject>
+}
