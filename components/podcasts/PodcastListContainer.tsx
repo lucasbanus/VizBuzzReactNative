@@ -10,11 +10,21 @@ import {
 import { useState, useEffect } from "react";
 import PodcastList from "./PodcastList";
 import PodcastTranscript from "./PodcastTranscript";
-import PodcastTranscriptR from './PodcastTranscriptR';
-import {getPodcastsInitialWrapper, parseRssWrapper, getPodcastsInitialWrapper2, getPodcastsInitialWrapperR} from "../../dataManager/dataManager";
-import {greenColors} from '../../constants/colors';
+import PodcastTranscriptR from "./PodcastTranscriptR";
+import {
+  getPodcastsInitialWrapper,
+  parseRssWrapper,
+  getPodcastsInitialWrapper2,
+  getPodcastsInitialWrapperR
+} from "../../dataManager/dataManager";
+import { greenColors } from "../../constants/colors";
 
-import { PodcastItems, PodcastInfo, PodcastInfo2, PodcastInfoR } from "../../types/types";
+import {
+  PodcastItems,
+  PodcastInfo,
+  PodcastInfo2,
+  PodcastInfoR
+} from "../../types/types";
 
 // TODO For rigged demo: retrieving json from local data
 const localData = require("./data.json");
@@ -36,9 +46,9 @@ export default function PodcastListContainer(): React.ReactElement {
   };
 
   //get the rss parsing
-  // parseRssWrapper();
+  parseRssWrapper();
 
-  // get the initial podcasts 
+  // get the initial podcasts
   //getPodcastsInitialWrapper(setPodcastNames);
 
   // trial second
