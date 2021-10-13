@@ -2,11 +2,13 @@ import React from 'react';
 import {StyleSheet, Modal, Text, ScrollView, View, Button, TouchableHighlight} from 'react-native';
 import { buttonColors } from '../../constants/colors';
 import { WordContainer } from '../../types/types';
+import { setTranscriptIndex, showTranscript } from '../../actions/pageSetupActions';
+import { connect } from 'react-redux';
 
 export type Props = {
     transcript: Array<WordContainer>, 
-    visible: boolean,
-    closePodcast : () => void,
+    showTranscript: (show : boolean) => void,
+    isTranscript: boolean,
 }
 
 const PodcastTranscript = (props : Props) => {
@@ -20,7 +22,7 @@ const PodcastTranscript = (props : Props) => {
         return wordComp;
     });
     return(
-        <Modal visible={props.visible} animationType="slide" style={styles.modalContainer}>
+        <Modal visible={props.isTranscript} animationType="slide" style={styles.modalContainer}>
             <View style={styles.scrollContainer}>
                 <ScrollView>
                     <View style={styles.textTogether}>
@@ -32,7 +34,8 @@ const PodcastTranscript = (props : Props) => {
                 <TouchableHighlight
                     underlayColor={buttonColors.closeButton}
                     style={styles.touchable}
-                    onPress={props.closePodcast}
+                    //onPress={props.closePodcast}
+                    onPress={() => props.showTranscript(false)}
                 >
                     <Text style={styles.closeButtonText}> Close</Text>
                 </TouchableHighlight>
@@ -87,4 +90,20 @@ const styles = StyleSheet.create({
       }
 });
 
-export default PodcastTranscript;
+
+const mapStateToProps = (state: any) => {
+    return {
+        transcript: state.podcast.podcast,
+        isTranscript: state.pageSetup.isShowingTranscript,
+    }
+  };
+  
+  const mapDispatchToProps = (dispatch : any) => {
+    return {
+        showTranscript : (show : boolean) => dispatch(showTranscript(show)),
+    }
+  };
+  
+export default connect(mapStateToProps, mapDispatchToProps)(PodcastTranscript);
+
+//export default PodcastTranscript;

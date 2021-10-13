@@ -10,6 +10,8 @@ import {
   WordContainer
 } from "../types/types";
 import { useEffect } from "react";
+import store from '../store/store';
+import { setPodcastList, loadingPodcasts } from "../actions/pageSetupActions";
 
 // Constants used for initial fetching
 const URL_Back2 = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
@@ -68,6 +70,7 @@ const getPodcastsInitial2 = async (
       };
     });
     setPodcastNames(formattedItems);
+    store.dispatch(setPodcastList(formattedItems));
   } catch (error) {
     // how should we handle
   }
@@ -85,9 +88,7 @@ export const getPodcastsInitialWrapper2 = (
 };
 
 //functions rigged demo
-const getPodcastsInitialR = async (
-  setPodcastNames: (podcasts: Array<PodcastInfoR>) => void
-) => {
+const getPodcastsInitialR = async () => {
   try {
     // Initial get request needed for testing
     const response = await fetch(URL_Back2);
@@ -131,21 +132,21 @@ const getPodcastsInitialR = async (
         idx: idx
       };
     });
-    setPodcastNames(formattedItems);
+    //setPodcastNames(formattedItems);
+    store.dispatch(setPodcastList(formattedItems));
+    store.dispatch(loadingPodcasts(false));
   } catch (error) {
     // how should we handle
   }
 };
 
-export const getPodcastsInitialWrapperR = (
-  setPodcastNames: (podcasts: Array<PodcastInfoR>) => void
-) => {
-  getPodcastsInitialR(setPodcastNames);
+export const getPodcastsInitialWrapperR = () => {
+  getPodcastsInitialR();
 
   // Its really important so we wait for it
-  useEffect(() => {
-    getPodcastsInitialR(setPodcastNames);
-  }, []);
+  // useEffect(() => {
+  //   getPodcastsInitialR();
+  // }, []);
 };
 
 // Constants used to fetch data from rss
@@ -155,7 +156,7 @@ const URL_rss = "https://feeds.megaphone.fm/sofia-with-an-f";
 // Functions used to parse rss
 const parseRss = async () => {
   // Parse RSS
-  console.log("hi");
+  //console.log("hi");
   try {
     fetch(URL_rss)
       .then(response => response.text())
@@ -166,8 +167,8 @@ const parseRss = async () => {
         const pod_authors = rss.authors;
         const x: Array<object> = rss.items;
         const item: any = x[0];
-        console.log(x.length);
-        console.log(item.id);
+        //console.log(x.length);
+        //console.log(item.id);
         // TODO: For rigged demo only, rename podcasts
         // formattedItems[0].name = rss.title + ": Daniel Osborne";
         // formattedItems[1].name = rss.title + ": John Temerian";

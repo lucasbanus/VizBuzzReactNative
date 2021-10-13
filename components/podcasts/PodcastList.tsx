@@ -10,17 +10,20 @@ import {
 
 import { PodcastInfo, PodcastInfoR } from "../../types/types";
 import { greenColors } from "../../constants/colors";
+import { setTranscriptIndex, showTranscript } from "../../actions/pageSetupActions";
+import { connect } from "react-redux";
+import { setPodcast } from "../../actions/podcastActions";
 
-export type Props = {
-  podcastNames: Array<PodcastInfoR>;
-  openPodcast: () => void;
-  selectPodcast: (idx: number) => void;
-};
+// export type Props = {
+//   podcastNames: Array<PodcastInfoR>;
+//   openPodcast: () => void;
+//   selectPodcast: (idx: number) => void;
+// };
 
-const PodcastList = (props: Props) => {
+const PodcastList = (props: any) => {
   const pressPodcast = (idx: number) => {
-    props.selectPodcast(idx);
-    props.openPodcast();
+    props.setPodcast(props.podcastList[idx].allText);
+    props.showTranscript(true);
   };
 
   return (
@@ -29,7 +32,7 @@ const PodcastList = (props: Props) => {
         Your Podcasts
       </Text>
       <FlatList
-        data={props.podcastNames}
+        data={props.podcastList}
         testID="list"
         renderItem={({ item }) => (
           <TouchableHighlight
@@ -81,4 +84,20 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PodcastList;
+const mapStateToProps = (state: any) => {
+  return {
+      transcript: state.podcast.podcast,
+      podcastList: state.pageSetup.podcastList,
+  }
+};
+
+const mapDispatchToProps = (dispatch : any) => {
+  return {
+      setTranscriptIndex : (idx: number) => dispatch(setTranscriptIndex(idx)),
+      showTranscript : (show : boolean) => dispatch(showTranscript(show)),
+      setPodcast: (podcast: any) => dispatch(setPodcast(podcast)),
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PodcastList);
+
