@@ -10,7 +10,10 @@ import {
 
 import { PodcastInfo, PodcastInfoR } from "../../types/types";
 import { greenColors } from "../../constants/colors";
-import { setTranscriptIndex, showTranscript } from "../../actions/pageSetupActions";
+import {
+  setTranscriptIndex,
+  showTranscript
+} from "../../actions/pageSetupActions";
 import { connect } from "react-redux";
 import { setPodcast } from "../../actions/podcastActions";
 
@@ -64,20 +67,20 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    paddingBottom: 10, 
-    fontWeight: 'bold',
+    paddingBottom: 10,
+    fontWeight: "bold",
     letterSpacing: 1,
-    color: greenColors.deep, 
+    color: greenColors.deep
   },
   textInside: {
     fontSize: 20,
-    //color: "#0074FF", 
-    color : "#FFFFFF", 
+    //color: "#0074FF",
+    color: "#FFFFFF"
   },
   touchable: {
     //borderColor: "#DEDEDE",
-    backgroundColor: greenColors.deep, 
-    borderColor: '#FFFFFF', 
+    backgroundColor: greenColors.deep,
+    borderColor: "#FFFFFF",
     borderWidth: 1,
     padding: 10,
     width: "100%"
@@ -86,18 +89,17 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state: any) => {
   return {
-      transcript: state.podcast.podcast,
-      podcastList: state.pageSetup.podcastList,
-  }
+    transcript: state.podcast.podcast,
+    podcastList: state.pageSetup.podcastList
+  };
 };
 
-const mapDispatchToProps = (dispatch : any) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
-      setTranscriptIndex : (idx: number) => dispatch(setTranscriptIndex(idx)),
-      showTranscript : (show : boolean) => dispatch(showTranscript(show)),
-      setPodcast: (podcast: any) => dispatch(setPodcast(podcast)),
-  }
+    setTranscriptIndex: (idx: number) => dispatch(setTranscriptIndex(idx)),
+    showTranscript: (show: boolean) => dispatch(showTranscript(show)),
+    setPodcast: (podcast: any) => dispatch(setPodcast(podcast))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PodcastList);
-
