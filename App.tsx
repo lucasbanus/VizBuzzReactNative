@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import { greenColors } from "./constants/colors";
 
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
@@ -35,7 +36,7 @@ export default function App() {
                 return <Ionicons name="settings" size={size} color={color} />;
               }
             },
-            tabBarActiveTintColor: "tomato",
+            tabBarActiveTintColor: greenColors.deep,
             tabBarInactiveTintColor: "gray"
           })}
         >

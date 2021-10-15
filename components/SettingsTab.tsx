@@ -1,37 +1,32 @@
 import * as React from "react";
 import { StyleSheet, Text, View, Switch } from "react-native";
 
-import { useState } from "react";
 import { greenColors } from "../constants/colors";
-// import { connect } from "tls";
+import {
+  setAnalysisEnabled,
+  setColorEnabled
+} from "../actions/pageSetupActions";
+import { connect } from "react-redux";
 
 const SettingsTab = (props: any) => {
-  const [analysisIsEnabled, setAnalysisIsEnabled] = useState(false);
-  const analysisToggleSwitch = () =>
-    setAnalysisIsEnabled(previousState => !previousState);
-
-  const [fontIsEnabled, setFontisIsEnabled] = useState(false);
-  const fontToggleSwitch = () =>
-    setFontisIsEnabled(previousState => !previousState);
-
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.switch}>
         <Text style={styles.label}>Analysis</Text>
         <Switch
           trackColor={{ false: "#767577", true: greenColors.deep }}
           ios_backgroundColor="#3e3e3e"
-          onValueChange={analysisToggleSwitch}
-          value={analysisIsEnabled}
+          onValueChange={() => props.setAnalysisEnabled(!props.analysis)}
+          value={props.analysis}
         />
       </View>
       <View style={styles.switch}>
-        <Text style={styles.label}>Font</Text>
+        <Text style={styles.label}>Color</Text>
         <Switch
           trackColor={{ false: "#767577", true: greenColors.deep }}
           ios_backgroundColor="#3e3e3e"
-          onValueChange={fontToggleSwitch}
-          value={fontIsEnabled}
+          onValueChange={() => props.setColorEnabled(!props.color)}
+          value={props.color}
         />
       </View>
     </View>
@@ -40,7 +35,8 @@ const SettingsTab = (props: any) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: greenColors.background
+    backgroundColor: greenColors.background,
+    flex: 1
   },
   switch: {
     flexDirection: "row",
@@ -49,18 +45,24 @@ const styles = StyleSheet.create({
     backgroundColor: greenColors.background
   },
   label: {
-    fontSize: 20
+    fontSize: 20,
+    paddingLeft: 10
   }
 });
 
-// needed when we start using redux
 const mapStateToProps = (state: any) => {
-  return {};
+  return {
+    analysis: state.pageSetup.analysisEnabled,
+    color: state.pageSetup.colorEnabled
+  };
 };
 
-const mapDispatchToProps = (state: any) => {
-  return {};
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    setAnalysisEnabled: (analysis: boolean) =>
+      dispatch(setAnalysisEnabled(analysis)),
+    setColorEnabled: (color: boolean) => dispatch(setColorEnabled(color))
+  };
 };
 
-export default SettingsTab;
-// export default connect(mapStateToProps, mapDispatchToProps)(SettingsTab);
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsTab);
