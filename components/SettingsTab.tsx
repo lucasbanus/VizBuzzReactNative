@@ -1,16 +1,9 @@
 import * as React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  FlatList,
-  TouchableHighlight,
-  Switch
-} from "react-native";
+import { StyleSheet, Text, View, Switch } from "react-native";
 
 import { useState } from "react";
 import { greenColors } from "../constants/colors";
+// import { connect } from "tls";
 
 const SettingsTab = (props: any) => {
   const [analysisIsEnabled, setAnalysisIsEnabled] = useState(false);
@@ -48,9 +41,6 @@ const SettingsTab = (props: any) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: greenColors.background
-    // alignItems: "center",
-    // justifyContent: "center",
-    // width: "100%"
   },
   switch: {
     flexDirection: "row",
@@ -63,4 +53,14 @@ const styles = StyleSheet.create({
   }
 });
 
+// needed when we start using redux
+const mapStateToProps = (state: any) => {
+  return {};
+};
+
+const mapDispatchToProps = (state: any) => {
+  return {};
+};
+
 export default SettingsTab;
+// export default connect(mapStateToProps, mapDispatchToProps)(SettingsTab);

@@ -1,14 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
+import { Ionicons } from "@expo/vector-icons";
+import { NavigationContainer } from "@react-navigation/native";
+
 import PodcastListContainer from "./components/podcasts/PodcastListContainer";
 import SettingsTab from "./components/SettingsTab";
-import { Ionicons } from "@expo/vector-icons";
 
 function HomePage() {
   return (
@@ -25,7 +26,19 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator
+          screenOptions={({ route }: { route: any }) => ({
+            tabBarIcon: ({ color, size }: { color: string; size: any }) => {
+              if (route.name === "Podcasts") {
+                return <Ionicons name="newspaper" size={size} color={color} />;
+              } else if (route.name === "Settings") {
+                return <Ionicons name="settings" size={size} color={color} />;
+              }
+            },
+            tabBarActiveTintColor: "tomato",
+            tabBarInactiveTintColor: "gray"
+          })}
+        >
           <Tab.Screen name="Podcasts" component={HomePage} />
           <Tab.Screen name="Settings" component={SettingsTab} />
         </Tab.Navigator>
