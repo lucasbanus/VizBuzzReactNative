@@ -3,8 +3,9 @@ import {
   SET_PODCAST_LIST,
   SHOW_TRANSCRIPT,
   SET_TRANSCRIPT_INDEX,
-  SET_ANALYSIS_ENABLED,
-  SET_COLOR_ENABLED
+  SET_VOLUME_ENABLED,
+  SET_SENTIMENT_ENABLED,
+  SET_PITCH_ENABLED
 } from "../actions/pageSetupActions";
 
 export const pageSetupInitialState = {
@@ -12,8 +13,9 @@ export const pageSetupInitialState = {
   podcastList: [],
   isShowingTranscript: false,
   transcriptIdx: 0,
-  analysisEnabled: false,
-  colorEnabled: false
+  volumeEnabled: false,
+  sentimentEnabled: false,
+  pitchEnabled: false
 };
 
 export function changePageSetup(state = pageSetupInitialState, action: any) {
@@ -26,10 +28,12 @@ export function changePageSetup(state = pageSetupInitialState, action: any) {
       return { ...state, isShowingTranscript: action.transcript };
     case SET_TRANSCRIPT_INDEX:
       return { ...state, transcriptIdx: action.transcript };
-    case SET_ANALYSIS_ENABLED:
-      return { ...state, analysisEnabled: action.analysis };
-    case SET_COLOR_ENABLED:
-      return { ...state, colorEnabled: action.color };
+    case SET_VOLUME_ENABLED:
+      return { ...state, volumeEnabled: action.volume };
+    case SET_SENTIMENT_ENABLED:
+      return { ...state, sentimentEnabled: action.sentiment };
+    case SET_PITCH_ENABLED:
+      return { ...state, pitchEnabled: action.pitch };
     default:
       return state;
   }

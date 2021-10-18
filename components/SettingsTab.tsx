@@ -3,8 +3,9 @@ import { StyleSheet, Text, View, Switch } from "react-native";
 
 import { greenColors } from "../constants/colors";
 import {
-  setAnalysisEnabled,
-  setColorEnabled
+  setVolumeEnabled,
+  setSentimentEnabled,
+  setPitchEnabled
 } from "../actions/pageSetupActions";
 import { connect } from "react-redux";
 
@@ -12,21 +13,30 @@ const SettingsTab = (props: any) => {
   return (
     <View style={styles.container}>
       <View style={styles.switch}>
-        <Text style={styles.label}>Analysis</Text>
+        <Text style={styles.label}>Volume Analysis</Text>
         <Switch
           trackColor={{ false: "#767577", true: greenColors.deep }}
           ios_backgroundColor="#3e3e3e"
-          onValueChange={() => props.setAnalysisEnabled(!props.analysis)}
-          value={props.analysis}
+          onValueChange={() => props.setVolumeEnabled(!props.volume)}
+          value={props.volume}
         />
       </View>
       <View style={styles.switch}>
-        <Text style={styles.label}>Color</Text>
+        <Text style={styles.label}>Sentiment Analysis</Text>
         <Switch
           trackColor={{ false: "#767577", true: greenColors.deep }}
           ios_backgroundColor="#3e3e3e"
-          onValueChange={() => props.setColorEnabled(!props.color)}
-          value={props.color}
+          onValueChange={() => props.setSentimentEnabled(!props.sentiment)}
+          value={props.sentiment}
+        />
+      </View>
+      <View style={styles.switch}>
+        <Text style={styles.label}>Pitch Analysis</Text>
+        <Switch
+          trackColor={{ false: "#767577", true: greenColors.deep }}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={() => props.setPitchEnabled(!props.pitch)}
+          value={props.pitch}
         />
       </View>
     </View>
@@ -52,16 +62,18 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state: any) => {
   return {
-    analysis: state.pageSetup.analysisEnabled,
-    color: state.pageSetup.colorEnabled
+    volume: state.pageSetup.volumeEnabled,
+    sentiment: state.pageSetup.sentimentEnabled,
+    pitch: state.pageSetup.pitchEnabled
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    setAnalysisEnabled: (analysis: boolean) =>
-      dispatch(setAnalysisEnabled(analysis)),
-    setColorEnabled: (color: boolean) => dispatch(setColorEnabled(color))
+    setVolumeEnabled: (volume: boolean) => dispatch(setVolumeEnabled(volume)),
+    setSentimentEnabled: (sentiment: boolean) =>
+      dispatch(setSentimentEnabled(sentiment)),
+    setPitchEnabled: (pitch: boolean) => dispatch(setPitchEnabled(pitch))
   };
 };
 

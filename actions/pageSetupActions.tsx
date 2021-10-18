@@ -6,8 +6,9 @@ export const LOADING_PODCASTS = "LOADING_PODCASTS";
 export const SET_PODCAST_LIST = "SET_PODCAST_LIST";
 export const SHOW_TRANSCRIPT = "SHOW_TRANSCRIPT";
 export const SET_TRANSCRIPT_INDEX = "SET_TRANSCRIPT_INDEX";
-export const SET_ANALYSIS_ENABLED = "SET_ANALYSIS_ENABLED";
-export const SET_COLOR_ENABLED = "SET_COLOR_ENABLED";
+export const SET_VOLUME_ENABLED = "SET_VOLUME_ENABLED";
+export const SET_SENTIMENT_ENABLED = "SET_SENTIMENT_ENABLED";
+export const SET_PITCH_ENABLED = "SET_PITCH_ENABLED";
 
 /**
  * functions for setup actions
@@ -29,10 +30,14 @@ export function setTranscriptIndex(transcript: number) {
   return { type: SET_TRANSCRIPT_INDEX, transcript };
 }
 
-export function setAnalysisEnabled(analysis: boolean) {
-  return { type: SET_ANALYSIS_ENABLED, analysis };
+export function setVolumeEnabled(volume: boolean) {
+  return { type: SET_VOLUME_ENABLED, volume };
 }
 
-export function setColorEnabled(color: boolean) {
-  return { type: SET_COLOR_ENABLED, color };
+export function setSentimentEnabled(sentiment: boolean) {
+  return { type: SET_SENTIMENT_ENABLED, sentiment };
+}
+
+export function setPitchEnabled(pitch: boolean) {
+  return { type: SET_PITCH_ENABLED, pitch };
 }
