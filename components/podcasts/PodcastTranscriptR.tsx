@@ -10,13 +10,15 @@ import {
   TouchableHighlight,
   Image
 } from "react-native";
-import { buttonColors } from "../../constants/colors";
+import { buttonColors, greenColors } from "../../constants/colors";
 import { WordContainer } from "../../types/types";
 import {
   setTranscriptIndex,
   showTranscript
 } from "../../actions/pageSetupActions";
 import { connect } from "react-redux";
+import TranscriptHeader from "./transcriptComp/TranscriptHeader";
+import Player from "./transcriptComp/Player";
 
 export type Props = {
   transcript: Array<WordContainer>;
@@ -106,50 +108,23 @@ const PodcastTranscript = (props: Props) => {
       animationType="slide"
       style={styles.modalContainer}
     >
+      <View style={styles.headerContainer}><TranscriptHeader/></View>
       <View style={styles.scrollContainer}>
         <ScrollView>
           <View style={styles.textTogether}>{allWords}</View>
         </ScrollView>
       </View>
-      <View style={styles.closeContainer}>
-        <Button title="Play" onPress={() => play()} />
-        <Button title="Pause" onPress={() => pause()} />
-        <Image
-          style={styles.tinyLogo}
-          source={{
-            uri:
-              "https://image.simplecastcdn.com/images/bceb3f91-afbb-4f97-87f6-5f4387bbb382/e54a95a4-3e6f-4471-8e41-3684c52d2f2e/3000x3000/d6e900686dd88c35c643f0a1747f1912.jpg?aid=rss_feed"
-          }}
-        />
-        <TouchableHighlight
-          underlayColor={buttonColors.closeButton}
-          style={styles.touchable}
-          //onPress={props.closePodcast}
-          onPress={() => props.showTranscript(false)}
-        >
-          <Text style={styles.closeButtonText}> Close</Text>
-        </TouchableHighlight>
-      </View>
+      <View style={styles.playerContainer}><Player/></View>
     </Modal>
   );
 };
 
 const styles = StyleSheet.create({
-  closeContainer: {
-    width: "100%",
-    height: "10%",
-    justifyContent: "center",
-    alignItems: "center",
-    //backgroundColor: "#DEDEDE",
-    backgroundColor: buttonColors.closeButton,
-    color: "red"
-  },
-  closeButtonText: {
-    textAlign: "center",
-    justifyContent: "center",
-    fontSize: 30,
-    color: "white",
-    fontWeight: "bold"
+  headerContainer : {
+    display: 'flex', 
+    height: '18%',
+    width: '100%', 
+    backgroundColor: greenColors.background
   },
   modalContainer: {
     justifyContent: "center",
@@ -157,9 +132,14 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     width: "100%",
-    height: "90%",
-    paddingTop: 50,
+    height: "72%",
+    paddingTop: 5,
     paddingHorizontal: 30
+  },
+  playerContainer :{
+    width: "100%",
+    height: "10%",
+    backgroundColor: greenColors.background,
   },
   textArea: {
     fontSize: 25,
