@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Audio } from "expo-av";
 import {
   StyleSheet,
   Modal,
@@ -28,6 +29,55 @@ export type Props = {
 };
 
 const PodcastTranscript = (props: Props) => {
+  Audio.setAudioModeAsync({
+    allowsRecordingIOS: true,
+    interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+    playsInSilentModeIOS: true,
+    interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+    shouldDuckAndroid: true,
+    staysActiveInBackground: true,
+    playThroughEarpieceAndroid: true
+  });
+  const sound = new Audio.Sound();
+  //sound.loadAsync(require('./test.mp3'));
+  //http://commondatastorage.googleapis.com/codeskulptor-assets/week7-bounce.m4a
+  sound.loadAsync({
+    uri:
+      "https://cdn.simplecast.com/audio/bceb3f91-afbb-4f97-87f6-5f4387bbb382/episodes/0190d6a8-fb48-4ee8-8a72-715e8ac1b4b1/audio/929445c3-f0e5-42db-9bc2-1e5c6338bef2/default_tc.mp3?aid=rss_feed&feed=c2RzTGta"
+  }); // TODO replace with props.podcast.streaming_url
+  const [playing, setPlaying] = useState(false);
+  const play = () => {
+    sound.playAsync();
+    //setPlaying(true);
+  };
+  const pause = () => {
+    sound.pauseAsync();
+  };
+
+  let button;
+
+  if (playing) {
+    button = (
+      <Button
+        title="Pause"
+        onPress={() => {
+          setPlaying(false);
+          sound.pauseAsync();
+        }}
+      />
+    );
+  } else {
+    button = (
+      <Button
+        title="Play"
+        onPress={() => {
+          setPlaying(true);
+          sound.playAsync();
+        }}
+      />
+    );
+  }
+
   const allWords = props.transcript.map((word, idx) => {
     let wordComp;
     if (idx !== 0 && idx % 21 === 0) {
@@ -62,17 +112,13 @@ const PodcastTranscript = (props: Props) => {
         </ScrollView>
       </View>
       <View style={styles.closeContainer}>
+        <Button title="Play" onPress={() => play()} />
+        <Button title="Pause" onPress={() => pause()} />
         <Image
           style={styles.tinyLogo}
           source={{
             uri:
               "https://image.simplecastcdn.com/images/bceb3f91-afbb-4f97-87f6-5f4387bbb382/e54a95a4-3e6f-4471-8e41-3684c52d2f2e/3000x3000/d6e900686dd88c35c643f0a1747f1912.jpg?aid=rss_feed"
-          }}
-        />
-        <Button
-          title="play_btn"
-          onPress={() => {
-            // TODO play sound here
           }}
         />
         <TouchableHighlight
