@@ -34,59 +34,6 @@ const formatTime = (time: number) => {
   return timestr;
 };
 
-// Functions used for getting the initial podcasts used for testing
-const getPodcastsInitial2 = async (
-  setPodcastNames: (podcasts: Array<PodcastInfo>) => void
-) => {
-  try {
-    // Initial get request needed for testing
-    const response = await fetch(URL_Back2);
-    const json = await response.json();
-    const items: Array<PodcastJson> = await json;
-    const transcripts: Array<string> = items.map(pod => {
-      var finalString: string = "";
-      for (var i = 0; i < pod.word_info.words.length; i++) {
-        const wordInfo: PodcastWordsArrayObject = pod.word_info.words[i];
-        if (i !== 0 && i % 20 === 0) {
-          finalString =
-            finalString +
-            "\n" +
-            formatTime(wordInfo.Offset) +
-            "\n" +
-            wordInfo.display;
-        } else {
-          finalString = finalString + " " + wordInfo.display;
-        }
-      }
-      return finalString;
-    });
-    const formattedItems: Array<PodcastInfo> = items.map((pod, idx) => {
-      return {
-        key: pod.id,
-        allText: transcripts[idx],
-        name: pod.name,
-        color: "black",
-        idx: idx
-      };
-    });
-    setPodcastNames(formattedItems);
-    store.dispatch(setPodcastList(formattedItems));
-  } catch (error) {
-    // how should we handle
-  }
-};
-
-export const getPodcastsInitialWrapper2 = (
-  setPodcastNames: (podcasts: Array<PodcastInfo>) => void
-) => {
-  getPodcastsInitial2(setPodcastNames);
-
-  // Its really important so we wait for it
-  useEffect(() => {
-    getPodcastsInitial2(setPodcastNames);
-  }, []);
-};
-
 //functions rigged demo
 const getPodcastsInitialR = async () => {
   try {
@@ -210,11 +157,6 @@ const getPodcastsInitialR = async () => {
 
 export const getPodcastsInitialWrapperR = () => {
   getPodcastsInitialR();
-
-  // Its really important so we wait for it
-  // useEffect(() => {
-  //   getPodcastsInitialR();
-  // }, []);
 };
 
 // Constants used to fetch data from rss
@@ -253,44 +195,5 @@ export const parseRssWrapper = async () => {
 
   useEffect(() => {
     parseRss();
-  }, []);
-};
-
-// Constants used for initial fetching
-const URL_Back = "https://vizbuzz-backend.herokuapp.com/view-transcripts";
-const key_to_transcripts = "transcripts";
-
-// Functions used for getting the initial podcasts used for testing
-const getPodcastsInitial = async (
-  setPodcastNames: (podcasts: Array<PodcastInfo>) => void
-) => {
-  try {
-    // Initial get request needed for testing
-    const response = await fetch(URL_Back);
-    const json = await response.json();
-    const items: Array<PodcastItems> = await json[key_to_transcripts];
-    const formattedItems = items.map((pod, idx) => {
-      return {
-        key: pod.alias,
-        allText: pod.all_text,
-        name: pod.name,
-        color: pod.color,
-        idx: idx
-      };
-    });
-    setPodcastNames(formattedItems);
-  } catch (error) {
-    // how should we handle
-  }
-};
-
-export const getPodcastsInitialWrapper = (
-  setPodcastNames: (podcasts: Array<PodcastInfo>) => void
-) => {
-  getPodcastsInitial(setPodcastNames);
-
-  // Its really important so we wait for it
-  useEffect(() => {
-    getPodcastsInitial(setPodcastNames);
   }, []);
 };
