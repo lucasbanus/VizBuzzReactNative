@@ -17,6 +17,8 @@ import { setPodcastList, loadingPodcasts } from "../actions/pageSetupActions";
 const URL_Back2 = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
 const key_to_transcripts2 = "transcripts";
 const offsetMultiple = 10000000;
+const TAG = "dataManager.tsx";
+let rss_mapping = new Map();
 
 const formatTime = (time: number) => {
   const seconds = Math.round(time / offsetMultiple);
@@ -34,67 +36,52 @@ const formatTime = (time: number) => {
   return timestr;
 };
 
-// Functions used for getting the initial podcasts used for testing
-const getPodcastsInitial2 = async (
-  setPodcastNames: (podcasts: Array<PodcastInfo>) => void
-) => {
-  try {
-    // Initial get request needed for testing
-    const response = await fetch(URL_Back2);
-    const json = await response.json();
-    const items: Array<PodcastJson> = await json;
-    const transcripts: Array<string> = items.map(pod => {
-      var finalString: string = "";
-      for (var i = 0; i < pod.word_info.words.length; i++) {
-        const wordInfo: PodcastWordsArrayObject = pod.word_info.words[i];
-        if (i !== 0 && i % 20 === 0) {
-          finalString =
-            finalString +
-            "\n" +
-            formatTime(wordInfo.Offset) +
-            "\n" +
-            wordInfo.display;
-        } else {
-          finalString = finalString + " " + wordInfo.display;
-        }
-      }
-      return finalString;
-    });
-    const formattedItems: Array<PodcastInfo> = items.map((pod, idx) => {
-      return {
-        key: pod.id,
-        allText: transcripts[idx],
-        name: pod.name,
-        color: "black",
-        idx: idx
-      };
-    });
-    setPodcastNames(formattedItems);
-    store.dispatch(setPodcastList(formattedItems));
-  } catch (error) {
-    // how should we handle
-  }
-};
-
-export const getPodcastsInitialWrapper2 = (
-  setPodcastNames: (podcasts: Array<PodcastInfo>) => void
-) => {
-  getPodcastsInitial2(setPodcastNames);
-
-  // Its really important so we wait for it
-  useEffect(() => {
-    getPodcastsInitial2(setPodcastNames);
-  }, []);
-};
-
-//functions rigged demo
+// Retrieve podcasts from JSON and parse their RSS URL's
 const getPodcastsInitialR = async () => {
   try {
     // Initial get request needed for testing
     const response = await fetch(URL_Back2);
     const json = await response.json();
     const items: Array<PodcastJson> = await json;
-    let wordArray = [];
+    const hardcoded_rss_fetch = await fetch(
+      "https://feeds.simplecast.com/c2RzTGta"
+    );
+    //const hardcoded_rss_fetch = await fetch(items[0].rss_url);
+    // For each rss_url, fetch the RSS response
+    console.log(TAG + " json length " + items.length);
+    console.log(items[0].rss_url);
+    let url: string = items[0].rss_url;
+
+    // let j = 0;
+    // while (j < items.length) {
+    //   console.log(TAG + " fetching episode in while" + items[j].rss_url + "\n");
+    //   //let curr_rss = items[j].rss_url.trim();
+    //   let curr_rss = "https://feeds.simplecast.com/c2RzTGta";
+    //   if (!rss_mapping.has(curr_rss)) {
+    //     // Only fetch rss info for url's we haven't already fetched for (this helps if we have mult episodes from the same show)
+    //     let rss = await fetch(curr_rss);
+    //     rss_mapping.set(curr_rss, rss);
+    //     //let rss_resp: any = await fetch(curr_rss);
+    //     //rss_mapping.set(curr_rss, rss_resp);
+    //   }
+    //   j++;
+    // }
+    // const promises = [];
+    // for (var j = 0; j < items.length; j++) {
+    //   console.log(TAG + " fetching episode " + items[j].rss_url + "\n");
+    //   let curr_rss = items[j].rss_url.trim();
+    //   if (!rss_mapping.has(curr_rss)) {
+    //     // Only fetch rss info for url's we haven't already fetched for (this helps if we have mult episodes from the same show)
+    //     //fetch(curr_rss).then(rss => rss_mapping.set(curr_rss, rss))
+    //     promises.push(fetch(curr_rss));
+    //     //let rss_resp: any = await fetch(curr_rss);
+    //     //rss_mapping.set(curr_rss, rss_resp);
+    //   }
+    // }
+    // const rss_resp = await Promise.all(promises);
+    console.log(TAG + "finished await\n");
+    //let pr = rssParser.parse(rss_resp[0].text());
+
     const transcripts: Array<Array<WordContainer>> = items.map(pod => {
       //var finalString : string = "";
       var wordContArray: Array<WordContainer> = [];
@@ -130,63 +117,58 @@ const getPodcastsInitialR = async () => {
       let pod_authors: string = "";
       let image_url: string = "";
       let streaming_url: string = "";
-      //fetch(pod.rss_url)
-      fetch(URL_rss) // TODO replace with pod.rss_url
-        .then(response => response.text())
-        .then(responseData => rssParser.parse(responseData))
-        .then(rss => {
-          //console.log(rss);
-          show_name = rss.title;
-          image_url = rss.image.url;
-          const x: Array<any> = rss.items; // episodes of this podcast
-          //const stripped_ep_title = pod.name.trim().toLowerCase();
-          const stripped_ep_title2: string = "49.5: The Laws Of Playboys ft Robert Greene"
+      console.log(TAG + " rss url from JSON " + pod.rss_url);
+      // Get the pre-fetched rss response for this podcast show
+      //let response = rss_mapping.get(pod.rss_url);
+      //let response = rss_resp[idx];
+      let response = hardcoded_rss_fetch.text();
+      //rss_responses[idx].text();
+      let rss = rssParser.parse(response);
+      // Get real show name and cover art from the show's RSS URL
+      show_name = rss.title;
+      image_url = rss.image.url;
+      // FIND this specific episode withing the show's rss feed.
+      const x: Array<any> = rss.items; // all episodes of this podcast
+      //const stripped_ep_title: string = pod.name.trim().toLowerCase(); // try to eliminate all reasonable errors in entering episode title
+      // const stripped_ep_title2: string = "49.5: The Laws Of Playboys ft Robert Greene"
+      //   .trim()
+      //   .toLowerCase();
+      const stripped_ep_title: string = "Donald Osborne (Classic car historian, curator, TV host )" // TODO replace with pod
+        .trim()
+        .toLowerCase();
+
+      // Find matching episode to podname by episode title
+      let this_ep: any;
+      for (let i = 0; i < x.length; i++) {
+        this_ep = x[i];
+        if (
+          this_ep.title
             .trim()
-            .toLowerCase();
-          const stripped_ep_title: string = "Spike Feresten" // TODO replace with pod
-            .trim()
-            .toLowerCase();
-          //const stripped_ep_title: string = pod.name.trim().toLowerCase();
-          // Find matching episode to podname by episode title
-          let this_ep: any;
-          for (let i = 0; i < x.length; i++) {
-            this_ep = x[i];
-            if (
-              this_ep.title
-                .trim()
-                .toLowerCase()
-                .indexOf(stripped_ep_title) >= 0
-            ) {
-              // This is the episode we are looking for
-              if (
-                this_ep.itunes !== undefined &&
-                this_ep.itunes.authors !== undefined &&
-                this_ep.itunes.authors.length > 0
-              ) {
-                pod_authors = this_ep.itunes.authors[0].name;
-              }
-              ep_name = this_ep.title;
-              if (
-                this_ep.enclosures !== undefined &&
-                this_ep.enclosures.length > 0
-              ) {
-                streaming_url = this_ep.enclosures[0].url;
-              }
-              break;
-            }
+            .toLowerCase()
+            .indexOf(stripped_ep_title) >= 0
+        ) {
+          // This is the episode we are looking for
+          if (
+            this_ep.itunes !== undefined &&
+            this_ep.itunes.authors !== undefined &&
+            this_ep.itunes.authors.length > 0
+          ) {
+            pod_authors = this_ep.itunes.authors[0].name;
           }
-          console.log("show name" + show_name);
-          console.log("authors " + pod_authors);
-          console.log("title " + ep_name.toString());
-          console.log("streaming_url " + streaming_url.toString());
-          console.log("image URL " + image_url.toString());
-          //console.log(x.length);
-          //console.log(item.id);
-          // TODO: For rigged demo only, rename podcasts
-          // formattedItems[0].name = rss.title + ": Daniel Osborne";
-          // formattedItems[1].name = rss.title + ": John Temerian";
-          // formattedItems[2].name = rss.title + ": Taylor Hull";
-        });
+          ep_name = this_ep.title;
+          if (
+            this_ep.enclosures !== undefined &&
+            this_ep.enclosures.length > 0
+          ) {
+            streaming_url = this_ep.enclosures[0].url;
+          }
+          break;
+        }
+      }
+      console.log("show name" + show_name);
+      console.log("authors " + pod_authors);
+      console.log("title " + ep_name.toString());
+      console.log("streaming_url " + streaming_url.toString());
       console.log("image URL " + image_url.toString());
       return {
         key: pod.id,
@@ -210,11 +192,6 @@ const getPodcastsInitialR = async () => {
 
 export const getPodcastsInitialWrapperR = () => {
   getPodcastsInitialR();
-
-  // Its really important so we wait for it
-  // useEffect(() => {
-  //   getPodcastsInitialR();
-  // }, []);
 };
 
 // Constants used to fetch data from rss
@@ -253,44 +230,5 @@ export const parseRssWrapper = async () => {
 
   useEffect(() => {
     parseRss();
-  }, []);
-};
-
-// Constants used for initial fetching
-const URL_Back = "https://vizbuzz-backend.herokuapp.com/view-transcripts";
-const key_to_transcripts = "transcripts";
-
-// Functions used for getting the initial podcasts used for testing
-const getPodcastsInitial = async (
-  setPodcastNames: (podcasts: Array<PodcastInfo>) => void
-) => {
-  try {
-    // Initial get request needed for testing
-    const response = await fetch(URL_Back);
-    const json = await response.json();
-    const items: Array<PodcastItems> = await json[key_to_transcripts];
-    const formattedItems = items.map((pod, idx) => {
-      return {
-        key: pod.alias,
-        allText: pod.all_text,
-        name: pod.name,
-        color: pod.color,
-        idx: idx
-      };
-    });
-    setPodcastNames(formattedItems);
-  } catch (error) {
-    // how should we handle
-  }
-};
-
-export const getPodcastsInitialWrapper = (
-  setPodcastNames: (podcasts: Array<PodcastInfo>) => void
-) => {
-  getPodcastsInitial(setPodcastNames);
-
-  // Its really important so we wait for it
-  useEffect(() => {
-    getPodcastsInitial(setPodcastNames);
   }, []);
 };
