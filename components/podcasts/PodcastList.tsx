@@ -15,7 +15,13 @@ import {
   showTranscript
 } from "../../actions/pageSetupActions";
 import { connect } from "react-redux";
-import { setPodcast } from "../../actions/podcastActions";
+import {
+  setPodcast,
+  setRssUrl,
+  setImageUrl,
+  setStreamingUrl,
+  setAuthors
+} from "../../actions/podcastActions";
 
 // export type Props = {
 //   podcastNames: Array<PodcastInfoR>;
@@ -25,8 +31,13 @@ import { setPodcast } from "../../actions/podcastActions";
 
 const PodcastList = (props: any) => {
   const pressPodcast = (idx: number) => {
+    console.log("PodcastList" + props.podcastList[idx].image_url);
     props.setPodcast(props.podcastList[idx].allText);
     props.showTranscript(true);
+    props.setRssUrl(props.podcastList[idx].rss_url);
+    props.setImageUrl(props.podcastList[idx].image_url);
+    props.setStreamingUrl(props.podcastList[idx].streaming_url);
+    props.setAuthors(props.podcastList[idx].authors);
   };
 
   return (
@@ -43,8 +54,11 @@ const PodcastList = (props: any) => {
             style={styles.touchable}
             onPress={() => pressPodcast(item.idx)}
           >
-            <Text style={styles.textInside} testID={item.name}>
-              {item.name}
+            <Text
+              style={styles.textInside}
+              testID={item.show_name + ": " + item.ep_name}
+            >
+              {item.show_name + ": " + item.ep_name}
             </Text>
           </TouchableHighlight>
         )}
@@ -98,7 +112,12 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     setTranscriptIndex: (idx: number) => dispatch(setTranscriptIndex(idx)),
     showTranscript: (show: boolean) => dispatch(showTranscript(show)),
-    setPodcast: (podcast: any) => dispatch(setPodcast(podcast))
+    setPodcast: (podcast: any) => dispatch(setPodcast(podcast)),
+    setRssUrl: (rss_url: any) => dispatch(setRssUrl(rss_url)),
+    setImageUrl: (image_url: any) => dispatch(setImageUrl(image_url)),
+    setStreamingUrl: (streaming_url: any) =>
+      dispatch(setStreamingUrl(streaming_url)),
+    setAuthors: (authors: any) => dispatch(setAuthors(authors))
   };
 };
 
