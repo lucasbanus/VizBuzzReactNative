@@ -20,7 +20,8 @@ import {
   setRssUrl,
   setImageUrl,
   setStreamingUrl,
-  setAuthors
+  setAuthors,
+  setEpisodeName
 } from "../../actions/podcastActions";
 
 // export type Props = {
@@ -38,6 +39,7 @@ const PodcastList = (props: any) => {
     props.setImageUrl(props.podcastList[idx].image_url);
     props.setStreamingUrl(props.podcastList[idx].streaming_url);
     props.setAuthors(props.podcastList[idx].authors);
+    props.setEpisodeName(props.podcastList[idx].ep_name);
   };
 
   return (
@@ -117,7 +119,8 @@ const mapDispatchToProps = (dispatch: any) => {
     setImageUrl: (image_url: any) => dispatch(setImageUrl(image_url)),
     setStreamingUrl: (streaming_url: any) =>
       dispatch(setStreamingUrl(streaming_url)),
-    setAuthors: (authors: any) => dispatch(setAuthors(authors))
+    setAuthors: (authors: any) => dispatch(setAuthors(authors)), 
+    setEpisodeName: (ep: string) => dispatch(setEpisodeName(ep)),
   };
 };
 

@@ -28,13 +28,16 @@ export type Props = {
 export const sound = new Audio.Sound();
 //sound.loadAsync(require('./test.mp3'));
 //http://commondatastorage.googleapis.com/codeskulptor-assets/week7-bounce.m4a
-sound.loadAsync({
-  uri:
-    "https://cdn.simplecast.com/audio/bceb3f91-afbb-4f97-87f6-5f4387bbb382/episodes/0190d6a8-fb48-4ee8-8a72-715e8ac1b4b1/audio/929445c3-f0e5-42db-9bc2-1e5c6338bef2/default_tc.mp3?aid=rss_feed&feed=c2RzTGta"
-}); // TODO replace with props.podcast.streaming_url
+//"https://cdn.simplecast.com/audio/bceb3f91-afbb-4f97-87f6-5f4387bbb382/episodes/0190d6a8-fb48-4ee8-8a72-715e8ac1b4b1/audio/929445c3-f0e5-42db-9bc2-1e5c6338bef2/default_tc.mp3?aid=rss_feed&feed=c2RzTGta"
+
+ // TODO replace with props.podcast.streaming_url
 
 const Player = (props: Props) => {
     const [playing, setPlaying] = useState(false);
+    const [notloaded, setLoaded] = useState(true);
+    if (!sound._loaded){
+        sound.loadAsync({ uri: props.streaming_url});
+    }
     Audio.setAudioModeAsync({
         allowsRecordingIOS: true,
         interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,

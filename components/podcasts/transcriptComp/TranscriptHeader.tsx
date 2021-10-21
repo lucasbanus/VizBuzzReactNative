@@ -4,7 +4,8 @@ import {
   Text,
   View,
   TouchableHighlight,
-  Image
+  Image,
+  ScrollView
 } from "react-native";
 import { greenColors } from "../../../constants/colors";
 import { WordContainer } from "../../../types/types";
@@ -20,17 +21,26 @@ export type Props = {
   image_url: string;
   streaming_url: string;
   authors: string;
+  ep_name: string;
 };
 
 const TranscriptHeader = (props: Props) => {
     //{uri: require('./trial.jpg')}
+    //https://image.simplecastcdn.com/images/bceb3f91-afbb-4f97-87f6-5f4387bbb382/e54a95a4-3e6f-4471-8e41-3684c52d2f2e/3000x3000/d6e900686dd88c35c643f0a1747f1912.jpg?aid=rss_feed
+    //require('./trial.jpg')
   return (
     <View style={styles.container}>
         <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require('./trial.jpg')} />
+        <Image
+           style={styles.tinyLogo}
+           source={{
+             uri:
+               props.image_url
+           }}
+         />
         </View>
         <View style={styles.textContainer}>
-            <Text style={styles.nameText}>Hello</Text>
+          <View style={styles.scrollContainer}><ScrollView style={styles.nameScroll} scrollsToTop={true}><Text style={styles.nameText}>{props.ep_name}</Text></ScrollView></View>
             <Text style={styles.authorsText}>Authors</Text>
         </View>
         <View style={styles.buttonContainer}>
@@ -40,6 +50,7 @@ const TranscriptHeader = (props: Props) => {
             onPress={() => {
               props.showTranscript(false);
               sound.stopAsync();
+              sound.unloadAsync();
             }}
             > 
                 <Text style={styles.closeText}> Close</Text>
@@ -82,6 +93,8 @@ const styles = StyleSheet.create({
     imageContainer: {
         width: '30%',
         height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
     }, 
     image : {
         margin: 20,
@@ -96,11 +109,24 @@ const styles = StyleSheet.create({
         width: '50%',
     }, 
     nameText: {
-        fontSize: 25, 
-        fontWeight: 'bold', 
+      fontSize: 25, 
+      fontWeight: 'bold',
     },
     authorsText: {
         fontSize: 15,
+    },
+    tinyLogo: {
+      width: '80%',
+      height: '80%'
+    },
+    nameScroll : {
+      display:'flex', 
+      flexDirection: 'row',
+      height: '5%',
+    },
+    scrollContainer : {
+      height: '30%',
+      width: '90%',
     },
 });
 
@@ -111,7 +137,8 @@ const mapStateToProps = (state: any) => {
     rss_url: state.podcast.rss_url,
     image_url: state.podcast.image_url,
     streaming_url: state.podcast.streaming_url,
-    authors: state.podcast.authors
+    authors: state.podcast.authors, 
+    ep_name: state.podcast.ep_name,
   };
 };
 

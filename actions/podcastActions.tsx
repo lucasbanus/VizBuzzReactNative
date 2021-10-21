@@ -7,6 +7,7 @@ export const SET_RSS_URL = "SET_RSS_URL";
 export const SET_IMAGE_URL = "SET_IMAGE_URL";
 export const SET_STREAMING_URL = "SET_STREAMING_URL";
 export const SET_AUTHORS = "SET_AUTHORS";
+export const SET_EPISODE_NAME = "SET_EPISODE_NAME";
 
 /**
  * functions for action types
@@ -30,4 +31,8 @@ export function setStreamingUrl(streaming_url: string) {
 
 export function setAuthors(authors: string) {
   return { type: SET_AUTHORS, authors };
+}
+
+export function setEpisodeName(ep: string){
+  return {type: SET_EPISODE_NAME, ep};
 }

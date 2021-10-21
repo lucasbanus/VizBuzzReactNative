@@ -7,7 +7,8 @@ import {
 import PodcastList from "./PodcastList";
 import PodcastTranscriptR from "./PodcastTranscriptR";
 import {
-  getPodcastsInitialWrapperR
+  getPodcastsInitialWrapperR, 
+  getRss
 } from "../../dataManager/dataManager";
 import { greenColors } from "../../constants/colors";
 import { connect } from 'react-redux';

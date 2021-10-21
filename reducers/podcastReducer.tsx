@@ -3,7 +3,8 @@ import {
   SET_RSS_URL,
   SET_IMAGE_URL,
   SET_STREAMING_URL,
-  SET_AUTHORS
+  SET_AUTHORS,
+  SET_EPISODE_NAME
 } from "../actions/podcastActions";
 import { WordContainer } from "../types/types";
 
@@ -12,7 +13,8 @@ export const podcastInitialState = {
   rss_url: "",
   image_url: "",
   streaming_url: "",
-  authors: ""
+  authors: "", 
+  ep_name: "",
 };
 
 export function changePodcast(state = podcastInitialState, action: any) {
@@ -27,6 +29,8 @@ export function changePodcast(state = podcastInitialState, action: any) {
       return { ...state, streaming_url: action.streaming_url };
     case SET_AUTHORS:
       return { ...state, authors: action.authors };
+    case SET_EPISODE_NAME:
+      return {... state, ep_name : action.ep};
   }
   return state;
 }
