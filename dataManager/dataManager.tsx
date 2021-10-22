@@ -40,7 +40,9 @@ const formatTime = (time: number) => {
 const getPodcastsInitialR = async () => {
   try {
     // Initial get request needed for testing
+    console.log(TAG + " About to fetch from the backend\n");
     const response = await fetch(URL_Back2);
+    console.log(TAG + " Got the response \n");
     const json = await response.json();
     const items: Array<PodcastJson> = await json;
     const hardcoded_rss_fetch = await fetch(
@@ -199,7 +201,7 @@ const getPodcastsInitialR = async () => {
     store.dispatch(loadingPodcasts(false));
   } catch (error) {
     // how should we handle
-    console.log("error");
+    console.log(TAG + " Error" + error + "\n");
   }
 };
 
