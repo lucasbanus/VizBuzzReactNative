@@ -30,17 +30,20 @@ export default function App() {
         <Tab.Navigator
           screenOptions={({ route }: { route: any }) => ({
             tabBarIcon: ({ color, size }: { color: string; size: any }) => {
-              if (route.name === "Podcasts") {
-                return <Ionicons name="newspaper" size={size} color={color} />;
+              if (route.name === "Browse") {
+                return <Ionicons name="ios-search" size={size} color={color} />;
               } else if (route.name === "Settings") {
                 return <Ionicons name="settings" size={size} color={color} />;
+              } else if (route.name == "Favorites") {
+                return <Ionicons name="heart" size={size} color={color} />;
               }
             },
             tabBarActiveTintColor: greenColors.deep,
             tabBarInactiveTintColor: "gray"
           })}
         >
-          <Tab.Screen name="Podcasts" component={HomePage} />
+          <Tab.Screen name="Browse" component={HomePage} />
+          <Tab.Screen name="Favorites" component={HomePage} />
           <Tab.Screen name="Settings" component={SettingsTab} />
         </Tab.Navigator>
       </NavigationContainer>
