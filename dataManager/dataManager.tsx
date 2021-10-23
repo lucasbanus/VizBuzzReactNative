@@ -43,16 +43,18 @@ const getPodcastsInitialR = async () => {
     console.log(TAG + " About to fetch from the backend\n");
     const response = await fetch(URL_Back2);
     console.log(TAG + " Got the response \n");
-    const json = await response.json();
-    const items: Array<PodcastJson> = await json;
-    const hardcoded_rss_fetch = await fetch(
-      "https://feeds.simplecast.com/c2RzTGta"
-    );
+    const json : JSON = await response.json();
+    const items : Array<PodcastJson> = JSON.parse(JSON.stringify(json));
+    console.log(TAG + " Json ", items, "\n");
+    //const items: Array<PodcastJson> = await json;
+    // const hardcoded_rss_fetch = await fetch(
+    //   "https://feeds.simplecast.com/c2RzTGta"
+    // );
     //const hardcoded_rss_fetch = await fetch(items[0].rss_url);
     // For each rss_url, fetch the RSS response
     console.log(TAG + " json length " + items.length);
     console.log(items[0].rss_url);
-    let url: string = items[0].rss_url;
+    //let url: string = items[0].rss_url;
 
     // let j = 0;
     // while (j < items.length) {
@@ -81,12 +83,13 @@ const getPodcastsInitialR = async () => {
     //   }
     // }
     // const rss_resp = await Promise.all(promises);
-    console.log(TAG + "finished await\n");
+    //console.log(TAG + "finished await\n");
     //let pr = rssParser.parse(rss_resp[0].text());
 
     const transcripts: Array<Array<WordContainer>> = items.map(pod => {
       //var finalString : string = "";
       var wordContArray: Array<WordContainer> = [];
+      if (pod.word_info != undefined){
       for (var i = 0; i < pod.word_info.words.length; i++) {
         const wordInfo: PodcastWordsArrayObject = pod.word_info.words[i];
         var wordCont: WordContainer;
@@ -111,12 +114,14 @@ const getPodcastsInitialR = async () => {
           });
         }
       }
+    }
       return wordContArray;
     });
     const formattedItems2: Array<Promise<PodcastInfoR>> = items.map(async (pod, idx) => await processPJSON(pod, idx, transcripts));
     let fom : Array<PodcastInfoR> = [];
     let fom2 = force(formattedItems2);
     let fom3 = await fom2;
+    console.log(TAG + " podcasts info ", fom3);
     // for (let i = 0; i < rss_links.length; i++){
     //   console.log('rssParse1');
     //   let f = fetch(rss_links[i]).then(r => console.log(r));
@@ -234,7 +239,7 @@ const processPJSON = async (pod : PodcastJson, idx : number, transcripts: Array<
   // //   .trim()
   // //   .toLowerCase();
   //let stripped_ep_title: string = "Donald Osborne (Classic car historian, curator, TV host )".trim().toLowerCase(); // TODO replace with pod
-  let stripped_ep_title: string = "Spike Feresten (Spike's Car Radio)".trim().toLowerCase();
+  let stripped_ep_title: string = pod.name.trim().toLowerCase();
   //   .trim()
   //   .toLowerCase();
 

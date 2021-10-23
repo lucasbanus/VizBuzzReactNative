@@ -11,11 +11,13 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import PodcastListContainer from "./components/podcasts/PodcastListContainer";
 import SettingsTab from "./components/SettingsTab";
+import { UserLogin } from "./components/UserLogin";
 
 function HomePage() {
   return (
     <View style={styles.container}>
-      <PodcastListContainer />
+      {/* <PodcastListContainer /> */}
+      <UserLogin/>
       <StatusBar style="auto" />
     </View>
   );
