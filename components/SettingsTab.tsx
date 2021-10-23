@@ -1,5 +1,11 @@
 import * as React from "react";
-import { StyleSheet, Text, View, Switch } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Switch,
+  TouchableHighlight
+} from "react-native";
 
 import { greenColors } from "../constants/colors";
 import {
@@ -39,6 +45,14 @@ const SettingsTab = (props: any) => {
           value={props.pitch}
         />
       </View>
+      <View style={styles.logoutButton}>
+        <TouchableHighlight
+          onPress={() => props.navigation.navigate("Login")}
+          style={styles.touchable}
+        >
+          <Text style={styles.logoutText}>Logout</Text>
+        </TouchableHighlight>
+      </View>
     </View>
   );
 };
@@ -57,6 +71,29 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 20,
     paddingLeft: 10
+  },
+  touchable: {
+    backgroundColor: greenColors.deep,
+    borderColor: "#FFFFFF",
+    borderWidth: 1,
+    alignItems: "center",
+    width: "100%"
+  },
+  logoutButton: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    position: "absolute",
+    bottom: 0
+  },
+  logoutText: {
+    textAlign: "center",
+    justifyContent: "center",
+    fontSize: 20,
+    color: "white",
+    fontWeight: "bold",
+    padding: 5
   }
 });
 
