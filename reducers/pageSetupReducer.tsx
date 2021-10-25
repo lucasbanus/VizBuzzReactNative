@@ -14,7 +14,7 @@ export const pageSetupInitialState = {
   isShowingTranscript: false,
   transcriptIdx: 0,
   volumeEnabled: false,
-  sentimentEnabled: false,
+  sentimentEnabled: true,
   pitchEnabled: false
 };
 

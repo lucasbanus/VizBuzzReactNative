@@ -13,6 +13,7 @@ import { showTranscript} from "../../../actions/pageSetupActions";
 import { connect } from "react-redux";
 import {sound} from './Player';
 import { showFaveTranscript } from "../../../actions/userFavoritePodcastActions";
+import { Ionicons } from "@expo/vector-icons";
 
 export type Props = {
   transcript: Array<WordContainer>;
@@ -56,7 +57,8 @@ const TranscriptHeader = (props: Props) => {
               sound.unloadAsync();
             }}
             > 
-                <Text style={styles.closeText}> Close</Text>
+            <Ionicons name="close-outline" size={50} color="white" />
+                {/* <Text style={styles.closeText}> Close</Text> */}
             </TouchableHighlight>
         </View>
     </View>
@@ -69,9 +71,10 @@ const styles = StyleSheet.create({
         backgroundColor: greenColors.deep, 
         borderRadius: 10,
         width: '15%',
-        height: '20%',
+        height: '60%',
         shadowOffset: { width: 10, height: 10},
-        shadowColor: 'black'
+        shadowColor: 'black',
+        marginRight: 10, 
     },
     touchable :{
         width: '100%',

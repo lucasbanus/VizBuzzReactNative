@@ -21,6 +21,10 @@ const offsetMultiple = 10000000;
 const TAG = "dataManager.tsx";
 let rss_mapping = new Map();
 
+let defaultColor = "black";
+let defaultSize = 25;
+let defaultWeight = "normal";
+
 const formatTime = (time: number) => {
   const seconds = Math.round(time / offsetMultiple);
   const minutes = Math.floor(seconds / 60);
@@ -40,21 +44,22 @@ const formatTime = (time: number) => {
 // Retrieve podcasts from JSON and parse their RSS URL's
 const getPodcastsInitialR = async () => {
   try {
+    let {pitchEnabled, sentimentEnabled, volumeEnabled}  = store.getState().pageSetup;
     // Initial get request needed for testing
-    console.log(TAG + " About to fetch from the backend\n");
+    //console.log(TAG + " About to fetch from the backend\n");
     const response = await fetch(URL_Back2);
-    console.log(TAG + " Got the response \n");
+    //console.log(TAG + " Got the response \n");
     const json : JSON = await response.json();
     const items : Array<PodcastJson> = JSON.parse(JSON.stringify(json));
-    console.log(TAG + " Json ", items, "\n");
+    //console.log(TAG + " Json ", items, "\n");
     //const items: Array<PodcastJson> = await json;
     // const hardcoded_rss_fetch = await fetch(
     //   "https://feeds.simplecast.com/c2RzTGta"
     // );
     //const hardcoded_rss_fetch = await fetch(items[0].rss_url);
     // For each rss_url, fetch the RSS response
-    console.log(TAG + " json length " + items.length);
-    console.log(items[0].rss_url);
+    //console.log(TAG + " json length " + items.length);
+    //console.log(items[0].rss_url);
     //let url: string = items[0].rss_url;
 
     // let j = 0;
@@ -94,24 +99,45 @@ const getPodcastsInitialR = async () => {
       for (var i = 0; i < pod.word_info.words.length; i++) {
         const wordInfo: PodcastWordsArrayObject = pod.word_info.words[i];
         var wordCont: WordContainer;
-        if (wordInfo.Polarity !== undefined) {
-          if (wordInfo.Polarity > 0) {
-            wordCont = { word: wordInfo.display + " ", color: "green" };
-          } else if (wordInfo.Polarity < 0) {
-            wordCont = { word: wordInfo.display + " ", color: "red" };
-          } else {
-            wordCont = { word: wordInfo.display + " ", color: "black" };
+        let color = defaultColor;
+        let weight = defaultWeight;
+        let size = defaultSize;
+        if (sentimentEnabled && wordInfo.Polarity !== undefined){
+          if (wordInfo.Polarity > 0){
+            color = "green";
+          } else if (wordInfo.Polarity < 0){
+            color = "red";
           }
-        } else {
-          wordCont = { word: wordInfo.display + " ", color: "black" };
         }
 
+        if(pitchEnabled){
+          // change the weight according to scale
+        }
+        
+        if (volumeEnabled){
+          // change the size according to scale
+        }
+        // if (wordInfo.Polarity !== undefined) {
+        //   if (wordInfo.Polarity > 0) {
+        //     wordCont = { word: wordInfo.display + " ", color: "green", size: defaultSize, weight: defaultWeight };
+        //   } else if (wordInfo.Polarity < 0) {
+        //     wordCont = { word: wordInfo.display + " ", color: "red", size: defaultSize, weight: defaultWeight };
+        //   } else {
+        //     wordCont = { word: wordInfo.display + " ", color: "black", size: defaultSize, weight: defaultWeight };
+        //   }
+        // } else {
+        //   wordCont = { word: wordInfo.display + " ", color: "black" , size: defaultSize, weight: defaultWeight};
+        // }
+
+        //wordContArray.push(wordCont);
+        wordCont = {word: wordInfo.display + " ", color , size, weight};
         wordContArray.push(wordCont);
 
         if (i !== 0 && i % 20 === 0) {
           wordContArray.push({
             word: "\n" + formatTime(wordInfo.Offset),
-            color: "black"
+            color: "black", 
+            size: defaultSize, weight: defaultWeight
           });
         }
       }
@@ -122,7 +148,7 @@ const getPodcastsInitialR = async () => {
     let fom : Array<PodcastInfoR> = [];
     let fom2 = force(formattedItems2);
     let fom3 = await fom2;
-    console.log(TAG + " podcasts info ", fom3);
+    //console.log(TAG + " podcasts info ", fom3);
     // for (let i = 0; i < rss_links.length; i++){
     //   console.log('rssParse1');
     //   let f = fetch(rss_links[i]).then(r => console.log(r));

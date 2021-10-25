@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { greenColors } from "../constants/colors";
 import { connect } from "react-redux";
+import { verifyLogin } from "../dataManager/postRequests";
 
 // export type Props ={
 //   isLoading: boolean,
@@ -37,16 +38,24 @@ import { connect } from "react-redux";
 // }
 
 export const UserLogin = (props: any) => {
+  const[username, setUsername] = React.useState<string>('');
+  const[password, setpassword] = React.useState<string>('');
+  const loginFunc = () => {
+    let finished = verifyLogin(username, password);
+    if (finished){
+      props.navigation.navigate("MainApp");
+    }
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.title} testID="title">
         Log In
       </Text>
-      <TextInput style={styles.textInput} placeholder="Username"></TextInput>
-      <TextInput style={styles.textInput} placeholder="Password"></TextInput>
+      <TextInput style={styles.textInput} onChangeText={(user) => setUsername(user)} placeholder="Username"></TextInput>
+      <TextInput style={styles.textInput} onChangeText={(pass) => setpassword(pass)} placeholder="Password" secureTextEntry={true}></TextInput>
       <View style={styles.loginButton}>
         <TouchableHighlight
-          onPress={() => props.navigation.navigate("MainApp")}
+          onPress={() => loginFunc()}
           style={styles.touchable}
         >
           <Text style={styles.loginText}>Login</Text>

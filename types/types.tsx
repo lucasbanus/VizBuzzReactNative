@@ -22,6 +22,8 @@ export type PodcastInfoR = {
 export type WordContainer = {
   word: string;
   color: string;
+  size: number;
+  weight: string;
 };
 
 // The format used to display

@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingTop: 10,
-    backgroundColor: greenColors.background
+    backgroundColor: greenColors.background,
+    paddingRight: 10, 
   },
   label: {
     fontSize: 20,

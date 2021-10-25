@@ -25,7 +25,8 @@ import { LOAD_FAVE_PODCASTS, SET_FAVE_PODCASTS, ADD_FAVE_PODCAST, SHOW_FAVE_TRAN
             let newP = [];
             let notFound = true;
             for (let j = 0; j < state.favoritePodcasts.length; j++){
-                if (state.favoritePodcasts[j] === action.podcast){
+                let s : any = state.favoritePodcasts[j];
+                if (s.ep_name === action.podcast.ep_name){
                     notFound = false;
                     break;
                 }
