@@ -51,7 +51,7 @@ const PodcastList = (props: any) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title} testID="title">
-        Your Podcasts
+        All Podcasts
       </Text>
       <FlatList
         data={props.podcastList}
@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
     backgroundColor: greenColors.background,
     alignItems: "center",
     justifyContent: "center",
-    width: "100%"
+    width: "100%", 
+    height: '100%',
   },
   item: {
     padding: 10,
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     paddingBottom: 10,
+    paddingTop: 10,
     fontWeight: "bold",
     letterSpacing: 1,
     color: greenColors.deep
