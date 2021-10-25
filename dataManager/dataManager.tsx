@@ -333,7 +333,7 @@ export const getRss = async () => {
 export const getFavoritePodcasts = () => {
     store.dispatch(setFavePodcasts([]));//formattedItems));
     store.dispatch(loadingFavePodcasts(false));
-}
+};
 
 // Constants used to fetch data from rss
 //const URL_rss = "https://feeds.simplecast.com/c2RzTGta";

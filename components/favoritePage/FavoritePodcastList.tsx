@@ -31,6 +31,7 @@ import {
 
 const FavoritePodcastList = (props: any) => {
   const pressPodcast = (idx: number) => {
+      console.log("favePodcastList: ", props.favePodcastList[idx], " idx: ", idx);
       if (props.favePodcastList !== undefined){
     props.setPodcast(props.favePodcastList[idx].allText);
     props.showFaveTranscript(true);
@@ -42,7 +43,7 @@ const FavoritePodcastList = (props: any) => {
     props.setFaveIdx(idx);
       }
   };
-
+  const count = 0;
   return (
     <View style={styles.container}>
       <Text style={styles.title} testID="title">

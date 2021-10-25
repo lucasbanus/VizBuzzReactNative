@@ -31,11 +31,13 @@ import { LOAD_FAVE_PODCASTS, SET_FAVE_PODCASTS, ADD_FAVE_PODCAST, SHOW_FAVE_TRAN
                 }
             }
             if (notFound){
-                newP.push(action.podcast);
+                newP.push({...action.podcast, idx: 0});
             }
             for(let i = 0; i < state.favoritePodcasts.length; i++){
-                newP.push(state.favoritePodcasts[i]);
+                let p : any = state.favoritePodcasts[i];
+                newP.push({...p, idx: i+1});
             }
+            console.log("Reducer: ", newP);
             return {...state, favoritePodcasts: newP};
         case SHOW_FAVE_TRANSCRIPT:
             return { ...state, isShowingTranscript: action.transcript };
