@@ -12,7 +12,10 @@ import {
 import { useEffect } from "react";
 import store from "../store/store";
 import { setPodcastList, loadingPodcasts } from "../actions/pageSetupActions";
-import {setFavePodcasts, loadingFavePodcasts} from "../actions/userFavoritePodcastActions";
+import {
+  setFavePodcasts,
+  loadingFavePodcasts
+} from "../actions/userFavoritePodcastActions";
 
 // Constants used for initial fetching
 const URL_Back2 = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
@@ -21,7 +24,7 @@ const offsetMultiple = 10000000;
 const TAG = "dataManager.tsx";
 let rss_mapping = new Map();
 
-const formatTime = (time: number) => {
+export const formatTime = (time: number) => {
   const seconds = Math.round(time / offsetMultiple);
   const minutes = Math.floor(seconds / 60);
   var remainder = seconds % 60;
@@ -37,6 +40,22 @@ const formatTime = (time: number) => {
   return timestr;
 };
 
+export const getWordColor = (polarity: number, display: string) => {
+  var wordCont: WordContainer;
+  if (polarity !== undefined) {
+    if (polarity > 0) {
+      wordCont = { word: display + " ", color: "green" };
+    } else if (polarity < 0) {
+      wordCont = { word: display + " ", color: "red" };
+    } else {
+      wordCont = { word: display + " ", color: "black" };
+    }
+  } else {
+    wordCont = { word: display + " ", color: "black" };
+  }
+  return wordCont;
+};
+
 // Retrieve podcasts from JSON and parse their RSS URL's
 const getPodcastsInitialR = async () => {
   try {
@@ -44,82 +63,37 @@ const getPodcastsInitialR = async () => {
     console.log(TAG + " About to fetch from the backend\n");
     const response = await fetch(URL_Back2);
     console.log(TAG + " Got the response \n");
-    const json : JSON = await response.json();
-    const items : Array<PodcastJson> = JSON.parse(JSON.stringify(json));
+    const json: JSON = await response.json();
+    const items: Array<PodcastJson> = JSON.parse(JSON.stringify(json));
     console.log(TAG + " Json ", items, "\n");
-    //const items: Array<PodcastJson> = await json;
-    // const hardcoded_rss_fetch = await fetch(
-    //   "https://feeds.simplecast.com/c2RzTGta"
-    // );
-    //const hardcoded_rss_fetch = await fetch(items[0].rss_url);
-    // For each rss_url, fetch the RSS response
-    console.log(TAG + " json length " + items.length);
-    console.log(items[0].rss_url);
-    //let url: string = items[0].rss_url;
-
-    // let j = 0;
-    // while (j < items.length) {
-    //   console.log(TAG + " fetching episode in while" + items[j].rss_url + "\n");
-    //   //let curr_rss = items[j].rss_url.trim();
-    //   let curr_rss = "https://feeds.simplecast.com/c2RzTGta";
-    //   if (!rss_mapping.has(curr_rss)) {
-    //     // Only fetch rss info for url's we haven't already fetched for (this helps if we have mult episodes from the same show)
-    //     let rss = await fetch(curr_rss);
-    //     rss_mapping.set(curr_rss, rss);
-    //     //let rss_resp: any = await fetch(curr_rss);
-    //     //rss_mapping.set(curr_rss, rss_resp);
-    //   }
-    //   j++;
-    // }
-    // const promises = [];
-    // for (var j = 0; j < items.length; j++) {
-    //   console.log(TAG + " fetching episode " + items[j].rss_url + "\n");
-    //   let curr_rss = items[j].rss_url.trim();
-    //   if (!rss_mapping.has(curr_rss)) {
-    //     // Only fetch rss info for url's we haven't already fetched for (this helps if we have mult episodes from the same show)
-    //     //fetch(curr_rss).then(rss => rss_mapping.set(curr_rss, rss))
-    //     promises.push(fetch(curr_rss));
-    //     //let rss_resp: any = await fetch(curr_rss);
-    //     //rss_mapping.set(curr_rss, rss_resp);
-    //   }
-    // }
-    // const rss_resp = await Promise.all(promises);
-    //console.log(TAG + "finished await\n");
-    //let pr = rssParser.parse(rss_resp[0].text());
+    //console.log(TAG + " json length " + items.length);
+    //console.log(items[0].rss_url);
 
     const transcripts: Array<Array<WordContainer>> = items.map(pod => {
       //var finalString : string = "";
       var wordContArray: Array<WordContainer> = [];
-      if (pod.word_info != undefined){
-      for (var i = 0; i < pod.word_info.words.length; i++) {
-        const wordInfo: PodcastWordsArrayObject = pod.word_info.words[i];
-        var wordCont: WordContainer;
-        if (wordInfo.Polarity !== undefined) {
-          if (wordInfo.Polarity > 0) {
-            wordCont = { word: wordInfo.display + " ", color: "green" };
-          } else if (wordInfo.Polarity < 0) {
-            wordCont = { word: wordInfo.display + " ", color: "red" };
-          } else {
-            wordCont = { word: wordInfo.display + " ", color: "black" };
+      if (pod.word_info != undefined) {
+        for (var i = 0; i < pod.word_info.words.length; i++) {
+          const wordInfo: PodcastWordsArrayObject = pod.word_info.words[i];
+          var wordCont: WordContainer;
+          wordCont = getWordColor(wordInfo.Polarity, wordInfo.display);
+
+          wordContArray.push(wordCont);
+
+          if (i !== 0 && i % 20 === 0) {
+            wordContArray.push({
+              word: "\n" + formatTime(wordInfo.Offset),
+              color: "black"
+            });
           }
-        } else {
-          wordCont = { word: wordInfo.display + " ", color: "black" };
-        }
-
-        wordContArray.push(wordCont);
-
-        if (i !== 0 && i % 20 === 0) {
-          wordContArray.push({
-            word: "\n" + formatTime(wordInfo.Offset),
-            color: "black"
-          });
         }
       }
-    }
       return wordContArray;
     });
-    const formattedItems2: Array<Promise<PodcastInfoR>> = items.map(async (pod, idx) => await processPJSON(pod, idx, transcripts));
-    let fom : Array<PodcastInfoR> = [];
+    const formattedItems2: Array<Promise<PodcastInfoR>> = items.map(
+      async (pod, idx) => await processPJSON(pod, idx, transcripts)
+    );
+    let fom: Array<PodcastInfoR> = [];
     let fom2 = force(formattedItems2);
     let fom3 = await fom2;
     console.log(TAG + " podcasts info ", fom3);
@@ -203,7 +177,7 @@ const getPodcastsInitialR = async () => {
     // });
 
     //setPodcastNames(formattedItems);
-    store.dispatch(setPodcastList(fom3));//formattedItems));
+    store.dispatch(setPodcastList(fom3)); //formattedItems));
     store.dispatch(loadingPodcasts(false));
   } catch (error) {
     // how should we handle
@@ -211,7 +185,11 @@ const getPodcastsInitialR = async () => {
   }
 };
 
-const processPJSON = async (pod : PodcastJson, idx : number, transcripts: Array<Array<WordContainer>>) => {
+const processPJSON = async (
+  pod: PodcastJson,
+  idx: number,
+  transcripts: Array<Array<WordContainer>>
+) => {
   let show_name: string = "";
   let ep_name: string = pod.name;
   let pod_authors: string = "";
@@ -263,17 +241,14 @@ const processPJSON = async (pod : PodcastJson, idx : number, transcripts: Array<
         pod_authors = this_ep.itunes.authors[0].name;
       }
       ep_name = this_ep.title;
-      if (
-        this_ep.enclosures !== undefined &&
-        this_ep.enclosures.length > 0
-      ) {
+      if (this_ep.enclosures !== undefined && this_ep.enclosures.length > 0) {
         streaming_url = this_ep.enclosures[0].url;
       }
       break;
     }
   }
-  let ret : PodcastInfoR;
-  if (idx == 0){
+  let ret: PodcastInfoR;
+  if (idx == 0) {
     ret = {
       key: pod.id,
       allText: transcripts[idx],
@@ -282,32 +257,33 @@ const processPJSON = async (pod : PodcastJson, idx : number, transcripts: Array<
       idx: idx,
       rss_url: pod.rss_url,
       image_url: image_url,
-      streaming_url: "https://cdn.simplecast.com/audio/bceb3f91-afbb-4f97-87f6-5f4387bbb382/episodes/b5d7ea27-3fe2-4b88-913f-7b37e67fb35e/audio/79a85e01-7fb2-49cf-8df8-632f290e468f/default_tc.mp3?aid=rss_feed&feed=c2RzTGta",
+      streaming_url:
+        "https://cdn.simplecast.com/audio/bceb3f91-afbb-4f97-87f6-5f4387bbb382/episodes/b5d7ea27-3fe2-4b88-913f-7b37e67fb35e/audio/79a85e01-7fb2-49cf-8df8-632f290e468f/default_tc.mp3?aid=rss_feed&feed=c2RzTGta",
       authors: pod_authors
     };
   } else {
-  ret = {
-    key: pod.id,
-    allText: transcripts[idx],
-    ep_name: ep_name,
-    show_name: show_name,
-    idx: idx,
-    rss_url: pod.rss_url,
-    image_url: image_url,
-    streaming_url: streaming_url,
-    authors: pod_authors
-  };
-}
+    ret = {
+      key: pod.id,
+      allText: transcripts[idx],
+      ep_name: ep_name,
+      show_name: show_name,
+      idx: idx,
+      rss_url: pod.rss_url,
+      image_url: image_url,
+      streaming_url: streaming_url,
+      authors: pod_authors
+    };
+  }
   return ret;
-}
+};
 
-const force = async (f : Array<Promise<PodcastInfoR>>) => {
-  let f2 : Array<PodcastInfoR> = [];
-  for (let i = 0; i < f.length; i++){
+const force = async (f: Array<Promise<PodcastInfoR>>) => {
+  let f2: Array<PodcastInfoR> = [];
+  for (let i = 0; i < f.length; i++) {
     f2.push(await f[i]);
   }
   return f2;
-}
+};
 
 export const getPodcastsInitialWrapperR = () => {
   getPodcastsInitialR();
@@ -323,16 +299,13 @@ export const getRss = async () => {
     console.log("got response", responseText);
     const respJson = await rssParser.parse(responseText);
     console.log("json: ", respJson);
-  } catch(e){
-
-  }
-}
-
+  } catch (e) {}
+};
 
 // get the favorite podcasts
 export const getFavoritePodcasts = () => {
-    store.dispatch(setFavePodcasts([]));//formattedItems));
-    store.dispatch(loadingFavePodcasts(false));
+  store.dispatch(setFavePodcasts([])); //formattedItems));
+  store.dispatch(loadingFavePodcasts(false));
 };
 
 // Constants used to fetch data from rss
