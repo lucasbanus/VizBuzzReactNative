@@ -18,7 +18,7 @@ import {
 } from "../actions/userFavoritePodcastActions";
 
 // Constants used for initial fetching
-const URL_Back2 = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
+const URL_backend = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
 const key_to_transcripts2 = "transcripts";
 const offsetMultiple = 10000000;
 const TAG = "dataManager.tsx";
@@ -28,7 +28,7 @@ let defaultColor = "black";
 let defaultSize = 25;
 let defaultWeight = "normal";
 
-const formatTime = (time: number) => {
+export const formatTime = (time: number) => {
   const seconds = Math.round(time / offsetMultiple);
   const minutes = Math.floor(seconds / 60);
   var remainder = seconds % 60;
@@ -44,83 +44,84 @@ const formatTime = (time: number) => {
   return timestr;
 };
 
-export const getWordColor = (polarity: number, display: string) => {
-  var wordCont: WordContainer;
-  if (polarity !== undefined) {
-    if (polarity > 0) {
-      wordCont = { word: display + " ", color: "green" };
-    } else if (polarity < 0) {
-      wordCont = { word: display + " ", color: "red" };
-    } else {
-      wordCont = { word: display + " ", color: "black" };
-    }
-  } else {
-    wordCont = { word: display + " ", color: "black" };
+/* Convert polarity to a string representing the color the text should be, default is black */
+export const fromPolarityToColor = (polarity: number) => {
+  if (polarity === undefined) {
+    return defaultColor;
   }
-  return wordCont;
+  let color: string = defaultColor;
+  if (polarity > 0) {
+    color = "green";
+  } else if (polarity < 0) {
+    color = "red";
+  }
+  return color;
+};
+
+/* Return string version of time stamp for this wordInfo object */
+export const getTimeStamp = (wordInfo: PodcastWordsArrayObject) => {
+  return {
+    word: "\n" + formatTime(wordInfo.Offset),
+    color: "black",
+    size: defaultSize,
+    weight: defaultWeight
+  };
 };
 
 // Retrieve podcasts from JSON and parse their RSS URL's
 const getPodcastsInitialR = async () => {
   try {
-    let {pitchEnabled, sentimentEnabled, volumeEnabled}  = store.getState().pageSetup;
-    // Initial get request needed for testing
-    //console.log(TAG + " About to fetch from the backend\n");
-    const response = await fetch(URL_Back2);
-    console.log(TAG + " Got the response \n");
+    let {
+      pitchEnabled,
+      sentimentEnabled,
+      volumeEnabled
+    } = store.getState().pageSetup;
+    // Initial get request for JSON from backend
+
+    const response = await fetch(URL_backend);
     const json: JSON = await response.json();
     const items: Array<PodcastJson> = JSON.parse(JSON.stringify(json));
-    console.log(TAG + " Json ", items, "\n");
-    //console.log(TAG + " json length " + items.length);
-    //console.log(items[0].rss_url);
 
     const transcripts: Array<Array<WordContainer>> = items.map(pod => {
       //var finalString : string = "";
       var wordContArray: Array<WordContainer> = [];
-      if (pod.word_info != undefined){
-      for (var i = 0; i < pod.word_info.words.length; i++) {
-        const wordInfo: PodcastWordsArrayObject = pod.word_info.words[i];
-        var wordCont: WordContainer;
-        let color = defaultColor;
-        let weight = defaultWeight;
-        let size = defaultSize;
-        if (sentimentEnabled && wordInfo.Polarity !== undefined){
-          if (wordInfo.Polarity > 0){
-            color = "green";
-          } else if (wordInfo.Polarity < 0){
-            color = "red";
+      if (pod.word_info != undefined) {
+        for (var i = 0; i < pod.word_info.words.length; i++) {
+          const wordInfo: PodcastWordsArrayObject = pod.word_info.words[i];
+          var wordCont: WordContainer;
+          let color = defaultColor;
+          let weight = defaultWeight;
+          let size = defaultSize;
+          if (sentimentEnabled) {
+            color = fromPolarityToColor(wordInfo.Polarity);
           }
-        }
 
-        if(pitchEnabled){
-          // change the weight according to scale
-        }
-        
-        if (volumeEnabled){
-          // change the size according to scale
-        }
-        // if (wordInfo.Polarity !== undefined) {
-        //   if (wordInfo.Polarity > 0) {
-        //     wordCont = { word: wordInfo.display + " ", color: "green", size: defaultSize, weight: defaultWeight };
-        //   } else if (wordInfo.Polarity < 0) {
-        //     wordCont = { word: wordInfo.display + " ", color: "red", size: defaultSize, weight: defaultWeight };
-        //   } else {
-        //     wordCont = { word: wordInfo.display + " ", color: "black", size: defaultSize, weight: defaultWeight };
-        //   }
-        // } else {
-        //   wordCont = { word: wordInfo.display + " ", color: "black" , size: defaultSize, weight: defaultWeight};
-        // }
+          if (pitchEnabled) {
+            // change the weight according to scale
+          }
 
-        //wordContArray.push(wordCont);
-        wordCont = {word: wordInfo.display + " ", color , size, weight};
-        wordContArray.push(wordCont);
+          if (volumeEnabled) {
+            // change the size according to scale
+          }
+          // if (wordInfo.Polarity !== undefined) {
+          //   if (wordInfo.Polarity > 0) {
+          //     wordCont = { word: wordInfo.display + " ", color: "green", size: defaultSize, weight: defaultWeight };
+          //   } else if (wordInfo.Polarity < 0) {
+          //     wordCont = { word: wordInfo.display + " ", color: "red", size: defaultSize, weight: defaultWeight };
+          //   } else {
+          //     wordCont = { word: wordInfo.display + " ", color: "black", size: defaultSize, weight: defaultWeight };
+          //   }
+          // } else {
+          //   wordCont = { word: wordInfo.display + " ", color: "black" , size: defaultSize, weight: defaultWeight};
+          // }
 
-        if (i !== 0 && i % 20 === 0) {
-          wordContArray.push({
-            word: "\n" + formatTime(wordInfo.Offset),
-            color: "black", 
-            size: defaultSize, weight: defaultWeight
-          });
+          //wordContArray.push(wordCont);
+          wordCont = { word: wordInfo.display + " ", color, size, weight };
+          wordContArray.push(wordCont);
+
+          if (i !== 0 && i % 20 === 0) {
+            wordContArray.push(getTimeStamp(wordInfo));
+          }
         }
       }
       return wordContArray;
@@ -131,85 +132,6 @@ const getPodcastsInitialR = async () => {
     let fom: Array<PodcastInfoR> = [];
     let fom2 = force(formattedItems2);
     let fom3 = await fom2;
-    //console.log(TAG + " podcasts info ", fom3);
-    // for (let i = 0; i < rss_links.length; i++){
-    //   console.log('rssParse1');
-    //   let f = fetch(rss_links[i]).then(r => console.log(r));
-    //   console.log('rssParse');
-    //   let fjson = await rssParser.parse(f);
-    //   console.log("resp: ", fjson);
-    // }
-    // const formattedItems: Array<PodcastInfoR> = items.map((pod, idx) => {
-    //   let show_name: string = "";
-    //   let ep_name: string = pod.name;
-    //   let pod_authors: string = "";
-    //   let image_url: string = "";
-    //   let streaming_url: string = "";
-    //   console.log(TAG + " rss url from JSON " + pod.rss_url);
-    //   // Get the pre-fetched rss response for this podcast show
-    //   //let response = rss_mapping.get(pod.rss_url);
-    //   //let response = rss_resp[idx];
-    //   // let response = hardcoded_rss_fetch.text();
-    //   // //rss_responses[idx].text();
-    //   // let rss = rssParser.parse(response);
-    //   // // Get real show name and cover art from the show's RSS URL
-    //   // show_name = rss.title;
-    //   // image_url = rss.image.url;
-    //   // // FIND this specific episode withing the show's rss feed.
-    //   // const x: Array<any> = rss.items; // all episodes of this podcast
-    //   // //const stripped_ep_title: string = pod.name.trim().toLowerCase(); // try to eliminate all reasonable errors in entering episode title
-    //   // // const stripped_ep_title2: string = "49.5: The Laws Of Playboys ft Robert Greene"
-    //   // //   .trim()
-    //   // //   .toLowerCase();
-    //   // const stripped_ep_title: string = "Donald Osborne (Classic car historian, curator, TV host )" // TODO replace with pod
-    //   //   .trim()
-    //   //   .toLowerCase();
-
-    //   // // Find matching episode to podname by episode title
-    //   // let this_ep: any;
-    //   // for (let i = 0; i < x.length; i++) {
-    //   //   this_ep = x[i];
-    //   //   if (
-    //   //     this_ep.title
-    //   //       .trim()
-    //   //       .toLowerCase()
-    //   //       .indexOf(stripped_ep_title) >= 0
-    //   //   ) {
-    //   //     // This is the episode we are looking for
-    //   //     if (
-    //   //       this_ep.itunes !== undefined &&
-    //   //       this_ep.itunes.authors !== undefined &&
-    //   //       this_ep.itunes.authors.length > 0
-    //   //     ) {
-    //   //       pod_authors = this_ep.itunes.authors[0].name;
-    //   //     }
-    //   //     ep_name = this_ep.title;
-    //   //     if (
-    //   //       this_ep.enclosures !== undefined &&
-    //   //       this_ep.enclosures.length > 0
-    //   //     ) {
-    //   //       streaming_url = this_ep.enclosures[0].url;
-    //   //     }
-    //   //     break;
-    //   //   }
-    //   // }
-    //   // console.log("show name" + show_name);
-    //   // console.log("authors " + pod_authors);
-    //   // console.log("title " + ep_name.toString());
-    //   // console.log("streaming_url " + streaming_url.toString());
-    //   // console.log("image URL " + image_url.toString());
-    //   return {
-    //     key: pod.id,
-    //     allText: transcripts[idx],
-    //     ep_name: pod.name,
-    //     show_name: show_name,
-    //     idx: idx,
-    //     rss_url: pod.rss_url,
-    //     image_url: image_url,
-    //     streaming_url: streaming_url,
-    //     authors: pod_authors
-    //   };
-    // });
 
     //setPodcastNames(formattedItems);
     store.dispatch(setPodcastList(fom3)); //formattedItems));
@@ -235,12 +157,7 @@ const processPJSON = async (
   let rss_text = await rss_response.text();
   let rss_json = await rssParser.parse(rss_text);
   // Get the pre-fetched rss response for this podcast show
-  // let response = await fetch(pod.rss_url);
-  //let response = rss_mapping.get(pod.rss_url);
-  //let response = rss_resp[idx];
-  // let response = hardcoded_rss_fetch.text();
-  // //rss_responses[idx].text();
-  // let rss = await rssParser.parse(response);
+
   // // Get real show name and cover art from the show's RSS URL
   show_name = rss_json.title;
   image_url = rss_json.image.url;

@@ -31,3 +31,7 @@ test("Test format Time", async () => {
   expect(formatTime(test_time_2)).toBe(test_time_2_str);
   expect(formatTime(test_time_3)).toBe(test_time_3_str);
 });
+
+test("Test polarity to color", async () => {
+  expect(fromPolarityToColor(undefined)).toBe("black");
+});
