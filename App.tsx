@@ -13,6 +13,7 @@ import PodcastListContainer from "./components/podcasts/PodcastListContainer";
 import SettingsTab from "./components/SettingsTab";
 import { UserLogin } from "./components/UserLogin";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import FavoritePodcastListContainer from "./components/favoritePage/FavoritePodcastListContainer";
 
 // import { createAppContainer } from "react-navigation";
 // import { createStackNavigator } from "react-navigation-stack";
@@ -27,12 +28,23 @@ function HomePage() {
   );
 }
 
+function FavoritePage() {
+  return (
+    <View style={styles.container}>
+      <FavoritePodcastListContainer/>
+      {/* <PodcastListContainer /> */}
+      {/* <UserLogin /> */}
+      {/* <StatusBar style="auto" /> */}
+    </View>
+  );
+}
+
 function Login() {
   return (
     <View style={styles.container}>
       {/* <PodcastListContainer /> */}
       <UserLogin />
-      <StatusBar style="auto" />
+      {/* <StatusBar style="auto" /> */}
     </View>
   );
 }
@@ -57,7 +69,7 @@ function actualApp() {
       })}
     >
       <Tab.Screen name="Browse" component={HomePage} />
-      <Tab.Screen name="Favorites" component={HomePage} />
+      <Tab.Screen name="Favorites" component={FavoritePage} />
       <Tab.Screen name="Settings" component={SettingsTab} />
     </Tab.Navigator>
   );

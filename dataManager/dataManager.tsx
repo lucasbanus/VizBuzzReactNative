@@ -12,6 +12,7 @@ import {
 import { useEffect } from "react";
 import store from "../store/store";
 import { setPodcastList, loadingPodcasts } from "../actions/pageSetupActions";
+import {setFavePodcasts, loadingFavePodcasts} from "../actions/userFavoritePodcastActions";
 
 // Constants used for initial fetching
 const URL_Back2 = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
@@ -325,6 +326,13 @@ export const getRss = async () => {
   } catch(e){
 
   }
+}
+
+
+// get the favorite podcasts
+export const getFavoritePodcasts = () => {
+    store.dispatch(setFavePodcasts([]));//formattedItems));
+    store.dispatch(loadingFavePodcasts(false));
 }
 
 // Constants used to fetch data from rss

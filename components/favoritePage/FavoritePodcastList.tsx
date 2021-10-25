@@ -10,10 +10,6 @@ import {
 
 import { PodcastInfo, PodcastInfoR } from "../../types/types";
 import { greenColors } from "../../constants/colors";
-import {
-  setTranscriptIndex,
-  showTranscript
-} from "../../actions/pageSetupActions";
 import { connect } from "react-redux";
 import {
   setPodcast,
@@ -23,8 +19,9 @@ import {
   setAuthors,
   setEpisodeName
 } from "../../actions/podcastActions";
-import { addFavePodcast } from "../../actions/userFavoritePodcastActions";
-import { Ionicons } from "@expo/vector-icons";
+import {
+    setFaveIdx, showFaveTranscript
+} from '../../actions/userFavoritePodcastActions';
 
 // export type Props = {
 //   podcastNames: Array<PodcastInfoR>;
@@ -32,54 +29,41 @@ import { Ionicons } from "@expo/vector-icons";
 //   selectPodcast: (idx: number) => void;
 // };
 
-const PodcastList = (props: any) => {
+const FavoritePodcastList = (props: any) => {
   const pressPodcast = (idx: number) => {
-    console.log("PodcastList" + props.podcastList[idx].image_url);
-    props.setPodcast(props.podcastList[idx].allText);
-    props.showTranscript(true);
-    props.setRssUrl(props.podcastList[idx].rss_url);
-    props.setImageUrl(props.podcastList[idx].image_url);
-    props.setStreamingUrl(props.podcastList[idx].streaming_url);
-    props.setAuthors(props.podcastList[idx].authors);
-    props.setEpisodeName(props.podcastList[idx].ep_name);
-  };
-  
-  const addToFavorites = (idx : number) => {
-    props.addFavorite(props.podcastList[idx]);
+      if (props.favePodcastList !== undefined){
+    props.setPodcast(props.favePodcastList[idx].allText);
+    props.showFaveTranscript(true);
+    props.setRssUrl(props.favePodcastList[idx].rss_url);
+    props.setImageUrl(props.favePodcastList[idx].image_url);
+    props.setStreamingUrl(props.favePodcastList[idx].streaming_url);
+    props.setAuthors(props.favePodcastList[idx].authors);
+    props.setEpisodeName(props.favePodcastList[idx].ep_name);
+    props.setFaveIdx(idx);
+      }
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title} testID="title">
-        Your Podcasts
+        Your Favorite Podcasts
       </Text>
       <FlatList
-        data={props.podcastList}
+        data={props.favePodcastList}
         testID="list"
         renderItem={({ item }) => (
-          <View>
           <TouchableHighlight
             underlayColor="#ccc"
             style={styles.touchable}
             onPress={() => pressPodcast(item.idx)}
           >
-            <View style={styles.browserButton}>
             <Text
               style={styles.textInside}
               testID={item.show_name + ": " + item.ep_name}
             >
               {item.show_name + ": " + item.ep_name}
             </Text>
-            <TouchableHighlight
-            underlayColor="#ccc"
-            style={styles.faveTouchable}
-            onPress={() => addToFavorites(item.idx)}
-          >
-            <Ionicons name="heart" size={30} color="green" />
           </TouchableHighlight>
-        </View>
-          </TouchableHighlight>
-        </View>
         )}
       />
     </View>
@@ -108,8 +92,7 @@ const styles = StyleSheet.create({
   textInside: {
     fontSize: 20,
     //color: "#0074FF",
-    color: "#FFFFFF", 
-    width: '90%'
+    color: "#FFFFFF"
   },
   touchable: {
     //borderColor: "#DEDEDE",
@@ -118,32 +101,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     width: "100%"
-  }, 
-  faveTouchable : {
-    backgroundColor: greenColors.deep,
-    // borderColor: "#FFFFFF",
-    // borderWidth: 1,
-    width: '10%', 
-    alignItems: 'center',
-    justifyContent: 'center'
-  }, 
-  browserButton : {
-    display: 'flex',
-    flexDirection: 'row'
-  },
+  }
 });
 
 const mapStateToProps = (state: any) => {
   return {
     transcript: state.podcast.podcast,
-    podcastList: state.pageSetup.podcastList
+    favePodcastList: state.favePodcasts.favoritePodcasts
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    setTranscriptIndex: (idx: number) => dispatch(setTranscriptIndex(idx)),
-    showTranscript: (show: boolean) => dispatch(showTranscript(show)),
+    setFaveIdx: (idx: number) => dispatch(setFaveIdx(idx)),
+    showFaveTranscript: (show: boolean) => dispatch(showFaveTranscript(show)),
     setPodcast: (podcast: any) => dispatch(setPodcast(podcast)),
     setRssUrl: (rss_url: any) => dispatch(setRssUrl(rss_url)),
     setImageUrl: (image_url: any) => dispatch(setImageUrl(image_url)),
@@ -151,8 +122,7 @@ const mapDispatchToProps = (dispatch: any) => {
       dispatch(setStreamingUrl(streaming_url)),
     setAuthors: (authors: any) => dispatch(setAuthors(authors)), 
     setEpisodeName: (ep: string) => dispatch(setEpisodeName(ep)),
-    addFavorite : (podcast : any) => dispatch(addFavePodcast(podcast)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PodcastList);
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritePodcastList);

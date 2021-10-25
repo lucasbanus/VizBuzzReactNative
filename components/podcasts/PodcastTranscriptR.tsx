@@ -19,6 +19,7 @@ import {
 import { connect } from "react-redux";
 import TranscriptHeader from "./transcriptComp/TranscriptHeader";
 import Player from "./transcriptComp/Player";
+import { showFaveTranscript } from "../../actions/userFavoritePodcastActions";
 
 export type Props = {
   transcript: Array<WordContainer>;
@@ -28,6 +29,7 @@ export type Props = {
   image_url: string;
   streaming_url: string;
   authors: string;
+  faveShowing: boolean;
 };
 
 const PodcastTranscript = (props: Props) => {
@@ -104,7 +106,7 @@ const PodcastTranscript = (props: Props) => {
   });
   return (
     <Modal
-      visible={props.isTranscript}
+      visible={props.isTranscript || props.faveShowing}
       animationType="slide"
       style={styles.modalContainer}
     >
@@ -172,13 +174,15 @@ const mapStateToProps = (state: any) => {
     rss_url: state.podcast.rss_url,
     image_url: state.podcast.image_url,
     streaming_url: state.podcast.streaming_url,
-    authors: state.podcast.authors
+    authors: state.podcast.authors, 
+    faveShowing: state.favePodcasts.isShowingTranscript,
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    showTranscript: (show: boolean) => dispatch(showTranscript(show))
+    showTranscript: (show: boolean) => dispatch(showTranscript(show)),
+    showFaveTranscript : (show: boolean) => dispatch(showFaveTranscript(show)),
   };
 };
 

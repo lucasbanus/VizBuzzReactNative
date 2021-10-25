@@ -12,10 +12,12 @@ import { WordContainer } from "../../../types/types";
 import { showTranscript} from "../../../actions/pageSetupActions";
 import { connect } from "react-redux";
 import {sound} from './Player';
+import { showFaveTranscript } from "../../../actions/userFavoritePodcastActions";
 
 export type Props = {
   transcript: Array<WordContainer>;
   showTranscript: (show: boolean) => void;
+  showFaveTranscript: (show : boolean) => void;
   isTranscript: boolean;
   rss_url: string;
   image_url: string;
@@ -41,7 +43,7 @@ const TranscriptHeader = (props: Props) => {
         </View>
         <View style={styles.textContainer}>
           <View style={styles.scrollContainer}><ScrollView style={styles.nameScroll} scrollsToTop={true}><Text style={styles.nameText}>{props.ep_name}</Text></ScrollView></View>
-            <Text style={styles.authorsText}>Authors</Text>
+            <Text style={styles.authorsText}>{props.authors}</Text>
         </View>
         <View style={styles.buttonContainer}>
             <TouchableHighlight
@@ -49,6 +51,7 @@ const TranscriptHeader = (props: Props) => {
             style={styles.touchable}
             onPress={() => {
               props.showTranscript(false);
+              props.showFaveTranscript(false);
               sound.stopAsync();
               sound.unloadAsync();
             }}
@@ -144,7 +147,8 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    showTranscript: (show: boolean) => dispatch(showTranscript(show))
+    showTranscript: (show: boolean) => dispatch(showTranscript(show)),
+    showFaveTranscript : (show: boolean) => dispatch(showFaveTranscript(show)),
   };
 };
 
