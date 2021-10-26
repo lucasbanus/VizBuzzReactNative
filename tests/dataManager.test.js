@@ -6,24 +6,16 @@ import App from "./../App";
 import {
   getPodcastsInitialWrapperR,
   getRss,
-  formatTime
+  formatTime,
+  fromPolarityToColor
 } from "../dataManager/dataManager";
 
-const names = ["hello1", "hello2", "hello3"];
-const open = () => true;
-const selectPodcast = () => 0;
 const test_time_1 = 5900000000;
 const test_time_1_str = "[9:50]";
 const test_time_2 = 9999999999999;
 const test_time_2_str = "[16666:40]";
 const test_time_3 = 0;
 const test_time_3_str = "[0:00]";
-
-// export type Props = {
-//   podcastNames: Array<PodcastInfo>;
-//   openPodcast: () => void;
-//   selectPodcast: (idx: number) => void;
-// };
 
 test("Test format Time", async () => {
   //expect(dataManager.formatTime(123).length).toBe(1);
@@ -34,4 +26,8 @@ test("Test format Time", async () => {
 
 test("Test polarity to color", async () => {
   expect(fromPolarityToColor(undefined)).toBe("black");
+  expect(fromPolarityToColor(1)).toBe("green");
+  expect(fromPolarityToColor(1.0)).toBe("green");
+  expect(fromPolarityToColor(-1.0)).toBe("red");
+  expect(fromPolarityToColor(-2)).toBe("red");
 });

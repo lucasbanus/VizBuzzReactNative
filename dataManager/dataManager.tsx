@@ -142,6 +142,54 @@ const getPodcastsInitialR = async () => {
   }
 };
 
+/* Find episode authors name fom this RSS, otherwise returns default val */
+export const getEpisodeAuthors = (episode_rss: any) => {
+  if (episode_rss === undefined) {
+    return "";
+  }
+  if (
+    episode_rss.itunes !== undefined &&
+    episode_rss.itunes.authors !== undefined &&
+    episode_rss.itunes.authors.length > 0
+  ) {
+    // Get this episode's authors
+    return episode_rss.itunes.authors[0].name;
+  } else {
+    return "";
+  }
+};
+
+export const getStreamingUrlFromRss = (episode_rss: any) => {
+  // Get streaming URL.
+  if (
+    episode_rss !== undefined &&
+    episode_rss.enclosures !== undefined &&
+    episode_rss.enclosures.length > 0
+  ) {
+    return episode_rss.enclosures[0].url;
+  } else {
+    return "";
+  }
+};
+
+export const findEpisode = (episodes_array: any, episode_title: string) => {
+  let this_ep: any;
+  let stripped_ep_title = episode_title.trim().toLowerCase();
+  for (let i = 0; i < episodes_array.length; i++) {
+    this_ep = episodes_array[i];
+    if (
+      this_ep.title
+        .trim()
+        .toLowerCase()
+        .indexOf(stripped_ep_title) >= 0
+    ) {
+      // This is the episode we are looking for
+      return this_ep;
+    }
+  }
+  return undefined;
+};
+
 const processPJSON = async (
   pod: PodcastJson,
   idx: number,
@@ -155,6 +203,7 @@ const processPJSON = async (
   //console.log(TAG + " rss url from JSON " + pod.rss_url);
   let rss_response = await fetch(pod.rss_url);
   let rss_text = await rss_response.text();
+  console.log("PJSON \n" + rss_text);
   let rss_json = await rssParser.parse(rss_text);
   // Get the pre-fetched rss response for this podcast show
 
@@ -164,41 +213,15 @@ const processPJSON = async (
   // // FIND this specific episode withing the show's rss feed.
   // console.log("rss: ", rss);
   const x: Array<any> = rss_json.items; // all episodes of this podcast
-  console.log("what: ", x);
-  //const stripped_ep_title: string = pod.name.trim().toLowerCase(); // try to eliminate all reasonable errors in entering episode title
-  // // const stripped_ep_title2: string = "49.5: The Laws Of Playboys ft Robert Greene"
-  // //   .trim()
-  // //   .toLowerCase();
-  //let stripped_ep_title: string = "Donald Osborne (Classic car historian, curator, TV host )".trim().toLowerCase(); // TODO replace with pod
-  let stripped_ep_title: string = pod.name.trim().toLowerCase();
-  //   .trim()
-  //   .toLowerCase();
 
   // // Find matching episode to podname by episode title
-  let this_ep: any;
-  for (let i = 0; i < x.length; i++) {
-    this_ep = x[i];
-    if (
-      this_ep.title
-        .trim()
-        .toLowerCase()
-        .indexOf(stripped_ep_title) >= 0
-    ) {
-      // This is the episode we are looking for
-      if (
-        this_ep.itunes !== undefined &&
-        this_ep.itunes.authors !== undefined &&
-        this_ep.itunes.authors.length > 0
-      ) {
-        pod_authors = this_ep.itunes.authors[0].name;
-      }
-      ep_name = this_ep.title;
-      if (this_ep.enclosures !== undefined && this_ep.enclosures.length > 0) {
-        streaming_url = this_ep.enclosures[0].url;
-      }
-      break;
-    }
+  let this_ep = findEpisode(x, pod.name);
+  pod_authors = getEpisodeAuthors(this_ep);
+  streaming_url = getStreamingUrlFromRss(this_ep);
+  if (this_ep !== undefined) {
+    ep_name = this_ep.title;
   }
+
   let ret: PodcastInfoR;
   if (idx == 0) {
     ret = {
