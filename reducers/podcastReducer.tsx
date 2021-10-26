@@ -4,7 +4,10 @@ import {
   SET_IMAGE_URL,
   SET_STREAMING_URL,
   SET_AUTHORS,
-  SET_EPISODE_NAME
+  SET_EPISODE_NAME, 
+  SET_WORD_DISPLAY, 
+  ADD_WORD_DISPLAY, 
+  SET_COMPUTE_WORD_DISPLAY
 } from "../actions/podcastActions";
 import { WordContainer } from "../types/types";
 
@@ -15,6 +18,8 @@ export const podcastInitialState = {
   streaming_url: "",
   authors: "", 
   ep_name: "",
+  wordDisplay : [],
+  shouldComputeWordDisplay: true,
 };
 
 export function changePodcast(state = podcastInitialState, action: any) {
@@ -31,6 +36,17 @@ export function changePodcast(state = podcastInitialState, action: any) {
       return { ...state, authors: action.authors };
     case SET_EPISODE_NAME:
       return {... state, ep_name : action.ep};
+    case SET_WORD_DISPLAY:
+      return {...state, wordDisplay: action.words};
+    case ADD_WORD_DISPLAY: 
+      let newWords = [];
+      for (let i = 0; i < state.wordDisplay.length; i++){
+        newWords.push(state.wordDisplay[i]);
+      }
+      newWords.push(action.word);
+      return {...state, wordDisplay: newWords, shouldComputeWordDisplay: false};
+    case SET_COMPUTE_WORD_DISPLAY:
+      return {...state, shouldComputeWordDisplay: action.should};
   }
   return state;
 }

@@ -8,6 +8,9 @@ export const SET_IMAGE_URL = "SET_IMAGE_URL";
 export const SET_STREAMING_URL = "SET_STREAMING_URL";
 export const SET_AUTHORS = "SET_AUTHORS";
 export const SET_EPISODE_NAME = "SET_EPISODE_NAME";
+export const SET_WORD_DISPLAY = "SET_WORD_DISPLAY";
+export const ADD_WORD_DISPLAY = "ADD_WORD_DISPLAY";
+export const SET_COMPUTE_WORD_DISPLAY = "SET_COMPUTE_WORD_DISPLAY";
 
 /**
  * functions for action types
@@ -36,3 +39,17 @@ export function setAuthors(authors: string) {
 export function setEpisodeName(ep: string){
   return {type: SET_EPISODE_NAME, ep};
 }
+
+export function setWordDisplay(words: Array<any>){
+  return {type: SET_WORD_DISPLAY, words};
+}
+
+export function addWordDisplay(word: any){
+  return {type: ADD_WORD_DISPLAY, word};
+}
+
+export function setComputeWordDisplay(should: boolean){
+  return {type: SET_COMPUTE_WORD_DISPLAY, should};
+}
+
+

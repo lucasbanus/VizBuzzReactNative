@@ -13,6 +13,7 @@ import { showTranscript} from "../../../actions/pageSetupActions";
 import { connect } from "react-redux";
 import {sound} from './Player';
 import { showFaveTranscript } from "../../../actions/userFavoritePodcastActions";
+import {setWordDisplay, addWordDisplay, setComputeWordDisplay} from "../../../actions/podcastActions";
 import { Ionicons } from "@expo/vector-icons";
 
 export type Props = {
@@ -25,6 +26,9 @@ export type Props = {
   streaming_url: string;
   authors: string;
   ep_name: string;
+  setWordDisplay : (words: Array<any>) => void;
+  addWordDisplay : (word : any) => void;
+  setComputeWordDisplay : (should: boolean) => void;
 };
 
 const TranscriptHeader = (props: Props) => {
@@ -53,6 +57,8 @@ const TranscriptHeader = (props: Props) => {
             onPress={() => {
               props.showTranscript(false);
               props.showFaveTranscript(false);
+              props.setWordDisplay([]);
+              props.setComputeWordDisplay(true);
               sound.stopAsync();
               sound.unloadAsync();
             }}
@@ -152,6 +158,9 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     showTranscript: (show: boolean) => dispatch(showTranscript(show)),
     showFaveTranscript : (show: boolean) => dispatch(showFaveTranscript(show)),
+    setWordDisplay : (words: Array<any>) => dispatch(setWordDisplay(words)),
+    addWordDisplay : (word: any) => dispatch(addWordDisplay(word)),
+    setComputeWordDisplay : (should: boolean) => dispatch(setComputeWordDisplay(should)),
   };
 };
 
