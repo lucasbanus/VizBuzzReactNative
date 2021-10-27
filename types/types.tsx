@@ -18,6 +18,7 @@ export type PodcastInfoR = {
   image_url: string;
   streaming_url: string;
   authors: string;
+  isFave: boolean;
 };
 export type WordContainer = {
   word: string;

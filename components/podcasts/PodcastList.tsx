@@ -12,7 +12,8 @@ import { PodcastInfo, PodcastInfoR } from "../../types/types";
 import { greenColors } from "../../constants/colors";
 import {
   setTranscriptIndex,
-  showTranscript
+  showTranscript,
+  favoriteClicked
 } from "../../actions/pageSetupActions";
 import { connect } from "react-redux";
 import {
@@ -25,6 +26,7 @@ import {
 } from "../../actions/podcastActions";
 import { addFavePodcast } from "../../actions/userFavoritePodcastActions";
 import { Ionicons } from "@expo/vector-icons";
+import { queryPodcast } from "../../dataManager/dataManager";
 
 // export type Props = {
 //   podcastNames: Array<PodcastInfoR>;
@@ -33,6 +35,8 @@ import { Ionicons } from "@expo/vector-icons";
 // };
 
 const PodcastList = (props: any) => {
+  let iconColor = "green";
+  let changeColor = true;
   const pressPodcast = (idx: number) => {
     props.setPodcast(props.podcastList[idx].allText);
     props.showTranscript(true);
@@ -41,10 +45,12 @@ const PodcastList = (props: any) => {
     props.setStreamingUrl(props.podcastList[idx].streaming_url);
     props.setAuthors(props.podcastList[idx].authors);
     props.setEpisodeName(props.podcastList[idx].ep_name);
+    queryPodcast();
   };
-  
-  const addToFavorites = (idx : number) => {
+
+  const addToFavorites = (idx: number) => {
     props.addFavorite(props.podcastList[idx]);
+    props.setFave(true, idx);
   };
 
   return (
@@ -57,28 +63,35 @@ const PodcastList = (props: any) => {
         testID="list"
         renderItem={({ item }) => (
           <View>
-          <TouchableHighlight
-            underlayColor="#ccc"
-            style={styles.touchable}
-            onPress={() => pressPodcast(item.idx)}
-          >
-            <View style={styles.browserButton}>
-            <Text
-              style={styles.textInside}
-              testID={item.show_name + ": " + item.ep_name}
-            >
-              {item.show_name + ": " + item.ep_name}
-            </Text>
             <TouchableHighlight
-            underlayColor="#ccc"
-            style={styles.faveTouchable}
-            onPress={() => addToFavorites(item.idx)}
-          >
-            <Ionicons name="heart" size={30} color="green" />
-          </TouchableHighlight>
-        </View>
-          </TouchableHighlight>
-        </View>
+              underlayColor="#ccc"
+              style={styles.touchable}
+              onPress={() => pressPodcast(item.idx)}
+            >
+              <View style={styles.browserButton}>
+                <Text
+                  style={styles.textInside}
+                  testID={item.show_name + ": " + item.ep_name}
+                >
+                  {item.show_name + ": " + item.ep_name}
+                </Text>
+                <TouchableHighlight
+                  underlayColor="#ccc"
+                  style={styles.faveTouchable}
+                  onPress={() => {
+                    addToFavorites(item.idx);
+                    // setState({});
+                  }}
+                >
+                  <Ionicons
+                    name="heart"
+                    size={30}
+                    color={item.isFave ? "red" : "white"}
+                  />
+                </TouchableHighlight>
+              </View>
+            </TouchableHighlight>
+          </View>
         )}
       />
     </View>
@@ -90,8 +103,8 @@ const styles = StyleSheet.create({
     backgroundColor: greenColors.background,
     alignItems: "center",
     justifyContent: "center",
-    width: "100%", 
-    height: '100%',
+    width: "100%",
+    height: "100%"
   },
   item: {
     padding: 10,
@@ -109,8 +122,8 @@ const styles = StyleSheet.create({
   textInside: {
     fontSize: 20,
     //color: "#0074FF",
-    color: "#FFFFFF", 
-    width: '90%'
+    color: "#FFFFFF",
+    width: "90%"
   },
   touchable: {
     //borderColor: "#DEDEDE",
@@ -119,19 +132,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     width: "100%"
-  }, 
-  faveTouchable : {
+  },
+  faveTouchable: {
     backgroundColor: greenColors.deep,
     // borderColor: "#FFFFFF",
     // borderWidth: 1,
-    width: '10%', 
-    alignItems: 'center',
-    justifyContent: 'center'
-  }, 
-  browserButton : {
-    display: 'flex',
-    flexDirection: 'row'
+    width: "10%",
+    alignItems: "center",
+    justifyContent: "center"
   },
+  browserButton: {
+    display: "flex",
+    flexDirection: "row"
+  }
 });
 
 const mapStateToProps = (state: any) => {
@@ -150,9 +163,11 @@ const mapDispatchToProps = (dispatch: any) => {
     setImageUrl: (image_url: any) => dispatch(setImageUrl(image_url)),
     setStreamingUrl: (streaming_url: any) =>
       dispatch(setStreamingUrl(streaming_url)),
-    setAuthors: (authors: any) => dispatch(setAuthors(authors)), 
+    setAuthors: (authors: any) => dispatch(setAuthors(authors)),
     setEpisodeName: (ep: string) => dispatch(setEpisodeName(ep)),
-    addFavorite : (podcast : any) => dispatch(addFavePodcast(podcast)),
+    addFavorite: (podcast: any) => dispatch(addFavePodcast(podcast)),
+    setFave: (fave: boolean, idx: number) =>
+      dispatch(favoriteClicked(fave, idx))
   };
 };
 

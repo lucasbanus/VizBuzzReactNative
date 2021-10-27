@@ -222,34 +222,56 @@ const processPJSON = async (
     ep_name = this_ep.title;
   }
 
-  let ret: PodcastInfoR;
-  if (idx == 0) {
-    ret = {
-      key: pod.id,
-      allText: transcripts[idx],
-      ep_name: "Donald Osborne (Classic car historian, curator, TV host )",
-      show_name: show_name,
-      idx: idx,
-      rss_url: pod.rss_url,
-      image_url: image_url,
-      streaming_url:
-        "https://cdn.simplecast.com/audio/bceb3f91-afbb-4f97-87f6-5f4387bbb382/episodes/b5d7ea27-3fe2-4b88-913f-7b37e67fb35e/audio/79a85e01-7fb2-49cf-8df8-632f290e468f/default_tc.mp3?aid=rss_feed&feed=c2RzTGta",
-      authors: pod_authors
-    };
-  } else {
-    ret = {
-      key: pod.id,
-      allText: transcripts[idx],
-      ep_name: ep_name,
-      show_name: show_name,
-      idx: idx,
-      rss_url: pod.rss_url,
-      image_url: image_url,
-      streaming_url: streaming_url,
-      authors: pod_authors
-    };
-  }
+  let ret: PodcastInfoR = {
+    key: pod.id,
+    allText: transcripts[idx],
+    ep_name: ep_name,
+    show_name: show_name,
+    idx: idx,
+    rss_url: pod.rss_url,
+    image_url: image_url,
+    streaming_url: streaming_url,
+    authors: pod_authors,
+    isFave: false
+  };
   return ret;
+};
+
+const URL_GET_TRANSCRIPT =
+  "https://vizbuzz-backend-dev.herokuapp.com/view-transcripts/";
+// get the podcast info
+export const queryPodcast = async () => {
+  console.log("QUETYING PODCAST\n");
+  let payload = {
+    transcript_bucket_id: "vizbuzz-podcast-metadata",
+    transcript_file_id:
+      "John Temerian (Curated, Exotic Car Dealer)c2RzTGta.json"
+  };
+  // var url = new URL(URL_GET_TRANSCRIPT);
+  // console.log("Created url");
+  // url.search = new URLSearchParams(payload).toString();
+  // console.log("Added search parameters");
+  // let fetchT = await fetch(URL_GET_TRANSCRIPT, {
+  //   method: "POST",
+  //   body: JSON.stringify(payload)
+  // });
+  // let respJson = await fetchT.json();
+  // //let json = await JSON.parse(JSON.stringify(respJson));
+  // console.log("Response Trans: ", respJson);
+  console.log(JSON.stringify(payload));
+
+  fetch(
+    `https://vizbuzz-backend-dev.herokuapp.com/view-transcripts?transcript_bucket_id=${encodeURIComponent(
+      payload.transcript_bucket_id
+    )}&transcript_file_id=${encodeURIComponent(payload.transcript_file_id)}`,
+    {
+      method: "GET"
+    }
+  )
+    .then(r => r.text())
+    .then(r => console.log(r));
+  //.then(r => console.log(r));
+  //.then(res => console.log(res));
 };
 
 const force = async (f: Array<Promise<PodcastInfoR>>) => {
@@ -257,6 +279,8 @@ const force = async (f: Array<Promise<PodcastInfoR>>) => {
   for (let i = 0; i < f.length; i++) {
     f2.push(await f[i]);
   }
+  // TODO DELETE THIS: Add hardcoded titles for demos
+
   return f2;
 };
 

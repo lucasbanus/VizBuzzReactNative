@@ -12,6 +12,7 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 import PodcastListContainer from "./components/podcasts/PodcastListContainer";
 import SettingsTab from "./components/SettingsTab";
 import { UserLogin } from "./components/UserLogin";
+import { CreateAccount } from "./components/CreateAccount";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FavoritePodcastListContainer from "./components/favoritePage/FavoritePodcastListContainer";
 
@@ -31,7 +32,7 @@ function HomePage() {
 function FavoritePage() {
   return (
     <View style={styles.container}>
-      <FavoritePodcastListContainer/>
+      <FavoritePodcastListContainer />
       {/* <PodcastListContainer /> */}
       {/* <UserLogin /> */}
       {/* <StatusBar style="auto" /> */}
@@ -90,6 +91,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Login" component={UserLogin} />
+          <Stack.Screen name="CreateAccount" component={CreateAccount} />
           <Stack.Screen
             name="MainApp"
             component={actualApp}

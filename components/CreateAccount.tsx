@@ -7,34 +7,36 @@ import {
   Button,
   TouchableHighlight
 } from "react-native";
-import { greenColors, blueColors } from "../constants/colors";
+import { greenColors } from "../constants/colors";
 import { connect } from "react-redux";
 import { verifyLogin } from "../dataManager/postRequests";
 
-export const UserLogin = (props: any) => {
+export const CreateAccount = (props: any) => {
   const [username, setUsername] = React.useState<string>("");
   const [password, setpassword] = React.useState<string>("");
-  const loginFunc = () => {
+  const [password_retyped, setpassword_retyped] = React.useState<string>("");
+  const createFinalAccount = () => {
     if (username.length == 0) {
       alert("Username cannot be empty.");
     } else if (password.length == 0) {
       alert("Password cannot be empty.");
+    } else if (!(password === password_retyped)) {
+      alert("Passwords do not match.");
     } else {
       let finished = verifyLogin(username, password);
       if (finished) {
         props.navigation.navigate("MainApp");
       } else {
-        alert("Either username or password is incorrect.");
+        alert(
+          "Error creating account, please check your network connection or try again later."
+        );
       }
     }
-  };
-  const createAccount = () => {
-    props.navigation.navigate("CreateAccount");
   };
   return (
     <View style={styles.container}>
       <Text style={styles.title} testID="title">
-        Log In
+        Create Account
       </Text>
       <TextInput
         style={styles.textInput}
@@ -42,24 +44,23 @@ export const UserLogin = (props: any) => {
         placeholder="Username"
       ></TextInput>
       <TextInput
-        secureTextEntry={true}
         style={styles.textInput}
+        secureTextEntry={true}
         onChangeText={pass => setpassword(pass)}
         placeholder="Password"
         secureTextEntry={true}
       ></TextInput>
+      <TextInput
+        style={styles.textInput}
+        secureTextEntry={true}
+        onChangeText={pass => setpassword_retyped(pass)}
+        placeholder="Re-Type Password"
+        secureTextEntry={true}
+      ></TextInput>
       <View style={styles.loginButton}>
         <TouchableHighlight
-          onPress={() => loginFunc()}
+          onPress={() => createFinalAccount()}
           style={styles.touchable}
-        >
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableHighlight>
-      </View>
-      <View style={styles.loginButton}>
-        <TouchableHighlight
-          onPress={() => createAccount()}
-          style={styles.touchable2}
         >
           <Text style={styles.loginText}>Create Account</Text>
         </TouchableHighlight>
@@ -98,13 +99,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10
   },
-  touchable2: {
-    backgroundColor: blueColors.light,
-    borderColor: "#FFFFFF",
-    borderWidth: 1,
-    alignItems: "center",
-    borderRadius: 10
-  },
   loginButton: {
     flexDirection: "column",
     justifyContent: "center",
@@ -135,5 +129,5 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {};
 };
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserLogin);
+// export default createAccount;
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAccount);

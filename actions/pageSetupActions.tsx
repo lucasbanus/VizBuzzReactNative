@@ -9,6 +9,7 @@ export const SET_TRANSCRIPT_INDEX = "SET_TRANSCRIPT_INDEX";
 export const SET_VOLUME_ENABLED = "SET_VOLUME_ENABLED";
 export const SET_SENTIMENT_ENABLED = "SET_SENTIMENT_ENABLED";
 export const SET_PITCH_ENABLED = "SET_PITCH_ENABLED";
+export const FAVORITE_CLICKED = "FAVORITE_CLICKED";
 
 /**
  * functions for setup actions
@@ -40,4 +41,8 @@ export function setSentimentEnabled(sentiment: boolean) {
 
 export function setPitchEnabled(pitch: boolean) {
   return { type: SET_PITCH_ENABLED, pitch };
+}
+
+export function favoriteClicked(fave: boolean, idx: number) {
+  return { type: FAVORITE_CLICKED, fave, idx };
 }
