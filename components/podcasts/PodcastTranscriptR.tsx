@@ -90,7 +90,7 @@ const trial = [{word: 'what ' , color: 'green' , weight: 'bold' , fontSize: 20} 
 
 const PodcastTranscript = (props: Props) => {
   if (props.shouldComputeWordDisplay){
-    generateTranscript(trial, props.addWordDisplay);
+    generateTranscript(props.wordDisplay, props.addWordDisplay);
   }
   return (
     <Modal

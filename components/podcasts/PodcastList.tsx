@@ -34,7 +34,6 @@ import { Ionicons } from "@expo/vector-icons";
 
 const PodcastList = (props: any) => {
   const pressPodcast = (idx: number) => {
-    console.log("PodcastList" + props.podcastList[idx].image_url);
     props.setPodcast(props.podcastList[idx].allText);
     props.showTranscript(true);
     props.setRssUrl(props.podcastList[idx].rss_url);
