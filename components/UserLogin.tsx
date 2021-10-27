@@ -61,7 +61,7 @@ export const UserLogin = (props: any) => {
           onPress={() => createAccount()}
           style={styles.touchable2}
         >
-          <Text style={styles.loginText}>Create Account</Text>
+          <Text style={styles.createAccountText}>Create A New Account</Text>
         </TouchableHighlight>
       </View>
     </View>
@@ -99,11 +99,11 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   touchable2: {
-    backgroundColor: blueColors.light,
-    borderColor: "#FFFFFF",
-    borderWidth: 1,
-    alignItems: "center",
-    borderRadius: 10
+    // backgroundColor: blueColors.light,
+    // borderColor: "#FFFFFF",
+    // borderWidth: 1,
+    alignItems: "center"
+    // borderRadius: 10
   },
   loginButton: {
     flexDirection: "column",
@@ -117,6 +117,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     fontSize: 20,
     color: "white",
+    fontWeight: "bold",
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  createAccountText: {
+    textAlign: "center",
+    justifyContent: "center",
+    fontSize: 20,
+    color: greenColors.deep,
+    textDecorationLine: "underline",
     fontWeight: "bold",
     paddingTop: 10,
     paddingBottom: 10,

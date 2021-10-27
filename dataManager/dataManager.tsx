@@ -240,13 +240,84 @@ const processPJSON = async (
 const URL_GET_TRANSCRIPT =
   "https://vizbuzz-backend-dev.herokuapp.com/view-transcripts/";
 // get the podcast info
-export const queryPodcast = async () => {
-  console.log("QUETYING PODCAST\n");
-  let payload = {
-    transcript_bucket_id: "vizbuzz-podcast-metadata",
-    transcript_file_id:
-      "John Temerian (Curated, Exotic Car Dealer)c2RzTGta.json"
-  };
+
+const hard = [
+  {
+    Word: "what's",
+    Offset: 1800000,
+    Duration: 4500000,
+    Display: "what's",
+    Index: 0,
+    Pitch: 1,
+    Volume: 0.2
+  },
+  {
+    Word: "up",
+    Offset: 6400000,
+    Duration: 1900000,
+    Display: "up",
+    Index: 1,
+    Pitch: 0,
+    Volume: 0.1
+  },
+  {
+    Word: "folks",
+    Offset: 8400000,
+    Duration: 4500000,
+    Display: "folks",
+    Index: 2,
+    Pitch: 1,
+    Volume: 0.9
+  },
+  {
+    Word: "welcome",
+    Offset: 13000000,
+    Duration: 3000000,
+    Display: "welcome",
+    Index: 3,
+    Polarity: 0,
+    Subjective: 0.9,
+    Pitch: 1,
+    Volume: 0.2
+  }
+];
+export const queryPodcast = async (idx: number) => {
+  let podcast = store.getState().pageSetup.podcastList;
+  let {
+    pitchEnabled,
+    sentimentEnabled,
+    volumeEnabled
+  } = store.getState().pageSetup;
+  let wordContArray = [];
+  hardcoded.map((word, i) => {
+    var wordCont: WordContainer;
+    let color = defaultColor;
+    let weight = defaultWeight;
+    let size = defaultSize;
+
+    if (sentimentEnabled) {
+      color = fromPolarityToColor(wordInfo.Polarity);
+    }
+
+    if (pitchEnabled) {
+      // change the weight according to scale
+    }
+
+    if (volumeEnabled) {
+      // change the size according to scale
+    }
+    wordCont = { word: wordInfo.display + " ", color, size, weight };
+    wordContArray.push(wordCont);
+    if (i !== 0 && i % 20 === 0) {
+      wordContArray.push(getTimeStamp(wordInfo));
+    }
+  });
+  // console.log("QUETYING PODCAST\n");
+  // let payload = {
+  //   transcript_bucket_id: "vizbuzz-podcast-metadata",
+  //   transcript_file_id:
+  //     "John Temerian (Curated, Exotic Car Dealer)c2RzTGta.json"
+  // };
   // var url = new URL(URL_GET_TRANSCRIPT);
   // console.log("Created url");
   // url.search = new URLSearchParams(payload).toString();
@@ -258,18 +329,17 @@ export const queryPodcast = async () => {
   // let respJson = await fetchT.json();
   // //let json = await JSON.parse(JSON.stringify(respJson));
   // console.log("Response Trans: ", respJson);
-  console.log(JSON.stringify(payload));
-
-  fetch(
-    `https://vizbuzz-backend-dev.herokuapp.com/view-transcripts?transcript_bucket_id=${encodeURIComponent(
-      payload.transcript_bucket_id
-    )}&transcript_file_id=${encodeURIComponent(payload.transcript_file_id)}`,
-    {
-      method: "GET"
-    }
-  )
-    .then(r => r.text())
-    .then(r => console.log(r));
+  //console.log(JSON.stringify(payload));
+  // fetch(
+  //   `https://vizbuzz-backend-dev.herokuapp.com/view-transcripts?transcript_bucket_id=${encodeURIComponent(
+  //     payload.transcript_bucket_id
+  //   )}&transcript_file_id=${encodeURIComponent(payload.transcript_file_id)}`,
+  //   {
+  //     method: "GET"
+  //   }
+  // )
+  //   .then(r => r.text())
+  //  .then(r => console.log(r));
   //.then(r => console.log(r));
   //.then(res => console.log(res));
 };

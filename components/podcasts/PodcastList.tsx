@@ -35,7 +35,6 @@ import { queryPodcast } from "../../dataManager/dataManager";
 // };
 
 const PodcastList = (props: any) => {
-  let iconColor = "green";
   let changeColor = true;
   const pressPodcast = (idx: number) => {
     props.setPodcast(props.podcastList[idx].allText);
@@ -45,7 +44,7 @@ const PodcastList = (props: any) => {
     props.setStreamingUrl(props.podcastList[idx].streaming_url);
     props.setAuthors(props.podcastList[idx].authors);
     props.setEpisodeName(props.podcastList[idx].ep_name);
-    queryPodcast();
+    queryPodcast(idx);
   };
 
   const addToFavorites = (idx: number) => {
@@ -86,7 +85,7 @@ const PodcastList = (props: any) => {
                   <Ionicons
                     name="heart"
                     size={30}
-                    color={item.isFave ? "red" : "white"}
+                    color={item.isFave ? "#ff73bb" : "white"}
                   />
                 </TouchableHighlight>
               </View>
