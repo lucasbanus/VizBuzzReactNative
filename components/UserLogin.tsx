@@ -56,7 +56,7 @@ export const UserLogin = (props: any) => {
           <Text style={styles.loginText}>Login</Text>
         </TouchableHighlight>
       </View>
-      <View style={styles.loginButton}>
+      <View style={styles.title}>
         <TouchableHighlight
           onPress={() => createAccount()}
           style={styles.touchable2}
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: "white",
     margin: 10,
-    height: "4%",
+    height: 25,
     fontSize: 20,
     paddingLeft: 10
   },
