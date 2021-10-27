@@ -19,38 +19,37 @@ import {
   setAuthors,
   setEpisodeName
 } from "../../actions/podcastActions";
+import {favoriteUnclicked} from '../../actions/pageSetupActions';
 import {
-    setFaveIdx, showFaveTranscript
+    setFaveIdx, showFaveTranscript, deleteFavePodcast
 } from '../../actions/userFavoritePodcastActions';
+import { Ionicons } from "@expo/vector-icons";
+import { queryPodcast } from "../../dataManager/dataManager";
 
-// export type Props = {
-//   podcastNames: Array<PodcastInfoR>;
-//   openPodcast: () => void;
-//   selectPodcast: (idx: number) => void;
-// };
+export type Props = {
+  favePodcastList: Array<any>;
+};
 
-const FavoritePodcastList = (props: any) => {
-  const pressPodcast = (idx: number) => {
-      console.log("favePodcastList: ", props.favePodcastList[idx], " idx: ", idx);
-      if (props.favePodcastList !== undefined){
-    props.setPodcast(props.favePodcastList[idx].allText);
-    props.showFaveTranscript(true);
-    props.setRssUrl(props.favePodcastList[idx].rss_url);
-    props.setImageUrl(props.favePodcastList[idx].image_url);
-    props.setStreamingUrl(props.favePodcastList[idx].streaming_url);
-    props.setAuthors(props.favePodcastList[idx].authors);
-    props.setEpisodeName(props.favePodcastList[idx].ep_name);
-    props.setFaveIdx(idx);
+class FavoritePodcastList extends React.Component<Props>{
+
+  render(){
+    const pressPodcast = (idx: number) => {
+      if (this.props.favePodcastList !== undefined){
+        queryPodcast(idx, this.props.favePodcastList[idx]);
       }
-  };
-  const count = 0;
-  return (
-    <View style={styles.container}>
+    };
+
+    const removeFave = (idx: number) => {
+      this.props.deleteFavePodcast(idx);
+      this.props.favoriteUnclicked(this.props.favePodcastList[idx].ep_name);
+    }
+    return (
+      <View style={styles.container}>
       <Text style={styles.title} testID="title">
         Your Favorite Podcasts
       </Text>
       <FlatList
-        data={props.favePodcastList}
+        data={this.props.favePodcastList}
         testID="list"
         renderItem={({ item }) => (
           <TouchableHighlight
@@ -58,20 +57,81 @@ const FavoritePodcastList = (props: any) => {
             style={styles.touchable}
             onPress={() => pressPodcast(item.idx)}
           >
+            <View style={styles.browserButton}>
             <Text
               style={styles.textInside}
               testID={item.show_name + ": " + item.ep_name}
             >
               {item.show_name + ": " + item.ep_name}
             </Text>
+            <TouchableHighlight
+                  underlayColor="#ccc"
+                  style={styles.faveTouchable}
+                  onPress={() => removeFave(item.idx)}
+                >
+                  <Ionicons
+                    name="trash-outline"
+                    size={30}
+                    color={"white"}
+                  />
+                </TouchableHighlight>
+                </View>
           </TouchableHighlight>
         )}
       />
     </View>
-  );
-};
+    );
+  }
+}
+
+// const FavoritePodcastList = (props: any) => {
+//   const pressPodcast = (idx: number) => {
+//     //   console.log("favePodcastList: ", props.favePodcastList[idx], " idx: ", idx);
+//     if (props.favePodcastList !== undefined){
+//     // props.setPodcast(props.favePodcastList[idx].allText);
+//     // props.showFaveTranscript(true);
+//     // props.setRssUrl(props.favePodcastList[idx].rss_url);
+//     // props.setImageUrl(props.favePodcastList[idx].image_url);
+//     // props.setStreamingUrl(props.favePodcastList[idx].streaming_url);
+//     // props.setAuthors(props.favePodcastList[idx].authors);
+//     // props.setEpisodeName(props.favePodcastList[idx].ep_name);
+//     // props.setFaveIdx(idx);
+//       queryPodcast(idx, props.favePodcastList[idx]);
+//     }
+//   };
+//   const count = 0;
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.title} testID="title">
+//         Your Favorite Podcasts
+//       </Text>
+//       <FlatList
+//         data={props.favePodcastList}
+//         testID="list"
+//         renderItem={({ item }) => (
+//           <TouchableHighlight
+//             underlayColor="#ccc"
+//             style={styles.touchable}
+//             onPress={() => pressPodcast(item.idx)}
+//           >
+//             <Text
+//               style={styles.textInside}
+//               testID={item.show_name + ": " + item.ep_name}
+//             >
+//               {item.show_name + ": " + item.ep_name}
+//             </Text>
+//           </TouchableHighlight>
+//         )}
+//       />
+//     </View>
+//   );
+// };
 
 const styles = StyleSheet.create({
+  browserButton: {
+    display: "flex",
+    flexDirection: "row"
+  },
   container: {
     backgroundColor: greenColors.background,
     alignItems: "center",
@@ -93,7 +153,16 @@ const styles = StyleSheet.create({
   textInside: {
     fontSize: 20,
     //color: "#0074FF",
-    color: "#FFFFFF"
+    color: "#FFFFFF", 
+    width: "90%",
+  },
+  faveTouchable: {
+    backgroundColor: greenColors.deep,
+    // borderColor: "#FFFFFF",
+    // borderWidth: 1,
+    width: "10%",
+    alignItems: "center",
+    justifyContent: "center"
   },
   touchable: {
     //borderColor: "#DEDEDE",
@@ -107,7 +176,6 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state: any) => {
   return {
-    transcript: state.podcast.podcast,
     favePodcastList: state.favePodcasts.favoritePodcasts
   };
 };
@@ -123,6 +191,8 @@ const mapDispatchToProps = (dispatch: any) => {
       dispatch(setStreamingUrl(streaming_url)),
     setAuthors: (authors: any) => dispatch(setAuthors(authors)), 
     setEpisodeName: (ep: string) => dispatch(setEpisodeName(ep)),
+    deleteFavePodcast: (idx : number) => dispatch(deleteFavePodcast(idx)),
+    favoriteUnclicked: (ep_name: string) => dispatch(favoriteUnclicked(ep_name)),
   };
 };
 

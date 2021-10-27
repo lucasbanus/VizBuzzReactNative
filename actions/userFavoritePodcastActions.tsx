@@ -5,6 +5,7 @@
 export const LOAD_FAVE_PODCASTS = "LOAD_FAVE_PODCASTS";
 export const SET_FAVE_PODCASTS = "SET_FAVE_PODCASTS";
 export const ADD_FAVE_PODCAST = "ADD_FAVE_PODCAST";
+export const DELETE_FAVE_PODCAST = "DELETE_FAVE_PODCAST";
 export const SHOW_FAVE_TRANSCRIPT = "SHOW_FAVE_TRANSCRIPT";
 export const SET_FAVE_IDX = "SET_FAVE_IDX";
 // export const SET_VOLUME_ENABLED = "SET_VOLUME_ENABLED";
@@ -24,8 +25,13 @@ export function setFavePodcasts(podcastList: any) {
 }
 
 export function addFavePodcast(podcast: any) {
-    return { type: ADD_FAVE_PODCAST, podcast };
-  }
+  return { type: ADD_FAVE_PODCAST, podcast };
+}
+
+export function deleteFavePodcast(idx: number) {
+  return { type: DELETE_FAVE_PODCAST, idx };
+}
+
 
 export function showFaveTranscript(transcript: boolean) {
   return { type: SHOW_FAVE_TRANSCRIPT, transcript };

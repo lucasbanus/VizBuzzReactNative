@@ -10,6 +10,8 @@ export const SET_VOLUME_ENABLED = "SET_VOLUME_ENABLED";
 export const SET_SENTIMENT_ENABLED = "SET_SENTIMENT_ENABLED";
 export const SET_PITCH_ENABLED = "SET_PITCH_ENABLED";
 export const FAVORITE_CLICKED = "FAVORITE_CLICKED";
+export const FAVORITE_UNCLICKED = "FAVORITE_UNCLICKED";
+export const SET_ALL_TEXT = "SET_ALL_TEXT";
 
 /**
  * functions for setup actions
@@ -45,4 +47,12 @@ export function setPitchEnabled(pitch: boolean) {
 
 export function favoriteClicked(fave: boolean, idx: number) {
   return { type: FAVORITE_CLICKED, fave, idx };
+}
+
+export function favoriteUnclicked(ep_name: string){
+  return {type: FAVORITE_UNCLICKED, ep_name};
+}
+
+export function setAllText(words: Array<any>, idx: number) {
+  return { type: SET_ALL_TEXT, words, idx };
 }

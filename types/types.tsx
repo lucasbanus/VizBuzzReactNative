@@ -19,6 +19,8 @@ export type PodcastInfoR = {
   streaming_url: string;
   authors: string;
   isFave: boolean;
+  transcript_bucket_id: string;
+  transcript_file_id: string;
 };
 export type WordContainer = {
   word: string;

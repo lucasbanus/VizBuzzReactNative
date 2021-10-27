@@ -68,9 +68,10 @@ function actualApp() {
         tabBarActiveTintColor: greenColors.deep,
         tabBarInactiveTintColor: "gray"
       })}
+      initialRouteName="Favorites"
     >
       <Tab.Screen name="Browse" component={HomePage} />
-      <Tab.Screen name="Favorites" component={FavoritePage} />
+      <Tab.Screen name="Favorites" component={FavoritePage}/>
       <Tab.Screen name="Settings" component={SettingsTab} />
     </Tab.Navigator>
   );

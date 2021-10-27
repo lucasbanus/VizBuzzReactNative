@@ -36,7 +36,11 @@ const Player = (props: Props) => {
     const [playing, setPlaying] = useState(false);
     const [notloaded, setLoaded] = useState(true);
     if (!sound._loaded){
-        sound.loadAsync({ uri: props.streaming_url});
+      try{
+        sound.loadAsync({ uri: props.streaming_url}).catch(e => console.log(e));
+      } catch (e: any){
+        console.log("Payer" + " Error" + error + "\n");
+      }
     }
     Audio.setAudioModeAsync({
         allowsRecordingIOS: true,

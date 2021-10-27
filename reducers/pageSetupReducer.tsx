@@ -6,7 +6,9 @@ import {
   SET_VOLUME_ENABLED,
   SET_SENTIMENT_ENABLED,
   SET_PITCH_ENABLED,
-  FAVORITE_CLICKED
+  FAVORITE_CLICKED, 
+  SET_ALL_TEXT, 
+  FAVORITE_UNCLICKED
 } from "../actions/pageSetupActions";
 
 export const pageSetupInitialState = {
@@ -14,9 +16,9 @@ export const pageSetupInitialState = {
   podcastList: [],
   isShowingTranscript: false,
   transcriptIdx: 0,
-  volumeEnabled: false,
+  volumeEnabled: true,
   sentimentEnabled: true,
-  pitchEnabled: false
+  pitchEnabled: true
 };
 
 export function changePageSetup(state = pageSetupInitialState, action: any) {
@@ -36,16 +38,36 @@ export function changePageSetup(state = pageSetupInitialState, action: any) {
     case SET_PITCH_ENABLED:
       return { ...state, pitchEnabled: action.pitch };
     case FAVORITE_CLICKED:
-      let newP = [];
+      let newP2 = [];
       for (let i = 0; i < action.idx; i++) {
-        newP.push(state.podcastList[i]);
+        newP2.push(state.podcastList[i]);
       }
-      newP.push({ ...state.podcastList[action.idx], isFave: action.fave });
+      newP2.push({ ...state.podcastList[action.idx], isFave: action.fave });
       for (let j = action.idx + 1; j < state.podcastList.length; j++) {
-        newP.push(state.podcastList[j]);
+        newP2.push(state.podcastList[j]);
       }
-      console.log("New List: ", newP);
+      return { ...state, podcastList: newP2 };
+    case SET_ALL_TEXT:
+        let newP = [];
+        for (let i = 0; i < action.idx; i++) {
+          newP.push(state.podcastList[i]);
+        }
+        newP.push({ ...state.podcastList[action.idx], allText: action.words});
+        for (let j = action.idx + 1; j < state.podcastList.length; j++) {
+          newP.push(state.podcastList[j]);
+        }
       return { ...state, podcastList: newP };
+    case FAVORITE_UNCLICKED:
+      let newP3 = [];
+      for (let i = 0; i < state.podcastList.length; i++){
+        let p = state.podcastList[i];
+        if (p.ep_name === action.ep_name){
+          newP3.push({...p, isFave: false});
+        } else {
+          newP3.push(state.podcastList[i]);
+        }
+      }
+      return {...state, podcastList: newP3};
     default:
       return state;
   }

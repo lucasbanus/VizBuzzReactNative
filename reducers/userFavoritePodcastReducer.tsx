@@ -3,7 +3,7 @@ import {
     SET_SENTIMENT_ENABLED,
     SET_PITCH_ENABLED
   } from "../actions/pageSetupActions";
-import { LOAD_FAVE_PODCASTS, SET_FAVE_PODCASTS, ADD_FAVE_PODCAST, SHOW_FAVE_TRANSCRIPT, SET_FAVE_IDX } from "../actions/userFavoritePodcastActions";
+import { LOAD_FAVE_PODCASTS, SET_FAVE_PODCASTS, ADD_FAVE_PODCAST, SHOW_FAVE_TRANSCRIPT, SET_FAVE_IDX, DELETE_FAVE_PODCAST } from "../actions/userFavoritePodcastActions";
   
   export const favortieInitialState = {
     isLoading: true,
@@ -54,6 +54,16 @@ import { LOAD_FAVE_PODCASTS, SET_FAVE_PODCASTS, ADD_FAVE_PODCAST, SHOW_FAVE_TRAN
             return { ...state, sentimentEnabled: action.sentiment };
         case SET_PITCH_ENABLED:
             return { ...state, pitchEnabled: action.pitch };
+        case DELETE_FAVE_PODCAST:
+            let newF = [];
+            for (let j = 0; j < action.idx; j++){
+                newF.push(state.favoritePodcasts[j]);
+            }
+            for (let i = action.idx + 1; i < state.favoritePodcasts.length; i++){
+                let p : any = state.favoritePodcasts[i];
+                newF.push({...p, idx: i-1});
+            }
+            return {...state, favoritePodcasts: newF};
         default:
             return state;
     }

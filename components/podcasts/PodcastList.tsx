@@ -37,14 +37,8 @@ import { queryPodcast } from "../../dataManager/dataManager";
 const PodcastList = (props: any) => {
   let changeColor = true;
   const pressPodcast = (idx: number) => {
-    props.setPodcast(props.podcastList[idx].allText);
-    props.showTranscript(true);
-    props.setRssUrl(props.podcastList[idx].rss_url);
-    props.setImageUrl(props.podcastList[idx].image_url);
-    props.setStreamingUrl(props.podcastList[idx].streaming_url);
-    props.setAuthors(props.podcastList[idx].authors);
-    props.setEpisodeName(props.podcastList[idx].ep_name);
-    queryPodcast(idx);
+    queryPodcast(idx, props.podcastList[idx]);
+    // props.showTranscript(true);
   };
 
   const addToFavorites = (idx: number) => {
