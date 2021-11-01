@@ -16,15 +16,10 @@ import { CreateAccount } from "./components/CreateAccount";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FavoritePodcastListContainer from "./components/favoritePage/FavoritePodcastListContainer";
 
-// import { createAppContainer } from "react-navigation";
-// import { createStackNavigator } from "react-navigation-stack";
-
 function HomePage() {
   return (
     <View style={styles.container}>
       <PodcastListContainer />
-      {/* <UserLogin /> */}
-      {/* <StatusBar style="auto" /> */}
     </View>
   );
 }
@@ -33,9 +28,6 @@ function FavoritePage() {
   return (
     <View style={styles.container}>
       <FavoritePodcastListContainer />
-      {/* <PodcastListContainer /> */}
-      {/* <UserLogin /> */}
-      {/* <StatusBar style="auto" /> */}
     </View>
   );
 }
@@ -43,9 +35,7 @@ function FavoritePage() {
 function Login() {
   return (
     <View style={styles.container}>
-      {/* <PodcastListContainer /> */}
       <UserLogin />
-      {/* <StatusBar style="auto" /> */}
     </View>
   );
 }
@@ -71,7 +61,7 @@ function actualApp() {
       initialRouteName="Favorites"
     >
       <Tab.Screen name="Browse" component={HomePage} />
-      <Tab.Screen name="Favorites" component={FavoritePage}/>
+      <Tab.Screen name="Favorites" component={FavoritePage} />
       <Tab.Screen name="Settings" component={SettingsTab} />
     </Tab.Navigator>
   );
@@ -79,16 +69,9 @@ function actualApp() {
 
 const Stack = createNativeStackNavigator();
 
-// const Navigator = createAppContainer(AppNavigator);
-
-// const Tab = createBottomTabNavigator();
-
 export default function App() {
   return (
     <Provider store={store}>
-      {/* <Navigator> */}
-      {/* <UserLogin /> */}
-      {/* </Navigator> */}
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Login" component={UserLogin} />
@@ -99,25 +82,6 @@ export default function App() {
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
-        {/* <Tab.Navigator
-          screenOptions={({ route }: { route: any }) => ({
-            tabBarIcon: ({ color, size }: { color: string; size: any }) => {
-              if (route.name === "Browse") {
-                return <Ionicons name="ios-search" size={size} color={color} />;
-              } else if (route.name === "Settings") {
-                return <Ionicons name="settings" size={size} color={color} />;
-              } else if (route.name == "Favorites") {
-                return <Ionicons name="heart" size={size} color={color} />;
-              }
-            },
-            tabBarActiveTintColor: greenColors.deep,
-            tabBarInactiveTintColor: "gray"
-          })}
-        >
-          <Tab.Screen name="Browse" component={HomePage} />
-          <Tab.Screen name="Favorites" component={HomePage} />
-          <Tab.Screen name="Settings" component={SettingsTab} />
-        </Tab.Navigator> */}
       </NavigationContainer>
     </Provider>
   );
