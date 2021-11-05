@@ -20,6 +20,7 @@ const SettingsTab = (props: any) => {
   return (
     <View style={styles.container}>
       <TouchableHighlight
+        underlayColor="#ccc"
         style={styles.faveTouchable}
         onPress={() => {
           props.navigation.navigate("Language");
@@ -70,6 +71,7 @@ const SettingsTab = (props: any) => {
       </View> */}
       <View style={styles.logoutButton}>
         <TouchableHighlight
+          underlayColor="#ccc"
           onPress={() => props.navigation.navigate("Login")}
           style={styles.touchable}
         >

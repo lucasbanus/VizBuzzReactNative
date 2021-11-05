@@ -50,6 +50,7 @@ export const UserLogin = (props: any) => {
       ></TextInput>
       <View style={styles.loginButton}>
         <TouchableHighlight
+          underlayColor="#ccc"
           onPress={() => loginFunc()}
           style={styles.touchable}
         >
@@ -58,6 +59,7 @@ export const UserLogin = (props: any) => {
       </View>
       <View style={styles.title}>
         <TouchableHighlight
+          underlayColor="#ccc"
           onPress={() => createAccount()}
           style={styles.touchable2}
         >
