@@ -11,6 +11,7 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 
 import PodcastListContainer from "./components/podcasts/PodcastListContainer";
 import SettingsTab from "./components/SettingsTab";
+import LanguagePage from "./components/LanguagePage";
 import { UserLogin } from "./components/UserLogin";
 import { CreateAccount } from "./components/CreateAccount";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -81,6 +82,7 @@ export default function App() {
             component={actualApp}
             options={{ headerShown: false }}
           />
+          <Stack.Screen name="Language" component={LanguagePage} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
