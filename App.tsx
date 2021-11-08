@@ -23,10 +23,10 @@ import { CreateAccount } from "./components/CreateAccount";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FavoritePodcastListContainer from "./components/favoritePage/FavoritePodcastListContainer";
 
-// Set locale for language
-i18n.locale = "es";
 //Localization.locale;
 i18n.fallbacks = true;
+// Set language to this phone's language
+i18n.locale = Localization.locale;
 
 function HomePage() {
   return (
