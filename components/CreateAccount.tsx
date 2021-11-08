@@ -59,6 +59,7 @@ export const CreateAccount = (props: any) => {
       ></TextInput>
       <View style={styles.loginButton}>
         <TouchableHighlight
+          underlayColor="#ccc"
           onPress={() => createFinalAccount()}
           style={styles.touchable}
         >

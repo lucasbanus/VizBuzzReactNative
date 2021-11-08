@@ -14,10 +14,30 @@ import {
   setPitchEnabled
 } from "../actions/pageSetupActions";
 import { connect } from "react-redux";
+import { Ionicons } from "@expo/vector-icons";
 
 const SettingsTab = (props: any) => {
   return (
     <View style={styles.container}>
+      <TouchableHighlight
+        underlayColor="#ccc"
+        style={styles.faveTouchable}
+        onPress={() => {
+          props.navigation.navigate("Language");
+        }}
+      >
+        <View style={styles.languageButton}>
+          <Text style={styles.label}>Language</Text>
+          {/* <View style={styles.arrowButton}> */}
+          <Ionicons
+            name="arrow-forward-outline"
+            size={30}
+            color="black"
+            style={styles.arrowButton}
+          />
+          {/* </View> */}
+        </View>
+      </TouchableHighlight>
       <View style={styles.switch}>
         <Text style={styles.label}>Volume Analysis</Text>
         <Switch
@@ -45,8 +65,13 @@ const SettingsTab = (props: any) => {
           value={props.pitch}
         />
       </View>
+      {/* <View style={styles.switch}>
+        <Text style={styles.label}>Language</Text>
+        <Ionicons name="arrow-forward-outline" size={24} color="black" />
+      </View> */}
       <View style={styles.logoutButton}>
         <TouchableHighlight
+          underlayColor="#ccc"
           onPress={() => props.navigation.navigate("Login")}
           style={styles.touchable}
         >
@@ -58,6 +83,15 @@ const SettingsTab = (props: any) => {
 };
 
 const styles = StyleSheet.create({
+  arrowButton: {
+    paddingRight: 10
+  },
+  languageButton: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    paddingTop: 10
+  },
   container: {
     backgroundColor: greenColors.background,
     flex: 1
@@ -67,7 +101,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingTop: 10,
     backgroundColor: greenColors.background,
-    paddingRight: 10, 
+    paddingRight: 10
   },
   label: {
     fontSize: 20,
