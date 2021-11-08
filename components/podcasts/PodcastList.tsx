@@ -7,6 +7,7 @@ import {
   FlatList,
   TouchableHighlight
 } from "react-native";
+import i18n from "i18n-js";
 
 import { PodcastInfo, PodcastInfoR } from "../../types/types";
 import { greenColors } from "../../constants/colors";
@@ -49,7 +50,7 @@ const PodcastList = (props: any) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title} testID="title">
-        All Podcasts
+        {i18n.t("all_podcasts")}
       </Text>
       <FlatList
         data={props.podcastList}

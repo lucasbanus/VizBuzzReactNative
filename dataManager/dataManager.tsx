@@ -11,7 +11,12 @@ import {
 } from "../types/types";
 import { useEffect } from "react";
 import store from "../store/store";
-import { setPodcastList, loadingPodcasts, setAllText, showTranscript} from "../actions/pageSetupActions";
+import {
+  setPodcastList,
+  loadingPodcasts,
+  setAllText,
+  showTranscript
+} from "../actions/pageSetupActions";
 import {
   setPodcast,
   setRssUrl,
@@ -22,8 +27,8 @@ import {
 } from "../actions/podcastActions";
 import {
   setFavePodcasts,
-  loadingFavePodcasts, 
-  showFaveTranscript,
+  loadingFavePodcasts,
+  showFaveTranscript
 } from "../actions/userFavoritePodcastActions";
 
 // Constants used for initial fetching
@@ -72,10 +77,10 @@ export const fromVolumeToSize = (volume: number) => {
     return defaultSize;
   }
   let size: string = defaultSize;
-  let times = Math.floor(volume/0.1);
+  let times = Math.floor(volume / 0.1);
   let middle = 0.5;
   let middleFull = 5;
-  size = defaultSize + 2*(times - middleFull); 
+  size = defaultSize + 2 * (times - middleFull);
   return size;
 };
 
@@ -84,7 +89,7 @@ export const fromPitchToStyle = (pitch: number) => {
     return defaultWeight;
   }
   let weight: string = defaultWeight;
-  if (pitch == 1){
+  if (pitch == 1) {
     weight = "italic";
   }
   return weight;
@@ -110,7 +115,9 @@ const getPodcastsInitialR = async () => {
     } = store.getState().pageSetup;
     // Initial get request for JSON from backend
 
-    const response = await fetch(URL_backend).catch(e => console.log(TAG + " Error" + e + "\n"));
+    const response = await fetch(URL_backend).catch(e =>
+      console.log(TAG + " Error" + e + "\n")
+    );
     const json: JSON = await response.json();
     const items: Array<PodcastJson> = JSON.parse(JSON.stringify(json));
 
@@ -233,7 +240,9 @@ const processPJSON = async (
   let image_url: string = "";
   let streaming_url: string = "";
   //console.log(TAG + " rss url from JSON " + pod.rss_url);
-  let rss_response = await fetch(pod.rss_url).catch(e => console.log(TAG + " Error" + e + "\n"));
+  let rss_response = await fetch(pod.rss_url).catch(e =>
+    console.log(TAG + " Error" + e + "\n")
+  );
   let rss_text = await rss_response.text();
   //console.log("PJSON \n" + rss_text);
   let rss_json = await rssParser.parse(rss_text);
@@ -264,9 +273,9 @@ const processPJSON = async (
     image_url: image_url,
     streaming_url: streaming_url,
     authors: pod_authors,
-    isFave: false, 
+    isFave: false,
     transcript_bucket_id: pod.transcript_bucket_id,
-    transcript_file_id: pod.transcript_file_id,
+    transcript_file_id: pod.transcript_file_id
   };
   return ret;
 };
@@ -277,73 +286,73 @@ const URL_GET_TRANSCRIPT =
 
 export const queryPodcast = async (idx: number, podcast: PodcastInfoR) => {
   //let podcast = store.getState().pageSetup.podcastList[idx];
-  try{
-  let {
-    pitchEnabled,
-    sentimentEnabled,
-    volumeEnabled
-  } = store.getState().pageSetup;
-  // console.log("QUETYING PODCAST\n");
-  //console.log("podcast: ", podcast);
-  let fetc = await fetch(
-    `https://vizbuzz-backend-dev.herokuapp.com/view-transcripts?transcript_bucket_id=${encodeURIComponent(
-      podcast.transcript_bucket_id
-    )}&transcript_file_id=${encodeURIComponent(podcast.transcript_file_id)}`,
-    {
-      method: "GET"
-    }
-  ).catch(e => console.log(TAG + " Error" + e + "\n"));
-  let json = await fetc.json();
+  try {
+    let {
+      pitchEnabled,
+      sentimentEnabled,
+      volumeEnabled
+    } = store.getState().pageSetup;
+    // console.log("QUETYING PODCAST\n");
+    //console.log("podcast: ", podcast);
+    let fetc = await fetch(
+      `https://vizbuzz-backend-dev.herokuapp.com/view-transcripts?transcript_bucket_id=${encodeURIComponent(
+        podcast.transcript_bucket_id
+      )}&transcript_file_id=${encodeURIComponent(podcast.transcript_file_id)}`,
+      {
+        method: "GET"
+      }
+    ).catch(e => console.log(TAG + " Error" + e + "\n"));
+    let json = await fetc.json();
 
-  let wordContArray = [];
-  json.map((word, i) => {
-    var wordCont: WordContainer;
-    let color = defaultColor;
-    let weight = defaultWeight;
-    let size = defaultSize;
+    let wordContArray = [];
+    json.map((word, i) => {
+      var wordCont: WordContainer;
+      let color = defaultColor;
+      let weight = defaultWeight;
+      let size = defaultSize;
 
-    if (sentimentEnabled) {
-      color = fromPolarityToColor(word.Polarity);
-    }
+      if (sentimentEnabled) {
+        color = fromPolarityToColor(word.Polarity);
+      }
 
-    if (pitchEnabled) {
-      // change the weight according to scale
-      weight = fromPitchToStyle(word.Pitch);
-    }
+      if (pitchEnabled) {
+        // change the weight according to scale
+        weight = fromPitchToStyle(word.Pitch);
+      }
 
-    if (volumeEnabled) {
-      // change the size according to scale
-      size = fromVolumeToSize(word.Volume);
-    }
-    wordCont = { word: word.Display + " ", color, size, weight };
-    //wordCont = { word: word.display + " ", color, size, weight };
-    wordContArray.push(wordCont);
-    if (i !== 0 && i % 20 === 0) {
-      wordContArray.push(getTimeStamp(word));
-    }
-  });
+      if (volumeEnabled) {
+        // change the size according to scale
+        size = fromVolumeToSize(word.Volume);
+      }
+      wordCont = { word: word.Display + " ", color, size, weight };
+      //wordCont = { word: word.display + " ", color, size, weight };
+      wordContArray.push(wordCont);
+      if (i !== 0 && i % 20 === 0) {
+        wordContArray.push(getTimeStamp(word));
+      }
+    });
 
-  //console.log("words: ", wordContArray);
-  //store.dispatch(setAllText(wordContArray, idx));
-  store.dispatch(setPodcast(wordContArray));
-  store.dispatch(setRssUrl(podcast.rss_url));
-  store.dispatch(setImageUrl(podcast.image_url));
-  store.dispatch(setStreamingUrl(podcast.streaming_url));
-  store.dispatch(setAuthors(podcast.authors));
-  store.dispatch(setEpisodeName(podcast.ep_name));
-  store.dispatch(showTranscript(true));
-  store.dispatch(showFaveTranscript(true));
-} catch(e : any){
-  console.log(TAG + " Error" + e + "\n");
-  store.dispatch(setPodcast([]));
-  store.dispatch(setRssUrl(podcast.rss_url));
-  store.dispatch(setImageUrl(podcast.image_url));
-  store.dispatch(setStreamingUrl(podcast.streaming_url));
-  store.dispatch(setAuthors(podcast.authors));
-  store.dispatch(setEpisodeName(podcast.ep_name));
-  store.dispatch(showTranscript(true));
-  store.dispatch(showFaveTranscript(true));
-}
+    //console.log("words: ", wordContArray);
+    //store.dispatch(setAllText(wordContArray, idx));
+    store.dispatch(setPodcast(wordContArray));
+    store.dispatch(setRssUrl(podcast.rss_url));
+    store.dispatch(setImageUrl(podcast.image_url));
+    store.dispatch(setStreamingUrl(podcast.streaming_url));
+    store.dispatch(setAuthors(podcast.authors));
+    store.dispatch(setEpisodeName(podcast.ep_name));
+    store.dispatch(showTranscript(true));
+    store.dispatch(showFaveTranscript(true));
+  } catch (e) {
+    console.log(TAG + " Error" + e + "\n");
+    store.dispatch(setPodcast([]));
+    store.dispatch(setRssUrl(podcast.rss_url));
+    store.dispatch(setImageUrl(podcast.image_url));
+    store.dispatch(setStreamingUrl(podcast.streaming_url));
+    store.dispatch(setAuthors(podcast.authors));
+    store.dispatch(setEpisodeName(podcast.ep_name));
+    store.dispatch(showTranscript(true));
+    store.dispatch(showFaveTranscript(true));
+  }
 };
 
 const force = async (f: Array<Promise<PodcastInfoR>>) => {
@@ -352,7 +361,97 @@ const force = async (f: Array<Promise<PodcastInfoR>>) => {
     f2.push(await f[i]);
   }
   // TODO DELETE THIS: Add hardcoded titles for demos
-
+  const hibt = "How I Built This";
+  let hardcoded1: PodcastInfoR = {
+    key: "100",
+    allText: undefined,
+    ep_name: "Burt's Bees (Roxanne Quimby)",
+    show_name: hibt,
+    idx: 3,
+    rss_url: undefined,
+    image_url: undefined,
+    streaming_url: undefined,
+    authors: undefined,
+    isFave: false,
+    transcript_bucket_id: undefined,
+    transcript_file_id: undefined
+  };
+  let hardcoded2: PodcastInfoR = {
+    key: "101",
+    allText: undefined,
+    ep_name: "Bobbi Brown Cosmetics (Bobbi Brown)",
+    show_name: hibt,
+    idx: 4,
+    rss_url: undefined,
+    image_url: undefined,
+    streaming_url: undefined,
+    authors: undefined,
+    isFave: false,
+    transcript_bucket_id: undefined,
+    transcript_file_id: undefined
+  };
+  let hardcoded3: PodcastInfoR = {
+    key: "102",
+    allText: undefined,
+    ep_name: "Three Days in Dallas",
+    show_name: "Doctor Death",
+    idx: 5,
+    rss_url: undefined,
+    image_url: undefined,
+    streaming_url: undefined,
+    authors: undefined,
+    isFave: false,
+    transcript_bucket_id: undefined,
+    transcript_file_id: undefined
+  };
+  let hardcoded4: PodcastInfoR = {
+    key: "103",
+    allText: undefined,
+    ep_name: "Chris and Jerry",
+    show_name: "Doctor Death",
+    idx: 6,
+    rss_url: undefined,
+    image_url: undefined,
+    streaming_url: undefined,
+    authors: undefined,
+    isFave: false,
+    transcript_bucket_id: undefined,
+    transcript_file_id: undefined
+  };
+  let hardcoded5: PodcastInfoR = {
+    key: "104",
+    allText: undefined,
+    ep_name: "Occam's Razor",
+    show_name: "Doctor Death",
+    idx: 7,
+    rss_url: undefined,
+    image_url: undefined,
+    streaming_url: undefined,
+    authors: undefined,
+    isFave: false,
+    transcript_bucket_id: undefined,
+    transcript_file_id: undefined
+  };
+  let hardcoded6: PodcastInfoR = {
+    key: "105",
+    allText: undefined,
+    ep_name: "Spineless",
+    show_name: "Doctor Death",
+    idx: 8,
+    rss_url: undefined,
+    image_url: undefined,
+    streaming_url: undefined,
+    authors: undefined,
+    isFave: false,
+    transcript_bucket_id: undefined,
+    transcript_file_id: undefined
+  };
+  f2.push(hardcoded1);
+  f2.push(hardcoded2);
+  f2.push(hardcoded3);
+  f2.push(hardcoded4);
+  f2.push(hardcoded5);
+  f2.push(hardcoded6);
   return f2;
 };
 
@@ -365,7 +464,9 @@ const URL_rss = "https://feeds.megaphone.fm/sofia-with-an-f";
 export const getRss = async () => {
   try {
     //console.log("hello parsing");
-    const response = await fetch(URL_rss).catch(e => console.log(TAG + " Error" + e + "\n"));;
+    const response = await fetch(URL_rss).catch(e =>
+      console.log(TAG + " Error" + e + "\n")
+    );
     const responseText = await response.text();
     //console.log("got response", responseText);
     const respJson = await rssParser.parse(responseText);
@@ -402,7 +503,8 @@ const parseRss = async () => {
         // formattedItems[0].name = rss.title + ": Daniel Osborne";
         // formattedItems[1].name = rss.title + ": John Temerian";
         // formattedItems[2].name = rss.title + ": Taylor Hull";
-      }).catch(e => console.log(TAG + " Error" + e + "\n"));;
+      })
+      .catch(e => console.log(TAG + " Error" + e + "\n"));
   } finally {
     // console.log("Fetch completed");
   }

@@ -9,12 +9,23 @@ import { greenColors } from "./constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer, StackActions } from "@react-navigation/native";
 
+import * as Localization from "expo-localization";
+import i18n from "i18n-js";
+import { strings } from "./constants/strings.tsx";
+console.log(strings);
+i18n.translations = strings;
+
 import PodcastListContainer from "./components/podcasts/PodcastListContainer";
 import SettingsTab from "./components/SettingsTab";
 import { UserLogin } from "./components/UserLogin";
 import { CreateAccount } from "./components/CreateAccount";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FavoritePodcastListContainer from "./components/favoritePage/FavoritePodcastListContainer";
+
+// Set locale for language
+i18n.locale = "es";
+//Localization.locale;
+i18n.fallbacks = true;
 
 function HomePage() {
   return (
@@ -47,7 +58,8 @@ function actualApp() {
     <Tab.Navigator
       screenOptions={({ route }: { route: any }) => ({
         tabBarIcon: ({ color, size }: { color: string; size: any }) => {
-          if (route.name === "Browse") {
+          console.log(i18n.locale);
+          if (route.name === i18n.t("browse")) {
             return <Ionicons name="ios-search" size={size} color={color} />;
           } else if (route.name === "Settings") {
             return <Ionicons name="settings" size={size} color={color} />;
@@ -60,7 +72,7 @@ function actualApp() {
       })}
       initialRouteName="Favorites"
     >
-      <Tab.Screen name="Browse" component={HomePage} />
+      <Tab.Screen name={i18n.t("browse")} component={HomePage} />
       <Tab.Screen name="Favorites" component={FavoritePage} />
       <Tab.Screen name="Settings" component={SettingsTab} />
     </Tab.Navigator>
