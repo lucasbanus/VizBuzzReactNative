@@ -12,6 +12,7 @@ export const SET_PITCH_ENABLED = "SET_PITCH_ENABLED";
 export const FAVORITE_CLICKED = "FAVORITE_CLICKED";
 export const FAVORITE_UNCLICKED = "FAVORITE_UNCLICKED";
 export const SET_ALL_TEXT = "SET_ALL_TEXT";
+export const SET_LANGUAGE = "SET_LANGUAGE";
 
 /**
  * functions for setup actions
@@ -55,4 +56,8 @@ export function favoriteUnclicked(ep_name: string){
 
 export function setAllText(words: Array<any>, idx: number) {
   return { type: SET_ALL_TEXT, words, idx };
+}
+
+export function setLanguage(lan: string){
+  return {type: SET_LANGUAGE, lan};
 }

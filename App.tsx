@@ -12,7 +12,7 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 import * as Localization from "expo-localization";
 import i18n from "i18n-js";
 import { strings } from "./constants/strings.tsx";
-console.log(strings);
+//console.log(strings);
 i18n.translations = strings;
 
 import PodcastListContainer from "./components/podcasts/PodcastListContainer";
@@ -26,7 +26,9 @@ import FavoritePodcastListContainer from "./components/favoritePage/FavoritePodc
 //Localization.locale;
 i18n.fallbacks = true;
 // Set language to this phone's language
-i18n.locale = Localization.locale;
+//i18n.locale = Localization.locale;
+i18n.locale = store.getState().pageSetup.languageCode;
+//console.log("LOCAL: ", store.getState().pageSetup.languageCode);
 
 function HomePage() {
   return (
@@ -59,7 +61,7 @@ function actualApp() {
     <Tab.Navigator
       screenOptions={({ route }: { route: any }) => ({
         tabBarIcon: ({ color, size }: { color: string; size: any }) => {
-          console.log(i18n.locale);
+          //(i18n.locale);
           if (route.name === i18n.t("browse")) {
             return <Ionicons name="ios-search" size={size} color={color} />;
           } else if (route.name === "Settings") {
@@ -83,6 +85,8 @@ function actualApp() {
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  i18n.locale = store.getState().pageSetup.languageCode;
+  //console.log("Locales App.tsx: ", i18n.locale);
   return (
     <Provider store={store}>
       <NavigationContainer>

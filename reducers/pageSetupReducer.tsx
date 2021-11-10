@@ -8,8 +8,11 @@ import {
   SET_PITCH_ENABLED,
   FAVORITE_CLICKED, 
   SET_ALL_TEXT, 
-  FAVORITE_UNCLICKED
+  FAVORITE_UNCLICKED,
+  SET_LANGUAGE
 } from "../actions/pageSetupActions";
+import * as Localization from "expo-localization";
+import i18n from "i18n-js";
 
 export const pageSetupInitialState = {
   isLoading: true,
@@ -18,7 +21,8 @@ export const pageSetupInitialState = {
   transcriptIdx: 0,
   volumeEnabled: true,
   sentimentEnabled: true,
-  pitchEnabled: true
+  pitchEnabled: true,
+  languageCode: Localization.locale,
 };
 
 export function changePageSetup(state = pageSetupInitialState, action: any) {
@@ -68,6 +72,10 @@ export function changePageSetup(state = pageSetupInitialState, action: any) {
         }
       }
       return {...state, podcastList: newP3};
+    case SET_LANGUAGE:
+      i18n.locale = action.lan;
+      console.log("Changing Language: ", i18n.locale);
+      return {...state, languageCode: action.lan};
     default:
       return state;
   }
