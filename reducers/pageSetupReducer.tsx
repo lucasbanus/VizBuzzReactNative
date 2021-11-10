@@ -73,8 +73,8 @@ export function changePageSetup(state = pageSetupInitialState, action: any) {
       }
       return {...state, podcastList: newP3};
     case SET_LANGUAGE:
-      i18n.locale = action.lan;
-      console.log("Changing Language: ", i18n.locale);
+      // i18n.locale = action.lan;
+      // console.log("Changing Language: ", i18n.locale);
       return {...state, languageCode: action.lan};
     default:
       return state;
