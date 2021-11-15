@@ -1,44 +1,37 @@
 import * as React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import PodcastList from "./PodcastList";
 import PodcastTranscriptR from "./PodcastTranscriptR";
 import {
-  getPodcastsInitialWrapperR, 
+  getPodcastsInitialWrapperR,
   getRss
 } from "../../dataManager/dataManager";
 import { greenColors } from "../../constants/colors";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
+import i18n from "i18n-js";
 
 // TODO For rigged demo: retrieving json from local data
 const localData = require("./data.json");
 
-export type Props ={
-  isLoading: boolean,
-  isTranscript: boolean, 
-}
+export type Props = {
+  isLoading: boolean;
+  isTranscript: boolean;
+};
 
-class PodcastListContainer extends React.Component<Props>{
-  render(){
-    if (this.props.isLoading){
+class PodcastListContainer extends React.Component<Props> {
+  render() {
+    if (this.props.isLoading) {
       getPodcastsInitialWrapperR();
     }
     let mainComponent;
-    if (this.props.isLoading){
-      mainComponent = (<Text>Loading</Text>);
-    } else if (this.props.isTranscript){
-      mainComponent = (
-        <PodcastTranscriptR/>
-      );
+    if (this.props.isLoading) {
+      mainComponent = <Text>{i18n.t("loading")}</Text>;
+    } else if (this.props.isTranscript) {
+      mainComponent = <PodcastTranscriptR />;
     } else {
-      mainComponent = (
-        <PodcastList/>
-      );
+      mainComponent = <PodcastList />;
     }
-    return (<View style={styles.container}>{mainComponent}</View>);
+    return <View style={styles.container}>{mainComponent}</View>;
   }
 }
 
@@ -54,15 +47,16 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state: any) => {
   return {
-      isLoading : state.pageSetup.isLoading,
-      isTranscript: state.pageSetup.isShowingTranscript,
-  }
+    isLoading: state.pageSetup.isLoading,
+    isTranscript: state.pageSetup.isShowingTranscript
+  };
 };
 
-const mapDispatchToProps = (dispatch : any) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PodcastListContainer);
-
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PodcastListContainer);

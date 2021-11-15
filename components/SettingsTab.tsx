@@ -15,6 +15,7 @@ import {
 } from "../actions/pageSetupActions";
 import { connect } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
+import i18n from "i18n-js";
 
 const SettingsTab = (props: any) => {
   return (
@@ -27,7 +28,7 @@ const SettingsTab = (props: any) => {
         }}
       >
         <View style={styles.languageButton}>
-          <Text style={styles.label}>Language</Text>
+          <Text style={styles.label}>{i18n.t("language")}</Text>
           {/* <View style={styles.arrowButton}> */}
           <Ionicons
             name="arrow-forward-outline"
@@ -39,7 +40,7 @@ const SettingsTab = (props: any) => {
         </View>
       </TouchableHighlight>
       <View style={styles.switch}>
-        <Text style={styles.label}>Volume Analysis</Text>
+        <Text style={styles.label}>{i18n.t("volume_analysis")}</Text>
         <Switch
           trackColor={{ false: "#767577", true: greenColors.deep }}
           ios_backgroundColor="#3e3e3e"
@@ -48,7 +49,7 @@ const SettingsTab = (props: any) => {
         />
       </View>
       <View style={styles.switch}>
-        <Text style={styles.label}>Sentiment Analysis</Text>
+        <Text style={styles.label}>{i18n.t("sentiment_analysis")}</Text>
         <Switch
           trackColor={{ false: "#767577", true: greenColors.deep }}
           ios_backgroundColor="#3e3e3e"
@@ -57,7 +58,7 @@ const SettingsTab = (props: any) => {
         />
       </View>
       <View style={styles.switch}>
-        <Text style={styles.label}>Pitch Analysis</Text>
+        <Text style={styles.label}>{i18n.t("pitch_analysis")}</Text>
         <Switch
           trackColor={{ false: "#767577", true: greenColors.deep }}
           ios_backgroundColor="#3e3e3e"
@@ -75,7 +76,7 @@ const SettingsTab = (props: any) => {
           onPress={() => props.navigation.navigate("Login")}
           style={styles.touchable}
         >
-          <Text style={styles.logoutText}>Logout</Text>
+          <Text style={styles.logoutText}>{i18n.t("logout")}</Text>
         </TouchableHighlight>
       </View>
     </View>
