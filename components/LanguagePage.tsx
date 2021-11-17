@@ -17,7 +17,7 @@ import {
 } from "../actions/pageSetupActions";
 import { connect } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
-import {languages_supported} from '../constants/strings';
+import { languages_supported } from "../constants/strings";
 import SimpleSelectButton from "react-native-simple-select-button";
 import i18n from "i18n-js";
 
@@ -61,7 +61,7 @@ const LanguagePage = (props: any) => {
         //data={languageOptions}
         data={languages_supported}
         //keyExtractor={item => item.value}x
-        keyExtractor = {item => item.code}
+        keyExtractor={item => item.code}
         //extraData={choice}
         renderItem={({ item }) => (
           <SimpleSelectButton
@@ -69,7 +69,7 @@ const LanguagePage = (props: any) => {
               // TODO show state in the global state
               // setChoice(item.value);
               // changeLanguage(item.value);
-              props.setLanguage(item.code)
+              props.setLanguage(item.code);
             }}
             //isChecked={choice === item.value}
             isChecked={props.language === item.code}
@@ -99,13 +99,13 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state: any) => {
   return {
-    language: state.pageSetup.languageCode,
+    language: state.pageSetup.languageCode
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    setLanguage : (lan : string) => dispatch(setLanguage(lan)),
+    setLanguage: (lan: string) => dispatch(setLanguage(lan))
   };
 };
 

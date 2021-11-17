@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Provider } from "react-redux";
 import store from "../../store/store";
@@ -47,10 +47,25 @@ export function Login() {
   );
 }
 
+function addPodcast() {
+  return <Text>Hello</Text>;
+}
+
+function browseHeader() {
+  return (
+    <View style={styles.browseHeader}>
+      <Text style={styles.browseHeaderText}>Browse</Text>
+      <TouchableHighlight style={styles.addButton} onPress={() => addPodcast()}>
+        <Ionicons name="add" size={24} color="black" />
+      </TouchableHighlight>
+    </View>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 
 function MainPage(props: any) {
-    i18n.locale = props.language;
+  i18n.locale = props.language;
   return (
     <Tab.Navigator
       screenOptions={({ route }: { route: any }) => ({
@@ -69,7 +84,15 @@ function MainPage(props: any) {
       })}
       initialRouteName={i18n.t("favorites")}
     >
-      <Tab.Screen name={i18n.t("browse")} component={HomePage} />
+      <Tab.Screen
+        name={i18n.t("browse")}
+        component={HomePage}
+        options={{
+          headerTitle: () => {
+            return browseHeader();
+          }
+        }}
+      />
       <Tab.Screen name={i18n.t("favorites")} component={FavoritePage} />
       <Tab.Screen name={i18n.t("settings")} component={SettingsTab} />
     </Tab.Navigator>
@@ -77,27 +100,34 @@ function MainPage(props: any) {
 }
 
 const mapStateToProps = (state: any) => {
-    return {
-      language: state.pageSetup.languageCode,
-    };
+  return {
+    language: state.pageSetup.languageCode
   };
-  
-  const mapDispatchToProps = (dispatch: any) => {
-    return {
-      setLanguage : (lan : string) => dispatch(setLanguage(lan)),
-    };
-  };
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+};
 
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    setLanguage: (lan: string) => dispatch(setLanguage(lan))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#fff",
-      alignItems: "center",
-      justifyContent: "center",
-      width: "100%"
-    }
-  });
-  
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%"
+  },
+  browseHeader: {
+    flexDirection: "row"
+  },
+  browseHeaderText: {
+    fontSize: 24
+  },
+  addButton: {
+    justifyContent: "flex-end"
+  }
+});
