@@ -9,13 +9,15 @@ import {
   FAVORITE_CLICKED, 
   SET_ALL_TEXT, 
   FAVORITE_UNCLICKED,
-  SET_LANGUAGE
+  SET_LANGUAGE,
+  SET_IS_UPLOADING
 } from "../actions/pageSetupActions";
 import * as Localization from "expo-localization";
 import i18n from "i18n-js";
 
 export const pageSetupInitialState = {
-  isLoading: true,
+  //isLoading: true,
+  isLoading:  false,
   podcastList: [],
   isShowingTranscript: false,
   transcriptIdx: 0,
@@ -23,6 +25,7 @@ export const pageSetupInitialState = {
   sentimentEnabled: true,
   pitchEnabled: true,
   languageCode: Localization.locale,
+  isUploading:  false,
 };
 
 export function changePageSetup(state = pageSetupInitialState, action: any) {
@@ -76,6 +79,8 @@ export function changePageSetup(state = pageSetupInitialState, action: any) {
       // i18n.locale = action.lan;
       // console.log("Changing Language: ", i18n.locale);
       return {...state, languageCode: action.lan};
+    case SET_IS_UPLOADING:
+      return {...state, isUploading: action.bool};
     default:
       return state;
   }

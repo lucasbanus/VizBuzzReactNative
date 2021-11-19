@@ -11,7 +11,7 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 
 import * as Localization from "expo-localization";
 import i18n from "i18n-js";
-import { strings } from "../../constants/strings.tsx";
+import { strings } from "../../constants/strings";
 //console.log(strings);
 i18n.translations = strings;
 
@@ -22,6 +22,7 @@ import { UserLogin } from "../UserLogin";
 import { CreateAccount } from "../CreateAccount";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FavoritePodcastListContainer from "../favoritePage/FavoritePodcastListContainer";
+import { setIsUploading, setLanguage } from "../../actions/pageSetupActions";
 
 export function HomePage() {
   return (
@@ -51,11 +52,11 @@ function addPodcast() {
   return <Text>Hello</Text>;
 }
 
-function browseHeader() {
+function browseHeader(props: any) {
   return (
     <View style={styles.browseHeader}>
       <Text style={styles.browseHeaderText}>Browse</Text>
-      <TouchableHighlight style={styles.addButton} onPress={() => addPodcast()}>
+      <TouchableHighlight style={styles.addButton} onPress={() => props.setIsUploading(true)}>
         <Ionicons name="add" size={24} color="black" />
       </TouchableHighlight>
     </View>
@@ -87,11 +88,7 @@ function MainPage(props: any) {
       <Tab.Screen
         name={i18n.t("browse")}
         component={HomePage}
-        options={{
-          headerTitle: () => {
-            return browseHeader();
-          }
-        }}
+        options={{headerTitle: () => browseHeader(props)}}
       />
       <Tab.Screen name={i18n.t("favorites")} component={FavoritePage} />
       <Tab.Screen name={i18n.t("settings")} component={SettingsTab} />
@@ -101,13 +98,15 @@ function MainPage(props: any) {
 
 const mapStateToProps = (state: any) => {
   return {
-    language: state.pageSetup.languageCode
+    language: state.pageSetup.languageCode,
+    isUploading : state.pageSetup.isUploading,
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    setLanguage: (lan: string) => dispatch(setLanguage(lan))
+    setLanguage: (lan: string) => dispatch(setLanguage(lan)),
+    setIsUploading : (bool : boolean) => dispatch(setIsUploading(bool)),
   };
 };
 

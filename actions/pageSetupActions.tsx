@@ -13,6 +13,7 @@ export const FAVORITE_CLICKED = "FAVORITE_CLICKED";
 export const FAVORITE_UNCLICKED = "FAVORITE_UNCLICKED";
 export const SET_ALL_TEXT = "SET_ALL_TEXT";
 export const SET_LANGUAGE = "SET_LANGUAGE";
+export const SET_IS_UPLOADING = "SET_IS_UPLOADING";
 
 /**
  * functions for setup actions
@@ -60,4 +61,8 @@ export function setAllText(words: Array<any>, idx: number) {
 
 export function setLanguage(lan: string){
   return {type: SET_LANGUAGE, lan};
+}
+
+export function setIsUploading(bool:  boolean){
+  return {type: SET_IS_UPLOADING, bool};
 }

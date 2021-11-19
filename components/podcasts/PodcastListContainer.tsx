@@ -9,6 +9,7 @@ import {
 import { greenColors } from "../../constants/colors";
 import { connect } from "react-redux";
 import i18n from "i18n-js";
+import UploadPodcast from "../browsingPodcast/UploadPodcast";
 
 // TODO For rigged demo: retrieving json from local data
 const localData = require("./data.json");
@@ -16,6 +17,7 @@ const localData = require("./data.json");
 export type Props = {
   isLoading: boolean;
   isTranscript: boolean;
+  isUploading: boolean;
 };
 
 class PodcastListContainer extends React.Component<Props> {
@@ -26,9 +28,12 @@ class PodcastListContainer extends React.Component<Props> {
     let mainComponent;
     if (this.props.isLoading) {
       mainComponent = <Text>{i18n.t("loading")}</Text>;
-    } else if (this.props.isTranscript) {
+    } else 
+    if (this.props.isTranscript) {
       mainComponent = <PodcastTranscriptR />;
-    } else {
+    } else if (this.props.isUploading){
+      mainComponent = <UploadPodcast/>
+    }  else {
       mainComponent = <PodcastList />;
     }
     return <View style={styles.container}>{mainComponent}</View>;
@@ -48,7 +53,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state: any) => {
   return {
     isLoading: state.pageSetup.isLoading,
-    isTranscript: state.pageSetup.isShowingTranscript
+    isTranscript: state.pageSetup.isShowingTranscript,
+    isUploading: state.pageSetup.isUploading,
   };
 };
 

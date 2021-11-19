@@ -30,7 +30,7 @@ export type Props = {
   favePodcastList: Array<any>;
 };
 
-class FavoritePodcastList extends React.Component<Props>{
+class FavoritePodcastList extends React.Component<any>{
 
   render(){
     const pressPodcast = (idx: number) => {
