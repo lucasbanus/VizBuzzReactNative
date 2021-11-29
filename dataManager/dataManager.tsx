@@ -41,6 +41,7 @@ let rss_mapping = new Map();
 let defaultColor = "black";
 let defaultSize = 25;
 let defaultWeight = "normal";
+const itunes_url = "https://itunes.apple.com/search?media=podcast&";
 
 export const formatTime = (time: number) => {
   const seconds = Math.round(time / offsetMultiple);
@@ -105,6 +106,19 @@ export const getTimeStamp = (wordInfo: PodcastWordsArrayObject) => {
   };
 };
 
+export const formatSearchQuery = (searchQuery: string) => {
+  return searchQuery.replace(/\s/g, "+");
+};
+
+// Query podcasts from itunes based on searchQuery
+const getPodcastsFromItunes = async (searchQuery: string) => {
+  let testSearchQuery = "smoking tire";
+  let final_search_query =
+    itunes_url + "term=" + formatSearchQuery(searchQuery);
+  const response = await fetch(final_search_query);
+  // Format searchQuery to
+};
+
 // Retrieve podcasts from JSON and parse their RSS URL's
 const getPodcastsInitialR = async () => {
   try {
@@ -114,7 +128,8 @@ const getPodcastsInitialR = async () => {
       volumeEnabled
     } = store.getState().pageSetup;
     // Initial get request for JSON from backend
-
+    console.log("hi\n");
+    getPodcastsFromItunes("hi");
     const response = await fetch(URL_backend).catch(e =>
       console.log(TAG + " Error" + e + "\n")
     );
