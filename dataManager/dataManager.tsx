@@ -7,7 +7,9 @@ import {
   PodcastWordInfoJson,
   PodcastWordsArrayObject,
   PodcastInfoR,
-  WordContainer
+  WordContainer,
+  ItunesPodcastJson,
+  ItunesPodcastInfo
 } from "../types/types";
 import { useEffect } from "react";
 import store from "../store/store";
@@ -111,11 +113,28 @@ export const formatSearchQuery = (searchQuery: string) => {
 };
 
 // Query podcasts from itunes based on searchQuery
-const getPodcastsFromItunes = async (searchQuery: string) => {
-  let testSearchQuery = "smoking tire";
+export const getPodcastsFromItunes = async (searchQuery: string) => {
+  let testSearchQuery = "the smoking tire";
   let final_search_query =
     itunes_url + "term=" + formatSearchQuery(searchQuery);
+  console.log("Final search query " + final_search_query);
   const response = await fetch(final_search_query);
+  const json: JSON = await response.json();
+  const items: Array<ItunesPodcastJson> = JSON.parse(
+    JSON.stringify(json.results)
+  );
+  let items2: Array<ItunesPodcastInfo>;
+  //console.log(items);
+  items2 = items.map(pJson => {
+    let ret: ItunesPodcastInfo = {
+      show_name: pJson.collectionName,
+      artist: pJson.artistName,
+      rss_url: pJson.feedUrl,
+      image_url: pJson.artworkUrl30
+    };
+    return ret;
+  });
+  console.log(items2);
   // Format searchQuery to
 };
 
@@ -129,7 +148,6 @@ const getPodcastsInitialR = async () => {
     } = store.getState().pageSetup;
     // Initial get request for JSON from backend
     console.log("hi\n");
-    getPodcastsFromItunes("hi");
     const response = await fetch(URL_backend).catch(e =>
       console.log(TAG + " Error" + e + "\n")
     );

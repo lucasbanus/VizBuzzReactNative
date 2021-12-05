@@ -4,7 +4,8 @@ import PodcastList from "./PodcastList";
 import PodcastTranscriptR from "./PodcastTranscriptR";
 import {
   getPodcastsInitialWrapperR,
-  getRss
+  getRss,
+  getPodcastsFromItunes
 } from "../../dataManager/dataManager";
 import { greenColors } from "../../constants/colors";
 import { connect } from "react-redux";
@@ -24,16 +25,18 @@ class PodcastListContainer extends React.Component<Props> {
   render() {
     if (this.props.isLoading) {
       getPodcastsInitialWrapperR();
+    } else {
     }
+    //TODO delete this
+    getPodcastsFromItunes("the smoking tire");
     let mainComponent;
     if (this.props.isLoading) {
       mainComponent = <Text>{i18n.t("loading")}</Text>;
-    } else 
-    if (this.props.isTranscript) {
+    } else if (this.props.isTranscript) {
       mainComponent = <PodcastTranscriptR />;
-    } else if (this.props.isUploading){
-      mainComponent = <UploadPodcast/>
-    }  else {
+    } else if (this.props.isUploading) {
+      mainComponent = <UploadPodcast />;
+    } else {
       mainComponent = <PodcastList />;
     }
     return <View style={styles.container}>{mainComponent}</View>;
@@ -54,7 +57,7 @@ const mapStateToProps = (state: any) => {
   return {
     isLoading: state.pageSetup.isLoading,
     isTranscript: state.pageSetup.isShowingTranscript,
-    isUploading: state.pageSetup.isUploading,
+    isUploading: state.pageSetup.isUploading
   };
 };
 
