@@ -28,7 +28,6 @@ class PodcastListContainer extends React.Component<Props> {
     } else {
     }
     //TODO delete this
-    getPodcastsFromItunes("the smoking tire");
     let mainComponent;
     if (this.props.isLoading) {
       mainComponent = <Text>{i18n.t("loading")}</Text>;

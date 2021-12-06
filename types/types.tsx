@@ -85,6 +85,11 @@ export type ItunesPodcastJson = {
   artworkUrl30: string;
 };
 
+export type iTunesJson = {
+  resultCount: number;
+  results: Array<ItunesPodcastJson>;
+} 
+
 // For each podcast SHOW from itunes query
 export type ItunesPodcastInfo = {
   show_name: string;

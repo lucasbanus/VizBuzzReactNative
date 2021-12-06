@@ -9,7 +9,8 @@ import {
   PodcastInfoR,
   WordContainer,
   ItunesPodcastJson,
-  ItunesPodcastInfo
+  ItunesPodcastInfo,
+  iTunesJson
 } from "../types/types";
 import { useEffect } from "react";
 import store from "../store/store";
@@ -32,6 +33,7 @@ import {
   loadingFavePodcasts,
   showFaveTranscript
 } from "../actions/userFavoritePodcastActions";
+import { noMoreSearch, setSearchResult } from "../actions/podcastSearchActions";
 
 // Constants used for initial fetching
 const URL_backend = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
@@ -114,28 +116,38 @@ export const formatSearchQuery = (searchQuery: string) => {
 
 // Query podcasts from itunes based on searchQuery
 export const getPodcastsFromItunes = async (searchQuery: string) => {
-  let testSearchQuery = "the smoking tire";
-  let final_search_query =
-    itunes_url + "term=" + formatSearchQuery(searchQuery);
-  console.log("Final search query " + final_search_query);
-  const response = await fetch(final_search_query);
-  const json: JSON = await response.json();
-  const items: Array<ItunesPodcastJson> = JSON.parse(
-    JSON.stringify(json.results)
-  );
-  let items2: Array<ItunesPodcastInfo>;
-  //console.log(items);
-  items2 = items.map(pJson => {
-    let ret: ItunesPodcastInfo = {
-      show_name: pJson.collectionName,
-      artist: pJson.artistName,
-      rss_url: pJson.feedUrl,
-      image_url: pJson.artworkUrl30
-    };
-    return ret;
-  });
-  console.log(items2);
-  // Format searchQuery to
+  // Format the search query
+  try {
+    let final_search_query =
+      itunes_url + "term=" + formatSearchQuery(searchQuery);
+    console.log("Final search query " + final_search_query);
+    // Query the api and get the response from iTunes
+    const response = await fetch(final_search_query);
+    // Parse the json
+    //const json: JSON = await response.json();
+    const json : iTunesJson = await response.json();
+    console.log("The reponse json: ", json);
+    // Get the results of the query
+    //const items: Array<ItunesPodcastJson> = JSON.parse(JSON.stringify(json.results));
+    const results: Array<ItunesPodcastJson> = json.results;
+    let resultsParsed: Array<ItunesPodcastInfo>;
+    //console.log(items);
+    resultsParsed = results.map(pJson => {
+      let ret: ItunesPodcastInfo = {
+        show_name: pJson.collectionName,
+        artist: pJson.artistName,
+        rss_url: pJson.feedUrl,
+        image_url: pJson.artworkUrl30
+      };
+      return ret;
+    });
+    console.log(resultsParsed);
+    // Format searchQuery to
+    store.dispatch(noMoreSearch());
+    store.dispatch(setSearchResult(resultsParsed));
+  } catch (e: any){
+    console.log(TAG + " Error" + e + "\n");
+  }
 };
 
 // Retrieve podcasts from JSON and parse their RSS URL's

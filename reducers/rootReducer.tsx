@@ -2,12 +2,14 @@ import { combineReducers } from 'redux';
 //import {createStore, applyMiddleware} from 'redux';
 import {changePageSetup} from './pageSetupReducer';
 import {changePodcast} from './podcastReducer';
+import { searchPodcasts } from './podcastSearchReducer';
 import {changeFavePodcasts} from './userFavoritePodcastReducer';
 
 const rootReducer = combineReducers({
     podcast: changePodcast,
     pageSetup: changePageSetup,
     favePodcasts: changeFavePodcasts,
+    podcastSearch: searchPodcasts,
 });
 
 // const persistConfig = {
