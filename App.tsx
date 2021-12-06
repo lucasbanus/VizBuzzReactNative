@@ -18,6 +18,8 @@ i18n.translations = strings;
 import PodcastListContainer from "./components/podcasts/PodcastListContainer";
 import SettingsTab from "./components/SettingsTab";
 import LanguagePage from "./components/LanguagePage";
+import PodcastSearchPage from "./components/browsingPodcast/PodcastSearchPage";
+import BrowseEpisodesPage from "./components/browsingPodcast/BrowseEpisodesPage";
 import { UserLogin } from "./components/UserLogin";
 import { CreateAccount } from "./components/CreateAccount";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -101,6 +103,8 @@ export default function App() {
             options={{ headerShown: false }}
           />
           <Stack.Screen name="Language" component={LanguagePage} />
+          <Stack.Screen name="Search Podcasts" component={PodcastSearchPage} />
+          <Stack.Screen name="Browse Episodes" component={BrowseEpisodesPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
