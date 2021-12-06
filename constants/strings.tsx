@@ -14,7 +14,8 @@ export const strings = {
     volume_analysis: "Volume Analysis",
     sentiment_analysis: "Sentiment Analysis",
     pitch_analysis: "Pitch Analysis",
-    logout: "Logout"
+    logout: "Logout", 
+    favorite_podcasts: "Your Favorite Podcasts"
   },
   en: {
     all_podcasts: "All Podcasts",
@@ -26,7 +27,8 @@ export const strings = {
     volume_analysis: "Volume Analysis",
     sentiment_analysis: "Sentiment Analysis",
     pitch_analysis: "Pitch Analysis",
-    logout: "Logout"
+    logout: "Logout",
+    favorite_podcasts: "Your Favorite Podcasts"
   },
   es: {
     all_podcasts: "Todos Los Podcasts",
@@ -38,7 +40,8 @@ export const strings = {
     volume_analysis: "Análisis de Volumen",
     sentiment_analysis: "Análisis de Sentimiento",
     pitch_analysis: "Análisis de Tono",
-    logout: "Cerrar Sesión"
+    logout: "Cerrar Sesión",
+    favorite_podcasts: "Tus Podcasts Favoritos"
   }
 };
 

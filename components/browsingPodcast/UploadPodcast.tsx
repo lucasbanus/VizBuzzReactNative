@@ -1,5 +1,6 @@
 import Ionicons from "@expo/vector-icons/build/Ionicons";
 import React from "react";
+import i18n from "i18n-js";
 import { View, StyleSheet, Text, Modal, TouchableHighlight } from "react-native";
 import { connect } from "react-redux";
 import { setIsUploading } from "../../actions/pageSetupActions";
@@ -14,7 +15,7 @@ const UploadPodcast = (props: any) => {
         animationType="slide"
         style={styles.modalContainer}
         > 
-        <Text>Browse</Text>
+        <Text>{i18n.t("browse")}</Text>
         <TouchableHighlight
             underlayColor="#ccc"
             style={styles.touchable}

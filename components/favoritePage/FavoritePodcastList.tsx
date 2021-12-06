@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import { PodcastInfo, PodcastInfoR } from "../../types/types";
+import i18n from "i18n-js";
 import { greenColors } from "../../constants/colors";
 import { connect } from "react-redux";
 import {
@@ -46,7 +47,7 @@ class FavoritePodcastList extends React.Component<any>{
     return (
       <View style={styles.container}>
       <Text style={styles.title} testID="title">
-        Your Favorite Podcasts
+        {i18n.t('favorite_podcasts')}
       </Text>
       <FlatList
         data={this.props.favePodcastList}

@@ -55,7 +55,7 @@ function addPodcast() {
 function browseHeader(props: any) {
   return (
     <View style={styles.browseHeader}>
-      <Text style={styles.browseHeaderText}>Browse</Text>
+      <Text style={styles.browseHeaderText}>{i18n.t("browse")}</Text>
       <TouchableHighlight style={styles.addButton} onPress={() => props.setIsUploading(true)}>
         <Ionicons name="add" size={24} color="black" />
       </TouchableHighlight>
