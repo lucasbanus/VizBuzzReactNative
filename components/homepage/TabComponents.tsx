@@ -56,7 +56,15 @@ function browseHeader(props: any) {
   return (
     <View style={styles.browseHeader}>
       <Text style={styles.browseHeaderText}>{i18n.t("browse")}</Text>
-      <TouchableHighlight style={styles.addButton} onPress={() => props.setIsUploading(true)}>
+      {/* <TouchableHighlight style={styles.addButton} onPress={() => props.setIsUploading(true)}>
+      <Text style={styles.browseHeaderText}>Browse</Text> */}
+      <TouchableHighlight
+        style={styles.addButton}
+        onPress={() => {
+          props.navigation.navigate("Search Podcasts");
+          // props.setIsUploading(true);
+        }}
+      >
         <Ionicons name="add" size={24} color="black" />
       </TouchableHighlight>
     </View>
@@ -88,7 +96,7 @@ function MainPage(props: any) {
       <Tab.Screen
         name={i18n.t("browse")}
         component={HomePage}
-        options={{headerTitle: () => browseHeader(props)}}
+        options={{ headerTitle: () => browseHeader(props) }}
       />
       <Tab.Screen name={i18n.t("favorites")} component={FavoritePage} />
       <Tab.Screen name={i18n.t("settings")} component={SettingsTab} />
@@ -99,14 +107,14 @@ function MainPage(props: any) {
 const mapStateToProps = (state: any) => {
   return {
     language: state.pageSetup.languageCode,
-    isUploading : state.pageSetup.isUploading,
+    isUploading: state.pageSetup.isUploading
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
     setLanguage: (lan: string) => dispatch(setLanguage(lan)),
-    setIsUploading : (bool : boolean) => dispatch(setIsUploading(bool)),
+    setIsUploading: (bool: boolean) => dispatch(setIsUploading(bool))
   };
 };
 
