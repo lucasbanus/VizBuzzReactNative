@@ -7,7 +7,9 @@ import {
   PodcastWordInfoJson,
   PodcastWordsArrayObject,
   PodcastInfoR,
-  WordContainer
+  WordContainer,
+  ItunesPodcastJson,
+  ItunesPodcastInfo
 } from "../types/types";
 import { useEffect } from "react";
 import store from "../store/store";
@@ -41,6 +43,7 @@ let rss_mapping = new Map();
 let defaultColor = "black";
 let defaultSize = 25;
 let defaultWeight = "normal";
+const itunes_url = "https://itunes.apple.com/search?media=podcast&";
 
 export const formatTime = (time: number) => {
   const seconds = Math.round(time / offsetMultiple);
@@ -105,6 +108,36 @@ export const getTimeStamp = (wordInfo: PodcastWordsArrayObject) => {
   };
 };
 
+export const formatSearchQuery = (searchQuery: string) => {
+  return searchQuery.replace(/\s/g, "+");
+};
+
+// Query podcasts from itunes based on searchQuery
+export const getPodcastsFromItunes = async (searchQuery: string) => {
+  let testSearchQuery = "the smoking tire";
+  let final_search_query =
+    itunes_url + "term=" + formatSearchQuery(searchQuery);
+  console.log("Final search query " + final_search_query);
+  const response = await fetch(final_search_query);
+  const json: JSON = await response.json();
+  const items: Array<ItunesPodcastJson> = JSON.parse(
+    JSON.stringify(json.results)
+  );
+  let items2: Array<ItunesPodcastInfo>;
+  //console.log(items);
+  items2 = items.map(pJson => {
+    let ret: ItunesPodcastInfo = {
+      show_name: pJson.collectionName,
+      artist: pJson.artistName,
+      rss_url: pJson.feedUrl,
+      image_url: pJson.artworkUrl30
+    };
+    return ret;
+  });
+  console.log(items2);
+  // Format searchQuery to
+};
+
 // Retrieve podcasts from JSON and parse their RSS URL's
 const getPodcastsInitialR = async () => {
   try {
@@ -114,7 +147,7 @@ const getPodcastsInitialR = async () => {
       volumeEnabled
     } = store.getState().pageSetup;
     // Initial get request for JSON from backend
-
+    console.log("hi\n");
     const response = await fetch(URL_backend).catch(e =>
       console.log(TAG + " Error" + e + "\n")
     );

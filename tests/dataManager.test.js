@@ -7,7 +7,8 @@ import {
   getPodcastsInitialWrapperR,
   getRss,
   formatTime,
-  fromPolarityToColor
+  fromPolarityToColor,
+  formatSearchQuery
 } from "../dataManager/dataManager";
 
 const test_time_1 = 5900000000;
@@ -30,4 +31,8 @@ test("Test polarity to color", async () => {
   expect(fromPolarityToColor(1.0)).toBe("green");
   expect(fromPolarityToColor(-1.0)).toBe("red");
   expect(fromPolarityToColor(-2)).toBe("red");
+});
+
+test("Test format search query", async () => {
+  expect(formatSearchQuery("smoking tire")).toBe("smoking+tire");
 });

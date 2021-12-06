@@ -76,3 +76,19 @@ export type PodcastWordsArrayObject = {
 export type PodcastWordInfoJson = {
   words: Array<PodcastWordsArrayObject>;
 };
+
+// For each podcast SHOW from itunes query
+export type ItunesPodcastJson = {
+  collectionName: string;
+  artistName: string;
+  feedUrl: string;
+  artworkUrl30: string;
+};
+
+// For each podcast SHOW from itunes query
+export type ItunesPodcastInfo = {
+  show_name: string;
+  artist: string;
+  rss_url: string;
+  image_url: string;
+};
