@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Provider } from "react-redux";
 import store from "../../store/store";
-import { primaryColors } from "../../constants/colors";
+import { primaryColors, grayColors } from "../../constants/colors";
 import { connect } from "react-redux";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -62,16 +62,6 @@ function browseHeader(props: any) {
       <Text style={styles.browseHeaderText}>{i18n.t("browse")}</Text>
       {/* <TouchableHighlight style={styles.addButton} onPress={() => props.setIsUploading(true)}> */}
       {/* <Text style={styles.browseHeaderText}>Browse</Text> */}
-      <TouchableHighlight
-        style={styles.addButton}
-        onPress={() => {
-          getPodcastsFromItunes("podcast&explicit=no");
-          props.navigation.navigate("Search Podcasts");
-          // props.setIsUploading(true);
-        }}
-      >
-        <Ionicons name="add" size={24} color="black" />
-      </TouchableHighlight>
     </View>
   );
 }
@@ -101,7 +91,26 @@ function MainPage(props: any) {
       <Tab.Screen
         name={i18n.t("browse")}
         component={HomePage}
-        options={{ headerTitle: () => browseHeader(props) }}
+        options={{
+          headerTitle: () => browseHeader(props),
+          headerRight: () => (
+            <TouchableHighlight
+              style={styles.addButton}
+              underlayColor={grayColors.light}
+              onPress={() => {
+                getPodcastsFromItunes("podcast&explicit=no");
+                props.navigation.navigate("Search Podcasts");
+                // props.setIsUploading(true);
+              }}
+            >
+              <Ionicons
+                name="add-circle"
+                size={30}
+                color={primaryColors.highlights}
+              />
+            </TouchableHighlight>
+          )
+        }}
       />
       <Tab.Screen name={i18n.t("favorites")} component={FavoritePage} />
       <Tab.Screen name={i18n.t("settings")} component={SettingsTab} />
@@ -141,6 +150,7 @@ const styles = StyleSheet.create({
     fontSize: 24
   },
   addButton: {
+    marginRight: 20,
     justifyContent: "flex-end"
   }
 });
