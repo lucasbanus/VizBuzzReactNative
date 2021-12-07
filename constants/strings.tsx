@@ -14,11 +14,13 @@ export const strings = {
     volume_analysis: "Volume Analysis",
     sentiment_analysis: "Sentiment Analysis",
     pitch_analysis: "Pitch Analysis",
-    logout: "Logout", 
+    logout: "Logout",
     favorite_podcasts: "Your Favorite Podcasts",
     search_podcast: "Search",
     podcast_search_name: "Podcast Name",
     episodes: "Episodes",
+    search_podcasts: "Search Podcasts",
+    browse_episodes: "Browse Episodes"
   },
   en: {
     all_podcasts: "All Podcasts",
@@ -35,6 +37,8 @@ export const strings = {
     search_podcast: "Search",
     podcast_search_name: "Podcast Name",
     episodes: "Episodes",
+    search_podcasts: "Search Podcasts",
+    browse_episodes: "Browse Episodes"
   },
   es: {
     all_podcasts: "Todos Los Podcasts",
@@ -51,6 +55,8 @@ export const strings = {
     search_podcast: "Buscar",
     podcast_search_name: "Nombre del Podcast",
     episodes: "Episodios",
+    search_podcasts: "Buscar Podcasts",
+    browse_episodes: "Navegar Episodios"
   }
 };
 
