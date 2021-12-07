@@ -23,6 +23,7 @@ import { CreateAccount } from "../CreateAccount";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FavoritePodcastListContainer from "../favoritePage/FavoritePodcastListContainer";
 import { setIsUploading, setLanguage } from "../../actions/pageSetupActions";
+import { getEpisodesInfo, getPodcastsFromItunes } from "../../dataManager/dataManager";
 
 export function HomePage() {
   return (
@@ -61,6 +62,7 @@ function browseHeader(props: any) {
       <TouchableHighlight
         style={styles.addButton}
         onPress={() => {
+          getPodcastsFromItunes("podcast&explicit=no");
           props.navigation.navigate("Search Podcasts");
           // props.setIsUploading(true);
         }}

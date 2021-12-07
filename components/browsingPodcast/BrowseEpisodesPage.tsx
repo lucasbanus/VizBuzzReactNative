@@ -65,8 +65,8 @@ const BrowseEpisodesPage = (props: any) => {
   } else {
     mainComp = (
       <View style={styles.mainContainer}>
-        <Text style={styles.text}>{i18n.t("episodes")}</Text>
-        <Text style={{...styles.text, fontSize: 20, paddingTop: 0}}>{props.podcastName}</Text>
+        {/* <Text style={styles.text}>{i18n.t("episodes")}</Text> */}
+        <Text style={{...styles.text, paddingTop: 0}}>{props.podcastName}</Text>
         {image}
         <ScrollView>
         {episodes}
