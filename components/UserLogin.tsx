@@ -5,7 +5,8 @@ import {
   View,
   TextInput,
   Button,
-  TouchableHighlight
+  TouchableHighlight,
+  Image
 } from "react-native";
 import { greenColors, blueColors, grayColors } from "../constants/colors";
 import { connect } from "react-redux";
@@ -33,6 +34,14 @@ export const UserLogin = (props: any) => {
   };
   return (
     <View style={styles.container}>
+      <Image
+        source={require("../constants/images/vizbuzz_wordart.png")}
+        resizeMode="contain"
+        style={{
+          maxHeight: 150,
+          maxWidth: 400
+        }}
+      />
       <Text style={styles.title} testID="title">
         Log In
       </Text>
