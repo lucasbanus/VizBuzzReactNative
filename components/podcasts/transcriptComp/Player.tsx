@@ -5,8 +5,9 @@ import {
   Text,
   View,
   Button,
-  TouchableHighlight,} from "react-native";
-import { buttonColors, greenColors } from "../../../constants/colors";
+  TouchableHighlight
+} from "react-native";
+import { buttonColors, primaryColors } from "../../../constants/colors";
 import { WordContainer } from "../../../types/types";
 import {
   setTranscriptIndex,
@@ -30,71 +31,71 @@ export const sound = new Audio.Sound();
 //http://commondatastorage.googleapis.com/codeskulptor-assets/week7-bounce.m4a
 //"https://cdn.simplecast.com/audio/bceb3f91-afbb-4f97-87f6-5f4387bbb382/episodes/0190d6a8-fb48-4ee8-8a72-715e8ac1b4b1/audio/929445c3-f0e5-42db-9bc2-1e5c6338bef2/default_tc.mp3?aid=rss_feed&feed=c2RzTGta"
 
- // TODO replace with props.podcast.streaming_url
+// TODO replace with props.podcast.streaming_url
 
 const Player = (props: Props) => {
-    const [playing, setPlaying] = useState(false);
-    const [notloaded, setLoaded] = useState(true);
-    if (!sound._loaded){
-      try{
-        sound.loadAsync({ uri: props.streaming_url}).catch(e => console.log(e));
-      } catch (e: any){
-        console.log("Payer" + " Error" + error + "\n");
-      }
+  const [playing, setPlaying] = useState(false);
+  const [notloaded, setLoaded] = useState(true);
+  if (!sound._loaded) {
+    try {
+      sound.loadAsync({ uri: props.streaming_url }).catch(e => console.log(e));
+    } catch (e) {
+      console.log("Payer" + " Error" + error + "\n");
     }
-    Audio.setAudioModeAsync({
-        allowsRecordingIOS: true,
-        interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
-        playsInSilentModeIOS: true,
-        interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-        shouldDuckAndroid: true,
-        staysActiveInBackground: true,
-        playThroughEarpieceAndroid: true
-      });
+  }
+  Audio.setAudioModeAsync({
+    allowsRecordingIOS: true,
+    interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+    playsInSilentModeIOS: true,
+    interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+    shouldDuckAndroid: true,
+    staysActiveInBackground: true,
+    playThroughEarpieceAndroid: true
+  });
 
-      const play = () => {
-        sound.playAsync();
-        setPlaying(true);
-      };
-      const pause = async () => {
-        sound.pauseAsync();
-        setPlaying(false);
-      };
+  const play = () => {
+    sound.playAsync();
+    setPlaying(true);
+  };
+  const pause = async () => {
+    sound.pauseAsync();
+    setPlaying(false);
+  };
 
   return (
     <View style={styles.container}>
-        <TouchableHighlight
-            underlayColor="#ccc"
-            style={styles.player}
-            onPress={playing ? () => pause() : () => play()}
-        > 
-            <Text style={styles.playerText}> {playing ? 'Pause' : 'Play'}</Text>
-        </TouchableHighlight>
+      <TouchableHighlight
+        underlayColor="#ccc"
+        style={styles.player}
+        onPress={playing ? () => pause() : () => play()}
+      >
+        <Text style={styles.playerText}> {playing ? "Pause" : "Play"}</Text>
+      </TouchableHighlight>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-    container : {
-        display: 'flex',
-        flexDirection: 'row',
-        width: '100%',
-        height: '100%', 
-        alignItems: 'center', 
-        justifyContent: 'center',
-    },
-    playerText: {
-        fontSize: 20,
-        color: 'white',
-        fontWeight: 'bold',
-    },
-    player: {
-        backgroundColor: greenColors.deep,
-        width: '25%', 
-        height: '40%',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  playerText: {
+    fontSize: 20,
+    color: "white",
+    fontWeight: "bold"
+  },
+  player: {
+    backgroundColor: primaryColors.highlights,
+    width: "25%",
+    height: "40%",
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });
 
 const mapStateToProps = (state: any) => {

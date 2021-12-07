@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Provider } from "react-redux";
 import store from "../../store/store";
-import { greenColors } from "../../constants/colors";
+import { primaryColors } from "../../constants/colors";
 import { connect } from "react-redux";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -23,7 +23,10 @@ import { CreateAccount } from "../CreateAccount";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FavoritePodcastListContainer from "../favoritePage/FavoritePodcastListContainer";
 import { setIsUploading, setLanguage } from "../../actions/pageSetupActions";
-import { getEpisodesInfo, getPodcastsFromItunes } from "../../dataManager/dataManager";
+import {
+  getEpisodesInfo,
+  getPodcastsFromItunes
+} from "../../dataManager/dataManager";
 
 export function HomePage() {
   return (
@@ -90,7 +93,7 @@ function MainPage(props: any) {
             return <Ionicons name="heart" size={size} color={color} />;
           }
         },
-        tabBarActiveTintColor: greenColors.deep,
+        tabBarActiveTintColor: primaryColors.highlights,
         tabBarInactiveTintColor: "gray"
       })}
       initialRouteName={i18n.t("favorites")}
@@ -132,7 +135,7 @@ const styles = StyleSheet.create({
   },
   browseHeader: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   browseHeaderText: {
     fontSize: 24

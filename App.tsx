@@ -4,7 +4,6 @@ import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Provider } from "react-redux";
 import store from "./store/store";
-import { greenColors } from "./constants/colors";
 
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer, StackActions } from "@react-navigation/native";

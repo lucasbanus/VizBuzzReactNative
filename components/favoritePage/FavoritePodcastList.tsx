@@ -10,7 +10,7 @@ import {
 
 import { PodcastInfo, PodcastInfoR } from "../../types/types";
 import i18n from "i18n-js";
-import { greenColors } from "../../constants/colors";
+import { primaryColors } from "../../constants/colors";
 import { connect } from "react-redux";
 import {
   setPodcast,
@@ -20,10 +20,12 @@ import {
   setAuthors,
   setEpisodeName
 } from "../../actions/podcastActions";
-import {favoriteUnclicked} from '../../actions/pageSetupActions';
+import { favoriteUnclicked } from "../../actions/pageSetupActions";
 import {
-    setFaveIdx, showFaveTranscript, deleteFavePodcast
-} from '../../actions/userFavoritePodcastActions';
+  setFaveIdx,
+  showFaveTranscript,
+  deleteFavePodcast
+} from "../../actions/userFavoritePodcastActions";
 import { Ionicons } from "@expo/vector-icons";
 import { queryPodcast } from "../../dataManager/dataManager";
 
@@ -31,11 +33,10 @@ export type Props = {
   favePodcastList: Array<any>;
 };
 
-class FavoritePodcastList extends React.Component<any>{
-
-  render(){
+class FavoritePodcastList extends React.Component<any> {
+  render() {
     const pressPodcast = (idx: number) => {
-      if (this.props.favePodcastList !== undefined){
+      if (this.props.favePodcastList !== undefined) {
         queryPodcast(idx, this.props.favePodcastList[idx]);
       }
     };
@@ -43,44 +44,40 @@ class FavoritePodcastList extends React.Component<any>{
     const removeFave = (idx: number) => {
       this.props.deleteFavePodcast(idx);
       this.props.favoriteUnclicked(this.props.favePodcastList[idx].ep_name);
-    }
+    };
     return (
       <View style={styles.container}>
-      <Text style={styles.title} testID="title">
-        {i18n.t('favorite_podcasts')}
-      </Text>
-      <FlatList
-        data={this.props.favePodcastList}
-        testID="list"
-        renderItem={({ item }) => (
-          <TouchableHighlight
-            underlayColor="#ccc"
-            style={styles.touchable}
-            onPress={() => pressPodcast(item.idx)}
-          >
-            <View style={styles.browserButton}>
-            <Text
-              style={styles.textInside}
-              testID={item.show_name + ": " + item.ep_name}
-            >
-              {item.show_name + ": " + item.ep_name}
-            </Text>
+        <Text style={styles.title} testID="title">
+          {i18n.t("favorite_podcasts")}
+        </Text>
+        <FlatList
+          data={this.props.favePodcastList}
+          testID="list"
+          renderItem={({ item }) => (
             <TouchableHighlight
+              underlayColor="#ccc"
+              style={styles.touchable}
+              onPress={() => pressPodcast(item.idx)}
+            >
+              <View style={styles.browserButton}>
+                <Text
+                  style={styles.textInside}
+                  testID={item.show_name + ": " + item.ep_name}
+                >
+                  {item.show_name + ": " + item.ep_name}
+                </Text>
+                <TouchableHighlight
                   underlayColor="#ccc"
                   style={styles.faveTouchable}
                   onPress={() => removeFave(item.idx)}
                 >
-                  <Ionicons
-                    name="trash-outline"
-                    size={30}
-                    color={"white"}
-                  />
+                  <Ionicons name="trash-outline" size={30} color={"white"} />
                 </TouchableHighlight>
-                </View>
-          </TouchableHighlight>
-        )}
-      />
-    </View>
+              </View>
+            </TouchableHighlight>
+          )}
+        />
+      </View>
     );
   }
 }
@@ -134,7 +131,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   container: {
-    backgroundColor: greenColors.background,
+    backgroundColor: primaryColors.background,
     alignItems: "center",
     justifyContent: "center",
     width: "100%"
@@ -149,16 +146,16 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     fontWeight: "bold",
     letterSpacing: 1,
-    color: greenColors.deep
+    color: primaryColors.highlights
   },
   textInside: {
     fontSize: 20,
     //color: "#0074FF",
-    color: "#FFFFFF", 
-    width: "90%",
+    color: "#FFFFFF",
+    width: "90%"
   },
   faveTouchable: {
-    backgroundColor: greenColors.deep,
+    backgroundColor: primaryColors.highlights,
     // borderColor: "#FFFFFF",
     // borderWidth: 1,
     width: "10%",
@@ -167,7 +164,7 @@ const styles = StyleSheet.create({
   },
   touchable: {
     //borderColor: "#DEDEDE",
-    backgroundColor: greenColors.deep,
+    backgroundColor: primaryColors.highlights,
     borderColor: "#FFFFFF",
     borderWidth: 1,
     padding: 10,
@@ -190,11 +187,14 @@ const mapDispatchToProps = (dispatch: any) => {
     setImageUrl: (image_url: any) => dispatch(setImageUrl(image_url)),
     setStreamingUrl: (streaming_url: any) =>
       dispatch(setStreamingUrl(streaming_url)),
-    setAuthors: (authors: any) => dispatch(setAuthors(authors)), 
+    setAuthors: (authors: any) => dispatch(setAuthors(authors)),
     setEpisodeName: (ep: string) => dispatch(setEpisodeName(ep)),
-    deleteFavePodcast: (idx : number) => dispatch(deleteFavePodcast(idx)),
-    favoriteUnclicked: (ep_name: string) => dispatch(favoriteUnclicked(ep_name)),
+    deleteFavePodcast: (idx: number) => dispatch(deleteFavePodcast(idx)),
+    favoriteUnclicked: (ep_name: string) => dispatch(favoriteUnclicked(ep_name))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FavoritePodcastList);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FavoritePodcastList);

@@ -10,7 +10,7 @@ import {
 import i18n from "i18n-js";
 
 import { PodcastInfo, PodcastInfoR } from "../../types/types";
-import { greenColors } from "../../constants/colors";
+import { primaryColors } from "../../constants/colors";
 import {
   setTranscriptIndex,
   showTranscript,
@@ -94,7 +94,7 @@ const PodcastList = (props: any) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: greenColors.background,
+    backgroundColor: primaryColors.background,
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontWeight: "bold",
     letterSpacing: 1,
-    color: greenColors.deep
+    color: primaryColors.highlights
   },
   textInside: {
     fontSize: 20,
@@ -121,14 +121,14 @@ const styles = StyleSheet.create({
   },
   touchable: {
     //borderColor: "#DEDEDE",
-    backgroundColor: greenColors.deep,
+    backgroundColor: primaryColors.highlights,
     borderColor: "#FFFFFF",
     borderWidth: 1,
     padding: 10,
     width: "100%"
   },
   faveTouchable: {
-    backgroundColor: greenColors.deep,
+    backgroundColor: primaryColors.highlights,
     // borderColor: "#FFFFFF",
     // borderWidth: 1,
     width: "10%",

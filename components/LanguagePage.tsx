@@ -8,7 +8,7 @@ import {
   TouchableHighlight
 } from "react-native";
 
-import { greenColors } from "../constants/colors";
+import { primaryColors } from "../constants/colors";
 import {
   setVolumeEnabled,
   setSentimentEnabled,
@@ -80,7 +80,7 @@ const LanguagePage = (props: any) => {
             iconColor="#fff"
             iconSize={14}
             buttonDefaultColor="#737578"
-            buttonSelectedColor={greenColors.deep}
+            buttonSelectedColor={primaryColors.highlights}
             textDefaultColor="white"
             textSelectedColor="#fff"
           />
@@ -92,7 +92,7 @@ const LanguagePage = (props: any) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: greenColors.background,
+    backgroundColor: primaryColors.background,
     flex: 1
   }
 });

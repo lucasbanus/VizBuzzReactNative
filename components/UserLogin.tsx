@@ -7,7 +7,7 @@ import {
   Button,
   TouchableHighlight
 } from "react-native";
-import { greenColors, blueColors } from "../constants/colors";
+import { greenColors, blueColors, grayColors } from "../constants/colors";
 import { connect } from "react-redux";
 import { verifyLogin } from "../dataManager/postRequests";
 
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     width: "80%",
-    backgroundColor: "white",
+    backgroundColor: grayColors.light,
     margin: 10,
     height: 25,
     fontSize: 20,

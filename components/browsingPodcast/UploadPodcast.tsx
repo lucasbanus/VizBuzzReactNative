@@ -11,19 +11,22 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 import { setIsUploading } from "../../actions/pageSetupActions";
-import { greenColors } from "../../constants/colors";
-import { noMoreSearch, searchNewPodcast } from "../../actions/podcastSearchActions";
+import { primaryColors } from "../../constants/colors";
+import {
+  noMoreSearch,
+  searchNewPodcast
+} from "../../actions/podcastSearchActions";
 import { getPodcastsFromItunes } from "../../dataManager/dataManager";
 import { ItunesPodcastInfo } from "../../types/types";
 
 const UploadPodcast = (props: any) => {
   const [searchString, setSearchString] = useState<string>("");
-  if (props.shouldSearch){
+  if (props.shouldSearch) {
     getPodcastsFromItunes(props.searchString);
   }
   let pods = [];
-  if (props.searchResults.length > 0){
-    pods = props.searchResults.map((pod : ItunesPodcastInfo) => {
+  if (props.searchResults.length > 0) {
+    pods = props.searchResults.map((pod: ItunesPodcastInfo) => {
       return (
         <View style={styles.podcastShowContainer}>
           <TouchableHighlight
@@ -99,19 +102,19 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row"
   },
-  searchText:{
-    fontWeight: 'bold',
-    color: 'white',
-    fontSize: 25,
+  searchText: {
+    fontWeight: "bold",
+    color: "white",
+    fontSize: 25
   },
-  podcastShowContainer:{
-    width: '90%',
-    backgroundColor: 'white',
+  podcastShowContainer: {
+    width: "90%",
+    backgroundColor: "white",
     margin: 5,
-    height: '5%',
+    height: "5%"
   },
   textInputContainer: {
-    // backgroundColor: greenColors.background,
+    // backgroundColor: primaryColors.background,
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
@@ -120,26 +123,26 @@ const styles = StyleSheet.create({
   modalContainer: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: greenColors.background
+    backgroundColor: primaryColors.background
   },
   touchableClose: {
     // width: "100%",
     // height: "100%",
     width: "12%",
-    backgroundColor: greenColors.deep,
+    backgroundColor: primaryColors.highlights,
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    marginLeft:  10,
+    marginLeft: 10
   },
-  touchableSearch : {
+  touchableSearch: {
     width: "40%",
     height: "28%",
-    backgroundColor: greenColors.deep,
+    backgroundColor: primaryColors.highlights,
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    marginLeft:  10,
+    marginLeft: 10
   },
   textInput: {
     width: "80%",
@@ -153,18 +156,18 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     flexDirection: "row",
     width: "100%",
-    alignItems: 'center'
+    alignItems: "center"
   },
   browseHeaderText: {
     fontSize: 36,
     letterSpacing: 2,
-    fontWeight: 'bold', 
-    marginLeft: 10,
+    fontWeight: "bold",
+    marginLeft: 10
   },
   overallView: {
-    backgroundColor: greenColors.background, 
-    display: 'flex',
-    flexDirection: 'column',
+    backgroundColor: primaryColors.background,
+    display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     //justifyContent: "center",
     width: "100%",
@@ -177,7 +180,7 @@ const mapStateToProps = (state: any) => {
     isUploading: state.pageSetup.isUploading,
     shouldSearch: state.podcastSearch.shouldSearch,
     searchString: state.podcastSearch.searchQuery,
-    searchResults: state.podcastSearch.podcastSearchResults,
+    searchResults: state.podcastSearch.podcastSearchResults
   };
 };
 
@@ -185,7 +188,7 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     setIsUploading: (bool: boolean) => dispatch(setIsUploading(bool)),
     newSearch: (query: string) => dispatch(searchNewPodcast(query)),
-    noMoreSearch: () => dispatch(noMoreSearch()),
+    noMoreSearch: () => dispatch(noMoreSearch())
   };
 };
 

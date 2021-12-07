@@ -7,7 +7,7 @@ import {
   getRss,
   getPodcastsFromItunes
 } from "../../dataManager/dataManager";
-import { greenColors } from "../../constants/colors";
+import { primaryColors } from "../../constants/colors";
 import { connect } from "react-redux";
 import i18n from "i18n-js";
 import UploadPodcast from "../browsingPodcast/UploadPodcast";
@@ -45,7 +45,7 @@ class PodcastListContainer extends React.Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: greenColors.background,
+    backgroundColor: primaryColors.background,
     alignItems: "center",
     justifyContent: "center",
     width: "100%"

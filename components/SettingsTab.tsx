@@ -7,7 +7,7 @@ import {
   TouchableHighlight
 } from "react-native";
 
-import { greenColors } from "../constants/colors";
+import { primaryColors } from "../constants/colors";
 import {
   setVolumeEnabled,
   setSentimentEnabled,
@@ -42,7 +42,7 @@ const SettingsTab = (props: any) => {
       <View style={styles.switch}>
         <Text style={styles.label}>{i18n.t("volume_analysis")}</Text>
         <Switch
-          trackColor={{ false: "#767577", true: greenColors.deep }}
+          trackColor={{ false: "#767577", true: primaryColors.highlights }}
           ios_backgroundColor="#3e3e3e"
           onValueChange={() => props.setVolumeEnabled(!props.volume)}
           value={props.volume}
@@ -51,7 +51,7 @@ const SettingsTab = (props: any) => {
       <View style={styles.switch}>
         <Text style={styles.label}>{i18n.t("sentiment_analysis")}</Text>
         <Switch
-          trackColor={{ false: "#767577", true: greenColors.deep }}
+          trackColor={{ false: "#767577", true: primaryColors.highlights }}
           ios_backgroundColor="#3e3e3e"
           onValueChange={() => props.setSentimentEnabled(!props.sentiment)}
           value={props.sentiment}
@@ -60,7 +60,7 @@ const SettingsTab = (props: any) => {
       <View style={styles.switch}>
         <Text style={styles.label}>{i18n.t("pitch_analysis")}</Text>
         <Switch
-          trackColor={{ false: "#767577", true: greenColors.deep }}
+          trackColor={{ false: "#767577", true: primaryColors.highlights }}
           ios_backgroundColor="#3e3e3e"
           onValueChange={() => props.setPitchEnabled(!props.pitch)}
           value={props.pitch}
@@ -94,14 +94,14 @@ const styles = StyleSheet.create({
     paddingTop: 10
   },
   container: {
-    backgroundColor: greenColors.background,
+    backgroundColor: primaryColors.background,
     flex: 1
   },
   switch: {
     flexDirection: "row",
     justifyContent: "space-between",
     paddingTop: 10,
-    backgroundColor: greenColors.background,
+    backgroundColor: primaryColors.background,
     paddingRight: 10
   },
   label: {
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   touchable: {
-    backgroundColor: greenColors.deep,
+    backgroundColor: primaryColors.highlights,
     borderColor: "#FFFFFF",
     borderWidth: 1,
     alignItems: "center",

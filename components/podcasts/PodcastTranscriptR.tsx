@@ -10,7 +10,7 @@ import {
   TouchableHighlight,
   Image
 } from "react-native";
-import { buttonColors, greenColors } from "../../constants/colors";
+import { buttonColors, primaryColors } from "../../constants/colors";
 import { WordContainer } from "../../types/types";
 import {
   setTranscriptIndex,
@@ -20,7 +20,11 @@ import { connect } from "react-redux";
 import TranscriptHeader from "./transcriptComp/TranscriptHeader";
 import Player from "./transcriptComp/Player";
 import { showFaveTranscript } from "../../actions/userFavoritePodcastActions";
-import {setWordDisplay, addWordDisplay, setComputeWordDisplay } from "../../actions/podcastActions";
+import {
+  setWordDisplay,
+  addWordDisplay,
+  setComputeWordDisplay
+} from "../../actions/podcastActions";
 
 export type Props = {
   transcript: Array<WordContainer>;
@@ -31,12 +35,11 @@ export type Props = {
   streaming_url: string;
   authors: string;
   faveShowing: boolean;
-  wordDisplay : Array<any>;
-  setWordDisplay : (words: Array<any>) => void;
-  addWordDisplay : (word : any) => void;
-  shouldComputeWordDisplay : boolean;
+  wordDisplay: Array<any>;
+  setWordDisplay: (words: Array<any>) => void;
+  addWordDisplay: (word: any) => void;
+  shouldComputeWordDisplay: boolean;
 };
-
 
 const PodcastTranscript = (props: Props) => {
   //console.log("PODCAST: ", props.transcript);
@@ -48,23 +51,27 @@ const PodcastTranscript = (props: Props) => {
       animationType="slide"
       style={styles.modalContainer}
     >
-      <View style={styles.headerContainer}><TranscriptHeader/></View>
+      <View style={styles.headerContainer}>
+        <TranscriptHeader />
+      </View>
       <View style={styles.scrollContainer}>
         <ScrollView>
           <View style={styles.textTogether}>{words}</View>
         </ScrollView>
       </View>
-      <View style={styles.playerContainer}><Player/></View>
+      <View style={styles.playerContainer}>
+        <Player />
+      </View>
     </Modal>
   );
 };
 
 const styles = StyleSheet.create({
-  headerContainer : {
-    display: 'flex', 
-    height: '18%',
-    width: '100%', 
-    backgroundColor: greenColors.background
+  headerContainer: {
+    display: "flex",
+    height: "18%",
+    width: "100%",
+    backgroundColor: primaryColors.background
   },
   modalContainer: {
     justifyContent: "center",
@@ -76,14 +83,14 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     paddingHorizontal: 30
   },
-  playerContainer :{
+  playerContainer: {
     width: "100%",
     height: "10%",
-    backgroundColor: greenColors.background,
+    backgroundColor: primaryColors.background
   },
   textArea: {
     fontSize: 25,
-    textAlign: "center",
+    textAlign: "center"
   },
   textTogether: {
     flexDirection: "row",
@@ -104,15 +111,25 @@ const styles = StyleSheet.create({
   }
 });
 
-const generateTranscript = (transcript : Array<WordContainer>, addWord : (w : any) => void) => {
+const generateTranscript = (
+  transcript: Array<WordContainer>,
+  addWord: (w: any) => void
+) => {
   let allComp = [];
   let wordComp;
-  for(let i = 0; i < transcript.length; i++){
+  for (let i = 0; i < transcript.length; i++) {
     let word = transcript[i];
     if (i !== 0 && i % 21 === 0) {
       wordComp = (
         <View key={"word" + i} style={styles.timeStamp}>
-          <Text style={{ ...styles.textArea, color: word.color, fontSize: word.size, fontStyle: word.weight}}>
+          <Text
+            style={{
+              ...styles.textArea,
+              color: word.color,
+              fontSize: word.size,
+              fontStyle: word.weight
+            }}
+          >
             {word.word}
           </Text>
         </View>
@@ -121,7 +138,12 @@ const generateTranscript = (transcript : Array<WordContainer>, addWord : (w : an
       wordComp = (
         <Text
           key={"word" + i}
-          style={{ ...styles.textArea, color: word.color, fontSize: word.size, fontStyle: word.weight }}
+          style={{
+            ...styles.textArea,
+            color: word.color,
+            fontSize: word.size,
+            fontStyle: word.weight
+          }}
         >
           {word.word}
         </Text>
@@ -131,7 +153,7 @@ const generateTranscript = (transcript : Array<WordContainer>, addWord : (w : an
     allComp.push(wordComp);
   }
   return allComp;
-}
+};
 
 const mapStateToProps = (state: any) => {
   return {
@@ -140,20 +162,21 @@ const mapStateToProps = (state: any) => {
     rss_url: state.podcast.rss_url,
     image_url: state.podcast.image_url,
     streaming_url: state.podcast.streaming_url,
-    authors: state.podcast.authors, 
+    authors: state.podcast.authors,
     faveShowing: state.favePodcasts.isShowingTranscript,
     wordDisplay: state.podcast.wordDisplay,
-    shouldComputeWordDisplay : state.podcast.shouldComputeWordDisplay,
+    shouldComputeWordDisplay: state.podcast.shouldComputeWordDisplay
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
     showTranscript: (show: boolean) => dispatch(showTranscript(show)),
-    showFaveTranscript : (show: boolean) => dispatch(showFaveTranscript(show)),
-    setWordDisplay : (words: Array<any>) => dispatch(setWordDisplay(words)),
-    addWordDisplay : (word: any) => dispatch(addWordDisplay(word)),
-    setComputeWordDisplay : (should: boolean) => dispatch(setComputeWordDisplay(should)),
+    showFaveTranscript: (show: boolean) => dispatch(showFaveTranscript(show)),
+    setWordDisplay: (words: Array<any>) => dispatch(setWordDisplay(words)),
+    addWordDisplay: (word: any) => dispatch(addWordDisplay(word)),
+    setComputeWordDisplay: (should: boolean) =>
+      dispatch(setComputeWordDisplay(should))
   };
 };
 
