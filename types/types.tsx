@@ -21,6 +21,7 @@ export type PodcastInfoR = {
   isFave: boolean;
   transcript_bucket_id: string;
   transcript_file_id: string;
+  podcast_id: string;
 };
 export type WordContainer = {
   word: string;
@@ -88,7 +89,32 @@ export type ItunesPodcastJson = {
 export type iTunesJson = {
   resultCount: number;
   results: Array<ItunesPodcastJson>;
-} 
+};
+
+export type EpisodeInfo = {
+  authors: string,
+  streaming_url: string,
+  ep_name: string,
+  publish_date: string,
+  image: string,
+  episode_number: number,
+  duration: number,
+  rss_url: string,
+};
+
+export type PodcastPostRequest = {
+  streaming_url: string, // done
+  audio_bucket_id: string, //test
+  audio_file_id: string, //test
+  transcript_bucket_id: string, 
+  transcript_file_id: string, //test
+  name: string, //the name of the podcast done
+  episode_number: number, //done 
+  author: string, // done
+  publish_date: string, //done
+  rss_url: string, //done
+  duration: number, //done
+};
 
 // For each podcast SHOW from itunes query
 export type ItunesPodcastInfo = {

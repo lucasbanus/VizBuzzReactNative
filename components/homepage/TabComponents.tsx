@@ -56,8 +56,8 @@ function browseHeader(props: any) {
   return (
     <View style={styles.browseHeader}>
       <Text style={styles.browseHeaderText}>{i18n.t("browse")}</Text>
-      {/* <TouchableHighlight style={styles.addButton} onPress={() => props.setIsUploading(true)}>
-      <Text style={styles.browseHeaderText}>Browse</Text> */}
+      {/* <TouchableHighlight style={styles.addButton} onPress={() => props.setIsUploading(true)}> */}
+      {/* <Text style={styles.browseHeaderText}>Browse</Text> */}
       <TouchableHighlight
         style={styles.addButton}
         onPress={() => {
@@ -129,7 +129,8 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   browseHeader: {
-    flexDirection: "row"
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   browseHeaderText: {
     fontSize: 24

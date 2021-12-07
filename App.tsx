@@ -85,7 +85,7 @@ i18n.locale = store.getState().pageSetup.languageCode;
 //   );
 // }
 
-const Stack = createNativeStackNavigator();
+export const Stack = createNativeStackNavigator();
 
 export default function App() {
   i18n.locale = store.getState().pageSetup.languageCode;

@@ -18,6 +18,7 @@ export const strings = {
     favorite_podcasts: "Your Favorite Podcasts",
     search_podcast: "Search",
     podcast_search_name: "Podcast Name",
+    episodes: "Episodes",
   },
   en: {
     all_podcasts: "All Podcasts",
@@ -33,6 +34,7 @@ export const strings = {
     favorite_podcasts: "Your Favorite Podcasts",
     search_podcast: "Search",
     podcast_search_name: "Podcast Name",
+    episodes: "Episodes",
   },
   es: {
     all_podcasts: "Todos Los Podcasts",
@@ -48,6 +50,7 @@ export const strings = {
     favorite_podcasts: "Tus Podcasts Favoritos",
     search_podcast: "Buscar",
     podcast_search_name: "Nombre del Podcast",
+    episodes: "Episodios",
   }
 };
 

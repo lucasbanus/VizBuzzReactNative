@@ -1,5 +1,5 @@
 import Ionicons from "@expo/vector-icons/build/Ionicons";
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -8,14 +8,91 @@ import {
   TextInput,
   TouchableHighlight
 } from "react-native";
+import i18n from "i18n-js";
 import { connect } from "react-redux";
 import { setIsUploading } from "../../actions/pageSetupActions";
+import { searchNewPodcast, noMoreSearch, setLoadingEpisodes } from "../../actions/podcastSearchActions";
 import { greenColors } from "../../constants/colors";
+import { getEpisodesInfo, getPodcastsFromItunes } from "../../dataManager/dataManager";
+import { ItunesPodcastInfo } from "../../types/types";
+import { ScrollView } from "react-native-gesture-handler";
 
 const PodcastSearchPage = (props: any) => {
+  const [searchString, setSearchString] = useState<string>("");
+  if (props.shouldSearch){
+    getPodcastsFromItunes(props.searchString);
+  }
+  let pods = [];
+  if (props.searchResults.length > 0){
+    pods = props.searchResults.map((pod : ItunesPodcastInfo, idx: number) => {
+      return (
+        <View style={styles.podcastShowContainer} key={pod.show_name+idx.toString()}>
+          <TouchableHighlight
+            underlayColor="#ccc"
+            onPress={() => {
+              props.setLoadingEpisodes(true);
+              // set the approriate podcast to look the episodes up
+              getEpisodesInfo(pod.rss_url, pod.show_name);
+              //navigator go to the next page
+              props.navigation.navigate("Browse Episodes");
+            }}
+            style={styles.podcastTouchable}
+          >
+            <View style={styles.podcastTouchableContentContainer}>
+              <View style={styles.podcastShowTextContainer}>
+                <Text style={styles.titleText}>{pod.show_name}</Text>
+                <Text style={styles.artistText}>{pod.artist}</Text>
+              </View>
+              <Ionicons name="arrow-forward-outline" size={35} color="white" />
+            </View>
+          </TouchableHighlight>
+        </View>
+      );
+    });
+  }
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.container}>
+    <View style={styles.modalContainer}>
+      <View style={styles.overallView}>
+        <View style={styles.textInputContainer}>
+          <TextInput
+            style={styles.textInput}
+            multiline={true}
+            textAlignVertical="top"
+            numberOfLines={3}
+            onChangeText={text => setSearchString(text)}
+            defaultValue={searchString}
+            placeholder={i18n.t("podcast_search_name")}
+          ></TextInput>
+          <TouchableHighlight
+            underlayColor="#ccc"
+            style={styles.searchButton}
+            onPress={() => {
+              props.newSearch(searchString);
+              setSearchString("");
+            }}
+          >
+            <View style={styles.searchIcon}>
+              <Ionicons name="search" size={30} color="white" />
+            </View>
+          </TouchableHighlight>
+        </View>
+        {/* <TouchableHighlight
+          underlayColor="#ccc"
+          // style={styles.searchButton}
+          onPress={() => {
+            props.navigation.navigate("Browse Episodes");
+            // props.setIsUploading(true);
+          }}
+        >
+          <Ionicons name="arrow-forward-outline" size={30} color="black" />
+        </TouchableHighlight> */}
+        <View style={styles.podcastListContainer}>
+          <ScrollView style={{height: "100%"}}> 
+          {pods}
+          </ScrollView>
+        </View>
+      </View>
+      {/* <View style={styles.container}>
         <TextInput
           style={styles.textInput}
           multiline={true}
@@ -47,7 +124,7 @@ const PodcastSearchPage = (props: any) => {
         >
           <Ionicons name="arrow-forward-outline" size={30} color="black" />
         </TouchableHighlight>
-      </View>
+      </View> */}
     </View>
   );
 };
@@ -62,8 +139,13 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     // justifyContent: "space-between",
     paddingTop: 10,
-    backgroundColor: greenColors.background,
     paddingRight: 10
+  },
+  modalContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: greenColors.background, 
+    height: '100%',
   },
   container: {
     backgroundColor: greenColors.background,
@@ -72,19 +154,18 @@ const styles = StyleSheet.create({
     width: "100%",
     // height: "100%",
     flexDirection: "row",
-    justifyContent: "space-between",
+    //justifyContent: "space-between",
     paddingTop: 10,
-    backgroundColor: greenColors.background,
     paddingRight: 10
   },
-  textInput: {
-    width: "85%",
-    backgroundColor: "white",
-    margin: 10,
-    height: 45,
-    fontSize: 20,
-    paddingLeft: 10
-  },
+  // textInput: {
+  //   width: "85%",
+  //   backgroundColor: "white",
+  //   margin: 10,
+  //   height: 45,
+  //   fontSize: 20,
+  //   paddingLeft: 10
+  // },
   searchButton: {
     backgroundColor: greenColors.deep,
     borderColor: "#FFFFFF",
@@ -97,18 +178,145 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     paddingRight: 10
-  }
+  },
+  browserButton: {
+    display: "flex",
+    flexDirection: "row"
+  },
+  searchText:{
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 25,
+  },
+  podcastShowContainer:{
+    width: '90%',
+    backgroundColor: greenColors.deep,
+    margin: 5,
+    height: 100,
+    borderRadius: 10
+  },
+  textInputContainer: {
+    // backgroundColor: greenColors.background,
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: "12%", 
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  touchableClose: {
+    // width: "100%",
+    // height: "100%",
+    width: "12%",
+    backgroundColor: greenColors.deep,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft:  10,
+  },
+  touchableSearch : {
+    width: "40%",
+    height: "28%",
+    backgroundColor: greenColors.deep,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft:  10,
+  },
+  textInput: {
+    width: "80%",
+    backgroundColor: "white",
+    margin: 10,
+    height: 45,
+    fontSize: 25,
+    paddingLeft: 10
+  },
+  topBar: {
+    paddingTop: 50,
+    flexDirection: "row",
+    width: "100%",
+    alignItems: 'center'
+  },
+  browseHeaderText: {
+    fontSize: 36,
+    letterSpacing: 2,
+    fontWeight: 'bold', 
+    marginLeft: 10,
+  },
+  overallView: {
+    backgroundColor: greenColors.background, 
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: "center",
+    //justifyContent: "center",
+    width: "100%",
+    height: "100%"
+  },
+  podcastListContainer :{
+    height: '80%', 
+    width: '90%'
+  }, 
+  podcastTouchable: {
+    width: '100%', 
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  titleText :{
+    fontSize: 27, 
+    letterSpacing: 2,
+    overflow: 'hidden', 
+    height: '60%',
+    //backgroundColor: 'red',
+    paddingTop: 10,
+    color: 'white',
+  },
+  authorsText :{
+    fontSize: 27, 
+    letterSpacing: 2,
+    overflow: 'hidden', 
+    height: '60%',
+    //backgroundColor: 'red',
+    paddingTop: 10,
+    color: 'white',
+  },
+  artistText : {
+    height: '40%', 
+    fontSize: 20,
+    color: 'white',
+  },
+  podcastShowTextContainer :{
+    display: 'flex', 
+    flexDirection: 'column',
+    width: '80%', 
+    justifyContent: 'center',
+    alignContent: 'center',
+    textAlignVertical: "bottom",
+  }, 
+  podcastTouchableContentContainer :{
+    textAlignVertical: 'center', 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    display:'flex', 
+    flexDirection: 'row', 
+  },
 });
 
 const mapStateToProps = (state: any) => {
   return {
-    // isUploading: state.pageSetup.isUploading
+    isUploading: state.pageSetup.isUploading,
+    shouldSearch: state.podcastSearch.shouldSearch,
+    searchString: state.podcastSearch.searchQuery,
+    searchResults: state.podcastSearch.podcastSearchResults,
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    // setIsUploading: (bool: boolean) => dispatch(setIsUploading(bool))
+    setIsUploading: (bool: boolean) => dispatch(setIsUploading(bool)),
+    newSearch: (query: string) => dispatch(searchNewPodcast(query)),
+    noMoreSearch: () => dispatch(noMoreSearch()),
+    setLoadingEpisodes: (bool: boolean) => dispatch(setLoadingEpisodes(bool)),
   };
 };
 

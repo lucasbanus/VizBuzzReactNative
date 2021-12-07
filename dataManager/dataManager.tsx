@@ -10,7 +10,8 @@ import {
   WordContainer,
   ItunesPodcastJson,
   ItunesPodcastInfo,
-  iTunesJson
+  iTunesJson,
+  EpisodeInfo
 } from "../types/types";
 import { useEffect } from "react";
 import store from "../store/store";
@@ -33,7 +34,7 @@ import {
   loadingFavePodcasts,
   showFaveTranscript
 } from "../actions/userFavoritePodcastActions";
-import { noMoreSearch, setSearchResult } from "../actions/podcastSearchActions";
+import { noMoreSearch, setEpisodeImage, setLoadingEpisodes, setPodcastEpisodes, setPodcastName, setSearchResult } from "../actions/podcastSearchActions";
 
 // Constants used for initial fetching
 const URL_backend = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
@@ -150,6 +151,43 @@ export const getPodcastsFromItunes = async (searchQuery: string) => {
   }
 };
 
+export const getEpisodesInfo = async (podcastRssUrl: string, name: string) => {
+  try {
+    let rssRes = await fetch(podcastRssUrl);
+    let result = await rssRes.text();
+    let rssJson = await rssParser.parse(result);
+    let episodes = rssJson.items;
+    // console.log("Rss result: ", rssJson);
+
+    let length = episodes.length;
+
+    let episodeObjects : Array<EpisodeInfo> = episodes.map((ep, idx) => {
+      let episode : EpisodeInfo = {
+        authors: getEpisodeAuthors(ep),
+        streaming_url: getStreamingUrlFromRss(ep),
+        ep_name: ep.title,
+        publish_date: ep.published,
+        image: rssJson.image.url,
+        episode_number: length - idx,
+        duration: ep.itunes.duration === undefined ? 0 : parseInt(ep.itunes.duration),
+        rss_url: podcastRssUrl,
+      }
+      return episode;
+    })
+    store.dispatch(setPodcastEpisodes(episodeObjects));
+    if (rssJson.image.url !== undefined){
+      store.dispatch(setEpisodeImage(rssJson.image.url));
+    } else {
+      store.dispatch(setEpisodeImage(""));
+    }
+    store.dispatch(setPodcastName(name));
+    store.dispatch(setLoadingEpisodes(false));
+  }catch(e){
+    console.log(TAG + " Error Getting Episode Info" + e + "\n");
+    store.dispatch(setLoadingEpisodes(false));
+  }
+};
+
 // Retrieve podcasts from JSON and parse their RSS URL's
 const getPodcastsInitialR = async () => {
   try {
@@ -165,6 +203,7 @@ const getPodcastsInitialR = async () => {
     );
     const json: JSON = await response.json();
     const items: Array<PodcastJson> = JSON.parse(JSON.stringify(json));
+    console.log("The response for now: ", json);
 
     const transcripts: Array<Array<WordContainer>> = items.map(pod => {
       //var finalString : string = "";
@@ -223,6 +262,7 @@ const getPodcastsInitialR = async () => {
   } catch (error) {
     // how should we handle
     console.log(TAG + " Error" + error + "\n");
+    store.dispatch(loadingPodcasts(false));
   }
 };
 
@@ -320,7 +360,8 @@ const processPJSON = async (
     authors: pod_authors,
     isFave: false,
     transcript_bucket_id: pod.transcript_bucket_id,
-    transcript_file_id: pod.transcript_file_id
+    transcript_file_id: pod.transcript_file_id,
+    podcast_id: pod.id,
   };
   return ret;
 };
@@ -330,6 +371,77 @@ const URL_GET_TRANSCRIPT =
 // get the podcast info
 
 export const queryPodcast = async (idx: number, podcast: PodcastInfoR) => {
+  //let podcast = store.getState().pageSetup.podcastList[idx];
+  try {
+    let {
+      pitchEnabled,
+      sentimentEnabled,
+      volumeEnabled
+    } = store.getState().pageSetup;
+    // console.log("QUETYING PODCAST\n");
+    //console.log("podcast: ", podcast);
+    let fetc = await fetch(
+      `https://vizbuzz-backend-dev.herokuapp.com/view-transcripts?podcast_id=${encodeURIComponent(
+        podcast.podcast_id
+      )}`,
+      {
+        method: "GET"
+      }
+    ).catch(e => console.log(TAG + " Error" + e + "\n"));
+    let json = await fetc.json();
+
+    let wordContArray = [];
+    json.map((word, i) => {
+      var wordCont: WordContainer;
+      let color = defaultColor;
+      let weight = defaultWeight;
+      let size = defaultSize;
+
+      if (sentimentEnabled) {
+        color = fromPolarityToColor(word.Polarity);
+      }
+
+      if (pitchEnabled) {
+        // change the weight according to scale
+        weight = fromPitchToStyle(word.Pitch);
+      }
+
+      if (volumeEnabled) {
+        // change the size according to scale
+        size = fromVolumeToSize(word.Volume);
+      }
+      wordCont = { word: word.Display + " ", color, size, weight };
+      //wordCont = { word: word.display + " ", color, size, weight };
+      wordContArray.push(wordCont);
+      if (i !== 0 && i % 20 === 0) {
+        wordContArray.push(getTimeStamp(word));
+      }
+    });
+
+    //console.log("words: ", wordContArray);
+    //store.dispatch(setAllText(wordContArray, idx));
+    store.dispatch(setPodcast(wordContArray));
+    store.dispatch(setRssUrl(podcast.rss_url));
+    store.dispatch(setImageUrl(podcast.image_url));
+    store.dispatch(setStreamingUrl(podcast.streaming_url));
+    store.dispatch(setAuthors(podcast.authors));
+    store.dispatch(setEpisodeName(podcast.ep_name));
+    store.dispatch(showTranscript(true));
+    store.dispatch(showFaveTranscript(true));
+  } catch (e) {
+    console.log(TAG + " Error" + e + "\n");
+    store.dispatch(setPodcast([]));
+    store.dispatch(setRssUrl(podcast.rss_url));
+    store.dispatch(setImageUrl(podcast.image_url));
+    store.dispatch(setStreamingUrl(podcast.streaming_url));
+    store.dispatch(setAuthors(podcast.authors));
+    store.dispatch(setEpisodeName(podcast.ep_name));
+    store.dispatch(showTranscript(true));
+    store.dispatch(showFaveTranscript(true));
+  }
+};
+
+export const queryPodcast2 = async (idx: number, podcast: PodcastInfoR) => {
   //let podcast = store.getState().pageSetup.podcastList[idx];
   try {
     let {

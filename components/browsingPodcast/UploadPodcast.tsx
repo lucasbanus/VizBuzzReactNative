@@ -78,6 +78,16 @@ const UploadPodcast = (props: any) => {
             <Text style={styles.searchText}>{i18n.t("search_podcast")}</Text>
           </TouchableHighlight>
         </View>
+        <TouchableHighlight
+          underlayColor="#ccc"
+          // style={styles.searchButton}
+          onPress={() => {
+            props.navigation.navigate("Browse Episodes");
+            // props.setIsUploading(true);
+          }}
+        >
+          <Ionicons name="arrow-forward-outline" size={30} color="black" />
+        </TouchableHighlight>
         {pods}
       </View>
     </Modal>
