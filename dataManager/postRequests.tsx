@@ -1,3 +1,4 @@
+import { setPodcastList } from "../actions/pageSetupActions";
 import store from "../store/store";
 import { EpisodeInfo, PodcastPostRequest } from "../types/types";
 
@@ -55,6 +56,11 @@ export const requestEpisode = async (ep: EpisodeInfo) => {
       transcript_file_id: bodyRequest.transcript_file_id,
       podcast_id: "",
     };
-
+    let newPods = [];
+    newPods.push(newPodcastInfoR);
+    store.getState().pageSetup.podcastList.forEach((pod : any) => {
+      newPods.push(pod);
+    });
+    store.dispatch(setPodcastList(newPods));
   }).catch(e => console.log("Uploading the podcast Failed: ", e));
 };
