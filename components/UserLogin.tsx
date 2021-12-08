@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: grayColors.light,
     margin: 10,
-    height: 25,
+    height: 40,
     fontSize: 20,
     paddingLeft: 10
   },
