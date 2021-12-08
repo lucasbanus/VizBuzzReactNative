@@ -11,14 +11,15 @@ export const verifyLogin = async (username: string, password: string) => {
     .then(r => r.json())
     .then(r => {
       console.log("Rat: ", r);
-    }).catch(e => console.log("Post Request: ", e));
+    })
+    .catch(e => console.log("Post Request: ", e));
   return false;
 };
 
 export const requestEpisode = async (ep: EpisodeInfo) => {
   // Send a fetch request to add this podcast to the repository
   console.log("Episode to add: ", ep);
-  let bodyRequest : PodcastPostRequest ={
+  let bodyRequest: PodcastPostRequest = {
     streaming_url: ep.streaming_url,
     audio_bucket_id: "",
     audio_file_id: "",
@@ -31,5 +32,10 @@ export const requestEpisode = async (ep: EpisodeInfo) => {
     rss_url: ep.publish_date,
     duration: ep.duration
   };
-  
-}
+
+  fetch("http://127.0.0.1:4000/transcribe", {
+    method: "POST",
+    headers: { "Contenty-Type": "application/json" },
+    body: JSON.stringify(bodyRequest)
+  });
+};
