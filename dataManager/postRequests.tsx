@@ -1,3 +1,4 @@
+import store from "../store/store";
 import { EpisodeInfo, PodcastPostRequest } from "../types/types";
 
 const URL_Back2 = "http://vizbuzz-backend-dev.herokuapp.com/login/";
@@ -23,7 +24,7 @@ export const requestEpisode = async (ep: EpisodeInfo) => {
     streaming_url: ep.streaming_url,
     audio_bucket_id: "",
     audio_file_id: "",
-    transcript_bucket_id: "I dont know",
+    transcript_bucket_id: "vizbuzz-podcast-metadata",
     transcript_file_id: "",
     name: ep.ep_name,
     episode_number: ep.episode_number,
@@ -37,5 +38,23 @@ export const requestEpisode = async (ep: EpisodeInfo) => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(bodyRequest)
-  });
+  }).then(res => res.json()).then(res => {
+    console.log("Result of getting: ", res);
+    let newPodcastInfoR = {
+      key: "",
+      allText: [],
+      ep_name: bodyRequest.name,
+      show_name: bodyRequest.name,
+      idx: store.getState().pageSetup.podcastList.length(),
+      rss_url: bodyRequest.rss_url,
+      image_url: ep.image,
+      streaming_url: ep.streaming_url,
+      authors: ep.authors,
+      isFave: false,
+      transcript_bucket_id: bodyRequest.transcript_bucket_id, 
+      transcript_file_id: bodyRequest.transcript_file_id,
+      podcast_id: "",
+    };
+
+  }).catch(e => console.log("Uploading the podcast Failed: ", e));
 };
