@@ -7,7 +7,8 @@ import {
   TextInput,
   Image,
   TouchableHighlight,
-  Dimensions
+  Dimensions,
+  Alert
 } from "react-native";
 import i18n from "i18n-js";
 import { ScrollView } from "react-native-gesture-handler";
@@ -36,6 +37,7 @@ const BrowseEpisodesPage = (props: any) => {
           style={styles.addTouchable}
           onPress={() => {
             requestEpisode(ep);
+            Alert.alert("Please Wait", "Your podcast is being transcribed.");
           }}
         >
           <Ionicons name="add-outline" size={35} color="white" />
