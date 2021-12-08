@@ -16,8 +16,8 @@ import * as Localization from "expo-localization";
 import i18n from "i18n-js";
 
 export const pageSetupInitialState = {
-  //isLoading: true,
-  isLoading:  false,
+  isLoading: true,
+  //isLoading:  false,
   podcastList: [],
   isShowingTranscript: false,
   transcriptIdx: 0,
