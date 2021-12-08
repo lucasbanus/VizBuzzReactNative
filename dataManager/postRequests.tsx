@@ -35,7 +35,7 @@ export const requestEpisode = async (ep: EpisodeInfo) => {
 
   fetch("http://127.0.0.1:4000/transcribe", {
     method: "POST",
-    headers: { "Contenty-Type": "application/json" },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(bodyRequest)
   });
 };
