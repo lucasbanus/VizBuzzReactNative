@@ -18,7 +18,7 @@ export const verifyLogin = async (username: string, password: string) => {
   return false;
 };
 
-export const requestEpisode = async (ep: EpisodeInfo) => {
+export const requestEpisode = async (ep: EpisodeInfo, showName: string) => {
   // Send a fetch request to add this podcast to the repository
   console.log("Episode to add: ", ep);
   let bodyRequest: PodcastPostRequest = {
@@ -45,8 +45,8 @@ export const requestEpisode = async (ep: EpisodeInfo) => {
       key: res["saved podcast id"],
       allText: [],
       ep_name: bodyRequest.name,
-      show_name: bodyRequest.name,
-      idx: store.getState().pageSetup.podcastList.length(),
+      show_name: showName,
+      idx: 0,
       rss_url: bodyRequest.rss_url,
       image_url: ep.image,
       streaming_url: ep.streaming_url,
@@ -58,8 +58,8 @@ export const requestEpisode = async (ep: EpisodeInfo) => {
     };
     let newPods = [];
     newPods.push(newPodcastInfoR);
-    store.getState().pageSetup.podcastList.forEach((pod : any) => {
-      newPods.push(pod);
+    store.getState().pageSetup.podcastList.forEach((pod : any, idx: number) => {
+      newPods.push({...pod, idx: idx + 1});
     });
     store.dispatch(setPodcastList(newPods));
   }).catch(e => console.log("Uploading the podcast Failed: ", e));

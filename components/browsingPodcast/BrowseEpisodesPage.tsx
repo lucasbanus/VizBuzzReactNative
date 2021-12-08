@@ -36,7 +36,7 @@ const BrowseEpisodesPage = (props: any) => {
           underlayColor="#ccc"
           style={styles.addTouchable}
           onPress={() => {
-            requestEpisode(ep);
+            requestEpisode(ep, props.podcastName);
             Alert.alert("Please Wait", "Your podcast is being transcribed.");
           }}
         >
