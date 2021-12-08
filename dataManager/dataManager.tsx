@@ -35,6 +35,7 @@ import {
   showFaveTranscript
 } from "../actions/userFavoritePodcastActions";
 import { noMoreSearch, setEpisodeImage, setLoadingEpisodes, setPodcastEpisodes, setPodcastName, setSearchResult } from "../actions/podcastSearchActions";
+import i18n from "i18n-js";
 
 // Constants used for initial fetching
 const URL_backend = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
@@ -47,6 +48,18 @@ let defaultColor = "black";
 let defaultSize = 25;
 let defaultWeight = "normal";
 const itunes_url = "https://itunes.apple.com/search?media=podcast&";
+const country_code = "country=";
+
+const getCountryCode = () => {
+  let code = i18n.locale.toString().toUpperCase()
+  if (code.length != 2) {
+    // Not a valid 2 char country code
+    return "";
+  } else {
+    return country_code + code + "&";
+  }
+ console.log("*********** country code = " + i18n.locale + "\n");
+}
 
 export const formatTime = (time: number) => {
   const seconds = Math.round(time / offsetMultiple);
@@ -119,15 +132,16 @@ export const formatSearchQuery = (searchQuery: string) => {
 export const getPodcastsFromItunes = async (searchQuery: string) => {
   // Format the search query
   try {
+    getCountryCode();
     let final_search_query =
-      itunes_url + "term=" + formatSearchQuery(searchQuery);
+      itunes_url + getCountryCode() + "term=" + formatSearchQuery(searchQuery);
     console.log("Final search query " + final_search_query);
     // Query the api and get the response from iTunes
     const response = await fetch(final_search_query);
     // Parse the json
     //const json: JSON = await response.json();
     const json : iTunesJson = await response.json();
-    console.log("The reponse json: ", json);
+    //console.log("The reponse json: ", json);
     // Get the results of the query
     //const items: Array<ItunesPodcastJson> = JSON.parse(JSON.stringify(json.results));
     const results: Array<ItunesPodcastJson> = json.results;
@@ -142,7 +156,7 @@ export const getPodcastsFromItunes = async (searchQuery: string) => {
       };
       return ret;
     });
-    console.log(resultsParsed);
+    //console.log(resultsParsed);
     // Format searchQuery to
     store.dispatch(noMoreSearch());
     store.dispatch(setSearchResult(resultsParsed));
