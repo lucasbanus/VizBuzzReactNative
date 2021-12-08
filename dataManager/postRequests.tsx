@@ -42,7 +42,7 @@ export const requestEpisode = async (ep: EpisodeInfo) => {
   }).then(res => res.json()).then(res => {
     console.log("Result of getting: ", res);
     let newPodcastInfoR = {
-      key: "",
+      key: res["saved podcast id"],
       allText: [],
       ep_name: bodyRequest.name,
       show_name: bodyRequest.name,
@@ -54,7 +54,7 @@ export const requestEpisode = async (ep: EpisodeInfo) => {
       isFave: false,
       transcript_bucket_id: bodyRequest.transcript_bucket_id, 
       transcript_file_id: bodyRequest.transcript_file_id,
-      podcast_id: "",
+      podcast_id: res["saved podcast id"],
     };
     let newPods = [];
     newPods.push(newPodcastInfoR);
