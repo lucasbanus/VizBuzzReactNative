@@ -451,7 +451,7 @@ export const queryPodcast = async (idx: number, podcast: PodcastInfoR) => {
         // change the size according to scale
         size = fromVolumeToSize(word.Volume);
       }
-      wordCont = { word: word.Display + " ", color, size, weight };
+      wordCont = { word: word.Display === undefined ? word.display : word.Display + " ", color, size, weight };
       //wordCont = { word: word.display + " ", color, size, weight };
       wordContArray.push(wordCont);
       if (i !== 0 && i % 20 === 0) {
