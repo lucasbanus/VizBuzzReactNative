@@ -9,6 +9,7 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 import * as Localization from "expo-localization";
 import i18n from "i18n-js";
 import { strings } from "../constants/strings";
+import {getHeader} from "../constants/headerStyles";
 //console.log(strings);
 i18n.translations = strings;
 
@@ -43,7 +44,8 @@ export default function MainNavigation() {
             component={MainPage}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="Language" component={LanguagePage} options={({route}) => ({title: route.params.name})}/>
+          <Stack.Screen name="Language" component={LanguagePage} options={({route}) => {
+              return {title: route.params.name, headerTitle: () => getHeader("language")};}}/>
           <Stack.Screen name="Search Podcasts" component={PodcastSearchPage} options={({route}) => ({title: route.params.name})}/>
           <Stack.Screen name="Browse Episodes" component={BrowseEpisodesPage} options={({route}) => ({title: route.params.name})}/>
         </Stack.Navigator>

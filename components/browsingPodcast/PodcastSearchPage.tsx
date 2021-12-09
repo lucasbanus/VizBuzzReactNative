@@ -50,7 +50,7 @@ const PodcastSearchPage = (props: any) => {
           >
             <View style={styles.podcastTouchableContentContainer}>
               <View style={styles.podcastShowTextContainer}>
-                <Text style={styles.titleText}>{pod.show_name}</Text>
+                <Text style={styles.titleText} numberOfLines={1} ellipsizeMode="tail">{pod.show_name}</Text>
                 <Text style={styles.artistText}>{pod.artist}</Text>
               </View>
               <Ionicons name="arrow-forward-outline" size={35} color="white" />
