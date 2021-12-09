@@ -101,9 +101,9 @@ export default function App() {
             component={MainPage}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="Language" component={LanguagePage} />
-          <Stack.Screen name="Search Podcasts" component={PodcastSearchPage} />
-          <Stack.Screen name="Browse Episodes" component={BrowseEpisodesPage} />
+          <Stack.Screen name="Language" component={LanguagePage} options={{title: i18n.t("language")}}/>
+          <Stack.Screen name="Search Podcasts" component={PodcastSearchPage} options={{title: i18n.t("search_podcasts")}}/>
+          <Stack.Screen name="Browse Episodes" component={BrowseEpisodesPage} options={{title: i18n.t("browse_episodes")}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

@@ -21,12 +21,12 @@ export const UserLogin = (props: any) => {
     } else if (password.length == 0) {
       alert("Password cannot be empty.");
     } else {
-      let finished = verifyLogin(username, password);
-      if (finished) {
-        props.navigation.navigate("MainApp");
-      } else {
-        alert("Either username or password is incorrect.");
-      }
+      let finished = verifyLogin(username, password, props.navigation);
+      // if (finished) {
+      //props.navigation.navigate("MainApp");
+      // } else {
+      //   alert("Either username or password is incorrect.");
+      // }
     }
   };
   const createAccount = () => {

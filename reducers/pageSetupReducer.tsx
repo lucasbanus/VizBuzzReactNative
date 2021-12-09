@@ -10,7 +10,9 @@ import {
   SET_ALL_TEXT, 
   FAVORITE_UNCLICKED,
   SET_LANGUAGE,
-  SET_IS_UPLOADING
+  SET_IS_UPLOADING,
+  SET_ACCESS_TOKEN,
+  SET_REFRESH_TOKEN
 } from "../actions/pageSetupActions";
 import * as Localization from "expo-localization";
 import i18n from "i18n-js";
@@ -26,6 +28,8 @@ export const pageSetupInitialState = {
   pitchEnabled: true,
   languageCode: Localization.locale,
   isUploading:  false,
+  access: "", 
+  refresh: "",
 };
 
 export function changePageSetup(state = pageSetupInitialState, action: any) {
@@ -81,6 +85,10 @@ export function changePageSetup(state = pageSetupInitialState, action: any) {
       return {...state, languageCode: action.lan};
     case SET_IS_UPLOADING:
       return {...state, isUploading: action.bool};
+    case SET_ACCESS_TOKEN:
+      return {...state, access: action.token};
+    case SET_REFRESH_TOKEN: 
+      return {...state, refresh: action.token};
     default:
       return state;
   }

@@ -20,7 +20,8 @@ export const strings = {
     podcast_search_name: "Podcast Name",
     episodes: "Episodes",
     search_podcasts: "Search Podcasts",
-    browse_episodes: "Browse Episodes"
+    browse_episodes: "Browse Episodes",
+    create_account: "Create Account"
   },
   en: {
     all_podcasts: "All Podcasts",
@@ -38,7 +39,8 @@ export const strings = {
     podcast_search_name: "Podcast Name",
     episodes: "Episodes",
     search_podcasts: "Search Podcasts",
-    browse_episodes: "Browse Episodes"
+    browse_episodes: "Browse Episodes",
+    create_account: "Create Account"
   },
   es: {
     all_podcasts: "Todos Los Podcasts",
@@ -56,7 +58,8 @@ export const strings = {
     podcast_search_name: "Nombre del Podcast",
     episodes: "Episodios",
     search_podcasts: "Buscar Podcasts",
-    browse_episodes: "Navegar Episodios"
+    browse_episodes: "Navegar Episodios",
+    create_account: "Crear Cuenta"
   }
 };
 
