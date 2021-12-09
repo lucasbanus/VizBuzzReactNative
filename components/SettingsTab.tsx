@@ -77,7 +77,7 @@ const SettingsTab = (props: any) => {
           underlayColor="#ccc"
           onPress={() => {
             logout();
-            props.navigation.navigate("Login")
+            props.navigation.navigate("Login");
           }}
           style={styles.touchable}
         >

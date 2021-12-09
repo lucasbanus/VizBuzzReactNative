@@ -10,6 +10,7 @@ import {
 import { greenColors, grayColors } from "../constants/colors";
 import { connect } from "react-redux";
 import { createAccount, verifyLogin } from "../dataManager/postRequests";
+import { accountTextInputHeight } from "../constants/sizes";
 
 export const CreateAccount = (props: any) => {
   const [username, setUsername] = React.useState<string>("");
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: grayColors.light,
     margin: 10,
-    height: 40,
+    height: accountTextInputHeight,
     fontSize: 20,
     paddingLeft: 10
   },

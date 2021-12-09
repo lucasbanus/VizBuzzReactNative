@@ -9,8 +9,10 @@ import {
   Image
 } from "react-native";
 import { greenColors, blueColors, grayColors } from "../constants/colors";
+import { accountTextInputHeight } from "../constants/sizes";
 import { connect } from "react-redux";
 import { verifyLogin } from "../dataManager/postRequests";
+
 
 export const UserLogin = (props: any) => {
   const [username, setUsername] = React.useState<string>("");
@@ -98,7 +100,7 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: grayColors.light,
     margin: 10,
-    height: 40,
+    height: accountTextInputHeight,
     fontSize: 20,
     paddingLeft: 10
   },
@@ -126,13 +128,13 @@ const styles = StyleSheet.create({
   loginText: {
     textAlign: "center",
     justifyContent: "center",
-    fontSize: 20,
+    fontSize: 30,
     color: "white",
     fontWeight: "bold",
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 20,
-    paddingRight: 20
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 30,
+    paddingRight: 30
   },
   createAccountText: {
     textAlign: "center",
