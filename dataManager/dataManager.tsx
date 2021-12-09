@@ -433,6 +433,9 @@ export const queryPodcast = async (idx: number, podcast: PodcastInfoR) => {
 
     let wordContArray = [];
     json.map((word, i) => {
+      if (word.Display === undefined && word.display === undefined){
+        
+      } else {
       var wordCont: WordContainer;
       let color = defaultColor;
       let weight = defaultWeight;
@@ -451,11 +454,12 @@ export const queryPodcast = async (idx: number, podcast: PodcastInfoR) => {
         // change the size according to scale
         size = fromVolumeToSize(word.Volume);
       }
-      wordCont = { word: word.Display === undefined ? word.display : word.Display + " ", color, size, weight };
+      wordCont = { word: word.Display === undefined ? word.display + " " : word.Display + " ", color, size, weight };
       //wordCont = { word: word.display + " ", color, size, weight };
       wordContArray.push(wordCont);
       if (i !== 0 && i % 20 === 0) {
         wordContArray.push(getTimeStamp(word));
+      }
       }
     });
 

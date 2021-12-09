@@ -90,7 +90,7 @@ export const requestEpisode = async (ep: EpisodeInfo, showName: string) => {
     episode_number: ep.episode_number,
     author: ep.authors,
     publish_date: ep.publish_date,
-    rss_url: ep.publish_date,
+    rss_url: ep.rss_url,
     duration: ep.duration
   };
 
