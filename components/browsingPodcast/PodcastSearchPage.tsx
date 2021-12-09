@@ -44,7 +44,7 @@ const PodcastSearchPage = (props: any) => {
               // set the approriate podcast to look the episodes up
               getEpisodesInfo(pod.rss_url, pod.show_name);
               //navigator go to the next page
-              props.navigation.navigate("Browse Episodes");
+              props.navigation.navigate("Browse Episodes", {name: i18n.t("browse_episodes")});
             }}
             style={styles.podcastTouchable}
           >

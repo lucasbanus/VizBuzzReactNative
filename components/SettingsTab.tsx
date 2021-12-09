@@ -24,7 +24,8 @@ const SettingsTab = (props: any) => {
         underlayColor="#ccc"
         style={styles.faveTouchable}
         onPress={() => {
-          props.navigation.navigate("Language");
+          props.navigation.navigate("Language", {name: i18n.t("language")});
+
         }}
       >
         <View style={styles.languageButton}>

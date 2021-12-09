@@ -10,7 +10,7 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 
 import * as Localization from "expo-localization";
 import i18n from "i18n-js";
-import { strings } from "./constants/strings.tsx";
+import { strings } from "./constants/strings";
 //console.log(strings);
 i18n.translations = strings;
 
@@ -24,6 +24,7 @@ import { CreateAccount } from "./components/CreateAccount";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FavoritePodcastListContainer from "./components/favoritePage/FavoritePodcastListContainer";
 import MainPage from "./components/homepage/TabComponents";
+import MainNavigation from "./components/MainNavigation";
 
 //Localization.locale;
 i18n.fallbacks = true;
@@ -91,7 +92,8 @@ export default function App() {
   //console.log("Locales App.tsx: ", i18n.locale);
   return (
     <Provider store={store}>
-      <NavigationContainer>
+      <MainNavigation />
+      {/* <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Login" component={UserLogin} />
           <Stack.Screen name="CreateAccount" component={CreateAccount} />
@@ -105,7 +107,7 @@ export default function App() {
           <Stack.Screen name="Search Podcasts" component={PodcastSearchPage} />
           <Stack.Screen name="Browse Episodes" component={BrowseEpisodesPage} />
         </Stack.Navigator>
-      </NavigationContainer>
+      </NavigationContainer> */}
     </Provider>
   );
 }

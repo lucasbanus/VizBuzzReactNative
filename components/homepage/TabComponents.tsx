@@ -99,7 +99,7 @@ function MainPage(props: any) {
               underlayColor={grayColors.light}
               onPress={() => {
                 getPodcastsFromItunes("podcast&explicit=no");
-                props.navigation.navigate("Search Podcasts");
+                props.navigation.navigate("Search Podcasts", {name: i18n.t("search_podcasts")});
                 // props.setIsUploading(true);
               }}
             >
