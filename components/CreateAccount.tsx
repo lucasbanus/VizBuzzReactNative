@@ -124,5 +124,5 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {};
 };
-// export default createAccount;
+
 export default connect(mapStateToProps, mapDispatchToProps)(CreateAccount);

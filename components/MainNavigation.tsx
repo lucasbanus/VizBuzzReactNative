@@ -10,7 +10,6 @@ import * as Localization from "expo-localization";
 import i18n from "i18n-js";
 import { strings } from "../constants/strings";
 import { getHeader } from "../constants/headerStyles";
-//console.log(strings);
 i18n.translations = strings;
 
 import PodcastListContainer from "./podcasts/PodcastListContainer";
@@ -24,10 +23,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FavoritePodcastListContainer from "./favoritePage/FavoritePodcastListContainer";
 import MainPage from "./homepage/TabComponents";
 
-//Localization.locale;
 i18n.fallbacks = true;
-// Set language to this phone's language
-//console.log("LOCAL: ", store.getState().pageSetup.languageCode);
 
 export const Stack = createNativeStackNavigator();
 
@@ -47,7 +43,6 @@ export default function MainNavigation() {
         />
         <Stack.Screen
           name="MainApp"
-          //component={actualApp}
           component={MainPage}
           options={{ headerShown: false }}
         />

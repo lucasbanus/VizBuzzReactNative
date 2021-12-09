@@ -82,49 +82,6 @@ class FavoritePodcastList extends React.Component<any> {
   }
 }
 
-// const FavoritePodcastList = (props: any) => {
-//   const pressPodcast = (idx: number) => {
-//     //   console.log("favePodcastList: ", props.favePodcastList[idx], " idx: ", idx);
-//     if (props.favePodcastList !== undefined){
-//     // props.setPodcast(props.favePodcastList[idx].allText);
-//     // props.showFaveTranscript(true);
-//     // props.setRssUrl(props.favePodcastList[idx].rss_url);
-//     // props.setImageUrl(props.favePodcastList[idx].image_url);
-//     // props.setStreamingUrl(props.favePodcastList[idx].streaming_url);
-//     // props.setAuthors(props.favePodcastList[idx].authors);
-//     // props.setEpisodeName(props.favePodcastList[idx].ep_name);
-//     // props.setFaveIdx(idx);
-//       queryPodcast(idx, props.favePodcastList[idx]);
-//     }
-//   };
-//   const count = 0;
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.title} testID="title">
-//         Your Favorite Podcasts
-//       </Text>
-//       <FlatList
-//         data={props.favePodcastList}
-//         testID="list"
-//         renderItem={({ item }) => (
-//           <TouchableHighlight
-//             underlayColor="#ccc"
-//             style={styles.touchable}
-//             onPress={() => pressPodcast(item.idx)}
-//           >
-//             <Text
-//               style={styles.textInside}
-//               testID={item.show_name + ": " + item.ep_name}
-//             >
-//               {item.show_name + ": " + item.ep_name}
-//             </Text>
-//           </TouchableHighlight>
-//         )}
-//       />
-//     </View>
-//   );
-// };
-
 const styles = StyleSheet.create({
   browserButton: {
     display: "flex",
@@ -150,20 +107,16 @@ const styles = StyleSheet.create({
   },
   textInside: {
     fontSize: 20,
-    //color: "#0074FF",
     color: "#FFFFFF",
     width: "90%"
   },
   faveTouchable: {
     backgroundColor: primaryColors.highlights,
-    // borderColor: "#FFFFFF",
-    // borderWidth: 1,
     width: "10%",
     alignItems: "center",
     justifyContent: "center"
   },
   touchable: {
-    //borderColor: "#DEDEDE",
     backgroundColor: primaryColors.highlights,
     borderColor: "#FFFFFF",
     borderWidth: 1,

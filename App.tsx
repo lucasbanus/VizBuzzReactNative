@@ -29,85 +29,15 @@ import MainNavigation from "./components/MainNavigation";
 //Localization.locale;
 i18n.fallbacks = true;
 // Set language to this phone's language
-//i18n.locale = Localization.locale;
 i18n.locale = store.getState().pageSetup.languageCode;
-//console.log("LOCAL: ", store.getState().pageSetup.languageCode);
-
-// function HomePage() {
-//   return (
-//     <View style={styles.container}>
-//       <PodcastListContainer />
-//     </View>
-//   );
-// }
-
-// function FavoritePage() {
-//   return (
-//     <View style={styles.container}>
-//       <FavoritePodcastListContainer />
-//     </View>
-//   );
-// }
-
-// function Login() {
-//   return (
-//     <View style={styles.container}>
-//       <UserLogin />
-//     </View>
-//   );
-// }
-
-// const Tab = createBottomTabNavigator();
-
-// function actualApp() {
-//   return (
-//     <Tab.Navigator
-//       screenOptions={({ route }: { route: any }) => ({
-//         tabBarIcon: ({ color, size }: { color: string; size: any }) => {
-//           //(i18n.locale);
-//           if (route.name === i18n.t("browse")) {
-//             return <Ionicons name="ios-search" size={size} color={color} />;
-//           } else if (route.name === "Settings") {
-//             return <Ionicons name="settings" size={size} color={color} />;
-//           } else if (route.name == "Favorites") {
-//             return <Ionicons name="heart" size={size} color={color} />;
-//           }
-//         },
-//         tabBarActiveTintColor: greenColors.deep,
-//         tabBarInactiveTintColor: "gray"
-//       })}
-//       initialRouteName="Favorites"
-//     >
-//       <Tab.Screen name={i18n.t("browse")} component={HomePage} />
-//       <Tab.Screen name="Favorites" component={FavoritePage} />
-//       <Tab.Screen name="Settings" component={SettingsTab} />
-//     </Tab.Navigator>
-//   );
-// }
 
 export const Stack = createNativeStackNavigator();
 
 export default function App() {
   i18n.locale = store.getState().pageSetup.languageCode;
-  //console.log("Locales App.tsx: ", i18n.locale);
   return (
     <Provider store={store}>
       <MainNavigation />
-      {/* <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen name="Login" component={UserLogin} />
-          <Stack.Screen name="CreateAccount" component={CreateAccount} />
-          <Stack.Screen
-            name="MainApp"
-            //component={actualApp}
-            component={MainPage}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen name="Language" component={LanguagePage} options={{title: i18n.t("language")}}/>
-          <Stack.Screen name="Search Podcasts" component={PodcastSearchPage} options={{title: i18n.t("search_podcasts")}}/>
-          <Stack.Screen name="Browse Episodes" component={BrowseEpisodesPage} options={{title: i18n.t("browse_episodes")}}/>
-        </Stack.Navigator>
-      </NavigationContainer> */}
     </Provider>
   );
 }

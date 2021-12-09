@@ -24,11 +24,6 @@ export const UserLogin = (props: any) => {
       alert("Password cannot be empty.");
     } else {
       let finished = verifyLogin(username, password, props.navigation);
-      // if (finished) {
-      //props.navigation.navigate("MainApp");
-      // } else {
-      //   alert("Either username or password is incorrect.");
-      // }
     }
   };
   const createAccount = () => {
@@ -114,11 +109,7 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   touchable2: {
-    // backgroundColor: blueColors.light,
-    // borderColor: "#FFFFFF",
-    // borderWidth: 1,
     alignItems: "center"
-    // borderRadius: 10
   },
   loginButton: {
     flexDirection: "column",

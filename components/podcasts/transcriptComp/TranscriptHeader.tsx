@@ -71,7 +71,6 @@ const TranscriptHeader = (props: Props) => {
           }}
         >
           <Ionicons name="close-outline" size={50} color="white" />
-          {/* <Text style={styles.closeText}> Close</Text> */}
         </TouchableHighlight>
       </View>
     </View>
@@ -173,5 +172,3 @@ const mapDispatchToProps = (dispatch: any) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TranscriptHeader);
-
-//export default PodcastTranscript;

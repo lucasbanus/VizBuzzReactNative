@@ -42,7 +42,6 @@ export type Props = {
 };
 
 const PodcastTranscript = (props: Props) => {
-  //console.log("PODCAST: ", props.transcript);
   let words = [];
   words = generateTranscript(props.transcript, props.addWordDisplay);
   return (
@@ -149,7 +148,6 @@ const generateTranscript = (
         </Text>
       );
     }
-    //addWord(wordComp);
     allComp.push(wordComp);
   }
   return allComp;

@@ -43,14 +43,22 @@ const PodcastSearchPage = (props: any) => {
               props.setLoadingEpisodes(true);
               // set the approriate podcast to look the episodes up
               getEpisodesInfo(pod.rss_url, pod.show_name);
-              //navigator go to the next page
-              props.navigation.navigate("Browse Episodes", {name: i18n.t("browse_episodes")});
+              // navigator go to the next page
+              props.navigation.navigate("Browse Episodes", {
+                name: i18n.t("browse_episodes")
+              });
             }}
             style={styles.podcastTouchable}
           >
             <View style={styles.podcastTouchableContentContainer}>
               <View style={styles.podcastShowTextContainer}>
-                <Text style={styles.titleText} numberOfLines={1} ellipsizeMode="tail">{pod.show_name}</Text>
+                <Text
+                  style={styles.titleText}
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                >
+                  {pod.show_name}
+                </Text>
                 <Text style={styles.artistText}>{pod.artist}</Text>
               </View>
               <Ionicons name="arrow-forward-outline" size={35} color="white" />
@@ -86,53 +94,10 @@ const PodcastSearchPage = (props: any) => {
             </View>
           </TouchableHighlight>
         </View>
-        {/* <TouchableHighlight
-          underlayColor="#ccc"
-          // style={styles.searchButton}
-          onPress={() => {
-            props.navigation.navigate("Browse Episodes");
-            // props.setIsUploading(true);
-          }}
-        >
-          <Ionicons name="arrow-forward-outline" size={30} color="black" />
-        </TouchableHighlight> */}
         <View style={styles.podcastListContainer}>
           <ScrollView style={{ height: "100%" }}>{pods}</ScrollView>
         </View>
       </View>
-      {/* <View style={styles.container}>
-        <TextInput
-          style={styles.textInput}
-          multiline={true}
-          textAlignVertical="top"
-          numberOfLines={3}
-          // onChangeText={user => user}
-          placeholder="Enter Podcast Name"
-        ></TextInput>
-        <TouchableHighlight
-          underlayColor="#ccc"
-          style={styles.searchButton}
-          onPress={() => {
-            // props.setIsUploading(true);
-          }}
-        >
-          <View style={styles.searchIcon}>
-            <Ionicons name="search" size={30} color="white" />
-          </View>
-        </TouchableHighlight>
-      </View>
-      <View>
-        <TouchableHighlight
-          underlayColor="#ccc"
-          // style={styles.searchButton}
-          onPress={() => {
-            props.navigation.navigate("Browse Episodes");
-            // props.setIsUploading(true);
-          }}
-        >
-          <Ionicons name="arrow-forward-outline" size={30} color="black" />
-        </TouchableHighlight>
-      </View> */}
     </View>
   );
 };
@@ -145,7 +110,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     flexDirection: "column",
-    // justifyContent: "space-between",
     paddingTop: 10,
     paddingRight: 10
   },
@@ -160,20 +124,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    // height: "100%",
     flexDirection: "row",
-    //justifyContent: "space-between",
     paddingTop: 10,
     paddingRight: 10
   },
-  // textInput: {
-  //   width: "85%",
-  //   backgroundColor: "white",
-  //   margin: 10,
-  //   height: 45,
-  //   fontSize: 20,
-  //   paddingLeft: 10
-  // },
   searchButton: {
     backgroundColor: primaryColors.highlights,
     borderColor: "#FFFFFF",
@@ -204,7 +158,6 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   textInputContainer: {
-    // backgroundColor: primaryColors.background,
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
@@ -213,8 +166,6 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   touchableClose: {
-    // width: "100%",
-    // height: "100%",
     width: "12%",
     backgroundColor: primaryColors.highlights,
     borderRadius: 10,
@@ -256,7 +207,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    //justifyContent: "center",
     width: "100%",
     height: "100%"
   },
@@ -275,7 +225,6 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     overflow: "hidden",
     height: "60%",
-    //backgroundColor: 'red',
     paddingTop: 10,
     color: "white"
   },
@@ -284,7 +233,6 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     overflow: "hidden",
     height: "60%",
-    //backgroundColor: 'red',
     paddingTop: 10,
     color: "white"
   },

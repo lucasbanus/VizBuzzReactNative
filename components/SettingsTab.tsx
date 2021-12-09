@@ -25,20 +25,17 @@ const SettingsTab = (props: any) => {
         underlayColor="#ccc"
         style={styles.faveTouchable}
         onPress={() => {
-          props.navigation.navigate("Language", {name: i18n.t("language")});
-
+          props.navigation.navigate("Language", { name: i18n.t("language") });
         }}
       >
         <View style={styles.languageButton}>
           <Text style={styles.label}>{i18n.t("language")}</Text>
-          {/* <View style={styles.arrowButton}> */}
           <Ionicons
             name="arrow-forward-outline"
             size={30}
             color="black"
             style={styles.arrowButton}
           />
-          {/* </View> */}
         </View>
       </TouchableHighlight>
       <View style={styles.switch}>
@@ -68,10 +65,6 @@ const SettingsTab = (props: any) => {
           value={props.pitch}
         />
       </View>
-      {/* <View style={styles.switch}>
-        <Text style={styles.label}>Language</Text>
-        <Ionicons name="arrow-forward-outline" size={24} color="black" />
-      </View> */}
       <View style={styles.logoutButton}>
         <TouchableHighlight
           underlayColor="#ccc"

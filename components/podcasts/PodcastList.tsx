@@ -29,17 +29,10 @@ import { addFavePodcast } from "../../actions/userFavoritePodcastActions";
 import { Ionicons } from "@expo/vector-icons";
 import { queryPodcast } from "../../dataManager/dataManager";
 
-// export type Props = {
-//   podcastNames: Array<PodcastInfoR>;
-//   openPodcast: () => void;
-//   selectPodcast: (idx: number) => void;
-// };
-
 const PodcastList = (props: any) => {
   let changeColor = true;
   const pressPodcast = (idx: number) => {
     queryPodcast(idx, props.podcastList[idx]);
-    // props.showTranscript(true);
   };
 
   const addToFavorites = (idx: number) => {
@@ -74,7 +67,6 @@ const PodcastList = (props: any) => {
                   style={styles.faveTouchable}
                   onPress={() => {
                     addToFavorites(item.idx);
-                    // setState({});
                   }}
                 >
                   <Ionicons
@@ -115,12 +107,10 @@ const styles = StyleSheet.create({
   },
   textInside: {
     fontSize: 20,
-    //color: "#0074FF",
     color: "#FFFFFF",
     width: "90%"
   },
   touchable: {
-    //borderColor: "#DEDEDE",
     backgroundColor: primaryColors.highlights,
     borderColor: "#FFFFFF",
     borderWidth: 1,
@@ -129,8 +119,6 @@ const styles = StyleSheet.create({
   },
   faveTouchable: {
     backgroundColor: primaryColors.highlights,
-    // borderColor: "#FFFFFF",
-    // borderWidth: 1,
     width: "10%",
     alignItems: "center",
     justifyContent: "center"

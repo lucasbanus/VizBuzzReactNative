@@ -41,7 +41,6 @@ const PodcastTranscript = (props: Props) => {
         >
           <Text style={styles.closeButtonText}> Close</Text>
         </TouchableHighlight>
-        {/* <Button title = "Close" onPress={props.closePodcast} color="red"/> */}
       </View>
     </Modal>
   );
@@ -53,7 +52,6 @@ const styles = StyleSheet.create({
     height: "10%",
     justifyContent: "center",
     alignItems: "center",
-    //backgroundColor: "#DEDEDE",
     backgroundColor: buttonColors.closeButton,
     color: "red"
   },
@@ -83,7 +81,6 @@ const styles = StyleSheet.create({
     flexWrap: "wrap"
   },
   touchable: {
-    //borderColor: "#DEDEDE",
     backgroundColor: buttonColors.closeButton,
     padding: 10,
     width: "100%"

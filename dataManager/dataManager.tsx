@@ -34,7 +34,14 @@ import {
   loadingFavePodcasts,
   showFaveTranscript
 } from "../actions/userFavoritePodcastActions";
-import { noMoreSearch, setEpisodeImage, setLoadingEpisodes, setPodcastEpisodes, setPodcastName, setSearchResult } from "../actions/podcastSearchActions";
+import {
+  noMoreSearch,
+  setEpisodeImage,
+  setLoadingEpisodes,
+  setPodcastEpisodes,
+  setPodcastName,
+  setSearchResult
+} from "../actions/podcastSearchActions";
 import i18n from "i18n-js";
 import { cookieBuild } from "./postRequests";
 
@@ -53,15 +60,15 @@ const itunes_url = "https://itunes.apple.com/search?media=podcast&";
 const country_code = "country=";
 
 const getCountryCode = () => {
-  let code = i18n.locale.toString().toUpperCase()
+  let code = i18n.locale.toString().toUpperCase();
   if (code.length != 2) {
     // Not a valid 2 char country code
     return "";
   } else {
     return country_code + code + "&";
   }
- console.log("*********** country code = " + i18n.locale + "\n");
-}
+  console.log("*********** country code = " + i18n.locale + "\n");
+};
 
 export const formatTime = (time: number) => {
   const seconds = Math.round(time / offsetMultiple);
@@ -119,7 +126,7 @@ export const fromPitchToStyle = (pitch: number) => {
 /* Return string version of time stamp for this wordInfo object */
 export const getTimeStamp = (wordInfo: PodcastWordsArrayObject) => {
   return {
-    word: "\n" + formatTime(wordInfo.Offset),
+    word: "\n" + formatTime(wordInfo.Offset) + "\n",
     color: "black",
     size: defaultSize,
     weight: defaultWeight
@@ -136,18 +143,22 @@ export const getPodcastsFromItunes = async (searchQuery: string) => {
   try {
     let countryCode = getCountryCode();
     let final_search_query;
-    if (countryCode === "country=EN&"){
-      final_search_query = itunes_url+ "term=" + formatSearchQuery(searchQuery);
+    if (countryCode === "country=EN&") {
+      final_search_query =
+        itunes_url + "term=" + formatSearchQuery(searchQuery);
     } else {
-    final_search_query =
-      itunes_url + getCountryCode() + "term=" + formatSearchQuery(searchQuery);
+      final_search_query =
+        itunes_url +
+        getCountryCode() +
+        "term=" +
+        formatSearchQuery(searchQuery);
     }
     console.log("Final search query " + final_search_query);
     // Query the api and get the response from iTunes
     const response = await fetch(final_search_query);
     // Parse the json
     //const json: JSON = await response.json();
-    const json : iTunesJson = await response.json();
+    const json: iTunesJson = await response.json();
     //console.log("The reponse json: ", json);
     // Get the results of the query
     //const items: Array<ItunesPodcastJson> = JSON.parse(JSON.stringify(json.results));
@@ -167,7 +178,7 @@ export const getPodcastsFromItunes = async (searchQuery: string) => {
     // Format searchQuery to
     store.dispatch(noMoreSearch());
     store.dispatch(setSearchResult(resultsParsed));
-  } catch (e: any){
+  } catch (e) {
     console.log(TAG + " Error" + e + "\n");
   }
 };
@@ -182,28 +193,29 @@ export const getEpisodesInfo = async (podcastRssUrl: string, name: string) => {
 
     let length = episodes.length;
 
-    let episodeObjects : Array<EpisodeInfo> = episodes.map((ep, idx) => {
-      let episode : EpisodeInfo = {
+    let episodeObjects: Array<EpisodeInfo> = episodes.map((ep, idx) => {
+      let episode: EpisodeInfo = {
         authors: getEpisodeAuthors(ep),
         streaming_url: getStreamingUrlFromRss(ep),
         ep_name: ep.title,
         publish_date: ep.published,
         image: rssJson.image.url,
         episode_number: length - idx,
-        duration: ep.itunes.duration === undefined ? 0 : parseInt(ep.itunes.duration),
-        rss_url: podcastRssUrl,
-      }
+        duration:
+          ep.itunes.duration === undefined ? 0 : parseInt(ep.itunes.duration),
+        rss_url: podcastRssUrl
+      };
       return episode;
-    })
+    });
     store.dispatch(setPodcastEpisodes(episodeObjects));
-    if (rssJson.image.url !== undefined){
+    if (rssJson.image.url !== undefined) {
       store.dispatch(setEpisodeImage(rssJson.image.url));
     } else {
       store.dispatch(setEpisodeImage(""));
     }
     store.dispatch(setPodcastName(name));
     store.dispatch(setLoadingEpisodes(false));
-  }catch(e){
+  } catch (e) {
     console.log(TAG + " Error Getting Episode Info" + e + "\n");
     store.dispatch(setLoadingEpisodes(false));
   }
@@ -223,10 +235,8 @@ const getPodcastsInitialR = async () => {
     let refresh = store.getState().pageSetup.refresh;
     console.log("Going to send request: ", cookieBuild(access, refresh));
     const response = await fetch(URL_backend3, {
-      headers: { "Cookie": cookieBuild(access, refresh)}
-    }).catch(e =>
-      console.log(TAG + " Error" + e + "\n")
-    );
+      headers: { Cookie: cookieBuild(access, refresh) }
+    }).catch(e => console.log(TAG + " Error" + e + "\n"));
     const json: JSON = await response.json();
     console.log("Response text form data manager: ", json);
     const items: Array<PodcastJson> = JSON.parse(JSON.stringify(json));
@@ -355,7 +365,7 @@ const processPJSON = async (
   let rss_response = await fetch(pod.rss_url).catch(e =>
     console.log(TAG + " Error " + e + "\n")
   );
-  if (rss_response === undefined){
+  if (rss_response === undefined) {
     let ret: PodcastInfoR = {
       key: pod.id,
       allText: transcripts[idx],
@@ -369,7 +379,7 @@ const processPJSON = async (
       isFave: false,
       transcript_bucket_id: pod.transcript_bucket_id,
       transcript_file_id: pod.transcript_file_id,
-      podcast_id: pod.id,
+      podcast_id: pod.id
     };
     return ret;
   }
@@ -406,7 +416,7 @@ const processPJSON = async (
     isFave: false,
     transcript_bucket_id: pod.transcript_bucket_id,
     transcript_file_id: pod.transcript_file_id,
-    podcast_id: pod.id,
+    podcast_id: pod.id
   };
   return ret;
 };
@@ -430,41 +440,53 @@ export const queryPodcast = async (idx: number, podcast: PodcastInfoR) => {
         podcast.podcast_id
       )}`,
       {
-        method: "GET", 
-        headers: { "Cookie": cookieBuild(store.getState().pageSetup.access, store.getState().pageSetup.refresh)}
+        method: "GET",
+        headers: {
+          Cookie: cookieBuild(
+            store.getState().pageSetup.access,
+            store.getState().pageSetup.refresh
+          )
+        }
       }
     ).catch(e => console.log(TAG + " Error" + e + "\n"));
     let json = await fetc.json();
 
     let wordContArray = [];
     json.map((word, i) => {
-      if (word.Display === undefined && word.display === undefined){
-        
+      if (word.Display === undefined && word.display === undefined) {
       } else {
-      var wordCont: WordContainer;
-      let color = defaultColor;
-      let weight = defaultWeight;
-      let size = defaultSize;
+        var wordCont: WordContainer;
+        let color = defaultColor;
+        let weight = defaultWeight;
+        let size = defaultSize;
 
-      if (sentimentEnabled) {
-        color = fromPolarityToColor(word.Polarity);
-      }
+        if (sentimentEnabled) {
+          color = fromPolarityToColor(word.Polarity);
+        }
 
-      if (pitchEnabled) {
-        // change the weight according to scale
-        weight = fromPitchToStyle(word.Pitch);
-      }
+        if (pitchEnabled) {
+          // change the weight according to scale
+          weight = fromPitchToStyle(word.Pitch);
+        }
 
-      if (volumeEnabled) {
-        // change the size according to scale
-        size = fromVolumeToSize(word.Volume);
-      }
-      wordCont = { word: word.Display === undefined ? word.display + " " : word.Display + " ", color, size, weight };
-      //wordCont = { word: word.display + " ", color, size, weight };
-      wordContArray.push(wordCont);
-      if (i !== 0 && i % 20 === 0) {
-        wordContArray.push(getTimeStamp(word));
-      }
+        if (volumeEnabled) {
+          // change the size according to scale
+          size = fromVolumeToSize(word.Volume);
+        }
+        wordCont = {
+          word:
+            word.Display === undefined
+              ? word.display + " "
+              : word.Display + " ",
+          color,
+          size,
+          weight
+        };
+        //wordCont = { word: word.display + " ", color, size, weight };
+        wordContArray.push(wordCont);
+        if (i !== 0 && i % 20 === 0) {
+          wordContArray.push(getTimeStamp(word));
+        }
       }
     });
 
@@ -506,8 +528,13 @@ export const queryPodcast2 = async (idx: number, podcast: PodcastInfoR) => {
         podcast.transcript_bucket_id
       )}&transcript_file_id=${encodeURIComponent(podcast.transcript_file_id)}`,
       {
-        method: "GET", 
-        headers: { "Cookie": cookieBuild(store.getState().pageSetup.access, store.getState().pageSetup.refresh)}
+        method: "GET",
+        headers: {
+          Cookie: cookieBuild(
+            store.getState().pageSetup.access,
+            store.getState().pageSetup.refresh
+          )
+        }
       }
     ).catch(e => console.log(TAG + " Error" + e + "\n"));
     let json = await fetc.json();

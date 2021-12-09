@@ -13,7 +13,6 @@ import {
 import i18n from "i18n-js";
 import { ScrollView } from "react-native-gesture-handler";
 import { connect } from "react-redux";
-// import { setIsUploading } from "../../actions/pageSetupActions";
 import { primaryColors } from "../../constants/colors";
 import { EpisodeInfo } from "../../types/types";
 import { requestEpisode } from "../../dataManager/postRequests";
@@ -77,7 +76,6 @@ const BrowseEpisodesPage = (props: any) => {
   } else {
     mainComp = (
       <View style={styles.mainContainer}>
-        {/* <Text style={styles.text}>{i18n.t("episodes")}</Text> */}
         <Text style={{ ...styles.text, paddingTop: 0 }}>
           {props.podcastName}
         </Text>
@@ -100,11 +98,9 @@ const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: primaryColors.background,
     alignItems: "center",
-    //justifyContent: "center",
     width: "100%",
     height: "100%",
     flexDirection: "column",
-    // justifyContent: "space-between",
     paddingTop: 10,
     paddingRight: 10
   },
@@ -164,7 +160,6 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state: any) => {
   return {
-    // isUploading: state.pageSetup.isUploadingod
     episodes: state.podcastSearch.podcastEpisodes,
     episodesImage: state.podcastSearch.image,
     podcastName: state.podcastSearch.podcastChosenName,
@@ -173,9 +168,7 @@ const mapStateToProps = (state: any) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => {
-  return {
-    // setIsUploading: (bool: boolean) => dispatch(setIsUploading(bool))
-  };
+  return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BrowseEpisodesPage);

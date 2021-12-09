@@ -18,8 +18,6 @@ export type Props = {
 class FavoritePodcastListContainer extends React.Component<Props> {
   render() {
     if (this.props.isLoading) {
-      //getPodcastsInitialWrapperR();
-      // get the favorite podcast list
       getFavoritePodcasts();
     }
     let mainComponent;

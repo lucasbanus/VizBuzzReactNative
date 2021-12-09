@@ -56,7 +56,6 @@ const UploadPodcast = (props: any) => {
             }}
           >
             <Ionicons name="close-outline" size={50} color="white" />
-            {/* <Text style={styles.closeText}> Close</Text> */}
           </TouchableHighlight>
           <Text style={styles.browseHeaderText}>{i18n.t("browse")}</Text>
         </View>
@@ -83,10 +82,8 @@ const UploadPodcast = (props: any) => {
         </View>
         <TouchableHighlight
           underlayColor="#ccc"
-          // style={styles.searchButton}
           onPress={() => {
             props.navigation.navigate("Browse Episodes");
-            // props.setIsUploading(true);
           }}
         >
           <Ionicons name="arrow-forward-outline" size={30} color="black" />
@@ -114,7 +111,6 @@ const styles = StyleSheet.create({
     height: "5%"
   },
   textInputContainer: {
-    // backgroundColor: primaryColors.background,
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
@@ -126,8 +122,6 @@ const styles = StyleSheet.create({
     backgroundColor: primaryColors.background
   },
   touchableClose: {
-    // width: "100%",
-    // height: "100%",
     width: "12%",
     backgroundColor: primaryColors.highlights,
     borderRadius: 10,
@@ -169,7 +163,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    //justifyContent: "center",
     width: "100%",
     height: "100%"
   }

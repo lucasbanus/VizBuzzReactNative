@@ -39,41 +39,18 @@ const changeLanguage = (choice: string) => {
 };
 
 const LanguagePage = (props: any) => {
-  // // TODO enter default
-  // let def_lang = "";
-  // console.log("i18 locale: " + i18n.locale);
-  // if (i18n.locale == english_code) {
-  //   def_lang = english_key;
-  // }
-  // if (i18n.locale == spanish_code) {
-  //   def_lang = spanish_key;
-  // }
-  // console.log("Def " + def_lang);
-  // const [choice, setChoice] = React.useState<string>(def_lang);
-  // const languageOptions = [
-  //   { label: english_string, value: "1" },
-  //   { label: spanish_string, value: "2" }
-  // ];
-  //console.log("languages: ", languages_supported);
   return (
     <View style={styles.container}>
       <FlatList
-        //data={languageOptions}
         data={languages_supported}
-        //keyExtractor={item => item.value}x
         keyExtractor={item => item.code}
-        //extraData={choice}
         renderItem={({ item }) => (
           <SimpleSelectButton
             onPress={() => {
               // TODO show state in the global state
-              // setChoice(item.value);
-              // changeLanguage(item.value);
               props.setLanguage(item.code);
             }}
-            //isChecked={choice === item.value}
             isChecked={props.language === item.code}
-            //text={item.label}
             text={item.name}
             textSize={14}
             iconName="check"
