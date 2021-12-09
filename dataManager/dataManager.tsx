@@ -134,9 +134,14 @@ export const formatSearchQuery = (searchQuery: string) => {
 export const getPodcastsFromItunes = async (searchQuery: string) => {
   // Format the search query
   try {
-    getCountryCode();
-    let final_search_query =
+    let countryCode = getCountryCode();
+    let final_search_query;
+    if (countryCode === "country=EN&"){
+      final_search_query = itunes_url+ "term=" + formatSearchQuery(searchQuery);
+    } else {
+    final_search_query =
       itunes_url + getCountryCode() + "term=" + formatSearchQuery(searchQuery);
+    }
     console.log("Final search query " + final_search_query);
     // Query the api and get the response from iTunes
     const response = await fetch(final_search_query);
