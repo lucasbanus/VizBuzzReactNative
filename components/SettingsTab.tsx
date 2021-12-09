@@ -131,10 +131,10 @@ const styles = StyleSheet.create({
   logoutText: {
     textAlign: "center",
     justifyContent: "center",
-    fontSize: 20,
+    fontSize: 25,
     color: "white",
     fontWeight: "bold",
-    padding: 5
+    padding: 20
   }
 });
 

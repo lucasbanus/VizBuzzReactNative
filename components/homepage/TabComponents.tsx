@@ -12,6 +12,8 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 import * as Localization from "expo-localization";
 import i18n from "i18n-js";
 import { strings } from "../../constants/strings";
+import { headerFontSize } from "../../constants/sizes";
+import {getHeader} from "../../constants/headerStyles";
 //console.log(strings);
 i18n.translations = strings;
 
@@ -56,15 +58,15 @@ function addPodcast() {
   return <Text>Hello</Text>;
 }
 
-function browseHeader(props: any) {
-  return (
-    <View style={styles.browseHeader}>
-      <Text style={styles.browseHeaderText}>{i18n.t("browse")}</Text>
-      {/* <TouchableHighlight style={styles.addButton} onPress={() => props.setIsUploading(true)}> */}
-      {/* <Text style={styles.browseHeaderText}>Browse</Text> */}
-    </View>
-  );
-}
+// function browseHeader(props: any) {
+//   return (
+//     <View style={styles.browseHeader}>
+//       <Text style={styles.browseHeaderText}>{i18n.t("browse")}</Text>
+//       {/* <TouchableHighlight style={styles.addButton} onPress={() => props.setIsUploading(true)}> */}
+//       {/* <Text style={styles.browseHeaderText}>Browse</Text> */}
+//     </View>
+//   );
+// }
 
 const Tab = createBottomTabNavigator();
 
@@ -92,7 +94,7 @@ function MainPage(props: any) {
         name={i18n.t("browse")}
         component={HomePage}
         options={{
-          headerTitle: () => browseHeader(props),
+          headerTitle: () => getHeader("browse"),
           headerRight: () => (
             <TouchableHighlight
               style={styles.addButton}
@@ -112,8 +114,8 @@ function MainPage(props: any) {
           )
         }}
       />
-      <Tab.Screen name={i18n.t("favorites")} component={FavoritePage} />
-      <Tab.Screen name={i18n.t("settings")} component={SettingsTab} />
+      <Tab.Screen name={i18n.t("favorites")} component={FavoritePage} options={{headerTitle: () => getHeader("favorites")}} />
+      <Tab.Screen name={i18n.t("settings")} component={SettingsTab} options={{headerTitle: () => getHeader("settings")}} />
     </Tab.Navigator>
   );
 }
@@ -142,13 +144,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%"
   },
-  browseHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
-  browseHeaderText: {
-    fontSize: 24
-  },
+  // browseHeader: {
+  //   flexDirection: "row",
+  //   justifyContent: "space-between"
+  // },
+  // browseHeaderText: {
+  //   fontSize: headerFontSize
+  // },
   addButton: {
     marginRight: 20,
     justifyContent: "flex-end"
