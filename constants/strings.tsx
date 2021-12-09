@@ -21,7 +21,11 @@ export const strings = {
     episodes: "Episodes",
     search_podcasts: "Search Podcasts",
     browse_episodes: "Browse Episodes",
-    create_account: "Create Account"
+    create_account: "Create Account",
+    login: "Login",
+    username: "Username",
+    password: "Password",
+    create_a_new_account: "Create A New Account"
   },
   en: {
     all_podcasts: "All Podcasts",
@@ -40,7 +44,11 @@ export const strings = {
     episodes: "Episodes",
     search_podcasts: "Search Podcasts",
     browse_episodes: "Browse Episodes",
-    create_account: "Create Account"
+    create_account: "Create Account",
+    login: "Login",
+    username: "Username",
+    password: "Password",
+    create_a_new_account: "Create A New Account"
   },
   es: {
     all_podcasts: "Todos Los Podcasts",
@@ -59,7 +67,11 @@ export const strings = {
     episodes: "Episodios",
     search_podcasts: "Buscar Podcasts",
     browse_episodes: "Navegar Episodios",
-    create_account: "Crear Cuenta"
+    create_account: "Crear Cuenta",
+    login: "Iniciar Sesión",
+    username: "Username",
+    password: "Password",
+    create_a_new_account: "Create A New Account"
   }
 };
 

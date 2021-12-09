@@ -13,8 +13,7 @@ import * as Localization from "expo-localization";
 import i18n from "i18n-js";
 import { strings } from "../../constants/strings";
 import { headerFontSize } from "../../constants/sizes";
-import {getHeader} from "../../constants/headerStyles";
-//console.log(strings);
+import { getHeader } from "../../constants/headerStyles";
 i18n.translations = strings;
 
 import PodcastListContainer from "../podcasts/PodcastListContainer";
@@ -58,16 +57,6 @@ function addPodcast() {
   return <Text>Hello</Text>;
 }
 
-// function browseHeader(props: any) {
-//   return (
-//     <View style={styles.browseHeader}>
-//       <Text style={styles.browseHeaderText}>{i18n.t("browse")}</Text>
-//       {/* <TouchableHighlight style={styles.addButton} onPress={() => props.setIsUploading(true)}> */}
-//       {/* <Text style={styles.browseHeaderText}>Browse</Text> */}
-//     </View>
-//   );
-// }
-
 const Tab = createBottomTabNavigator();
 
 function MainPage(props: any) {
@@ -76,7 +65,6 @@ function MainPage(props: any) {
     <Tab.Navigator
       screenOptions={({ route }: { route: any }) => ({
         tabBarIcon: ({ color, size }: { color: string; size: any }) => {
-          //(i18n.locale);
           if (route.name === i18n.t("browse")) {
             return <Ionicons name="ios-search" size={size} color={color} />;
           } else if (route.name === i18n.t("settings")) {
@@ -101,8 +89,9 @@ function MainPage(props: any) {
               underlayColor={grayColors.light}
               onPress={() => {
                 getPodcastsFromItunes("podcast&explicit=no");
-                props.navigation.navigate("Search Podcasts", {name: i18n.t("search_podcasts")});
-                // props.setIsUploading(true);
+                props.navigation.navigate("Search Podcasts", {
+                  name: i18n.t("search_podcasts")
+                });
               }}
             >
               <Ionicons
@@ -114,8 +103,16 @@ function MainPage(props: any) {
           )
         }}
       />
-      <Tab.Screen name={i18n.t("favorites")} component={FavoritePage} options={{headerTitle: () => getHeader("favorites")}} />
-      <Tab.Screen name={i18n.t("settings")} component={SettingsTab} options={{headerTitle: () => getHeader("settings")}} />
+      <Tab.Screen
+        name={i18n.t("favorites")}
+        component={FavoritePage}
+        options={{ headerTitle: () => getHeader("favorites") }}
+      />
+      <Tab.Screen
+        name={i18n.t("settings")}
+        component={SettingsTab}
+        options={{ headerTitle: () => getHeader("settings") }}
+      />
     </Tab.Navigator>
   );
 }
@@ -144,13 +141,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%"
   },
-  // browseHeader: {
-  //   flexDirection: "row",
-  //   justifyContent: "space-between"
-  // },
-  // browseHeaderText: {
-  //   fontSize: headerFontSize
-  // },
   addButton: {
     marginRight: 20,
     justifyContent: "flex-end"

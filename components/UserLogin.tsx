@@ -12,7 +12,7 @@ import { greenColors, blueColors, grayColors } from "../constants/colors";
 import { accountTextInputHeight } from "../constants/sizes";
 import { connect } from "react-redux";
 import { verifyLogin } from "../dataManager/postRequests";
-
+import i18n from "i18n-js";
 
 export const UserLogin = (props: any) => {
   const [username, setUsername] = React.useState<string>("");
@@ -45,18 +45,18 @@ export const UserLogin = (props: any) => {
         }}
       />
       <Text style={styles.title} testID="title">
-        Log In
+        {i18n.t("login")}
       </Text>
       <TextInput
         style={styles.textInput}
         onChangeText={user => setUsername(user)}
-        placeholder="Username"
+        placeholder={i18n.t("username")}
       ></TextInput>
       <TextInput
         secureTextEntry={true}
         style={styles.textInput}
         onChangeText={pass => setpassword(pass)}
-        placeholder="Password"
+        placeholder={i18n.t("password")}
         secureTextEntry={true}
       ></TextInput>
       <View style={styles.loginButton}>
@@ -65,7 +65,7 @@ export const UserLogin = (props: any) => {
           onPress={() => loginFunc()}
           style={styles.touchable}
         >
-          <Text style={styles.loginText}>Login</Text>
+          <Text style={styles.loginText}>{i18n.t("login")}</Text>
         </TouchableHighlight>
       </View>
       <View style={styles.title}>
@@ -74,7 +74,9 @@ export const UserLogin = (props: any) => {
           onPress={() => createAccount()}
           style={styles.touchable2}
         >
-          <Text style={styles.createAccountText}>Create A New Account</Text>
+          <Text style={styles.createAccountText}>
+            {i18n.t("create_a_new_account")}
+          </Text>
         </TouchableHighlight>
       </View>
     </View>

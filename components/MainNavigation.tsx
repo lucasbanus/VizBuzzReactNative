@@ -9,7 +9,7 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 import * as Localization from "expo-localization";
 import i18n from "i18n-js";
 import { strings } from "../constants/strings";
-import {getHeader} from "../constants/headerStyles";
+import { getHeader } from "../constants/headerStyles";
 //console.log(strings);
 i18n.translations = strings;
 
@@ -32,24 +32,57 @@ i18n.fallbacks = true;
 export const Stack = createNativeStackNavigator();
 
 export default function MainNavigation() {
-
   return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen name="Login" component={UserLogin} />
-          <Stack.Screen name="CreateAccount" component={CreateAccount} />
-          <Stack.Screen
-            name="MainApp"
-            //component={actualApp}
-            component={MainPage}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen name="Language" component={LanguagePage} options={({route}) => {
-              return {title: route.params.name, headerTitle: () => getHeader("language")};}}/>
-          <Stack.Screen name="Search Podcasts" component={PodcastSearchPage} options={({route}) => ({title: route.params.name})}/>
-          <Stack.Screen name="Browse Episodes" component={BrowseEpisodesPage} options={({route}) => ({title: route.params.name})}/>
-        </Stack.Navigator>
-      </NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen
+          name="Login"
+          component={UserLogin}
+          options={{ headerTitle: () => getHeader("login") }}
+        />
+        <Stack.Screen
+          name="CreateAccount"
+          component={CreateAccount}
+          options={{ headerTitle: () => getHeader("create_account") }}
+        />
+        <Stack.Screen
+          name="MainApp"
+          //component={actualApp}
+          component={MainPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Language"
+          component={LanguagePage}
+          options={({ route }) => {
+            return {
+              title: route.params.name,
+              headerTitle: () => getHeader("language")
+            };
+          }}
+        />
+        <Stack.Screen
+          name="Search Podcasts"
+          component={PodcastSearchPage}
+          options={({ route }) => {
+            return {
+              title: route.params.name,
+              headerTitle: () => getHeader("search_podcasts")
+            };
+          }}
+        />
+        <Stack.Screen
+          name="Browse Episodes"
+          component={BrowseEpisodesPage}
+          options={({ route }) => {
+            return {
+              title: route.params.name,
+              headerTitle: () => getHeader("browse_episodes")
+            };
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

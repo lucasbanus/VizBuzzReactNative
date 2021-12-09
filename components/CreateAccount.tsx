@@ -24,15 +24,7 @@ export const CreateAccount = (props: any) => {
     } else if (!(password === password_retyped)) {
       alert("Passwords do not match.");
     } else {
-      //let finished = verifyLogin(username, password);
       createAccount(username, password, props.navigation);
-      // if (finished) {
-      //   props.navigation.navigate("MainApp");
-      // } else {
-      //   alert(
-      //     "Error creating account, please check your network connection or try again later."
-      //   );
-      // }
     }
   };
   return (
