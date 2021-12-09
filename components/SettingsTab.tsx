@@ -16,6 +16,7 @@ import {
 import { connect } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
 import i18n from "i18n-js";
+import { logout } from "../dataManager/postRequests";
 
 const SettingsTab = (props: any) => {
   return (
@@ -74,7 +75,10 @@ const SettingsTab = (props: any) => {
       <View style={styles.logoutButton}>
         <TouchableHighlight
           underlayColor="#ccc"
-          onPress={() => props.navigation.navigate("Login")}
+          onPress={() => {
+            logout();
+            props.navigation.navigate("Login")
+          }}
           style={styles.touchable}
         >
           <Text style={styles.logoutText}>{i18n.t("logout")}</Text>

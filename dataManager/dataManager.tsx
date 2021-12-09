@@ -36,6 +36,7 @@ import {
 } from "../actions/userFavoritePodcastActions";
 import { noMoreSearch, setEpisodeImage, setLoadingEpisodes, setPodcastEpisodes, setPodcastName, setSearchResult } from "../actions/podcastSearchActions";
 import i18n from "i18n-js";
+import { cookieBuild } from "./postRequests";
 
 // Constants used for initial fetching
 const URL_backend = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
@@ -212,7 +213,9 @@ const getPodcastsInitialR = async () => {
     } = store.getState().pageSetup;
     // Initial get request for JSON from backend
     console.log("hi\n");
-    const response = await fetch(URL_backend).catch(e =>
+    const response = await fetch(URL_backend, {
+      headers: { "Cookie": cookieBuild(store.getState().pageSetup.access, store.getState().pageSetup.refresh)}
+    }).catch(e =>
       console.log(TAG + " Error" + e + "\n")
     );
     const json: JSON = await response.json();
@@ -399,7 +402,8 @@ export const queryPodcast = async (idx: number, podcast: PodcastInfoR) => {
         podcast.podcast_id
       )}`,
       {
-        method: "GET"
+        method: "GET", 
+        headers: { "Cookie": cookieBuild(store.getState().pageSetup.access, store.getState().pageSetup.refresh)}
       }
     ).catch(e => console.log(TAG + " Error" + e + "\n"));
     let json = await fetc.json();
@@ -470,7 +474,8 @@ export const queryPodcast2 = async (idx: number, podcast: PodcastInfoR) => {
         podcast.transcript_bucket_id
       )}&transcript_file_id=${encodeURIComponent(podcast.transcript_file_id)}`,
       {
-        method: "GET"
+        method: "GET", 
+        headers: { "Cookie": cookieBuild(store.getState().pageSetup.access, store.getState().pageSetup.refresh)}
       }
     ).catch(e => console.log(TAG + " Error" + e + "\n"));
     let json = await fetc.json();

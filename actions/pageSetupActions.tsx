@@ -14,6 +14,8 @@ export const FAVORITE_UNCLICKED = "FAVORITE_UNCLICKED";
 export const SET_ALL_TEXT = "SET_ALL_TEXT";
 export const SET_LANGUAGE = "SET_LANGUAGE";
 export const SET_IS_UPLOADING = "SET_IS_UPLOADING";
+export const SET_ACCESS_TOKEN = "SET_ACCESS_TOKEN";
+export const SET_REFRESH_TOKEN = "SET_REFRESH_TOKEN";
 
 /**
  * functions for setup actions
@@ -65,4 +67,12 @@ export function setLanguage(lan: string){
 
 export function setIsUploading(bool:  boolean){
   return {type: SET_IS_UPLOADING, bool};
+}
+
+export function setAccessToken(token: string){
+  return {type: SET_ACCESS_TOKEN, token};
+}
+
+export function setRefreshToken(token: string){
+  return {type: SET_REFRESH_TOKEN, token};
 }
