@@ -1,4 +1,4 @@
-import { setAccessToken, setPodcastList, setRefreshToken } from "../actions/pageSetupActions";
+import { loadingPodcasts, setAccessToken, setPodcastList, setRefreshToken } from "../actions/pageSetupActions";
 import store from "../store/store";
 import { EpisodeInfo, PodcastPostRequest } from "../types/types";
 
@@ -9,7 +9,7 @@ const URL_Back2 = "http://vizbuzz-backend-dev.herokuapp.com";
 export const cookieBuild = (access: string, refr: string) => "access="+access+"; refresh="+refr;
 
 export const verifyLogin = async (username: string, password: string, navigation: any) => {
-  let payload = { username: username, Password: password};
+  let payload = { username: username, password: password};
   console.log("Trying to login: ", payload);
   fetch(URL_Back2+"/login", {
     method: "POST", 
@@ -17,15 +17,15 @@ export const verifyLogin = async (username: string, password: string, navigation
     body: JSON.stringify(payload),
   })
     .then(r => {
-      return r.text();
+      return r.json();
     }
     ).then(r => {
       console.log("Loggen In with: ", r);
-      // let access = r.access;
-      // let refresh = r.refresh;
-      // store.dispatch(setAccessToken(access));
-      // //setInterval(1800000, refreshAccessToken);
-      // store.dispatch(setRefreshToken(refresh));
+      let access = r.access;
+      let refresh = r.refresh;
+      store.dispatch(setAccessToken(access));
+      setInterval(refreshAccessToken, 1000*60*30);
+      store.dispatch(setRefreshToken(refresh));
       navigation.navigate("MainApp");
     })
     .catch(e => {
@@ -122,4 +122,10 @@ export const requestEpisode = async (ep: EpisodeInfo, showName: string) => {
     });
     store.dispatch(setPodcastList(newPods));
   }).catch(e => console.log("Uploading the podcast Failed: ", e));
+};
+
+export const clearState = () => {
+  store.dispatch(loadingPodcasts(true));
+  store.dispatch(setPodcastList([]));
+  store.dispatch(setPodcastList([]));
 };

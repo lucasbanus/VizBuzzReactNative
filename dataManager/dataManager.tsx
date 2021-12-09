@@ -40,6 +40,7 @@ import { cookieBuild } from "./postRequests";
 
 // Constants used for initial fetching
 const URL_backend = "http://vizbuzz-backend-dev.herokuapp.com/podcasts/";
+const URL_backend3 = "http://vizbuzz-backend-dev.herokuapp.com/podcasts";
 const key_to_transcripts2 = "transcripts";
 const offsetMultiple = 10000000;
 const TAG = "dataManager.tsx";
@@ -213,12 +214,16 @@ const getPodcastsInitialR = async () => {
     } = store.getState().pageSetup;
     // Initial get request for JSON from backend
     console.log("hi\n");
-    const response = await fetch(URL_backend, {
-      headers: { "Cookie": cookieBuild(store.getState().pageSetup.access, store.getState().pageSetup.refresh)}
+    let access = store.getState().pageSetup.access;
+    let refresh = store.getState().pageSetup.refresh;
+    console.log("Going to send request: ", cookieBuild(access, refresh));
+    const response = await fetch(URL_backend3, {
+      headers: { "Cookie": cookieBuild(access, refresh)}
     }).catch(e =>
       console.log(TAG + " Error" + e + "\n")
     );
     const json: JSON = await response.json();
+    console.log("Response text form data manager: ", json);
     const items: Array<PodcastJson> = JSON.parse(JSON.stringify(json));
     console.log("The response for now: ", json);
 
@@ -343,8 +348,26 @@ const processPJSON = async (
   let streaming_url: string = "";
   //console.log(TAG + " rss url from JSON " + pod.rss_url);
   let rss_response = await fetch(pod.rss_url).catch(e =>
-    console.log(TAG + " Error" + e + "\n")
+    console.log(TAG + " Error " + e + "\n")
   );
+  if (rss_response === undefined){
+    let ret: PodcastInfoR = {
+      key: pod.id,
+      allText: transcripts[idx],
+      ep_name: ep_name,
+      show_name: show_name,
+      idx: idx,
+      rss_url: pod.rss_url,
+      image_url: image_url,
+      streaming_url: streaming_url,
+      authors: pod_authors,
+      isFave: false,
+      transcript_bucket_id: pod.transcript_bucket_id,
+      transcript_file_id: pod.transcript_file_id,
+      podcast_id: pod.id,
+    };
+    return ret;
+  }
   let rss_text = await rss_response.text();
   //console.log("PJSON \n" + rss_text);
   let rss_json = await rssParser.parse(rss_text);
