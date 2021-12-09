@@ -1,4 +1,4 @@
-import { loadingPodcasts, setAccessToken, setPodcastList, setRefreshToken } from "../actions/pageSetupActions";
+import { loadingPodcasts, setAccessToken, setPitchEnabled, setPodcastList, setRefreshToken, setSentimentEnabled, setTranscriptIndex, setVolumeEnabled, showTranscript } from "../actions/pageSetupActions";
 import store from "../store/store";
 import { EpisodeInfo, PodcastPostRequest } from "../types/types";
 
@@ -127,5 +127,10 @@ export const requestEpisode = async (ep: EpisodeInfo, showName: string) => {
 export const clearState = () => {
   store.dispatch(loadingPodcasts(true));
   store.dispatch(setPodcastList([]));
-  store.dispatch(setPodcastList([]));
+  store.dispatch(showTranscript(false));
+  store.dispatch(setTranscriptIndex(0));
+  store.dispatch(setVolumeEnabled(true));
+  store.dispatch(setSentimentEnabled(true));
+  store.dispatch(setPitchEnabled(true));
+  store.dispatch(setPitchEnabled(true));
 };
