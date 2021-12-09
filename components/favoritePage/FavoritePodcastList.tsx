@@ -91,7 +91,11 @@ const styles = StyleSheet.create({
     backgroundColor: primaryColors.background,
     alignItems: "center",
     justifyContent: "center",
-    width: "100%"
+    width: "100%",
+    position:"absolute",
+    top:0,
+    paddingBottom: 10,
+    paddingTop: 10,
   },
   item: {
     padding: 10,
